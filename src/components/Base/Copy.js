@@ -45,6 +45,22 @@ Copy.defaultProps = {
   lh: '30px',
 }
 
+Copy.propTypes = {
+  font: PropTypes.string,
+  color: PropTypes.string,
+  letterSpacing: PropTypes.string,
+  fontWeight: PropTypes.string,
+  align: PropTypes.string,
+  textTransform: PropTypes.string,
+  display: PropTypes.string,
+  mt: PropTypes.string,
+  mr: PropTypes.string,
+  mb: PropTypes.string,
+  ml: PropTypes.string,
+  fs: PropTypes.string,
+  lh: PropTypes.string,
+};
+
 export {
   HeadingAside,
 }

@@ -13,17 +13,19 @@ const NavBox = (props) => {
       paddingTop: spacing.Space2,
       paddingBottom: spacing.Space2,
       fontFamily: fonts.Sans,
+      marginBottom: '1px',
       cursor: 'pointer',
       textAlign: 'left',
       display: 'block',
-      border: '1px solid #fff',
+      border: '1px solid',
+      borderColor: colors.bgLight,
       background: colors.bgLight,
       width:'100%',
     	...fontStyles('13px','13px'),
       color: colors[props.color],
       ':hover': {
         color: colors.PrimaryHover,
-        borderColor: colors.BorderLight,
+        borderColor: colors.PrimaryHover,
       }
     },
   });

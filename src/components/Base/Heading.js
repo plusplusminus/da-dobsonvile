@@ -16,7 +16,7 @@ function Heading(props) {
       fontFamily: fonts[props.font],
       color: colors[props.color],
       letterSpacing: letterSpacing[props.letterSpacing],
-      textTransform: props.transform,
+      textTransform: props.textTransform,
       marginTop: spacing[props.mt],
       marginBottom: spacing[props.mb],
       marginLeft: spacing[props.ml],
@@ -44,7 +44,6 @@ Heading.defaultProps = {
   ml: 'Space',
   fs: '25px',
   lh: '32px',
-  current: false
 }
 
 const HeadingAside = (props) => {
@@ -90,7 +89,7 @@ const HeadingMeta = (props) => {
     lh: '18px',
     mb: 'Space1',
     fontWeight: 'Normal',
-    transform: props.transform,
+    textTransform: props.textTransform,
     letterSpacing: props.letterSpacing
   }
   return (
@@ -99,8 +98,8 @@ const HeadingMeta = (props) => {
 }
 
 HeadingMeta.defaultProps = {
-  color: 'Primary',
-  transform: 'none',
+  color: 'Copy',
+  textTransform: 'none',
   letterSpacing: 'None'
 }
 
@@ -137,7 +136,7 @@ const HeadingSection = (props) => {
     fs: '20px',
     lh: '24px',
     align: props.align,
-    transform: props.transform,
+    textTransform: props.textTransform,
     fontWeight: 'Medium',
     letterSpacing: props.letterSpacing,
     mb:'Space4',
@@ -155,7 +154,7 @@ const HeadingSection = (props) => {
 HeadingSection.defaultProps = {
   color: 'Heading',
   align: 'center',
-  transform: 'none',
+  textTransform: 'none',
   letterSpacing: 'Base',
   lineLeft: false,
   lineRight: false,
@@ -164,7 +163,7 @@ HeadingSection.defaultProps = {
 HeadingSection.propTypes = {
   color: PropTypes.string,
   align: PropTypes.string,
-  transform: PropTypes.string,
+  textTransform: PropTypes.string,
   letterSpacing: PropTypes.string,
   lineLeft: PropTypes.bool,
   lineRight: PropTypes.bool,
@@ -177,7 +176,7 @@ const HeadingSmall = (props) => {
     align: props.align,
     fs: '16px',
     lh: '22px',
-    mb:'Space2',
+    mb:'Space1',
   }
   return (
     <Heading { ...styles } >{ props.children }</Heading>

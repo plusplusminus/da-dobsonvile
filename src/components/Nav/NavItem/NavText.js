@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { Icon } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
@@ -12,7 +13,7 @@ const NavText = (props) => {
       fontFamily: fonts.Sans,
       cursor: 'pointer',
       textAlign: 'left',
-      display: 'inline-block',
+      display: props.Display,
       textTransform: 'uppercase',
       border: 'none',
       background: colors.Transparent,
@@ -36,6 +37,14 @@ const NavText = (props) => {
 
 NavText.defaultProps = {
   color: 'Primary',
+  display: 'inline-block',
 }
+
+NavText.propTypes = {
+  /** Color of link text and icon */
+  color: PropTypes.string,
+  /** CSS Display options  */
+  display: PropTypes.string,
+};
 
 export default NavText;

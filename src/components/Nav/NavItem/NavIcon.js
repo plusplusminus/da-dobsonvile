@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
@@ -10,12 +11,13 @@ const NavIcon = (props) => {
       fontFamily: fonts.Sans,
       cursor: 'pointer',
       textAlign: 'left',
-      display: 'inline-flex',
+      display: 'flex',
       alignItems: 'center',
-    	...fontStyles('14px'),
       border: 'none',
       background: colors.Transparent,
+      marginBottom: spacing.Space1,
       color: colors[props.color],
+      ...fontStyles('14px'),
       ':hover': {
         opacity: opacity.Hover,
       }
@@ -39,6 +41,12 @@ NavIcon.defaultProps = {
   color: 'Copy',
   iconColor: 'Copy',
   iconName: null,
+}
+
+NavIcon.propTypes = {
+  color: PropTypes.string,
+  iconColor: PropTypes.string,
+  iconName: PropTypes.string,
 }
 
 export default NavIcon;

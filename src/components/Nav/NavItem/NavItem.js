@@ -12,8 +12,9 @@ function NavItem(props) {
       color: colors[props.color],
       marginRight: spacing[props.mr],
       marginLeft: spacing[props.ml],
+      marginBottom: spacing[props.mb],
       display: props.display,
-      fontWeight: fontWeight.Bold,
+      fontWeight: fontWeight[props.fontWeight],
       ...fontStyles(props.fs,props.lh),
       ':hover':{
         textDecoration: 'none',
@@ -36,6 +37,7 @@ NavItem.defaultProps = {
   color: 'White',
   mr:  'Space1',
   ml:  'Space1',
+  mb:  'Space',
   display: 'inline-block',
   fs: '14px',
   lh: '18px',

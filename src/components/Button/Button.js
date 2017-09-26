@@ -16,7 +16,7 @@ function Button(props) {
       fontFamily: fonts.Sans,
       cursor: 'pointer',
       textAlign: 'center',
-      display: 'inline-block',
+      display: 'block',
       textTransform: 'uppercase',
     	fontSize: '11px',
       lineHeight: '14px',
