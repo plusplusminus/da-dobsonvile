@@ -18,6 +18,6 @@ deploy:
   stage: deploy
   image: cdrx/rancher-gitlab-deploy
   only:
-    - master@singita/plusplusminus/da-dobsonville
+    - master@plusplusminus/da-dobsonville
   script:
     - upgrade --environment default --stack da-style --service da-dobsonville --start-before-stopping --finish-upgrade
