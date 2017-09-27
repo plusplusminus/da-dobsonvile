@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build-storybook": "NODE_PATH=src build-storybook",
-    "gl-pages": "npm run build-storybook -- -o build",
+    "gh-pages": "npm run build-storybook -- -o _gh-pages && gh-pages -d _gh-pages && rm -rf _gh-pages",
     "storybook": "NODE_PATH=src start-storybook -p 6006"
   },
   "peerDependencies": {
