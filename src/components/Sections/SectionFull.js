@@ -16,9 +16,6 @@ const sectionFull = (props) => {
       paddingBottom: spacing[props.pb],
       backgroundColor: colors[props.backgroundColor]
     },
-    heading:{
-      marginBottom: spacing.Space6,
-    },
   });
 
   return (
@@ -27,11 +24,7 @@ const sectionFull = (props) => {
         <div className="container">
           <div className="row">
             <section className={`${col}`}>
-              { heading &&
-                <div className={css(styles.heading)}>
-                  { heading }
-                </div>
-              }
+              { heading && heading }
               { section }
             </section>
           </div>

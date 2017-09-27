@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import { colors } from 'common/styles/variables';
 
 function Logo(props) {
 
-  const { title, color, size } = props;
+  const { title, size } = props;
 
   const styles = StyleSheet.create({
     Logo: {
@@ -153,7 +152,6 @@ function Logo(props) {
 
 Logo.defaultProps = {
   title: 'DA Logo',
-  color: colors.Primary,
   size: '130px',
 }
 

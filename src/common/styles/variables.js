@@ -1,7 +1,6 @@
 export const fonts = {
   Serif:  "mrs-eaves-xl-serif, Georgia, 'Times New Roman', Times, serif",
   Sans:   "Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-  Round:  "museo-sans-rounded, 'Helvetica Neue', Helvetica, Arial, sans-serif",
 }
 
 export const fontWeight = {

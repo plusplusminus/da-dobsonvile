@@ -40,8 +40,4 @@ Widget.propTypes = {
   widgetTitle: PropTypes.string,
 }
 
-
-export {
-  WidgetOverlay,
-}
 export default Widget;

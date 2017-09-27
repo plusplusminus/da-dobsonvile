@@ -9,9 +9,10 @@ export Heading, {
   HeadingWidget,
 } from './Base/Heading';
 export { default as Icon } from './Base/Icon';
-export Label from './Base/Label';
 export Logo from './Base/Logo';
 export StoryColor from './Base/StoryColor';
+export StorySpacing from './Base/StorySpacing';
+export Tag from './Base/Tag';
 
 
 // Navs

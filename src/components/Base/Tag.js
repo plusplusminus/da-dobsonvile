@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { fontStyles, colors, spacing } from 'common/styles/variables';
 
-const Label = (props) => {
+const Tag = (props) => {
   const { children } = props;
   const styles = StyleSheet.create({
     label:{
@@ -26,11 +26,11 @@ const Label = (props) => {
   )
 }
 
-Label.defaultProps = {
+Tag.defaultProps = {
 }
 
-Label.propTypes = {
+Tag.propTypes = {
 };
 
 
-export default Label;
+export default Tag;

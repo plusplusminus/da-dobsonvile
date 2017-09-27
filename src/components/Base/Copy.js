@@ -61,7 +61,4 @@ Copy.propTypes = {
   lh: PropTypes.string,
 };
 
-export {
-  HeadingAside,
-}
 export default Copy;

@@ -40,10 +40,10 @@ import {
   HeadingWidget,
   Hero,
   Icon,
-  Label,
   Logo,
   SectionMain,
   SectionFull,
+  Tag,
   NavBox,
   NavButton,
   NavItem,
@@ -53,6 +53,7 @@ import {
   NavIcon,
   NavText,
   StoryColor,
+  StorySpacing,
   ViewAll,
   Videos,
   Widget
@@ -185,10 +186,31 @@ storiesOf('Base/Heading', module)
       </HeadingWidget>
     </div>
   ))
-
-storiesOf('Base/Label', module)
-  .add('Label', () => (
-    <span><Label>News</Label><Label>News</Label><Label>News</Label></span>
+storiesOf('Base/Spacing', module)
+  .add('Base', () => (
+    <div className="row">
+      <StorySpacing space={"Space"}/>
+      <StorySpacing space={"Space0"}/>
+      <StorySpacing space={"Space1"}/>
+      <StorySpacing space={"Space2"}/>
+      <StorySpacing space={"Space3"}/>
+      <StorySpacing space={"Space4"}/>
+      <StorySpacing space={"Space5"}/>
+      <StorySpacing space={"Space6"}/>
+      <StorySpacing space={"Space7"}/>
+      <StorySpacing space={"Space8"}/>
+      <StorySpacing space={"Space9"}/>
+      <StorySpacing space={"Space10"}/>
+      <StorySpacing space={"Space11"}/>
+      <StorySpacing space={"Space12"}/>
+      <StorySpacing space={"Space13"}/>
+      <StorySpacing space={"Space14"}/>
+      <StorySpacing space={"Space15"}/>
+    </div>
+  ))
+storiesOf('Base/Tag', module)
+  .add('Tag', () => (
+    <span><Tag>News</Tag><Tag>News</Tag><Tag>News</Tag></span>
   ))
 
 storiesOf('Base/Logo', module)
@@ -375,7 +397,6 @@ storiesOf('Buttons', module)
         <CardNews
           visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
-          color={select('color', ['Primary', 'Copy'], 'Copy')}
           meta={text('meta','July 4, 2017 in News')}
         />
       </div>
@@ -409,7 +430,7 @@ storiesOf('Buttons', module)
     ))
     .add('ViewAll', () => (
       <ViewAll
-        buttonLabel={text('buttonLabel', 'View All')}
+        buttonTag={text('buttonTag', 'View All')}
       />
     ))
     .add('Widget', () => (
@@ -422,9 +443,9 @@ storiesOf('Buttons', module)
         </Widget>
 
         <Widget widgetTitle={text('widgetTitle', 'Tags')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
-          <Label>Fusce</Label>
-          <Label>Dapibus</Label>
-          <Label>Nibh</Label>
+          <Tag>Fusce</Tag>
+          <Tag>Dapibus</Tag>
+          <Tag>Nibh</Tag>
         </Widget>
       </div>
     ))
@@ -477,20 +498,21 @@ storiesOf('Buttons', module)
               <CardNews
                 visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
-                color={"Primary"}
+                meta={"July 4, 2017 in News"}
               />
               <CardNews
                 visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
-                color={"Primary"}
+                meta={"July 4, 2017 in News"}
               />
               <CardNews
                 visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
-                color={"Primary"}
+                meta={"July 4, 2017 in News"}
               />
             </AsideList>
             <CardRelated
+              vertical
               visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
               heading={<HeadingSmall color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</HeadingSmall>}
               body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
