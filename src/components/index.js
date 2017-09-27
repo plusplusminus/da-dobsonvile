@@ -1,7 +1,6 @@
 // Base
 export Copy from './Base/Copy';
 export Heading, {
-  HeadingAside,
   HeadingHero,
   HeadingMeta,
   HeadingSection,
