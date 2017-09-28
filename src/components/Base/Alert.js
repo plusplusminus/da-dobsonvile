@@ -56,7 +56,7 @@ Alert.defaultProps = {
 Alert.propTypes = {
   close: PropTypes.bool,
   iconBefore: PropTypes.string,
-  backgroundColor: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default Alert;

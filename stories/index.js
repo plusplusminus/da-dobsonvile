@@ -53,6 +53,7 @@ import {
   NavbarSub,
   NavIcon,
   NavText,
+  Progress,
   StoryColor,
   StorySpacing,
   ViewAll,
@@ -199,6 +200,21 @@ storiesOf('Base/Heading', module)
       </HeadingWidget>
     </div>
   ))
+storiesOf('Base/Progress', module)
+  .add('Progress', () =>  {
+    const options = {
+      range: true,
+      min: 0,
+      max: 100,
+      step: 1
+    }
+    return (
+      <Progress
+        progress={number('progress', '0%', options)}
+        color={text('color', 'bgDark')}
+      />
+    )
+  })
 storiesOf('Base/Spacing', module)
   .add('Base', () => (
     <div>
