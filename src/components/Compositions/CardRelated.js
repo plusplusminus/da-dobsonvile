@@ -54,7 +54,7 @@ CardHighlight.propTypes = {
   heading: PropTypes.string,
   body: PropTypes.string,
   cta: PropTypes.string,
-  vertical: PropTypes.boolean,
+  vertical: PropTypes.bool,
 };
 
 export default CardHighlight;

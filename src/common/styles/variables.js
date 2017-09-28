@@ -40,6 +40,7 @@ export const colors = {
   BorderLight:    "rgba(51,51,51,0.1)",
   Copy:           "#333333",
   CopyLight:      "#777777",
+  CopyLightO:     "rgba(255,255,255,0.7)",
   Facebook:       "#3A579A",
   Green:          "#52A74B",
   GreenHover:     "#088920",

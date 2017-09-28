@@ -1,4 +1,5 @@
 // Base
+export Alert from './Base/Alert';
 export Copy from './Base/Copy';
 export Heading, {
   HeadingAside,

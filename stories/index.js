@@ -9,6 +9,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 import { dobsonville } from 'common/images';
 
 import {
+  Alert,
   ArticleDetails,
   ArticleShare,
   Aside,
@@ -69,6 +70,17 @@ addDecorator(backgrounds([
   { name: "bgLight", value: "#EEEEEE" },
 ]));
 
+storiesOf('Base/Alerts', module)
+  .add('Alert', () => (
+    <div>
+      <Alert
+        close={boolean('close', true)}
+        color={text('color', 'Copy')}
+        iconBefore={text('iconBefore', '')}
+        children={text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}/>
+    </div>
+  ))
+
 storiesOf('Base/Colors', module)
   .add('Base', () => (
     <div className="row">
@@ -116,6 +128,7 @@ storiesOf('Base/Colors', module)
       <StoryColor name={"Heading"}/>
       <StoryColor name={"Copy"}/>
       <StoryColor name={"CopyLight"}/>
+      <StoryColor name={"CopyLightO"}/>
     </div>
   ))
 
@@ -188,7 +201,7 @@ storiesOf('Base/Heading', module)
   ))
 storiesOf('Base/Spacing', module)
   .add('Base', () => (
-    <div className="row">
+    <div>
       <StorySpacing space={"Space"}/>
       <StorySpacing space={"Space0"}/>
       <StorySpacing space={"Space1"}/>
