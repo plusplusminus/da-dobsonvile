@@ -6,7 +6,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 const NavIcon = (props) => {
   const { content, weight, color, children, iconName, iconColor } = props;
   const styles = StyleSheet.create({
-    NavIcon:{
+    navIcon:{
       padding: 0,
       fontFamily: fonts.Sans,
       cursor: 'pointer',
@@ -22,17 +22,21 @@ const NavIcon = (props) => {
         opacity: opacity.Hover,
       }
     },
+    label:{
+      marginLeft: spacing.Space1,
+    },
     icon:{
-      paddingRight: spacing.Space1,
       color: colors[props.iconColor],
-      ...fontStyles('22px'),
+      ...fontStyles('18px'),
     }
   });
 
   return (
-    <button className={css(styles.NavIcon)} disabled={props.disabled || false}>
-      { iconName && <span className={`${css(styles.icon)} icon icon-fw icon-${iconName} ${iconColor}`}></span> }
-      { children }
+    <button className={css(styles.navIcon)} disabled={props.disabled || false}>
+      { iconName && <span className={`${css(styles.icon)} icon icon-fw icon-${iconName}`}></span> }
+      { children &&
+        <span className={css(styles.label)}>{ children }</span>
+      }
     </button>
   )
 }

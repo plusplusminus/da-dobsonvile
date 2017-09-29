@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import { Label, Widget } from 'components';
+import { Tag, Widget } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
 
@@ -23,25 +23,25 @@ const ArticleDetails = (props) => {
         colTitle={"col-md-2"}
         colSection={"col-md-10"}
         widgetTitle={"Publication Date"}>
-        <Label>23 May 2019</Label>
+        <Tag>23 May 2019</Tag>
       </Widget>
       <Widget
         colTitle={"col-md-2"}
         colSection={"col-md-10"}
         widgetTitle={"Author"}>
-        <Label>Mmusi Maimane</Label>
+        <Tag>Mmusi Maimane</Tag>
       </Widget>
       <Widget
         colTitle={"col-md-2"}
         colSection={"col-md-10"}
         widgetTitle={"Category"}>
-        <Label>News</Label><Label>Speeches</Label>
+        <Tag>News</Tag><Tag>Speeches</Tag>
       </Widget>
       <Widget
         colTitle={"col-md-2"}
         colSection={"col-md-10"}
         widgetTitle={"Tags"}>
-        <Label>Education</Label><Label>ANC</Label><Label>Corruption</Label>
+        <Tag>Education</Tag><Tag>ANC</Tag><Tag>Corruption</Tag>
       </Widget>
     </footer>
   )

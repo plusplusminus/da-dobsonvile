@@ -6,7 +6,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 
 const CardNews = (props) => {
 
-  const { color, heading, meta, visual } = props;
+  const { heading, meta, visual } = props;
 
   const styles = StyleSheet.create({
     cardNews:{
@@ -26,12 +26,8 @@ const CardNews = (props) => {
       { visual &&
         <div className={css(styles.visual)}>{ visual }</div>
       }
-      { heading &&
-        <HeadingSmall color={color}>{ heading }</HeadingSmall>
-      }
-      { meta &&
+        <HeadingSmall>{ heading }</HeadingSmall>
         <HeadingMeta textTransform={"uppercase"} letterSpacing={"Base"}>{ meta }</HeadingMeta>
-      }
     </div>
   )
 }

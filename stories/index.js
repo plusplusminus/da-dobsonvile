@@ -9,6 +9,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 import { dobsonville } from "common/images";
 
 import {
+  Alert,
   ArticleDetails,
   ArticleShare,
   Aside,
@@ -40,10 +41,10 @@ import {
   HeadingWidget,
   Hero,
   Icon,
-  Label,
   Logo,
   SectionMain,
   SectionFull,
+  Tag,
   NavBox,
   NavButton,
   NavItem,
@@ -52,7 +53,10 @@ import {
   NavbarSub,
   NavIcon,
   NavText,
+  Progress,
   StoryColor,
+  StoryIcon,
+  StorySpacing,
   ViewAll,
   Videos,
   Widget,
@@ -75,8 +79,24 @@ addDecorator(backgrounds([
   { name: "bgLight", value: "#EEEEEE" },
 ]));
 
+<<<<<<< HEAD
 storiesOf("Base/Colors", module)
   .add("Base", () => (
+=======
+storiesOf('Base/Alerts', module)
+  .add('Alert', () => (
+    <div>
+      <Alert
+        close={boolean('close', true)}
+        color={text('color', 'Copy')}
+        iconBefore={text('iconBefore', '')}
+        children={text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}/>
+    </div>
+  ))
+
+storiesOf('Base/Colors', module)
+  .add('Base', () => (
+>>>>>>> 9aa8a190da3dac2667398c40202d0d4d2200badf
     <div className="row">
       <StoryColor name={"Black"} />
       <StoryColor name={"White"} />
@@ -119,9 +139,35 @@ storiesOf("Base/Colors", module)
   ))
   .add("Text", () => (
     <div className="row">
+<<<<<<< HEAD
       <StoryColor name={"Heading"} />
       <StoryColor name={"Copy"} />
       <StoryColor name={"CopyLight"} />
+=======
+      <StoryColor name={"Heading"}/>
+      <StoryColor name={"Copy"}/>
+      <StoryColor name={"CopyLight"}/>
+      <StoryColor name={"CopyLightO"}/>
+    </div>
+  ))
+
+storiesOf('Base/Icons', module)
+  .add('Icon', () => (
+    <div className="row">
+      <StoryIcon name="close"/>
+      <StoryIcon name="angle-left"/>
+      <StoryIcon name="angle-right"/>
+      <StoryIcon name="bookmark"/>
+      <StoryIcon name="newspaper"/>
+      <StoryIcon name="download"/>
+      <StoryIcon name="print"/>
+      <StoryIcon name="whatsapp"/>
+      <StoryIcon name="envelope"/>
+      <StoryIcon name="youtube"/>
+      <StoryIcon name="twitter"/>
+      <StoryIcon name="facebook"/>
+      <StoryIcon name="instagram"/>
+>>>>>>> 9aa8a190da3dac2667398c40202d0d4d2200badf
     </div>
   ));
 
@@ -153,12 +199,69 @@ storiesOf("Base/Heading", module)
         children={text("Children", "Heading")}
       />
     </div>
+<<<<<<< HEAD
   ));
 
 storiesOf("Base/Label", module)
   .add("Label", () => (
     <span><Label>News</Label><Label>News</Label><Label>News</Label></span>
   ));
+=======
+  ))
+storiesOf('Base/Progress', module)
+  .add('Progress', () =>  {
+    const options = {
+      range: true,
+      min: 0,
+      max: 100,
+      step: 1
+    }
+    return (
+      <Progress
+        progress={number('progress', '0%', options)}
+        color={text('color', 'bgDark')}
+      />
+    )
+  })
+storiesOf('Base/Spacing', module)
+  .add('Base', () => (
+    <div>
+      <StorySpacing space={"Space"}/>
+      <StorySpacing space={"Space0"}/>
+      <StorySpacing space={"Space1"}/>
+      <StorySpacing space={"Space2"}/>
+      <StorySpacing space={"Space3"}/>
+      <StorySpacing space={"Space4"}/>
+      <StorySpacing space={"Space5"}/>
+      <StorySpacing space={"Space6"}/>
+      <StorySpacing space={"Space7"}/>
+      <StorySpacing space={"Space8"}/>
+      <StorySpacing space={"Space9"}/>
+      <StorySpacing space={"Space10"}/>
+      <StorySpacing space={"Space11"}/>
+      <StorySpacing space={"Space12"}/>
+      <StorySpacing space={"Space13"}/>
+      <StorySpacing space={"Space14"}/>
+      <StorySpacing space={"Space15"}/>
+    </div>
+  ))
+storiesOf('Base/Tag', module)
+  .add('Tag', () => (
+    <span>
+      <Tag
+        close={boolean('close',false)}
+        children={text('children','Tag Name')}
+        color={text('color','White')}
+      />
+      <Tag
+        children={text('children','Tag Name')}
+      />
+      <Tag
+        children={text('children','Tag Name')}
+      />
+    </span>
+  ))
+>>>>>>> 9aa8a190da3dac2667398c40202d0d4d2200badf
 
 storiesOf("Base/Logo", module)
   .add("Logo", () => (
@@ -358,8 +461,12 @@ storiesOf("Compositions", module)
         <CardNews
           visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
+<<<<<<< HEAD
           color={select("color", ["Primary", "Copy"], "Copy")}
           meta={text("meta", "July 4, 2017 in News")}
+=======
+          meta={text('meta','July 4, 2017 in News')}
+>>>>>>> 9aa8a190da3dac2667398c40202d0d4d2200badf
         />
       </div>
     ))
@@ -392,7 +499,11 @@ storiesOf("Compositions", module)
     ))
     .add("ViewAll", () => (
       <ViewAll
+<<<<<<< HEAD
         buttonLabel={text("buttonLabel", "View All")}
+=======
+        buttonTag={text('buttonTag', 'View All')}
+>>>>>>> 9aa8a190da3dac2667398c40202d0d4d2200badf
       />
     ))
     .add("Widget", () => (
@@ -404,10 +515,17 @@ storiesOf("Compositions", module)
           <NavIcon iconName="whatsapp" iconColor="WhatsApp">{"Share with What's App"}</NavIcon>
         </Widget>
 
+<<<<<<< HEAD
         <Widget widgetTitle={text("widgetTitle", "Tags")} colTitle={text("colTitle", "col-md-1")} colSection={text("colSection", "col-md-11")}>
           <Label>Fusce</Label>
           <Label>Dapibus</Label>
           <Label>Nibh</Label>
+=======
+        <Widget widgetTitle={text('widgetTitle', 'Tags')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
+          <Tag>Fusce</Tag>
+          <Tag>Dapibus</Tag>
+          <Tag>Nibh</Tag>
+>>>>>>> 9aa8a190da3dac2667398c40202d0d4d2200badf
         </Widget>
       </div>
     ));
@@ -460,21 +578,26 @@ storiesOf("Sections", module)
               <CardNews
                 visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
-                color={"Primary"}
+                meta={"July 4, 2017 in News"}
               />
               <CardNews
                 visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
-                color={"Primary"}
+                meta={"July 4, 2017 in News"}
               />
               <CardNews
                 visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
-                color={"Primary"}
+                meta={"July 4, 2017 in News"}
               />
             </AsideList>
             <CardRelated
+<<<<<<< HEAD
               visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
+=======
+              vertical
+              visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
+>>>>>>> 9aa8a190da3dac2667398c40202d0d4d2200badf
               heading={<HeadingSmall color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</HeadingSmall>}
               body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
               cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}

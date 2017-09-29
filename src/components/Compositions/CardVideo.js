@@ -49,7 +49,7 @@ CardVideo.propTypes = {
   body: PropTypes.string,
   cta: PropTypes.string,
   color: PropTypes.string,
-  featured: PropTypes.boolean,
+  featured: PropTypes.bool,
   heading: PropTypes.string,
 };
 
