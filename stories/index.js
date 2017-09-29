@@ -55,6 +55,7 @@ import {
   NavText,
   Progress,
   StoryColor,
+  StoryIcon,
   StorySpacing,
   ViewAll,
   Videos,
@@ -130,6 +131,25 @@ storiesOf('Base/Colors', module)
       <StoryColor name={"Copy"}/>
       <StoryColor name={"CopyLight"}/>
       <StoryColor name={"CopyLightO"}/>
+    </div>
+  ))
+
+storiesOf('Base/Icons', module)
+  .add('Icon', () => (
+    <div className="row">
+      <StoryIcon name="close"/>
+      <StoryIcon name="angle-left"/>
+      <StoryIcon name="angle-right"/>
+      <StoryIcon name="bookmark"/>
+      <StoryIcon name="newspaper"/>
+      <StoryIcon name="download"/>
+      <StoryIcon name="print"/>
+      <StoryIcon name="whatsapp"/>
+      <StoryIcon name="envelope"/>
+      <StoryIcon name="youtube"/>
+      <StoryIcon name="twitter"/>
+      <StoryIcon name="facebook"/>
+      <StoryIcon name="instagram"/>
     </div>
   ))
 
@@ -239,7 +259,19 @@ storiesOf('Base/Spacing', module)
   ))
 storiesOf('Base/Tag', module)
   .add('Tag', () => (
-    <span><Tag>News</Tag><Tag>News</Tag><Tag>News</Tag></span>
+    <span>
+      <Tag
+        close={boolean('close',false)}
+        children={text('children','Tag Name')}
+        color={text('color','White')}
+      />
+      <Tag
+        children={text('children','Tag Name')}
+      />
+      <Tag
+        children={text('children','Tag Name')}
+      />
+    </span>
   ))
 
 storiesOf('Base/Logo', module)

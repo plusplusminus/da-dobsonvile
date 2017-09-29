@@ -13,6 +13,7 @@ export { default as Icon } from './Base/Icon';
 export Logo from './Base/Logo';
 export Progress from './Base/Progress';
 export StoryColor from './Base/StoryColor';
+export StoryIcon from './Base/StoryIcon';
 export StorySpacing from './Base/StorySpacing';
 export Tag from './Base/Tag';
 

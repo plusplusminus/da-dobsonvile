@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
+import { Icon } from 'components'
 import { fonts, fontStyles, fontWeight, letterSpacing, colors, spacing } from 'common/styles/variables';
 
 function Alert(props) {
@@ -37,7 +38,7 @@ function Alert(props) {
   return (
     <span className={css(styles.alert)}>
       { iconBefore &&
-        <i className={`${css(styles.iconBefore)} icon icon-${iconBefore}`}></i>
+        <div className={`${css(styles.iconBefore)}`}><Icon name="facebook" color={colors.White}/></div>
       }
       { close &&
         <i className={`${css(styles.close)} icon icon-close`}></i>
