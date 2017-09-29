@@ -46,6 +46,7 @@
     "react-addons-shallow-compare": "^15.0.2",
     "sinon": "^1.17.6",
     "standard-version": "^4.0.0",
-    "storybook-addon-a11y": "^3.0.0"
+    "storybook-addon-a11y": "^3.0.0",
+    "storybook-addon-smart-knobs": "^3.2.10"
   }
 }

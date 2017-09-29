@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { checkA11y } from 'storybook-addon-a11y';
 import backgrounds from "@storybook/addon-backgrounds";
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
 
@@ -57,6 +57,10 @@ import {
   Videos,
   Widget
 } from '../src/components'
+
+import {default as ButtonTest} from '../src/components/Button'
+import {default as HeadingTest} from '../src/components/Heading'
+
 addDecorator((story, context) => withInfo('')(story)(context));
 
 addDecorator(withKnobs);
@@ -133,56 +137,18 @@ storiesOf('Base/Copy', module)
 
 storiesOf('Base/Heading', module)
   .add('Heading', () => (
-    <Heading
-      color={select('color', ['White', 'Primary', 'Heading'], 'Heading')}>
-      Heading
-    </Heading>
-  ))
-  .add('HeadingAside', () => (
     <div>
-      <HeadingAside
-        color={select('color', ['White', 'Primary', 'Heading'], 'Primary')}
-        align={select('align', ['Left', 'Center'], 'Left')}>
-        Heading Aside
-      </HeadingAside>
-    </div>
-  ))
-  .add('HeadingHero', () => (
-    <HeadingHero>Firing Zuma is the first step towards building a better tomorrow</HeadingHero>
-  ))
-  .add('HeadingMeta', () => (
-    <HeadingMeta
-      color={select('color', ['CopyLight', 'Copy'], 'Copy')}
-      textTransform={select('textTransform', ['none', 'uppercase'], 'none')}
-      letterSpacing={select('letterSpacing', ['None','Base'], 'None')}>
-      Western Cape
-    </HeadingMeta>
-  ))
-  .add('HeadingSection', () => (
-    <div style={{padding: '0 0 0 150px'}}>
-      <HeadingSection
-        color={select('color', ['White', 'Primary', 'Red'], 'Primary')}
-        textTransform={select('textTransform', ['none', 'uppercase'], 'none')}
-        letterSpacing={select('letterSpacing', ['None','Large'], 'None')}
-        align={select('align', ['Left','Center'], 'Left')}
-        lineLeft={boolean('lineLeft','false')}
-        lineRight={boolean('lineRight','false')}>
-        HeadingSection
-      </HeadingSection>
-    </div>
-  ))
-  .add('HeadingSmall', () => (
-    <HeadingSmall
-      color={select('color', ['White', 'Primary', 'Copy'], 'Copy')}>
-      HeadingSmall
-    </HeadingSmall>
-  ))
-  .add('HeadingWidget', () => (
-    <div>
-      <HeadingWidget
-        color={select('color', ['White', 'Primary', 'Copy'], 'Copy')}>
-        HeadingWidget
-      </HeadingWidget>
+      <HeadingTest
+        level={select("Level", [1, 2, 3, 4, 5, 6], 1)}
+        size={select("Size", ["huge", "large", "medium", "small", "tiny"], "medium")}
+        importance={select("Importance", ["high", "low", "normal", "alert"], "normal")}
+        caps={boolean("Uppercase", false)}
+        truncate={boolean("Truncate", false)}
+        weight={select("Weight", ["thick", "normal", "thin", "extraThin"], "normal")}
+        tracking={select("Letter Spacing", ["none", "base", "large"], "none")}
+        override={object("Override", {})}
+        children={text("Children", "Heading")}
+      />
     </div>
   ))
 
@@ -273,38 +239,36 @@ storiesOf('Navs/NavItems', module)
       <NavText>Hello</NavText>
   ))
 
+
+
+
+
+
+
+
 storiesOf('Buttons', module)
   .add('Button', () => (
-    <div>
-      <Button onClick={action('clicked')}>Button</Button>
-    </div>
-  ))
-  .add('ButtonPrimary', () => (
-    <ButtonPrimary onClick={action('clicked')}>Button Primary</ButtonPrimary>
-  ))
-  .add('ButtonViewAll', () => (
-    <ButtonViewAll onClick={action('clicked')}>View All</ButtonViewAll>
-  ))
-  .add('ButtonOutline', () => (
-    <ButtonOutline onClick={action('clicked')}>Button Outline</ButtonOutline>
-  ))
-  .add('ButtonDonate', () => (
-    <ButtonDonate onClick={action('clicked')}>Button Donate</ButtonDonate>
+    <ButtonTest
+      full={ boolean('Full Width', false) }
+      disabled={ boolean('Disable', false) }
+      rounded={ boolean('Rounded', true) }
+      outline={ boolean('Outline', false) }
+      color={ select('Color', ['blue', 'green', 'yellow', 'red'], 'blue') }
+      size={ select('Size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
+      href={text('Link','')}
+      onClick={action('clicked')}
+    />
   ))
   .add('Custom Styles', () => {
     const styles = {
-      color: 'Red',
-      borderColor: 'Red',
-      backgroundColor: 'Transparent',
-      hover: {
-        backgroundColor: 'Red',
-        borderColor: 'Red',
-        color: 'White',
+      color: colors.White,
+      backgroundColor: colors.BlueLight,
+      ":hover": {
+        backgroundColor: colors.Blue,
       }
     }
-
     return (
-      <Button {...styles} onClick={action('clicked')}>Custom Button</Button>
+      <ButtonTest customStyles={styles} onClick={action('clicked')}>Custom Button</ButtonTest>
     )
   })
 
