@@ -1,12 +1,12 @@
-import React from 'react';
-import { storiesOf, configure, addDecorator } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import { checkA11y } from 'storybook-addon-a11y';
+import React from "react";
+import { storiesOf, configure, addDecorator } from "@storybook/react";
+import { withInfo } from "@storybook/addon-info";
+import { action } from "@storybook/addon-actions";
+import { checkA11y } from "storybook-addon-a11y";
 import backgrounds from "@storybook/addon-backgrounds";
-import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
-import { dobsonville } from 'common/images';
+import { withKnobs, text, boolean, number, select, object } from "@storybook/addon-knobs";
+import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from "common/styles/variables";
+import { dobsonville } from "common/images";
 
 import {
   ArticleDetails,
@@ -55,13 +55,16 @@ import {
   StoryColor,
   ViewAll,
   Videos,
-  Widget
-} from '../src/components'
+  Widget,
+} from "../src/components";
 
-import {default as ButtonTest} from '../src/components/Button'
-import {default as HeadingTest} from '../src/components/Heading'
+import { default as ButtonTest } from "../src/components/Button";
+import { default as HeadingTest } from "../src/components/Heading";
+import { default as MoreLink } from "../src/components/MoreLink";
+import { default as CampaignCard } from "../src/components/CampaignCard";
 
-addDecorator((story, context) => withInfo('')(story)(context));
+
+addDecorator((story, context) => withInfo("")(story)(context));
 
 addDecorator(withKnobs);
 addDecorator(checkA11y);
@@ -72,71 +75,71 @@ addDecorator(backgrounds([
   { name: "bgLight", value: "#EEEEEE" },
 ]));
 
-storiesOf('Base/Colors', module)
-  .add('Base', () => (
+storiesOf("Base/Colors", module)
+  .add("Base", () => (
     <div className="row">
-      <StoryColor name={"Black"}/>
-      <StoryColor name={"White"}/>
-      <StoryColor name={"Transparent"}/>
-      <StoryColor name={"Primary"}/>
-      <StoryColor name={"PrimaryHover"}/>
-      <StoryColor name={"Blue"}/>
-      <StoryColor name={"BlueLight"}/>
-      <StoryColor name={"Green"}/>
-      <StoryColor name={"GreenHover"}/>
-      <StoryColor name={"Yellow"}/>
-      <StoryColor name={"YellowHover"}/>
-      <StoryColor name={"Red"}/>
-      <StoryColor name={"RedHover"}/>
+      <StoryColor name={"Black"} />
+      <StoryColor name={"White"} />
+      <StoryColor name={"Transparent"} />
+      <StoryColor name={"Primary"} />
+      <StoryColor name={"PrimaryHover"} />
+      <StoryColor name={"Blue"} />
+      <StoryColor name={"BlueLight"} />
+      <StoryColor name={"Green"} />
+      <StoryColor name={"GreenHover"} />
+      <StoryColor name={"Yellow"} />
+      <StoryColor name={"YellowHover"} />
+      <StoryColor name={"Red"} />
+      <StoryColor name={"RedHover"} />
     </div>
   ))
-  .add('Backgrounds', () => (
+  .add("Backgrounds", () => (
     <div className="row">
-      <StoryColor name={"bgBlue"}/>
-      <StoryColor name={"bgBlueLight"}/>
-      <StoryColor name={"bgDark"}/>
-      <StoryColor name={"bgDarkO"}/>
-      <StoryColor name={"bgLight"}/>
-      <StoryColor name={"bgLightO"}/>
+      <StoryColor name={"bgBlue"} />
+      <StoryColor name={"bgBlueLight"} />
+      <StoryColor name={"bgDark"} />
+      <StoryColor name={"bgDarkO"} />
+      <StoryColor name={"bgLight"} />
+      <StoryColor name={"bgLightO"} />
     </div>
   ))
-  .add('Borders', () => (
+  .add("Borders", () => (
     <div className="row">
-      <StoryColor name={"Border"}/>
-      <StoryColor name={"BorderLight"}/>
-      <StoryColor name={"borderWhiteO"}/>
+      <StoryColor name={"Border"} />
+      <StoryColor name={"BorderLight"} />
+      <StoryColor name={"borderWhiteO"} />
     </div>
   ))
-  .add('Other', () => (
+  .add("Other", () => (
     <div className="row">
-      <StoryColor name={"Twitter"}/>
-      <StoryColor name={"Facebook"}/>
-      <StoryColor name={"WhatsApp"}/>
+      <StoryColor name={"Twitter"} />
+      <StoryColor name={"Facebook"} />
+      <StoryColor name={"WhatsApp"} />
     </div>
   ))
-  .add('Text', () => (
+  .add("Text", () => (
     <div className="row">
-      <StoryColor name={"Heading"}/>
-      <StoryColor name={"Copy"}/>
-      <StoryColor name={"CopyLight"}/>
+      <StoryColor name={"Heading"} />
+      <StoryColor name={"Copy"} />
+      <StoryColor name={"CopyLight"} />
     </div>
-  ))
+  ));
 
-storiesOf('Base/Fonts', module)
-  .add('Serif', () => (
+storiesOf("Base/Fonts", module)
+  .add("Serif", () => (
     <Heading font="Serif">Serif</Heading>
   ))
-  .add('Sans', () => (
+  .add("Sans", () => (
     <Heading font="Sans">Sans</Heading>
-  ))
+  ));
 
-storiesOf('Base/Copy', module)
-  .add('Copy', () => (
-    <Copy>{text('Children', 'Copy')}</Copy>
-  ))
+storiesOf("Base/Copy", module)
+  .add("Copy", () => (
+    <Copy>{text("Children", "Copy")}</Copy>
+  ));
 
-storiesOf('Base/Heading', module)
-  .add('Heading', () => (
+storiesOf("Base/Heading", module)
+  .add("Heading", () => (
     <div>
       <HeadingTest
         level={select("Level", [1, 2, 3, 4, 5, 6], 1)}
@@ -150,23 +153,23 @@ storiesOf('Base/Heading', module)
         children={text("Children", "Heading")}
       />
     </div>
-  ))
+  ));
 
-storiesOf('Base/Label', module)
-  .add('Label', () => (
+storiesOf("Base/Label", module)
+  .add("Label", () => (
     <span><Label>News</Label><Label>News</Label><Label>News</Label></span>
-  ))
+  ));
 
-storiesOf('Base/Logo', module)
-  .add('Logo', () => (
+storiesOf("Base/Logo", module)
+  .add("Logo", () => (
     <Logo />
-  ))
+  ));
 
-storiesOf('Navs/Navbar', module)
-  .add('Masthead', () => (
+storiesOf("Navs/Navbar", module)
+  .add("Masthead", () => (
     <div>
       <NavbarSecondary>
-        <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"}/> Visit da.org.za</NavItem>
+        <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"} /> Visit da.org.za</NavItem>
         <NavItem fs={"13px"} lh={"16px"}><a>Why the DA?</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"}><a>Where we govern</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"}><a>Our People</a></NavItem>
@@ -175,9 +178,9 @@ storiesOf('Navs/Navbar', module)
       </NavbarSecondary>
       <Navbar>
         <NavItem fontWeight={"Bold"}><Logo /></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-instagram"}></span></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-facebook"}></span></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-twitter"}></span></NavItem>
+        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
+        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
+        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
         <NavItem fontWeight={"Bold"}>Campaigns</NavItem>
         <NavItem fontWeight={"Bold"}>Get Involved</NavItem>
         <NavItem fontWeight={"Bold"}><ButtonDonate>Donate</ButtonDonate></NavItem>
@@ -191,21 +194,21 @@ storiesOf('Navs/Navbar', module)
       </NavbarSub>
     </div>
   ))
-  .add('Navbar', () => (
+  .add("Navbar", () => (
     <Navbar>
       <NavItem><Logo /></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-instagram"}></span></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-facebook"}></span></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-twitter"}></span></NavItem>
+      <NavItem fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
+      <NavItem fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
+      <NavItem fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
       <NavItem>Campaigns</NavItem>
       <NavItem>Get Involved</NavItem>
       <NavItem><ButtonDonate>Donate</ButtonDonate></NavItem>
       <NavItem><ButtonOutline color="White">Join the DA</ButtonOutline></NavItem>
     </Navbar>
   ))
-  .add('NavbarSecondary', () => (
+  .add("NavbarSecondary", () => (
     <NavbarSecondary>
-      <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"}/> Visit da.org.za</NavItem>
+      <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"} /> Visit da.org.za</NavItem>
       <NavItem fs={"13px"} lh={"16px"}><a>Why the DA?</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"}><a>Where we govern</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"}><a>Our People</a></NavItem>
@@ -213,7 +216,7 @@ storiesOf('Navs/Navbar', module)
       <NavItem fs={"13px"} lh={"16px"}><a>Contact</a></NavItem>
     </NavbarSecondary>
   ))
-  .add('NavbarSub', () => (
+  .add("NavbarSub", () => (
     <NavbarSub>
       <NavItem fs={"13px"} lh={"16px"} color={"BlueLight"}>Bokamoso</NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={"BlueLight"}>Speeches</NavItem>
@@ -222,148 +225,164 @@ storiesOf('Navs/Navbar', module)
     </NavbarSub>
   ));
 
-storiesOf('Navs/NavItems', module)
-  .add('NavBox', () => (
+storiesOf("Navs/NavItems", module)
+  .add("NavBox", () => (
     <NavBox>View All Newsroom Items</NavBox>
   ))
-  .add('NavButton', () => (
-      <NavButton>Hello</NavButton>
+  .add("NavButton", () => (
+    <NavButton>Hello</NavButton>
   ))
-  .add('NavItem', () => (
-      <NavItem>Hello</NavItem>
+  .add("NavItem", () => (
+    <NavItem>Hello</NavItem>
   ))
-  .add('NavIcon', () => (
+  .add("NavIcon", () => (
     <NavIcon iconName="whatsapp" iconColor="Green">WhatsApp</NavIcon>
   ))
-  .add('NavText', () => (
-      <NavText>Hello</NavText>
+  .add("NavText", () => (
+    <NavText>Hello</NavText>
   ))
+  .add("MoreLink", () => (
+    <MoreLink
+      href={text("URL", "/")}
+      size={select("Size", ["", "small", "large"], "")}
+      color={select("Color", ["blue", "green", "yellow", "red"], "blue")}
+      caps={boolean("Capitalized", false)}
+      hideIcon={boolean("Hide icon", false)}
+      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+    >
+      { text("Text", "Read More") }
+    </MoreLink>
+  ));
 
 
-
-
-
-
-
-
-storiesOf('Buttons', module)
-  .add('Button', () => (
+storiesOf("Buttons", module)
+  .add("Button", () => (
     <ButtonTest
-      full={ boolean('Full Width', false) }
-      disabled={ boolean('Disable', false) }
-      rounded={ boolean('Rounded', true) }
-      outline={ boolean('Outline', false) }
-      color={ select('Color', ['blue', 'green', 'yellow', 'red'], 'blue') }
-      size={ select('Size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
-      href={text('Link','')}
-      onClick={action('clicked')}
+      full={boolean("Full Width", false)}
+      disabled={boolean("Disable", false)}
+      rounded={boolean("Rounded", true)}
+      outline={boolean("Outline", false)}
+      color={select("Color", ["blue", "green", "yellow", "red"], "blue")}
+      size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+      href={text("Link", "")}
+      onClick={action("clicked")}
     />
   ))
-  .add('Custom Styles', () => {
+  .add("Custom Styles", () => {
     const styles = {
       color: colors.White,
       backgroundColor: colors.BlueLight,
       ":hover": {
         backgroundColor: colors.Blue,
-      }
-    }
+      },
+    };
     return (
-      <ButtonTest customStyles={styles} onClick={action('clicked')}>Custom Button</ButtonTest>
-    )
-  })
+      <ButtonTest customStyles={styles} onClick={action("clicked")}>Custom Button</ButtonTest>
+    );
+  });
 
-  storiesOf('Compositions', module)
-    .add('Aside', () => (
+storiesOf("Compositions", module)
+    .add("Aside", () => (
       <Aside
-        visual={ dobsonville }
+        visual={dobsonville}
       />
     ))
-    .add('AsideList', () => (
+    .add("AsideList", () => (
       <AsideList
         heading={"Latest News"}
         cta={<NavText color={"Red"}>More news</NavText>}
       >
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
           color={"Primary"}
         />
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
           color={"Primary"}
         />
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
           color={"Primary"}
         />
       </AsideList>
     ))
-    .add('AsideMenu', () => (
+    .add("AsideMenu", () => (
       <AsideMenu>
         <NavBox>Item One</NavBox>
         <NavBox>Item Two</NavBox>
         <NavBox>Item Three</NavBox>
       </AsideMenu>
     ))
-    .add('AsideOverlay', () => (
+    .add("AsideOverlay", () => (
       <AsideOverlay
-        visual={ dobsonville }
+        visual={dobsonville}
       />
     ))
-    .add('CardCampaign', () => (
-      <CardCampaign
-        visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
-        meta={<HeadingMeta color={"Primary"} textTransform={"uppercase"} letterSpacing={"Base"}>{"Western Cape"}</HeadingMeta>}
-        heading={<Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
-        body={<Copy>{"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}</Copy>}
-        cta={<NavText color={"Red"} display={"block"}>{"Join the fight"}</NavText>}
-      />
-    ))
-    .add('CardHighlight', () => (
-        <CardHighlight
-          visual={ dobsonville }
-          header={
-            <Header>
-              <Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
-              <HeadingMeta color={"Primary"} textTransform={"uppercase"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</HeadingMeta>
-            </Header>
-          }
-          body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
-          cta={<NavText color={"Red"} display={"block"}>{"View More"}</NavText>}
-        />
-    ))
-    .add('CardNews', () => (
+    .add("CardCampaign", () => (
       <div>
-        <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
-          heading={"Fermentum Sem Mollis Pharetra"}
-          color={select('color', ['Primary', 'Copy'], 'Copy')}
-          meta={text('meta','July 4, 2017 in News')}
+        <CampaignCard
+          title="Firing Zuma is the first step towards building a better tomorrow"
+          cta="Join the fight"
+          paragraph="Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."
+          meta="Western Cape"
+          imageUrl={dobsonville}
+          url={'/'}
+        />
+        <CardCampaign
+          visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
+          meta={<HeadingMeta color={"Primary"} textTransform={"uppercase"} letterSpacing={"Base"}>{"Western Cape"}</HeadingMeta>}
+          heading={<Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
+          body={<Copy>{""}</Copy>}
+          cta={<NavText color={"Red"} display={"block"}>{"Join the fight"}</NavText>}
         />
       </div>
     ))
-    .add('CardRelated', () => (
-        <CardRelated
-          vertical={boolean('vertical?', 'false')}
-          visual={<img width={"300px"} className="img-fluid" src={ dobsonville } alt="alt" />}
-          heading={<HeadingSmall color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</HeadingSmall>}
-          body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-          cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}
-        />
+    .add("CardHighlight", () => (
+      <CardHighlight
+        visual={dobsonville}
+        header={
+          <Header>
+            <Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
+            <HeadingMeta color={"Primary"} textTransform={"uppercase"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</HeadingMeta>
+          </Header>
+          }
+        body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
+        cta={<NavText color={"Red"} display={"block"}>{"View More"}</NavText>}
+      />
     ))
-    .add('CardVideo', () => (
+    .add("CardNews", () => (
+      <div>
+        <CardNews
+          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
+          heading={"Fermentum Sem Mollis Pharetra"}
+          color={select("color", ["Primary", "Copy"], "Copy")}
+          meta={text("meta", "July 4, 2017 in News")}
+        />
+      </div>
+    ))
+    .add("CardRelated", () => (
+      <CardRelated
+        vertical={boolean("vertical?", "false")}
+        visual={<img width={"300px"} className="img-fluid" src={dobsonville} alt="alt" />}
+        heading={<HeadingSmall color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</HeadingSmall>}
+        body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
+        cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}
+      />
+    ))
+    .add("CardVideo", () => (
       <CardVideo
-        featured={boolean('featured','false')}
-        color={select('color', ['Primary', 'White'], 'Primary')}
-        visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
+        featured={boolean("featured", "false")}
+        color={select("color", ["Primary", "White"], "Primary")}
+        visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
         heading={"Fermentum Sem Mollis Pharetra"}
         body={<Copy color={"White"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
         cta={<NavText color={"White"}>Play video</NavText>}
       />
     ))
-    .add('Header', () => (
+    .add("Header", () => (
       <Header borderWidth={"1px"}>
         <HeadingMeta textTransform={"uppercase"} letterSpacing={"Base"}>Western Cape</HeadingMeta>
         <Heading color={"Primary"}>Jacob Zuma Foundation has failed our students</Heading>
@@ -371,62 +390,62 @@ storiesOf('Buttons', module)
         <HeadingMeta>August 20, 2017 in News</HeadingMeta>
       </Header>
     ))
-    .add('ViewAll', () => (
+    .add("ViewAll", () => (
       <ViewAll
-        buttonLabel={text('buttonLabel', 'View All')}
+        buttonLabel={text("buttonLabel", "View All")}
       />
     ))
-    .add('Widget', () => (
+    .add("Widget", () => (
       <div>
-        <Widget widgetTitle={text('widgetTitle', 'Share')}widgetTitle={text('widgetTitle', 'Share')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
+        <Widget widgetTitle={text("widgetTitle", "Share")} colTitle={text("colTitle", "col-md-1")} colSection={text("colSection", "col-md-11")}>
           <NavIcon iconName="facebook" iconColor="Facebook">{"Share on Facebook"}</NavIcon>
           <NavIcon iconName="twitter" iconColor="Twitter">{"Share on Twitter"}</NavIcon>
           <NavIcon iconName="envelope" iconColor="Red">{"Send by Email"}</NavIcon>
           <NavIcon iconName="whatsapp" iconColor="WhatsApp">{"Share with What's App"}</NavIcon>
         </Widget>
 
-        <Widget widgetTitle={text('widgetTitle', 'Tags')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
+        <Widget widgetTitle={text("widgetTitle", "Tags")} colTitle={text("colTitle", "col-md-1")} colSection={text("colSection", "col-md-11")}>
           <Label>Fusce</Label>
           <Label>Dapibus</Label>
           <Label>Nibh</Label>
         </Widget>
       </div>
-    ))
+    ));
 
-  storiesOf('Modules', module)
-    .add('ArticleDetails', () => (
+storiesOf("Modules", module)
+    .add("ArticleDetails", () => (
       <ArticleDetails />
     ))
-    .add('ArticleShare', () => (
+    .add("ArticleShare", () => (
       <ArticleShare />
     ))
-    .add('Campaigns', () => (
+    .add("Campaigns", () => (
       <Campaigns />
     ))
-    .add('FooterLegal', () => (
+    .add("FooterLegal", () => (
       <FooterLegal />
     ))
-    .add('FooterMenus', () => (
+    .add("FooterMenus", () => (
       <FooterMenus />
     ))
-    .add('Videos', () => (
+    .add("Videos", () => (
       <Videos />
-    ))
+    ));
 
-  storiesOf('Sections', module)
-    .add('Hero', () => (
+storiesOf("Sections", module)
+    .add("Hero", () => (
       <Hero
-        visual={ dobsonville }
+        visual={dobsonville}
         heading={"Firing Zuma is the first step towards building a better tomorrow"}
       />
     ))
-    .add('SectionMain', () => (
+    .add("SectionMain", () => (
       <SectionMain
         main={<Campaigns />}
         aside={
           <div>
-            <AsideOverlay visual={ dobsonville }/>
-            <Aside visual={ dobsonville }/>
+            <AsideOverlay visual={dobsonville} />
+            <Aside visual={dobsonville} />
             <AsideMenu>
               <NavBox>Item One</NavBox>
               <NavBox>Item Two</NavBox>
@@ -439,23 +458,23 @@ storiesOf('Buttons', module)
               cta={<NavText color={"Red"}>More news</NavText>}
             >
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
                 color={"Primary"}
               />
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
                 color={"Primary"}
               />
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
                 color={"Primary"}
               />
             </AsideList>
             <CardRelated
-              visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
+              visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
               heading={<HeadingSmall color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</HeadingSmall>}
               body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
               cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}
@@ -465,12 +484,12 @@ storiesOf('Buttons', module)
         }
       />
     ))
-    .add('SectionFull', () => (
+    .add("SectionFull", () => (
       <div>
         <SectionFull
           section={
             <CardHighlight
-              visual={ dobsonville }
+              visual={dobsonville}
               header={
                 <Header>
                   <Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
@@ -484,22 +503,22 @@ storiesOf('Buttons', module)
         />
 
         <SectionFull
-          pt={text('paddingTop', 'Space12')}
-          pb={text('paddingBottom', 'Space5')}
-          backgroundColor={text('backgroundColor', 'Blue')}
-          visual={ dobsonville }
+          pt={text("paddingTop", "Space12")}
+          pb={text("paddingBottom", "Space5")}
+          backgroundColor={text("backgroundColor", "Blue")}
+          visual={dobsonville}
           heading={
             <HeadingSection color={"White"}>Latest Videos</HeadingSection>
           }
           section={
-            <Videos/>
+            <Videos />
           }
         />
 
         <SectionFull
-          backgroundColor={text('backgroundColor', 'bgLightO')}
-          pt={text('paddingTop', 'Space12')}
-          visual={ dobsonville }
+          backgroundColor={text("backgroundColor", "bgLightO")}
+          pt={text("paddingTop", "Space12")}
+          visual={dobsonville}
           heading={
             <HeadingSection color={"Primary"}>Get Involved</HeadingSection>
           }
@@ -511,6 +530,6 @@ storiesOf('Buttons', module)
         />
       </div>
     ))
-    .add('Footer', () => (
+    .add("Footer", () => (
       <Footer />
-    ))
+    ));

@@ -3,18 +3,17 @@ import { StyleSheet, css } from 'aphrodite';
 import { fontStyles, colors, spacing } from 'common/styles/variables';
 
 const Icon = (props) => {
-  const { color, name } = props;
+  const { color, name, style } = props;
   const styles = StyleSheet.create({
     icon:{
     	...fontStyles('13px','16px'),
-      color: colors[props.color],
       marginLeft: spacing[props.ml],
       marginRight: spacing[props.mr],
     },
   });
 
   return (
-    <span className={`${css(styles.icon)} icon icon-${name}`}></span>
+    <span className={`${css(styles.icon, props.style)} icon icon-${name}`}></span>
   )
 }
 

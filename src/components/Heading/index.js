@@ -111,8 +111,6 @@ function Heading({
     flatten(override),
   ];
 
-  console.log(flatten(override));
-
   const temp = StyleSheet.create({
     heading: style.reduce((result, item) => {
       if (item) {
