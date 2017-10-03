@@ -1,8 +1,8 @@
-import React from 'react';
-import { storiesOf, configure, addDecorator } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import { checkA11y } from 'storybook-addon-a11y';
+import React from "react";
+import { storiesOf, configure, addDecorator } from "@storybook/react";
+import { withInfo } from "@storybook/addon-info";
+import { action } from "@storybook/addon-actions";
+import { checkA11y } from "storybook-addon-a11y";
 import backgrounds from "@storybook/addon-backgrounds";
 import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
@@ -61,13 +61,17 @@ import {
   StorySpacing,
   ViewAll,
   Videos,
-  Widget
-} from '../src/components'
+  Widget,
+} from "../src/components";
 
-import {default as ButtonTest} from '../src/components/Button'
-import {default as HeadingTest} from '../src/components/Heading'
+// Sergio components
+import { default as ButtonTest } from "../src/components/Button";
+import { default as HeadingTest } from "../src/components/Heading";
+import { default as MoreLink } from "../src/components/MoreLink";
+import { default as CampaignCard } from "../src/components/CampaignCard";
 
-addDecorator((story, context) => withInfo('')(story)(context));
+
+addDecorator((story, context) => withInfo("")(story)(context));
 
 addDecorator(withKnobs);
 addDecorator(checkA11y);
@@ -84,7 +88,7 @@ storiesOf('StyleGuide/Readme', module)
       <h1>Style Guide</h1>
       <p>Tools to help style components</p>
     </div>
-  ))
+  ));
 
   storiesOf('StyleGuide/Fonts', module)
     .add('Serif', () => (
@@ -115,7 +119,7 @@ storiesOf('Base/Readme', module)
       <h1>Base Components</h1>
       <p>Base components are not to be accessed outside of the Dobsonville. These need to be part of other components or compositions.</p>
     </div>
-  ))
+  ));
 
 storiesOf('Base/Button', module)
   .add('Button', () => (
@@ -164,10 +168,10 @@ storiesOf('Base/Alert', module)
     )
   })
 
-storiesOf('Base/Copy', module)
-  .add('Copy', () => (
-    <Copy>{text('Children', 'Copy')}</Copy>
-  ))
+storiesOf("Base/Copy", module)
+  .add("Copy", () => (
+    <Copy>{text("Children", "Copy")}</Copy>
+  ));
 
 storiesOf('Base/Heading', module)
   .add('Heading', () => (
@@ -242,11 +246,11 @@ storiesOf('Base/Logo', module)
     )
   })
 
-storiesOf('Navs/Navbar', module)
-  .add('Masthead', () => (
+storiesOf("Navs/Navbar", module)
+  .add("Masthead", () => (
     <div>
       <NavbarSecondary>
-        <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"}/> Visit da.org.za</NavItem>
+        <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"} /> Visit da.org.za</NavItem>
         <NavItem fs={"13px"} lh={"16px"}><a>Why the DA?</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"}><a>Where we govern</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"}><a>Our People</a></NavItem>
@@ -255,9 +259,9 @@ storiesOf('Navs/Navbar', module)
       </NavbarSecondary>
       <Navbar>
         <NavItem fontWeight={"Bold"}><Logo /></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-instagram"}></span></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-facebook"}></span></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-twitter"}></span></NavItem>
+        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
+        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
+        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
         <NavItem fontWeight={"Bold"}>Campaigns</NavItem>
         <NavItem fontWeight={"Bold"}>Get Involved</NavItem>
         <NavItem fontWeight={"Bold"}><ButtonDonate>Donate</ButtonDonate></NavItem>
@@ -271,21 +275,21 @@ storiesOf('Navs/Navbar', module)
       </NavbarSub>
     </div>
   ))
-  .add('Navbar', () => (
+  .add("Navbar", () => (
     <Navbar>
       <NavItem><Logo /></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-instagram"}></span></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-facebook"}></span></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-twitter"}></span></NavItem>
+      <NavItem fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
+      <NavItem fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
+      <NavItem fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
       <NavItem>Campaigns</NavItem>
       <NavItem>Get Involved</NavItem>
       <NavItem><ButtonDonate>Donate</ButtonDonate></NavItem>
       <NavItem><ButtonOutline color="White">Join the DA</ButtonOutline></NavItem>
     </Navbar>
   ))
-  .add('NavbarSecondary', () => (
+  .add("NavbarSecondary", () => (
     <NavbarSecondary>
-      <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"}/> Visit da.org.za</NavItem>
+      <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"} /> Visit da.org.za</NavItem>
       <NavItem fs={"13px"} lh={"16px"}><a>Why the DA?</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"}><a>Where we govern</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"}><a>Our People</a></NavItem>
@@ -293,7 +297,7 @@ storiesOf('Navs/Navbar', module)
       <NavItem fs={"13px"} lh={"16px"}><a>Contact</a></NavItem>
     </NavbarSecondary>
   ))
-  .add('NavbarSub', () => (
+  .add("NavbarSub", () => (
     <NavbarSub>
       <NavItem fs={"13px"} lh={"16px"} color={"BlueLight"}>Bokamoso</NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={"BlueLight"}>Speeches</NavItem>
@@ -302,91 +306,107 @@ storiesOf('Navs/Navbar', module)
     </NavbarSub>
   ));
 
-storiesOf('Navs/NavItems', module)
-  .add('NavBox', () => (
+storiesOf("Navs/NavItems", module)
+  .add("NavBox", () => (
     <NavBox>View All Newsroom Items</NavBox>
   ))
-  .add('NavButton', () => (
-      <NavButton>Hello</NavButton>
+  .add("NavButton", () => (
+    <NavButton>Hello</NavButton>
   ))
-  .add('NavItem', () => (
-      <NavItem>Hello</NavItem>
+  .add("NavItem", () => (
+    <NavItem>Hello</NavItem>
   ))
   .add('NavIcon', () => (
     <NavIcon iconName="whatsapp" iconColor="socialWhatsApp">WhatsApp</NavIcon>
   ))
-  .add('NavText', () => (
-      <NavText>Hello</NavText>
+  .add("NavText", () => (
+    <NavText>Hello</NavText>
   ))
+  .add("MoreLink", () => (
+    <MoreLink
+      href={text("URL", "/")}
+      size={select("Size", ["", "small", "large"], "")}
+      color={select("Color", ["blue", "green", "yellow", "red"], "blue")}
+      caps={boolean("Capitalized", false)}
+      hideIcon={boolean("Hide icon", false)}
+      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+    >
+      { text("Text", "Read More") }
+    </MoreLink>
+  ));
 
   storiesOf('Compositions', module)
     .add('Aside', () => (
       <Aside
-        visual={ dobsonville }
+        visual={dobsonville}
       />
     ))
-    .add('AsideList', () => (
+    .add("AsideList", () => (
       <AsideList
         heading={"Latest News"}
         cta={<NavText color={"Red"}>More news</NavText>}
       >
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
           color={"Primary"}
         />
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
           color={"Primary"}
         />
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
           color={"Primary"}
         />
       </AsideList>
     ))
-    .add('AsideMenu', () => (
+    .add("AsideMenu", () => (
       <AsideMenu>
         <NavBox>Item One</NavBox>
         <NavBox>Item Two</NavBox>
         <NavBox>Item Three</NavBox>
       </AsideMenu>
     ))
-    .add('AsideOverlay', () => (
+    .add("AsideOverlay", () => (
       <AsideOverlay
-        visual={ dobsonville }
+        visual={dobsonville}
       />
     ))
-    .add('CardCampaign', () => (
-      <CardCampaign
-        visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
-        meta={<HeadingMeta color={"Primary"} textTransform={"uppercase"} letterSpacing={"Base"}>{"Western Cape"}</HeadingMeta>}
-        heading={<Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
-        body={<Copy>{"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}</Copy>}
-        cta={<NavText color={"Red"} display={"block"}>{"Join the fight"}</NavText>}
-      />
-    ))
-    .add('CardHighlight', () => (
-        <CardHighlight
-          visual={ dobsonville }
-          header={
-            <Header>
-              <Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
-              <HeadingMeta color={"Primary"} textTransform={"uppercase"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</HeadingMeta>
-            </Header>
-          }
-          body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
-          cta={<NavText color={"Red"} display={"block"}>{"View More"}</NavText>}
+    .add("CardCampaign", () => (
+      <div>
+        <CampaignCard
+          title="Firing Zuma is the first step towards building a better tomorrow"
+          cta="Join the fight"
+          paragraph="Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."
+          meta="Western Cape"
+          imageUrl={dobsonville}
+          url={"/"}
         />
+      </div>
     ))
-    .add('CardNews', () => (
+    .add("CardHighlight", () => (
+      <CardHighlight
+        visual={dobsonville}
+        header={
+          <Header>
+            <Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
+            <HeadingMeta color={"Primary"} textTransform={"uppercase"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</HeadingMeta>
+          </Header>
+          }
+        body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
+        cta={<NavText color={"Red"} display={"block"}>{"View More"}</NavText>}
+      />
+    ))
+    .add("CardNews", () => (
       <div>
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
           heading={"Fermentum Sem Mollis Pharetra"}
-          meta={text('meta','July 4, 2017 in News')}
+          color={select("color", ["Primary", "Copy"], "Copy")}
+          meta={text("meta", "July 4, 2017 in News")}
         />
       </div>
     ))
@@ -410,17 +430,17 @@ storiesOf('Navs/NavItems', module)
           cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}
         />
     ))
-    .add('CardVideo', () => (
+    .add("CardVideo", () => (
       <CardVideo
-        featured={boolean('featured','false')}
-        color={select('color', ['Primary', 'White'], 'Primary')}
-        visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
+        featured={boolean("featured", "false")}
+        color={select("color", ["Primary", "White"], "Primary")}
+        visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
         heading={"Fermentum Sem Mollis Pharetra"}
         body={<Copy color={"White"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
         cta={<NavText color={"White"}>Play video</NavText>}
       />
     ))
-    .add('Header', () => (
+    .add("Header", () => (
       <Header borderWidth={"1px"}>
         <HeadingMeta textTransform={"uppercase"} letterSpacing={"Base"}>Western Cape</HeadingMeta>
         <Heading color={"Primary"}>Jacob Zuma Foundation has failed our students</Heading>
@@ -428,12 +448,12 @@ storiesOf('Navs/NavItems', module)
         <HeadingMeta>August 20, 2017 in News</HeadingMeta>
       </Header>
     ))
-    .add('ViewAll', () => (
+    .add("ViewAll", () => (
       <ViewAll
-        buttonTag={text('buttonTag', 'View All')}
+        buttonTag={text("buttonTag", "View All")}
       />
     ))
-    .add('Widget', () => (
+    .add("Widget", () => (
       <div>
         <Widget widgetTitle={text('widgetTitle', 'Share')}widgetTitle={text('widgetTitle', 'Share')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
           <NavIcon iconName="facebook" iconColor="socialFacebook">{"Share on Facebook"}</NavIcon>
@@ -442,48 +462,48 @@ storiesOf('Navs/NavItems', module)
           <NavIcon iconName="whatsapp" iconColor="socialWhatsApp">{"Share with What's App"}</NavIcon>
         </Widget>
 
-        <Widget widgetTitle={text('widgetTitle', 'Tags')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
+        <Widget widgetTitle={text("widgetTitle", "Tags")} colTitle={text("colTitle", "col-md-1")} colSection={text("colSection", "col-md-11")}>
           <Tag>Fusce</Tag>
           <Tag>Dapibus</Tag>
           <Tag>Nibh</Tag>
         </Widget>
       </div>
-    ))
+    ));
 
-  storiesOf('Modules', module)
-    .add('ArticleDetails', () => (
+storiesOf("Modules", module)
+    .add("ArticleDetails", () => (
       <ArticleDetails />
     ))
-    .add('ArticleShare', () => (
+    .add("ArticleShare", () => (
       <ArticleShare />
     ))
-    .add('Campaigns', () => (
+    .add("Campaigns", () => (
       <Campaigns />
     ))
-    .add('FooterLegal', () => (
+    .add("FooterLegal", () => (
       <FooterLegal />
     ))
-    .add('FooterMenus', () => (
+    .add("FooterMenus", () => (
       <FooterMenus />
     ))
-    .add('Videos', () => (
+    .add("Videos", () => (
       <Videos />
-    ))
+    ));
 
-  storiesOf('Sections', module)
-    .add('Hero', () => (
+storiesOf("Sections", module)
+    .add("Hero", () => (
       <Hero
-        visual={ dobsonville }
+        visual={dobsonville}
         heading={"Firing Zuma is the first step towards building a better tomorrow"}
       />
     ))
-    .add('SectionMain', () => (
+    .add("SectionMain", () => (
       <SectionMain
         main={<Campaigns />}
         aside={
           <div>
-            <AsideOverlay visual={ dobsonville }/>
-            <Aside visual={ dobsonville }/>
+            <AsideOverlay visual={dobsonville} />
+            <Aside visual={dobsonville} />
             <AsideMenu>
               <NavBox>Item One</NavBox>
               <NavBox>Item Two</NavBox>
@@ -496,24 +516,24 @@ storiesOf('Navs/NavItems', module)
               cta={<NavText color={"Red"}>More news</NavText>}
             >
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
               />
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
               />
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
                 heading={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
               />
             </AsideList>
             <CardRelated
               vertical
-              visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
+              visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
               heading={<HeadingSmall color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</HeadingSmall>}
               body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
               cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}
@@ -523,12 +543,12 @@ storiesOf('Navs/NavItems', module)
         }
       />
     ))
-    .add('SectionFull', () => (
+    .add("SectionFull", () => (
       <div>
         <SectionFull
           section={
             <CardHighlight
-              visual={ dobsonville }
+              visual={dobsonville}
               header={
                 <Header>
                   <Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
@@ -542,22 +562,22 @@ storiesOf('Navs/NavItems', module)
         />
 
         <SectionFull
-          pt={text('paddingTop', 'Space12')}
-          pb={text('paddingBottom', 'Space5')}
-          backgroundColor={text('backgroundColor', 'Blue')}
-          visual={ dobsonville }
+          pt={text("paddingTop", "Space12")}
+          pb={text("paddingBottom", "Space5")}
+          backgroundColor={text("backgroundColor", "Blue")}
+          visual={dobsonville}
           heading={
             <HeadingSection color={"White"}>Latest Videos</HeadingSection>
           }
           section={
-            <Videos/>
+            <Videos />
           }
         />
 
         <SectionFull
-          backgroundColor={text('backgroundColor', 'bgLightO')}
-          pt={text('paddingTop', 'Space12')}
-          visual={ dobsonville }
+          backgroundColor={text("backgroundColor", "bgLightO")}
+          pt={text("paddingTop", "Space12")}
+          visual={dobsonville}
           heading={
             <HeadingSection color={"Primary"}>Get Involved</HeadingSection>
           }
@@ -569,6 +589,6 @@ storiesOf('Navs/NavItems', module)
         />
       </div>
     ))
-    .add('Footer', () => (
+    .add("Footer", () => (
       <Footer />
-    ))
+    ));
