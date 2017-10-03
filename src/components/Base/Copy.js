@@ -25,7 +25,7 @@ function Copy(props) {
   });
 
   return (
-    <span className={css(styles.Copy)}>dassad{children}</span>
+    <span className={css(styles.Copy)}>{children}</span>
   )
 }
 

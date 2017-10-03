@@ -17,7 +17,7 @@ function Alert(props) {
       paddingLeft: props.iconBefore ? spacing.Space5 : spacing.Space2,
       paddingRight: props.close ? spacing.Space5 : spacing.Space2,
       color: colors.CopyLightO,
-      backgroundColor: colors[props.color],
+      backgroundColor: props.color,
       borderRadius: spacing.Space0,
       ...fontStyles('14px','22px'),
     },
@@ -38,7 +38,7 @@ function Alert(props) {
   return (
     <span className={css(styles.alert)}>
       { iconBefore &&
-        <div className={`${css(styles.iconBefore)}`}><Icon name="facebook" color={colors.White}/></div>
+        <div className={`${css(styles.iconBefore)}`}><Icon name="facebook"/></div>
       }
       { close &&
         <i className={`${css(styles.close)} icon icon-close`}></i>
@@ -51,12 +51,15 @@ function Alert(props) {
 Alert.defaultProps = {
   close: true,
   iconBefore: '',
-  color: 'bgDark',
+  color: colors.bgDark,
 }
 
 Alert.propTypes = {
+  /** Should be replaced with onClick logic */
   close: PropTypes.bool,
+  /** Name of icon as per variables.js */
   iconBefore: PropTypes.string,
+  /** Color of Alert background */
   color: PropTypes.string,
 };
 

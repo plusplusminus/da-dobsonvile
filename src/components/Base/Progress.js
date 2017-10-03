@@ -5,7 +5,7 @@ import { fonts, fontStyles, fontWeight, letterSpacing, colors, spacing } from 'c
 
 function Progress(props) {
 
-  const { progress, color } = props;
+  const { color,progress,showLabel } = props;
 
   const styles = StyleSheet.create({
     progress:{
@@ -14,7 +14,7 @@ function Progress(props) {
       color: colors.White,
     },
     bg:{
-      backgroundColor: colors[props.color],
+      backgroundColor: props.color,
       borderColor: colors.bgLightO,
       borderRadius: spacing.Space3,
       overflow: 'hidden',
@@ -25,8 +25,8 @@ function Progress(props) {
       backgroundColor: colors.bgLightO,
     },
     fill:{
-      backgroundColor: colors[props.color],
-      borderColor: colors[props.color],
+      backgroundColor: props.color,
+      borderColor: props.color,
       height: spacing.Space3,
       width: '' + props.progress + '%',
     },
@@ -44,7 +44,11 @@ function Progress(props) {
     <div className={css(styles.progress)}>
       <div className={css(styles.bg)}>
         <div className={css(styles.bgFilter)}>
-          <div className={css(styles.fill)}><small className={css(styles.label)}>{ progress }%</small></div>
+          <div className={css(styles.fill)}>
+            { showLabel &&
+              <small className={css(styles.label)}>{ progress }%</small>
+            }
+          </div>
         </div>
       </div>
     </div>
@@ -52,13 +56,18 @@ function Progress(props) {
 }
 
 Progress.defaultProps = {
-  progress: '0',
-  color: 'bgDark',
+  color: colors.bgDark,
+  progress: '50',
+  showLabel: 'true',
 }
 
 Progress.propTypes = {
-  progress: PropTypes.number,
+  /*Color value from variables.js*/
   color: PropTypes.string,
+  /*Number Value to indicate % progress*/
+  progress: PropTypes.number,
+  /*Option to remove progress & label from progress bar*/
+  showLabel: PropTypes.bool,
 };
 
 export default Progress;

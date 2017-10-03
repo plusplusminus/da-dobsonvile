@@ -14,20 +14,20 @@ const Tag = (props) => {
       border: '1px solid',
       marginRight: spacing.Space1,
       marginBottom: spacing.Space1,
-      borderColor: colors.Border,
+      borderColor: props.color === '#FFFFFF' ? colors.Border : props.color,
       borderRadius: spacing.Space0,
-      backgroundColor: colors[props.color],
+      backgroundColor: props.color,
       padding: spacing.Space1,
       paddingRight: props.close ? spacing.Space4 : spacing.Space1,
     },
     label:{
-      color: props.color === colors.White ? colors.CopyLight : colors.CopyLightO,
+      color: props.color === '#FFFFFF' ? colors.Copy : colors.CopyLightO,
     },
     close:{
       position: 'absolute',
       top: spacing.Space1,
       right: spacing.Space1,
-      color: props.color === 'White' ? colors.CopyLight : colors.CopyLightO,
+      color: props.color === '#FFFFFF' ? colors.Copy : colors.CopyLightO,
       ...fontStyles('22px','18px'),
     },
   });
@@ -46,11 +46,13 @@ const Tag = (props) => {
 
 Tag.defaultProps = {
   close: false,
-  color: 'White'
+  color: colors.White,
 }
 
 Tag.propTypes = {
+  /*Should be replaced with onClick logic*/
   close: PropTypes.bool,
+  /*Color options from variables.js*/
   color: PropTypes.string,
 };
 

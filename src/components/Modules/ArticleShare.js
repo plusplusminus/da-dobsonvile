@@ -35,10 +35,10 @@ const ArticleShare = (props) => {
         colSection={"col-md-12"}>
         <div className="row">
           <div className="col-md-3">
-            <NavIcon iconName="facebook" iconColor="Facebook">{"Share on Facebook"}</NavIcon>
-            <NavIcon iconName="twitter" iconColor="Twitter">{"Share on Twitter"}</NavIcon>
-            <NavIcon iconName="envelope" iconColor="Red">{"Send by Email"}</NavIcon>
-            <NavIcon iconName="whatsapp" iconColor="WhatsApp">{"Share with What's App"}</NavIcon>
+            <NavIcon iconName="facebook" iconColor="socialFacebook">{"Share on Facebook"}</NavIcon>
+            <NavIcon iconName="twitter" iconColor="socialTwitter">{"Share on Twitter"}</NavIcon>
+            <NavIcon iconName="envelope" iconColor="socialEmail">{"Send by Email"}</NavIcon>
+            <NavIcon iconName="whatsapp" iconColor="socialWhatsApp">{"Share with What's App"}</NavIcon>
           </div>
           <div className="col-md-3">
             <NavIcon iconName="print" iconColor="Primary">{"Print"}</NavIcon>

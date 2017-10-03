@@ -4,7 +4,7 @@ export const fonts = {
   Round: "museo-sans-rounded, 'Helvetica Neue', Helvetica, Arial, sans-serif",
 };
 export const timing = {
-  default: ".8s",
+  default: ".1s",
 };
 export const fontWeight = {
   Bold: "600",
@@ -36,12 +36,13 @@ export const colors = {
   bgDarkO: "rgba(51,51,51,0.8)",
   Black: "#000000",
   Blue: "#155FA2",
+  BlueHover: "#1D7BB9",
   BlueLight: "#1D7BB9",
   BlueLight1: "#85CEFF",
   BorderLight: "rgba(51,51,51,0.1)",
   Copy: "#333333",
   CopyLight: "#777777",
-  Facebook: "#3A579A",
+  CopyLightO: "rgba(255,255,255,0.85)",
   Green: "#52A74B",
   GreenHover: "#088920",
   Heading: "#333333",
@@ -50,12 +51,30 @@ export const colors = {
   Red: "#B0153C",
   RedHover: "#B0153C",
   Transparent: "transparent",
-  Twitter: "#00AAF0",
-  WhatsApp: "#52A74B",
-  White: "#ffffff",
+  socialEmail: '#B0153C',
+  socialFacebook: "#3A579A",
+  socialTwitter: "#00AAF0",
+  socialWhatsApp: "#52A74B",
+  White: "#FFFFFF",
   Yellow: "#FDC842",
   YellowHover: "#FDC842",
 };
+
+export const icons = {
+  close: "close",
+  angleLeft: "angle-left",
+  angleRight: "angle-right",
+  bookmark: "bookmark",
+  newspaper: "newspaper",
+  download: "download",
+  print: "print",
+  whatsapp: "whatsapp",
+  envelope: "envelope",
+  youtube: "youtube",
+  twitter: "twitter",
+  facebook: "facebook",
+  instagram: "instagram",
+}
 
 export const opacity = {
   Solid: ".1",

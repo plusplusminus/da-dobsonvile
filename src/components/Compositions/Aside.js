@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { Button, Copy, HeadingAside } from 'components';
+import { Button, Copy } from 'components';
+import {default as HeadingTest} from 'components/Heading';
+import {default as ButtonTest} from 'components/Button'
 import { colors, fontWeight, spacing } from 'common/styles/variables';
 
 function Aside(props) {
@@ -30,22 +32,24 @@ function Aside(props) {
         <img width="100%" src={visual} className={`${css(styles.visual)} img-fluid`} alt="alt"/>
       }
       <div className={css(styles.wrapper)}>
-        <HeadingAside
-          color={ headingColor }>
+        <HeadingTest
+          importance="high"
+          size="large"
+          weight="thick"
+        >
           { heading }
-        </HeadingAside>
+        </HeadingTest>
         <Copy
           color={ copyColor }
           align={"left"}
           fontWeight={copyWeight}>
           { copy }
         </Copy>
-        <Button
-          color={"White"}
-          borderColor={"Green"}
-          backgroundColor={"Green"}>
+        <ButtonTest
+          color="blue"
+          >
           { buttonLabel }
-        </Button>
+        </ButtonTest>
       </div>
     </aside>
   )

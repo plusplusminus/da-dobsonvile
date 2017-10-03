@@ -11,9 +11,6 @@ export Heading, {
 export { default as Icon } from './Base/Icon';
 export Logo from './Base/Logo';
 export Progress from './Base/Progress';
-export StoryColor from './Base/StoryColor';
-export StoryIcon from './Base/StoryIcon';
-export StorySpacing from './Base/StorySpacing';
 export Tag from './Base/Tag';
 
 
@@ -46,6 +43,7 @@ export AsideOverlay from './Compositions/AsideOverlay';
 export CardCampaign from './Compositions/CardCampaign';
 export CardHighlight from './Compositions/CardHighlight';
 export CardNews from './Compositions/CardNews';
+export CardPerson from './Compositions/CardPerson';
 export CardRelated from './Compositions/CardRelated';
 export CardVideo from './Compositions/CardVideo';
 export Header from './Compositions/Header';

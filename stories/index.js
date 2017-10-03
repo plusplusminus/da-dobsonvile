@@ -7,6 +7,9 @@ import backgrounds from "@storybook/addon-backgrounds";
 import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
+import Colors from './Colors';
+import Icons from './Icons';
+import Spacing from './Spacing';
 
 import {
   Alert,
@@ -24,6 +27,7 @@ import {
   CardCampaign,
   CardHighlight,
   CardNews,
+  CardPerson,
   CardRelated,
   CardVideo,
   Campaigns,
@@ -54,8 +58,6 @@ import {
   NavIcon,
   NavText,
   Progress,
-  StoryColor,
-  StoryIcon,
   StorySpacing,
   ViewAll,
   Videos,
@@ -76,94 +78,91 @@ addDecorator(backgrounds([
   { name: "bgLight", value: "#EEEEEE" },
 ]));
 
-storiesOf('Base/Alerts', module)
-  .add('Alert', () => (
+storiesOf('StyleGuide/Readme', module)
+  .add('Readme', () => (
     <div>
+      <h1>Style Guide</h1>
+      <p>Tools to help style components</p>
+    </div>
+  ))
+
+  storiesOf('StyleGuide/Fonts', module)
+    .add('Serif', () => (
+      <Heading font="Serif">Serif</Heading>
+    ))
+    .add('Sans', () => (
+      <Heading font="Sans">Sans</Heading>
+    ))
+
+  storiesOf('StyleGuide/Colors', module)
+    .add('Base', () => (
+      <Colors />
+    ))
+
+  storiesOf('StyleGuide/Icons', module)
+    .add('Icon', () => (
+      <Icons />
+    ))
+
+  storiesOf('StyleGuide/Spacing', module)
+    .add('Base', () => (
+      <Spacing />
+    ))
+
+storiesOf('Base/Readme', module)
+  .add('Readme', () => (
+    <div>
+      <h1>Base Components</h1>
+      <p>Base components are not to be accessed outside of the Dobsonville. These need to be part of other components or compositions.</p>
+    </div>
+  ))
+
+storiesOf('Base/Button', module)
+  .add('Button', () => (
+    <ButtonTest
+      full={ boolean('Full Width', false) }
+      disabled={ boolean('Disable', false) }
+      rounded={ boolean('Rounded', true) }
+      outline={ boolean('Outline', false) }
+      color={ select('Color', ['blue', 'green', 'yellow', 'red'], 'blue') }
+      size={ select('Size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
+      href={text('Link','')}
+      onClick={action('clicked')}
+    />
+  ))
+  .add('Custom Styles', () => {
+    const styles = {
+      color: colors.White,
+      backgroundColor: colors.BlueLight,
+      ":hover": {
+        backgroundColor: colors.Blue,
+      }
+    }
+    return (
+      <ButtonTest customStyles={styles} onClick={action('clicked')}>Custom Button</ButtonTest>
+    )
+  })
+
+storiesOf('Base/Alert', module)
+  .add('Alert', () => {
+    const colorsArray = [];
+    Object.keys(colors).forEach((name) => {
+      if (colors[name]) {
+        colorsArray.push(
+          colors[name]
+        );
+      }
+    })
+    return(
       <Alert
         close={boolean('close', true)}
-        color={text('color', 'Copy')}
+        color={ select('color', colorsArray, colors.bgDark) }
         iconBefore={text('iconBefore', '')}
-        children={text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}/>
-    </div>
-  ))
-
-storiesOf('Base/Colors', module)
-  .add('Base', () => (
-    <div className="row">
-      <StoryColor name={"Black"}/>
-      <StoryColor name={"White"}/>
-      <StoryColor name={"Transparent"}/>
-      <StoryColor name={"Primary"}/>
-      <StoryColor name={"PrimaryHover"}/>
-      <StoryColor name={"Blue"}/>
-      <StoryColor name={"BlueLight"}/>
-      <StoryColor name={"Green"}/>
-      <StoryColor name={"GreenHover"}/>
-      <StoryColor name={"Yellow"}/>
-      <StoryColor name={"YellowHover"}/>
-      <StoryColor name={"Red"}/>
-      <StoryColor name={"RedHover"}/>
-    </div>
-  ))
-  .add('Backgrounds', () => (
-    <div className="row">
-      <StoryColor name={"bgBlue"}/>
-      <StoryColor name={"bgBlueLight"}/>
-      <StoryColor name={"bgDark"}/>
-      <StoryColor name={"bgDarkO"}/>
-      <StoryColor name={"bgLight"}/>
-      <StoryColor name={"bgLightO"}/>
-    </div>
-  ))
-  .add('Borders', () => (
-    <div className="row">
-      <StoryColor name={"Border"}/>
-      <StoryColor name={"BorderLight"}/>
-      <StoryColor name={"borderWhiteO"}/>
-    </div>
-  ))
-  .add('Other', () => (
-    <div className="row">
-      <StoryColor name={"Twitter"}/>
-      <StoryColor name={"Facebook"}/>
-      <StoryColor name={"WhatsApp"}/>
-    </div>
-  ))
-  .add('Text', () => (
-    <div className="row">
-      <StoryColor name={"Heading"}/>
-      <StoryColor name={"Copy"}/>
-      <StoryColor name={"CopyLight"}/>
-      <StoryColor name={"CopyLightO"}/>
-    </div>
-  ))
-
-storiesOf('Base/Icons', module)
-  .add('Icon', () => (
-    <div className="row">
-      <StoryIcon name="close"/>
-      <StoryIcon name="angle-left"/>
-      <StoryIcon name="angle-right"/>
-      <StoryIcon name="bookmark"/>
-      <StoryIcon name="newspaper"/>
-      <StoryIcon name="download"/>
-      <StoryIcon name="print"/>
-      <StoryIcon name="whatsapp"/>
-      <StoryIcon name="envelope"/>
-      <StoryIcon name="youtube"/>
-      <StoryIcon name="twitter"/>
-      <StoryIcon name="facebook"/>
-      <StoryIcon name="instagram"/>
-    </div>
-  ))
-
-storiesOf('Base/Fonts', module)
-  .add('Serif', () => (
-    <Heading font="Serif">Serif</Heading>
-  ))
-  .add('Sans', () => (
-    <Heading font="Sans">Sans</Heading>
-  ))
+        >
+        {text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
+      </Alert>
+    )
+  })
 
 storiesOf('Base/Copy', module)
   .add('Copy', () => (
@@ -172,19 +171,17 @@ storiesOf('Base/Copy', module)
 
 storiesOf('Base/Heading', module)
   .add('Heading', () => (
-    <div>
-      <HeadingTest
-        level={select("Level", [1, 2, 3, 4, 5, 6], 1)}
-        size={select("Size", ["huge", "large", "medium", "small", "tiny"], "medium")}
-        importance={select("Importance", ["high", "low", "normal", "alert"], "normal")}
-        caps={boolean("Uppercase", false)}
-        truncate={boolean("Truncate", false)}
-        weight={select("Weight", ["thick", "normal", "thin", "extraThin"], "normal")}
-        tracking={select("Letter Spacing", ["none", "base", "large"], "none")}
-        override={object("Override", {})}
-        children={text("Children", "Heading")}
-      />
-    </div>
+    <HeadingTest
+      level={select("Level", [1, 2, 3, 4, 5, 6], 1)}
+      size={select("Size", ["huge", "large", "medium", "small", "tiny"], "medium")}
+      importance={select("Importance", ["high", "low", "normal", "alert"], "normal")}
+      caps={boolean("Uppercase", false)}
+      truncate={boolean("Truncate", false)}
+      weight={select("Weight", ["thick", "normal", "thin", "extraThin"], "normal")}
+      tracking={select("Letter Spacing", ["none", "base", "large"], "none")}
+      override={object("Override", {})}
+      children={text("Children", "Heading")}
+    />
   ))
 storiesOf('Base/Progress', module)
   .add('Progress', () =>  {
@@ -194,56 +191,56 @@ storiesOf('Base/Progress', module)
       max: 100,
       step: 1
     }
+    const colorsArray = [];
+    Object.keys(colors).forEach((name) => {
+      if (colors[name]) {
+        colorsArray.push(
+          colors[name]
+        );
+      }
+    })
     return (
       <Progress
-        progress={number('progress', '0%', options)}
-        color={text('color', 'bgDark')}
+        color={ select('color', colorsArray, colors.White) }
+        progress={number('progress', 50, options)}
+        showLabel={boolean('showLabel', true)}
       />
     )
   })
-storiesOf('Base/Spacing', module)
-  .add('Base', () => (
-    <div>
-      <StorySpacing space={"Space"}/>
-      <StorySpacing space={"Space0"}/>
-      <StorySpacing space={"Space1"}/>
-      <StorySpacing space={"Space2"}/>
-      <StorySpacing space={"Space3"}/>
-      <StorySpacing space={"Space4"}/>
-      <StorySpacing space={"Space5"}/>
-      <StorySpacing space={"Space6"}/>
-      <StorySpacing space={"Space7"}/>
-      <StorySpacing space={"Space8"}/>
-      <StorySpacing space={"Space9"}/>
-      <StorySpacing space={"Space10"}/>
-      <StorySpacing space={"Space11"}/>
-      <StorySpacing space={"Space12"}/>
-      <StorySpacing space={"Space13"}/>
-      <StorySpacing space={"Space14"}/>
-      <StorySpacing space={"Space15"}/>
-    </div>
-  ))
+
 storiesOf('Base/Tag', module)
-  .add('Tag', () => (
-    <span>
+  .add('Tag', () => {
+    const colorsArray = [];
+    Object.keys(colors).forEach((name) => {
+      if (colors[name]) {
+        colorsArray.push(
+          colors[name]
+        );
+      }
+    })
+    return(
       <Tag
         close={boolean('close',false)}
-        children={text('children','Tag Name')}
-        color={text('color','White')}
-      />
-      <Tag
-        children={text('children','Tag Name')}
-      />
-      <Tag
-        children={text('children','Tag Name')}
-      />
-    </span>
-  ))
+        color={ select('color', colorsArray, colors.White) }>
+        {text('children','Tag Name')}
+      </Tag>
+    )
+  })
 
 storiesOf('Base/Logo', module)
-  .add('Logo', () => (
-    <Logo />
-  ))
+  .add('Logo', () => {
+    const options = {
+      range: true,
+      min: 60,
+      max: 300,
+      step: 10
+    }
+    return(
+      <Logo
+        size={number('size', 130, options)}
+      />
+    )
+  })
 
 storiesOf('Navs/Navbar', module)
   .add('Masthead', () => (
@@ -316,44 +313,11 @@ storiesOf('Navs/NavItems', module)
       <NavItem>Hello</NavItem>
   ))
   .add('NavIcon', () => (
-    <NavIcon iconName="whatsapp" iconColor="Green">WhatsApp</NavIcon>
+    <NavIcon iconName="whatsapp" iconColor="socialWhatsApp">WhatsApp</NavIcon>
   ))
   .add('NavText', () => (
       <NavText>Hello</NavText>
   ))
-
-
-
-
-
-
-
-
-storiesOf('Buttons', module)
-  .add('Button', () => (
-    <ButtonTest
-      full={ boolean('Full Width', false) }
-      disabled={ boolean('Disable', false) }
-      rounded={ boolean('Rounded', true) }
-      outline={ boolean('Outline', false) }
-      color={ select('Color', ['blue', 'green', 'yellow', 'red'], 'blue') }
-      size={ select('Size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
-      href={text('Link','')}
-      onClick={action('clicked')}
-    />
-  ))
-  .add('Custom Styles', () => {
-    const styles = {
-      color: colors.White,
-      backgroundColor: colors.BlueLight,
-      ":hover": {
-        backgroundColor: colors.Blue,
-      }
-    }
-    return (
-      <ButtonTest customStyles={styles} onClick={action('clicked')}>Custom Button</ButtonTest>
-    )
-  })
 
   storiesOf('Compositions', module)
     .add('Aside', () => (
@@ -426,6 +390,17 @@ storiesOf('Buttons', module)
         />
       </div>
     ))
+    .add('CardPerson', () => (
+      <div>
+        <CardPerson
+          noVisual={boolean('noVisual',false)}
+          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+          heading={text('heading','Fermentum Sem Mollis Pharetra')}
+          meta={text('meta','Federal Leader Of The Democratic Alliance')}
+          moreLink={boolean('moreLink',true)}
+        />
+      </div>
+    ))
     .add('CardRelated', () => (
         <CardRelated
           vertical={boolean('vertical?', 'false')}
@@ -461,10 +436,10 @@ storiesOf('Buttons', module)
     .add('Widget', () => (
       <div>
         <Widget widgetTitle={text('widgetTitle', 'Share')}widgetTitle={text('widgetTitle', 'Share')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
-          <NavIcon iconName="facebook" iconColor="Facebook">{"Share on Facebook"}</NavIcon>
-          <NavIcon iconName="twitter" iconColor="Twitter">{"Share on Twitter"}</NavIcon>
-          <NavIcon iconName="envelope" iconColor="Red">{"Send by Email"}</NavIcon>
-          <NavIcon iconName="whatsapp" iconColor="WhatsApp">{"Share with What's App"}</NavIcon>
+          <NavIcon iconName="facebook" iconColor="socialFacebook">{"Share on Facebook"}</NavIcon>
+          <NavIcon iconName="twitter" iconColor="socialTwitter">{"Share on Twitter"}</NavIcon>
+          <NavIcon iconName="envelope" iconColor="socialEmail">{"Send by Email"}</NavIcon>
+          <NavIcon iconName="whatsapp" iconColor="socialWhatsApp">{"Share with What's App"}</NavIcon>
         </Widget>
 
         <Widget widgetTitle={text('widgetTitle', 'Tags')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>

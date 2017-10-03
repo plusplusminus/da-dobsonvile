@@ -12,7 +12,6 @@ export Heading, {
 export { default as Icon } from './components/Base/Icon';
 export Label from './components/Base/Label';
 export Logo from './components/Base/Logo';
-export StoryColor from './components/Base/StoryColor';
 
 
 // Navs

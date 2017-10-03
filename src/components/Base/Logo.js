@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
 function Logo(props) {
@@ -8,6 +9,7 @@ function Logo(props) {
   const styles = StyleSheet.create({
     Logo: {
       width: size,
+      height: 'auto',
     },
   });
 
@@ -151,8 +153,15 @@ function Logo(props) {
 }
 
 Logo.defaultProps = {
-  title: 'DA Logo',
+  title: 'Democratic Alliance Logo',
   size: '130px',
+}
+
+Logo.propTypes = {
+  /*Title of the logo*/
+  title: PropTypes.string,
+  /*Pixel value of logo width*/
+  size: PropTypes.string.isRequired,
 }
 
 export default Logo;

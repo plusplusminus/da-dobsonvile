@@ -6,7 +6,7 @@ const Icon = (props) => {
   const { color, name } = props;
   const styles = StyleSheet.create({
     icon:{
-      color: props.color,
+      color: 'inherit',
       marginLeft: spacing[props.ml],
       marginRight: spacing[props.mr],
     },
@@ -19,7 +19,6 @@ const Icon = (props) => {
 
 Icon.defaultProps = {
   name: null,
-  color: '#333',
   ml: null,
   mr: null,
 }

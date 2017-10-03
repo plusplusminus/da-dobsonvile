@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { Button, Copy, HeadingAside } from 'components';
 import { colors, fontWeight, spacing } from 'common/styles/variables';
+import {default as HeadingTest} from 'components/Heading';
+import {default as ButtonTest} from 'components/Button'
 
 function AsideOverlay(props) {
 
@@ -28,22 +30,23 @@ function AsideOverlay(props) {
   return (
     <aside className={css(styles.asideOverlay)} style={{backgroundImage:`url(${visual})`}}>
       <div className={css(styles.bg)}>
-        <HeadingAside
-          color={ headingColor }>
+        <HeadingTest
+          importance="high"
+          size="large"
+          weight="thick"
+        >
           { heading }
-        </HeadingAside>
+        </HeadingTest>
         <Copy
           color={ copyColor }
           align={"center"}
           fontWeight={copyWeight}>
           { copy }
         </Copy>
-        <Button
-          color={"Primary"}
-          borderColor={"White"}
-          backgroundColor={"White"}>
+        <ButtonTest
+          color="blue">
           { buttonLabel }
-        </Button>
+        </ButtonTest>
       </div>
     </aside>
   )

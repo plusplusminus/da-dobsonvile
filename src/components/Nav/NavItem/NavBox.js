@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { Icon } from 'components';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+import { colors, fonts, fontStyles, fontWeight, letterSpacing, opacity, spacing, timing } from 'common/styles/variables';
 import { getHoverAttributes } from 'utils/helpers'
 
 const NavBox = (props) => {
@@ -23,6 +23,7 @@ const NavBox = (props) => {
       width:'100%',
     	...fontStyles('13px','13px'),
       color: colors[props.color],
+      transition: `all ${timing.default} ease-in-out`,
       ':hover': {
         color: colors.PrimaryHover,
         borderColor: colors.PrimaryHover,

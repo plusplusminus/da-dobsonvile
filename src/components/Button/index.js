@@ -9,7 +9,7 @@ const hoverStyles = {
   },
 
   blue: {
-    backgroundColor: colors.PrimaryHover,
+    backgroundColor: colors.BlueHover,
     color: colors.White,
   },
 
@@ -151,37 +151,37 @@ const styles = {
       paddingBottom: `${9 / 9}em`,
       paddingLeft: `${19 / 9}em`,
       paddingRight: `${19 / 9}em`,
-      paddingTop: `${12 / 9}em`,
+      paddingTop: `${9 / 9}em`,
     },
     small: {
       fontSize: "11px",
       paddingBottom: `${15 / 11}em`,
-      paddingTop: `${18 / 11}em`,
+      paddingTop: `${15 / 11}em`,
     },
     medium: {
       fontSize: "13px",
       paddingBottom: `${21 / 13}em`,
-      paddingTop: `${26 / 13}em`,
+      paddingTop: `${21 / 13}em`,
     },
     large: {
       fontSize: "15px",
       paddingBottom: `${23 / 15}em`,
-      paddingTop: `${28 / 15}em`,
+      paddingTop: `${23 / 15}em`,
     },
     huge: {
       fontSize: "17px",
       paddingBottom: `${25 / 17}em`,
-      paddingTop: `${30 / 17}em`,
+      paddingTop: `${25 / 17}em`,
     },
   },
 
   type: {
     rounded: {
       base: {
-        borderRadius: "30px", // a value large enough to scale
+        borderRadius: "30px",
         paddingLeft: `${21 / 9}em`,
         paddingRight: `${21 / 9}em`,
-        paddingTop: `${12 / 9}em`,
+        paddingTop: `${9 / 9}em`,
       },
 
       tiny: {
@@ -189,7 +189,7 @@ const styles = {
       },
 
       small: {
-        paddingBottom: `${10 / 9}em`,
+        paddingBottom: `${9 / 9}em`,
       },
 
       medium: {
@@ -197,7 +197,7 @@ const styles = {
       },
 
       large: {
-        paddingBottom: `${10 / 9}em`,
+        paddingBottom: `${9 / 9}em`,
       },
 
       huge: {
@@ -216,12 +216,6 @@ const styles = {
   },
 };
 
-/**
- * Button component
- *
- * @usage
- * <Button href="/foo">Bar</Button>
- */
 function Button({
   href,
   children,
@@ -233,7 +227,8 @@ function Button({
   full,
   disabled,
   customStyles,
-}) {
+})
+{
   const Element = href ? "a" : "button";
   const role = Element === "a" ? "button" : null;
 
@@ -274,72 +269,6 @@ function Button({
   );
 }
 
-Button.propTypes = {
-  /**
-   * Pass an href prop to make the button an `a` element instead of a `button`
-   */
-  href: PropTypes.string,
-  /**
-   * Content for the button
-   */
-  children: PropTypes.node.isRequired,
-  /**
-   * Function to run when the button is clicked
-   */
-  onClick: PropTypes.func,
-  /**
-   * Color of the button
-   */
-  color: PropTypes.oneOf([
-    "blue",
-    "red",
-    "green",
-    "yellow",
-  ]),
-  /**
-   * Size of the button
-   * tiny: 30 px tall
-   * small: 44 px tall
-   * medium: 60 px tall
-   * large: 66 px tall
-   * huge: 72 px tall
-   */
-  size: PropTypes.oneOf([
-    "tiny",
-    "small",
-    "medium",
-    "large",
-    "huge",
-  ]),
-  /**
-   * Use a rounded button
-   */
-  rounded: PropTypes.bool,
-  /**
-   * Use a outline button
-   */
-  outline: PropTypes.bool,
-  /**
-   * Allow button to span available width
-   */
-  full: PropTypes.bool,
-  /**
-   * Special styles passed in props
-   */
-  customStyles: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.object,
-    ]),
-  ),
-
-  /**
-   * Disable button
-   */
-  disabled: PropTypes.bool,
-};
-
 Button.defaultProps = {
   href: null,
   onClick: null,
@@ -350,6 +279,46 @@ Button.defaultProps = {
   children: "Button",
   disabled: false,
   customStyles: null,
+};
+
+Button.propTypes = {
+  /** Pass an href prop to make the button an `a` element instead of a `button` */
+  href: PropTypes.string,
+  /** Content for the button */
+  children: PropTypes.node.isRequired,
+  /** Function to run when the button is clicked */
+  onClick: PropTypes.func,
+  /** Color of the button */
+  color: PropTypes.oneOf([
+    "blue",
+    "red",
+    "green",
+    "yellow",
+  ]),
+  /** Size of the button */
+  size: PropTypes.oneOf([
+    "tiny",
+    "small",
+    "medium",
+    "large",
+    "huge",
+  ]),
+  /** Use a rounded button */
+  rounded: PropTypes.bool,
+  /** Use a outline button */
+  outline: PropTypes.bool,
+  /** Allow button to span available width */
+  full: PropTypes.bool,
+  /** Special styles passed in props */
+  customStyles: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
+  /** Disable button */
+  disabled: PropTypes.bool,
 };
 
 Button.styles = styles;
