@@ -25,6 +25,7 @@ const FooterMenus = (props) => {
         <div className={`${css(styles.wrapper)} ${col}`}>
           <HeadingSmall color={"White"}>Contact Details</HeadingSmall>
           <div className={css(styles.menu)}>
+            <NavIcon color={"White"} iconColor={"White"} iconName="mobile">+27 832 234 1232</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="instagram">Instagram</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="facebook">Facebook</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="twitter">Twitter</NavIcon>

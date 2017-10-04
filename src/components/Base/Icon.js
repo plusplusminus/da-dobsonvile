@@ -1,14 +1,16 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { StyleSheet, css } from "aphrodite";
 import { fontStyles, colors, spacing } from "common/styles/variables";
 
 const Icon = (props) => {
-  const { color, name, style } = props;
+  const { color, fs, lh, name, style } = props;
   const styles = StyleSheet.create({
     icon:{
-      color: 'inherit',
-      marginLeft: spacing[props.ml],
-      marginRight: spacing[props.mr],
+      color: props.color,
+      marginLeft: props.ml,
+      marginRight: props.mr,
+      ...fontStyles(props.fs,props.lh),
     },
   });
 
@@ -19,8 +21,26 @@ const Icon = (props) => {
 
 Icon.defaultProps = {
   name: null,
-  ml: null,
-  mr: null,
+  color: 'inherit',
+  ml: spacing.Space0,
+  mr: spacing.Space0,
+  fs: 'inherit',
+  lh: 'inherit',
+};
+
+Icon.propTypes = {
+  /** Color of Icon as per variables.js */
+  color: PropTypes.string.isRequired,
+  /** Name of Icon as per variables.js */
+  name: PropTypes.string.isRequired,
+  /** Margin Left taking property from Spacing in variables.js */
+  ml: PropTypes.string,
+  /** Margin Right taking property from Spacing in variables.js */
+  mr: PropTypes.string,
+  /** Font size taking px value */
+  fs: PropTypes.string,
+  /** Line height taking px value */
+  lh: PropTypes.string,
 };
 
 export default Icon;

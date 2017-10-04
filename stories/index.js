@@ -122,18 +122,30 @@ storiesOf('Base/Readme', module)
   ));
 
 storiesOf('Base/Button', module)
-  .add('Button', () => (
-    <ButtonTest
-      full={ boolean('Full Width', false) }
-      disabled={ boolean('Disable', false) }
-      rounded={ boolean('Rounded', true) }
-      outline={ boolean('Outline', false) }
-      color={ select('Color', ['blue', 'green', 'yellow', 'red'], 'blue') }
-      size={ select('Size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
-      href={text('Link','')}
-      onClick={action('clicked')}
-    />
-  ))
+  .add('Button', () => {
+    const iconsArray = [];
+    Object.keys(icons).forEach((name) => {
+      if (icons[name]) {
+        iconsArray.push(
+          icons[name]
+        );
+      }
+    })
+    return(
+      <ButtonTest
+        full={ boolean('Full Width', false) }
+        disabled={ boolean('Disable', false) }
+        rounded={ boolean('Rounded', true) }
+        outline={ boolean('Outline', false) }
+        color={ select('Color', ['blue', 'green', 'yellow', 'red'], 'blue') }
+        size={ select('Size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
+        href={text('Link','')}
+        onClick={action('clicked')}
+        iconBefore={ select('iconBefore', iconsArray, '') }
+        iconAfter={ select('iconAfter', iconsArray, '') }
+      />
+    )
+  })
   .add('Custom Styles', () => {
     const styles = {
       color: colors.White,
@@ -213,9 +225,47 @@ storiesOf('Base/Progress', module)
     })
     return (
       <Progress
-        color={ select('color', colorsArray, colors.White) }
+        color={ select('color', colorsArray, colors.bgDark) }
         progress={number('progress', 50, options)}
         showLabel={boolean('showLabel', true)}
+      />
+    )
+  })
+
+storiesOf('Base/Icon', module)
+  .add('Icon', () =>  {
+    const spacingArray = [];
+    Object.keys(spacing).forEach((name) => {
+      if (spacing[name]) {
+        spacingArray.push(
+          spacing[name]
+        );
+      }
+    })
+    const colorsArray = [];
+    Object.keys(colors).forEach((name) => {
+      if (colors[name]) {
+        colorsArray.push(
+          colors[name]
+        );
+      }
+    })
+    const iconsArray = [];
+    Object.keys(icons).forEach((name) => {
+      if (icons[name]) {
+        iconsArray.push(
+          icons[name]
+        );
+      }
+    })
+    return(
+      <Icon
+        name={ select('name', iconsArray, 'close') }
+        color={ select('color', colorsArray, 'inherit') }
+        ml={ select('ml',spacingArray, 'Space0') }
+        mr={ select('mr',spacingArray, 'Space0') }
+        fs={ text('fs', 'inherit') }
+        lh={ text('lh', 'inherit') }
       />
     )
   })

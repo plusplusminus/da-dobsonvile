@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { ButtonViewAll } from 'components';
+import { default as ButtonTest } from "components/Button";
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
 const ViewAll = (props) => {
@@ -26,7 +26,7 @@ const ViewAll = (props) => {
 
   return (
     <div className={css(styles.ViewAll)}>
-      <ButtonViewAll color={buttonColor}>{ buttonLabel }</ButtonViewAll>
+      <ButtonTest color="blue" outline >{ buttonLabel }</ButtonTest>
     </div>
   )
 }

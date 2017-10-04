@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { colors, timing, fonts, fontWeight, letterSpacing } from "common/styles/variables";
+import { Icon } from "components";
 import { StyleSheet, css } from "aphrodite";
 
 const hoverStyles = {
   base: {
     textDecoration: "none",
   },
-
   blue: {
     backgroundColor: colors.BlueHover,
     color: colors.White,
@@ -36,7 +36,8 @@ const styles = {
     border: 0,
     borderRadius: 0,
     cursor: "pointer",
-    display: "inline-block",
+    display: 'flex',
+    alignItems: 'center',
     lineHeight: 1,
     paddingLeft: "30px",
     paddingRight: "30px",
@@ -56,7 +57,6 @@ const styles = {
     ":active": hoverStyles.base,
     ":focus": hoverStyles.base,
   },
-
   color: {
     blue: {
       backgroundColor: colors.Blue,
@@ -205,7 +205,7 @@ const styles = {
       },
     },
     full: {
-      display: "block",
+      justifyContent: 'center',
       width: "100%",
     },
   },
@@ -227,6 +227,8 @@ function Button({
   full,
   disabled,
   customStyles,
+  iconBefore,
+  iconAfter
 })
 {
   const Element = href ? "a" : "button";
@@ -264,7 +266,15 @@ function Button({
       role={role}
       disabled={disabled}
     >
-      {children}
+      {iconBefore &&
+        <Icon name={iconBefore}/>
+      }
+      {children &&
+        <span>{children}</span>
+      }
+      {iconAfter &&
+        <Icon name={iconAfter}/>
+      }
     </Element>
   );
 }
@@ -279,6 +289,8 @@ Button.defaultProps = {
   children: "Button",
   disabled: false,
   customStyles: null,
+  iconBefore: null,
+  iconAfter: null,
 };
 
 Button.propTypes = {
@@ -319,6 +331,10 @@ Button.propTypes = {
   ),
   /** Disable button */
   disabled: PropTypes.bool,
+  /** Icon name to appear before text */
+  iconBefore: PropTypes.string,
+  /** Icon name to appear after text */
+  iconAfter: PropTypes.string,
 };
 
 Button.styles = styles;

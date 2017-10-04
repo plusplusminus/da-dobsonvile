@@ -26,6 +26,7 @@ export const letterSpacing = {
 };
 
 export const colors = {
+  inherit: "inherit",
   Border: "#E8E8E8",
   borderWhiteO: "rgba(255,255,255,0.15)",
   bgBlue: "#155FA2",
@@ -61,10 +62,12 @@ export const colors = {
 };
 
 export const icons = {
+  none: 'none',
   close: "close",
   angleLeft: "angle-left",
   angleRight: "angle-right",
   bookmark: "bookmark",
+  mobile: "mobile",
   newspaper: "newspaper",
   download: "download",
   print: "print",
