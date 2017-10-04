@@ -15,7 +15,7 @@ const Tag = (props) => {
       marginRight: spacing.Space1,
       marginBottom: spacing.Space1,
       borderColor: props.color === '#FFFFFF' ? colors.Border : props.color,
-      borderRadius: spacing.Space0,
+      borderRadius: spacing.Space05,
       backgroundColor: props.color,
       padding: spacing.Space1,
       paddingRight: props.close ? spacing.Space4 : spacing.Space1,

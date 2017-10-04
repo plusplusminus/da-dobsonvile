@@ -262,8 +262,8 @@ storiesOf('Base/Icon', module)
       <Icon
         name={ select('name', iconsArray, 'close') }
         color={ select('color', colorsArray, 'inherit') }
-        ml={ select('ml',spacingArray, 'Space0') }
-        mr={ select('mr',spacingArray, 'Space0') }
+        ml={ select('ml',spacingArray, 'Space05') }
+        mr={ select('mr',spacingArray, 'Space05') }
         fs={ text('fs', 'inherit') }
         lh={ text('lh', 'inherit') }
       />

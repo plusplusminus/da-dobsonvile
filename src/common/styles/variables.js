@@ -87,8 +87,8 @@ export const opacity = {
 
 const spacingFactor = 8;
 export const spacing = {
-  Space: `${spacingFactor * 0}px`,     // 0
-  Space0: `${spacingFactor / 2}px`,     // 4
+  Space0: `${spacingFactor * 0}px`,     // 0
+  Space05: `${spacingFactor / 2}px`,     // 4
   Space1: `${spacingFactor * 1}px`,     // 8
   Space2: `${spacingFactor * 2}px`,     // 16
   Space3: `${spacingFactor * 3}px`,     // 24

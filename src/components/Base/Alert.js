@@ -18,7 +18,7 @@ function Alert(props) {
       paddingRight: props.close ? spacing.Space5 : spacing.Space2,
       color: colors.CopyLightO,
       backgroundColor: props.color,
-      borderRadius: spacing.Space0,
+      borderRadius: spacing.Space05,
       ...fontStyles('14px','22px'),
     },
     close:{

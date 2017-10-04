@@ -37,7 +37,7 @@ const CardPerson = (props) => {
     },
     td:{
       paddingRight: spacing.Space2,
-      paddingBottom: spacing.Space0,
+      paddingBottom: spacing.Space05,
     }
   });
 

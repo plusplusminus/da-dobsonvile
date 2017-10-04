@@ -12,7 +12,7 @@ function Spacing() {
       marginBottom: 20,
       marginTop: '-1px',
       marginLeft: '-1px',
-      border: '1px solid',
+      borderLeft: '1px solid',
       borderBottom: '1px solid',
       borderColor: colors.Border,
       backgroundColor: colors.bgLight,
@@ -26,7 +26,8 @@ function Spacing() {
     if (spacing[name]) {
       spacingArray.push(
         <div className={css(styles.storySpacing)} style={{height: spacing[name]}}>
-          <pre>{ name }: <em>{ spacing[name] }</em></pre>
+          { spacing[name] }
+          <pre>{ name }</pre>
         </div>
       );
     }
