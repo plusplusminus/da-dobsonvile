@@ -506,11 +506,23 @@ storiesOf("Navs/NavItems", module)
         <HeadingMeta>August 20, 2017 in News</HeadingMeta>
       </Header>
     ))
-    .add("ViewAll", () => (
-      <ViewAll
-        buttonTag={text("buttonTag", "View All")}
-      />
-    ))
+    .add("ViewAll", () => {
+      const colorsArray = [];
+      Object.keys(colors).forEach((name) => {
+        if (colors[name]) {
+          colorsArray.push(
+            colors[name]
+          );
+        }
+      })
+      return(
+        <ViewAll
+          buttonLabel={text("buttonLabel", "View All")}
+          borderColor={select("borderColor", colorsArray, colors.BorderLight)}
+          buttonColor={ select('buttonColor', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
+        />
+      )
+    })
     .add("Widget", () => (
       <div>
         <Widget widgetTitle={text('widgetTitle', 'Share')}widgetTitle={text('widgetTitle', 'Share')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>

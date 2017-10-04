@@ -15,7 +15,7 @@ const ViewAll = (props) => {
       marginTop: spacing.Space5,
       marginBottom: spacing.Space5,
       borderTop: '1px solid',
-      borderColor: colors[props.borderColor],
+      borderColor: props.borderColor,
       textAlign: 'center',
       display: 'flex',
       justfyContent: 'center',
@@ -26,7 +26,7 @@ const ViewAll = (props) => {
 
   return (
     <div className={css(styles.ViewAll)}>
-      <ButtonTest color="blue" outline >{ buttonLabel }</ButtonTest>
+      <ButtonTest color={props.buttonColor} outline >{ buttonLabel }</ButtonTest>
     </div>
   )
 }
@@ -34,16 +34,22 @@ const ViewAll = (props) => {
 
 ViewAll.defaultProps = {
   buttonLabel: 'View All',
-  borderColor: 'BorderLight',
-  buttonColor: 'BlueLight',
-  buttonBorderColor: 'BlueLight',
-  buttonBackgroundColor: 'Transparent',
+  borderColor: colors.BorderLight,
+  buttonColor: 'blue',
 }
 
 ViewAll.propTypes = {
+  /** Label of button*/
   buttonLabel: PropTypes.string,
+  /** Color of Border as per variables.js*/
   borderColor: PropTypes.string,
-  buttonColor: PropTypes.string,
+  /** Color of the button */
+  buttonColor: PropTypes.oneOf([
+    "blue",
+    "red",
+    "green",
+    "yellow",
+  ]),
 };
 
 export default ViewAll;

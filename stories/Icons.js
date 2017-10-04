@@ -4,7 +4,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { Icon } from 'components';
 
 function Icons() {
-
+  
   const styles = StyleSheet.create({
     storyIcon:{
       display: 'block',

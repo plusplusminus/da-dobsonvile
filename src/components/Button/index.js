@@ -13,6 +13,11 @@ const hoverStyles = {
     color: colors.White,
   },
 
+  white: {
+    backgroundColor: colors.White,
+    color: colors.Blue,
+  },
+
   green: {
     backgroundColor: colors.GreenHover,
     color: colors.White,
@@ -61,6 +66,15 @@ const styles = {
     blue: {
       backgroundColor: colors.Blue,
       color: colors.White,
+
+      ":hover": hoverStyles.blue,
+      ":focus": hoverStyles.blue,
+      ":active": hoverStyles.blue,
+    },
+
+    white: {
+      backgroundColor: colors.White,
+      color: colors.Blue,
 
       ":hover": hoverStyles.blue,
       ":focus": hoverStyles.blue,
@@ -142,6 +156,18 @@ const styles = {
       ":hover": hoverStyles.yellow,
       ":focus": hoverStyles.yellow,
       ":active": hoverStyles.yellow,
+    },
+
+    white: {
+      backgroundColor: "transparent",
+      borderWidth: "2px",
+      borderStyle: "solid",
+      borderColor: colors.White,
+      color: colors.White,
+
+      ":hover": hoverStyles.white,
+      ":focus": hoverStyles.white,
+      ":active": hoverStyles.white,
     },
   },
 
@@ -306,6 +332,7 @@ Button.propTypes = {
     "red",
     "green",
     "yellow",
+    "white",
   ]),
   /** Size of the button */
   size: PropTypes.oneOf([
