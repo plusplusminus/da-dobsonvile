@@ -5,7 +5,7 @@ import { action } from "@storybook/addon-actions";
 import { checkA11y } from "storybook-addon-a11y";
 import backgrounds from "@storybook/addon-backgrounds";
 import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+import { colors, fonts, fontStyles, fontWeight, icons, letterSpacing, opacity, spacing } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
 import Colors from './Colors';
 import Icons from './Icons';
@@ -157,11 +157,19 @@ storiesOf('Base/Alert', module)
         );
       }
     })
+    const iconsArray = [];
+    Object.keys(icons).forEach((name) => {
+      if (icons[name]) {
+        iconsArray.push(
+          icons[name]
+        );
+      }
+    })
     return(
       <Alert
         close={boolean('close', true)}
         color={ select('color', colorsArray, colors.bgDark) }
-        iconBefore={text('iconBefore', '')}
+        iconBefore={ select('iconBefore', iconsArray, '') }
         >
         {text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
       </Alert>

@@ -38,7 +38,7 @@ function Alert(props) {
   return (
     <span className={css(styles.alert)}>
       { iconBefore &&
-        <div className={`${css(styles.iconBefore)}`}><Icon name="facebook"/></div>
+        <div className={`${css(styles.iconBefore)}`}><Icon name={iconBefore}/></div>
       }
       { close &&
         <i className={`${css(styles.close)} icon icon-close`}></i>
