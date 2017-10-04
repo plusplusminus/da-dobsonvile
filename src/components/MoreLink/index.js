@@ -100,12 +100,6 @@ const styles = {
   },
 };
 
-/**
- * MoreLink component
- *
- * @usage
- * <MoreLink href="/foo">View all tours</MoreLink>
- */
 function MoreLink({
   href,
   size,

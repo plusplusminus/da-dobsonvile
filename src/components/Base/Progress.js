@@ -62,11 +62,11 @@ Progress.defaultProps = {
 }
 
 Progress.propTypes = {
-  /*Color value from variables.js*/
+  /** Color value from variables.js */
   color: PropTypes.string,
-  /*Number Value to indicate % progress*/
+  /** Number Value to indicate % progress */
   progress: PropTypes.number,
-  /*Option to remove progress & label from progress bar*/
+  /** Option to remove progress & label from progress bar */
   showLabel: PropTypes.bool,
 };
 

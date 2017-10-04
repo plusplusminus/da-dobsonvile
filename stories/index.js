@@ -383,13 +383,13 @@ storiesOf("Navs/NavItems", module)
   .add("MoreLink", () => (
     <MoreLink
       href={text("URL", "/")}
-      size={select("Size", ["", "small", "large"], "")}
-      color={select("Color", ["blue", "green", "yellow", "red"], "blue")}
-      caps={boolean("Capitalized", false)}
-      hideIcon={boolean("Hide icon", false)}
-      arrowDirection={select("Arrow diretion", ["up", "down", "left", "right"], "right")}
+      size={select("size", ["", "small", "large"], "")}
+      color={select("color", ["blue", "green", "yellow", "red"], "blue")}
+      caps={boolean("caps", false)}
+      hideIcon={boolean("hideIcon", false)}
+      arrowDirection={select("arrowDirection", ["up", "down", "left", "right"], "right")}
     >
-      { text("Text", "Read More") }
+      { text("children", "Read More") }
     </MoreLink>
   ));
 
