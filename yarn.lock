@@ -6011,6 +6011,10 @@ storybook-addon-a11y@^3.0.0:
     axe-core "^2.0.7"
     prop-types "^15.5.10"
 
+storybook-addon-smart-knobs@^3.2.10:
+  version "3.2.10"
+  resolved "https://registry.yarnpkg.com/storybook-addon-smart-knobs/-/storybook-addon-smart-knobs-3.2.10.tgz#ce71d7cc164401c00eebabcb6c969877acf47c7a"
+
 stream-browserify@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.1.tgz#66266ee5f9bdb9940a4e4514cafb43bb71e5c9db"

@@ -12,6 +12,7 @@ const styles = {
     marginRight: 0,
     marginBottom: 0,
     marginLeft: 0,
+    padding: 0,
   },
 
   size: {
@@ -63,10 +64,9 @@ const styles = {
   },
 
   variant: {
-    caps: {
+    uppercase: {
       textTransform: "uppercase",
     },
-
     truncate: {
       overflow: "hidden",
       textOverflow: "ellipsis",
@@ -74,30 +74,23 @@ const styles = {
     },
   },
 
-  tracking: {
+  letterSpacing: {
+    none: {
+      letterSpacing: letterSpacing.none,
+    },
     base: {
-      letterSpacing: letterSpacing.Base,
+      letterSpacing: letterSpacing.base,
     },
     large: {
-      letterSpacing: letterSpacing.Large,
+      letterSpacing: letterSpacing.large,
     },
   },
 };
 
-/**
- * Heading component
- */
-function Heading({
-  children,
-  level,
-  size,
-  weight,
-  importance,
-  tracking,
-  truncate,
-  caps,
-  override,
-}) {
+const Heading = (props) => {
+
+  const { children, level, size, weight, importance, letterSpacing, truncate, uppercase, override } = props;
+
   const Component = `h${level}`;
 
   const style = [
@@ -105,9 +98,9 @@ function Heading({
     size && styles.size[size],
     weight && styles.weight[weight],
     importance && styles.importance[importance],
-    tracking && styles.tracking[tracking],
+    letterSpacing && styles.letterSpacing[letterSpacing],
     truncate && styles.variant.truncate,
-    caps && styles.variant.caps,
+    uppercase && styles.variant.uppercase,
     flatten(override),
   ];
 
@@ -132,15 +125,22 @@ function Heading({
   );
 }
 
-Heading.propTypes = {
-  /**
-   * Text for the heading
-   */
-  children: PropTypes.node.isRequired,
+Heading.defaultProps = {
+  level: 2,
+  size: "medium",
+  weight: "normal",
+  importance: "normal",
+  letterSpacing: "normal",
+  truncate: false,
+  uppercase: false,
+  override: {},
+};
 
-  /**
-   * Creates the heading element
-   */
+
+Heading.propTypes = {
+  /** Text for the heading */
+  children: PropTypes.node.isRequired,
+  /** Creates the heading HTML element */
   level: PropTypes.oneOf([
     1,
     2,
@@ -149,10 +149,7 @@ Heading.propTypes = {
     5,
     6,
   ]).isRequired,
-
-  /**
-   * Declares the font size of the heading
-   */
+  /** Declares the font size of the heading */
   size: PropTypes.oneOf([
     "huge",
     "large",
@@ -160,49 +157,31 @@ Heading.propTypes = {
     "small",
     "tiny",
   ]).isRequired,
-
-  /**
-   * Adjusts the font weight of the heading
-   */
+  /** Adjusts the font weight of the heading */
   weight: PropTypes.oneOf([
     "thick",
     "normal",
     "thin",
     "extraThin",
   ]),
-
-  /**
-   * The heading color changes based on importance
-   */
+  /** The heading color changes based on importance */
   importance: PropTypes.oneOf([
     "alert",
     "high",
     "normal",
     "low",
   ]),
-
-  /**
-   * Controls the letter spacing
-   */
-  tracking: PropTypes.oneOf([
-    "tight",
-    "normal",
-    "loose",
+  /** Controls the letter spacing */
+  letterSpacing: PropTypes.oneOf([
+    "none",
+    "base",
+    "large",
   ]),
-
-  /**
-   * Whether or not to hide the text overflow with an ellipsis
-   */
+  /** Whether or not to hide the text overflow with an ellipsis */
   truncate: PropTypes.bool,
-
-  /**
-   * Whether or not to set the heading in all caps
-   */
-  caps: PropTypes.bool,
-
-  /**
-   * Override styles
-   */
+  /** Whether or not to set the heading in all caps */
+  Uppercase: PropTypes.bool,
+  /** Override styles */
   override: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -210,17 +189,6 @@ Heading.propTypes = {
       PropTypes.object,
     ]),
   ),
-};
-
-Heading.defaultProps = {
-  level: 2,
-  size: "medium",
-  weight: "normal",
-  importance: "normal",
-  tracking: "normal",
-  truncate: false,
-  caps: false,
-  override: {},
 };
 
 Heading.styles = styles;

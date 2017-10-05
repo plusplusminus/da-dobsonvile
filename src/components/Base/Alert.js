@@ -4,7 +4,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { Icon } from 'components'
 import { fonts, fontStyles, fontWeight, letterSpacing, colors, spacing } from 'common/styles/variables';
 
-function Alert(props) {
+const Alert = (props) => {
 
   const { children, iconBefore, close, color } = props;
 

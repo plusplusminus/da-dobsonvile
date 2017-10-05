@@ -37,7 +37,7 @@ const Videos = (props) => {
         </div>
       </div>
 
-      <ViewAll borderColor={"borderWhiteO"} buttonColor={"White"} buttonLabel="View all Videos"/>
+      <ViewAll buttonLabel="View all Videos"/>
     </section>
   )
 }

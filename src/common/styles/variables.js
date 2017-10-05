@@ -20,45 +20,52 @@ export const fontStyles = (size, lh, extras = {}) => ({
 });
 
 export const letterSpacing = {
-  None: "0",
-  Base: "1px",
-  Large: "2px",
+  none: "0",
+  base: "0.015rem",
+  large: "0.025rem",
 };
 
 export const colors = {
-  inherit: "inherit",
-  Border: "#E8E8E8",
+
+  baseBlack: "#000000",
+  baseInherit: "inherit",
+  baseTransparent: "transparent",
+  baseWhite: "#FFFFFF",
+
+  brandBlue: "#155FA2",
+  brandBlueHover: "#2C6FAB",
+  brandBlueLight: "#1D7BB9",
+  brandGreen: "#52A74B",
+  brandGreenHover: "#63B05D",
+  brandRed: "#B0153C",
+  brandRedHover: "#B82C4F",
+  brandYellow: "#FDC842",
+  brandYellowHover: "#FDCD55",
+
+  border: "#E8E8E8",
+  borderLight: "rgba(51,51,51,0.1)",
   borderWhiteO: "rgba(255,255,255,0.15)",
+
   bgBlue: "#155FA2",
   bgBlueLight: "#1D7BB9",
   bgLight: "#EEEEEE",
   bgLightO: "rgba(255,255,255,0.8)",
   bgDark: "#333333",
   bgDarkO: "rgba(51,51,51,0.8)",
-  Black: "#000000",
-  Blue: "#155FA2",
-  BlueHover: "#1D7BB9",
-  BlueLight: "#1D7BB9",
-  BlueLight1: "#85CEFF",
-  BorderLight: "rgba(51,51,51,0.1)",
-  Copy: "#333333",
-  CopyLight: "#777777",
-  CopyLightO: "rgba(255,255,255,0.85)",
-  Green: "#52A74B",
-  GreenHover: "#088920",
-  Heading: "#333333",
-  Primary: "#155FA2",
-  PrimaryHover: "#1E80C0",
-  Red: "#B0153C",
-  RedHover: "#B0153C",
-  Transparent: "transparent",
+
+  statusDanger: "#B0153C",
+  statusInfo: "#85CEFF",
+  statusSuccess: "#52A74B",
+  statusWarning: "#F5A623",
+
+  text: "#333333",
+  textLight: "#777777",
+  textLightO: "rgba(255,255,255,0.85)",
+
   socialEmail: '#B0153C',
   socialFacebook: "#3A579A",
   socialTwitter: "#00AAF0",
   socialWhatsApp: "#52A74B",
-  White: "#FFFFFF",
-  Yellow: "#FDC842",
-  YellowHover: "#FDC842",
 };
 
 export const icons = {

@@ -21,8 +21,8 @@ const NavBox = (props) => {
       borderColor: colors.bgLight,
       background: colors.bgLight,
       width:'100%',
+      color: colors.Copy,
     	...fontStyles('13px','13px'),
-      color: colors[props.color],
       transition: `all ${timing.default} ease-in-out`,
       ':hover': {
         color: colors.PrimaryHover,
@@ -36,10 +36,6 @@ const NavBox = (props) => {
       { children }
     </button>
   )
-}
-
-NavBox.defaultProps = {
-  color: 'Copy',
 }
 
 export default NavBox;

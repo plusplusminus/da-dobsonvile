@@ -4,7 +4,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { Icon } from 'components';
 
 function Icons() {
-  
+
   const styles = StyleSheet.create({
     storyIcon:{
       display: 'block',
@@ -24,7 +24,7 @@ function Icons() {
         <div className={css(styles.storyIcon)}>
           <Icon name={icons[name]} />
           <div className={css(styles.label)}>
-            <pre>{name}</pre>
+            <code>{name}</code>
           </div>
         </div>
       );

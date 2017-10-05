@@ -26,8 +26,8 @@ function Spacing() {
     if (spacing[name]) {
       spacingArray.push(
         <div className={css(styles.storySpacing)} style={{height: spacing[name]}}>
-          { spacing[name] }
-          <pre>{ name }</pre>
+          <code>{ name }</code>
+          <p>{ spacing[name] }</p>
         </div>
       );
     }

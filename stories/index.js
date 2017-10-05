@@ -82,46 +82,41 @@ addDecorator(backgrounds([
   { name: "bgLight", value: "#EEEEEE" },
 ]));
 
-storiesOf('StyleGuide/Readme', module)
+storiesOf('StyleGuide', module)
   .add('Readme', () => (
     <div>
       <h1>Style Guide</h1>
       <p>Tools to help style components</p>
     </div>
-  ));
+  ))
 
-  storiesOf('StyleGuide/Fonts', module)
-    .add('Serif', () => (
+  .add('Fonts', () => (
+    <div>
       <Heading font="Serif">Serif</Heading>
-    ))
-    .add('Sans', () => (
       <Heading font="Sans">Sans</Heading>
-    ))
+    </div>
+  ))
 
-  storiesOf('StyleGuide/Colors', module)
-    .add('Base', () => (
-      <Colors />
-    ))
+  .add('Colors', () => (
+    <Colors />
+  ))
 
-  storiesOf('StyleGuide/Icons', module)
-    .add('Icon', () => (
-      <Icons />
-    ))
+  .add('Icons', () => (
+    <Icons />
+  ))
 
-  storiesOf('StyleGuide/Spacing', module)
-    .add('Base', () => (
-      <Spacing />
-    ))
+  .add('Spacing', () => (
+    <Spacing />
+  ))
 
-storiesOf('Base/Readme', module)
+storiesOf('Base', module)
   .add('Readme', () => (
     <div>
       <h1>Base Components</h1>
       <p>Base components are not to be accessed outside of the Dobsonville. These need to be part of other components or compositions.</p>
     </div>
-  ));
+  ))
 
-storiesOf('Base/Button', module)
   .add('Button', () => {
     const iconsArray = [];
     Object.keys(icons).forEach((name) => {
@@ -146,7 +141,7 @@ storiesOf('Base/Button', module)
       />
     )
   })
-  .add('Custom Styles', () => {
+  .add('Button Custom Styles', () => {
     const styles = {
       color: colors.White,
       backgroundColor: colors.BlueLight,
@@ -159,80 +154,25 @@ storiesOf('Base/Button', module)
     )
   })
 
-storiesOf('Base/Alert', module)
-  .add('Alert', () => {
-    const colorsArray = [];
-    Object.keys(colors).forEach((name) => {
-      if (colors[name]) {
-        colorsArray.push(
-          colors[name]
-        );
-      }
-    })
-    const iconsArray = [];
-    Object.keys(icons).forEach((name) => {
-      if (icons[name]) {
-        iconsArray.push(
-          icons[name]
-        );
-      }
-    })
-    return(
-      <Alert
-        close={boolean('close', true)}
-        color={ select('color', colorsArray, colors.bgDark) }
-        iconBefore={ select('iconBefore', iconsArray, '') }
-        >
-        {text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
-      </Alert>
-    )
-  })
-
-storiesOf("Base/Copy", module)
   .add("Copy", () => (
-    <Copy>{text("Children", "Copy")}</Copy>
-  ));
+    <Copy>{text("Children", "Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.")}</Copy>
+  ))
 
-storiesOf('Base/Heading', module)
   .add('Heading', () => (
     <HeadingTest
-      level={select("Level", [1, 2, 3, 4, 5, 6], 1)}
-      size={select("Size", ["huge", "large", "medium", "small", "tiny"], "medium")}
-      importance={select("Importance", ["high", "low", "normal", "alert"], "normal")}
-      caps={boolean("Uppercase", false)}
-      truncate={boolean("Truncate", false)}
-      weight={select("Weight", ["thick", "normal", "thin", "extraThin"], "normal")}
-      tracking={select("Letter Spacing", ["none", "base", "large"], "none")}
-      override={object("Override", {})}
-      children={text("Children", "Heading")}
-    />
+      level={select("level", [1, 2, 3, 4, 5, 6], 1)}
+      size={select("size", ["huge", "large", "medium", "small", "tiny"], "medium")}
+      importance={select("importance", ["high", "low", "normal", "alert"], "normal")}
+      uppercase={boolean("uppercase", false)}
+      truncate={boolean("truncate", false)}
+      weight={select("weight", ["thick", "normal", "thin", "extraThin"], "normal")}
+      letterSpacing={select("letterSpacing", ["none", "base", "large"], "none")}
+      override={object("override", {})}
+    >
+      {text("children", "Heading")}
+    </HeadingTest>
   ))
-storiesOf('Base/Progress', module)
-  .add('Progress', () =>  {
-    const options = {
-      range: true,
-      min: 0,
-      max: 100,
-      step: 1
-    }
-    const colorsArray = [];
-    Object.keys(colors).forEach((name) => {
-      if (colors[name]) {
-        colorsArray.push(
-          colors[name]
-        );
-      }
-    })
-    return (
-      <Progress
-        color={ select('color', colorsArray, colors.bgDark) }
-        progress={number('progress', 50, options)}
-        showLabel={boolean('showLabel', true)}
-      />
-    )
-  })
 
-storiesOf('Base/Icon', module)
   .add('Icon', () =>  {
     const spacingArray = [];
     Object.keys(spacing).forEach((name) => {
@@ -270,26 +210,6 @@ storiesOf('Base/Icon', module)
     )
   })
 
-storiesOf('Base/Tag', module)
-  .add('Tag', () => {
-    const colorsArray = [];
-    Object.keys(colors).forEach((name) => {
-      if (colors[name]) {
-        colorsArray.push(
-          colors[name]
-        );
-      }
-    })
-    return(
-      <Tag
-        close={boolean('close',false)}
-        color={ select('color', colorsArray, colors.White) }>
-        {text('children','Tag Name')}
-      </Tag>
-    )
-  })
-
-storiesOf('Base/Logo', module)
   .add('Logo', () => {
     const options = {
       range: true,
@@ -393,12 +313,41 @@ storiesOf("Navs/NavItems", module)
     </MoreLink>
   ));
 
-  storiesOf('Compositions', module)
+  storiesOf('Components', module)
+    .add('Alert', () => {
+      const colorsArray = [];
+      Object.keys(colors).forEach((name) => {
+        if (colors[name]) {
+          colorsArray.push(
+            colors[name]
+          );
+        }
+      })
+      const iconsArray = [];
+      Object.keys(icons).forEach((name) => {
+        if (icons[name]) {
+          iconsArray.push(
+            icons[name]
+          );
+        }
+      })
+      return(
+        <Alert
+          close={boolean('close', true)}
+          color={ select('color', colorsArray, colors.bgDark) }
+          iconBefore={ select('iconBefore', iconsArray, '') }
+          >
+          {text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
+        </Alert>
+      )
+    })
+
     .add('Aside', () => (
       <Aside
         visual={dobsonville}
       />
     ))
+
     .add("AsideList", () => (
       <AsideList
         heading={"Latest News"}
@@ -421,6 +370,7 @@ storiesOf("Navs/NavItems", module)
         />
       </AsideList>
     ))
+
     .add("AsideMenu", () => (
       <AsideMenu>
         <NavBox>Item One</NavBox>
@@ -428,11 +378,13 @@ storiesOf("Navs/NavItems", module)
         <NavBox>Item Three</NavBox>
       </AsideMenu>
     ))
+
     .add("AsideOverlay", () => (
       <AsideOverlay
         visual={dobsonville}
       />
     ))
+
     .add("CardCampaign", () => (
       <div>
         <CampaignCard
@@ -445,6 +397,7 @@ storiesOf("Navs/NavItems", module)
         />
       </div>
     ))
+
     .add("CardHighlight", () => (
       <CardHighlight
         visual={dobsonville}
@@ -458,6 +411,7 @@ storiesOf("Navs/NavItems", module)
         cta={<NavText color={"Red"} display={"block"}>{"View More"}</NavText>}
       />
     ))
+
     .add("CardNews", () => (
       <div>
         <CardNews
@@ -468,6 +422,7 @@ storiesOf("Navs/NavItems", module)
         />
       </div>
     ))
+
     .add('CardPerson', () => (
       <div>
         <CardPerson
@@ -479,6 +434,7 @@ storiesOf("Navs/NavItems", module)
         />
       </div>
     ))
+
     .add('CardRelated', () => (
         <CardRelated
           vertical={boolean('vertical?', 'false')}
@@ -488,6 +444,7 @@ storiesOf("Navs/NavItems", module)
           cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}
         />
     ))
+
     .add("CardVideo", () => (
       <CardVideo
         featured={boolean("featured", "false")}
@@ -498,6 +455,7 @@ storiesOf("Navs/NavItems", module)
         cta={<NavText color={"White"}>Play video</NavText>}
       />
     ))
+
     .add("Header", () => (
       <Header borderWidth={"1px"}>
         <HeadingMeta textTransform={"uppercase"} letterSpacing={"Base"}>Western Cape</HeadingMeta>
@@ -506,6 +464,49 @@ storiesOf("Navs/NavItems", module)
         <HeadingMeta>August 20, 2017 in News</HeadingMeta>
       </Header>
     ))
+
+    .add('Progress', () =>  {
+      const options = {
+        range: true,
+        min: 0,
+        max: 100,
+        step: 1
+      }
+      const colorsArray = [];
+      Object.keys(colors).forEach((name) => {
+        if (colors[name]) {
+          colorsArray.push(
+            colors[name]
+          );
+        }
+      })
+      return (
+        <Progress
+          color={ select('color', colorsArray, colors.bgDark) }
+          progress={number('progress', 50, options)}
+          showLabel={boolean('showLabel', true)}
+        />
+      )
+    })
+
+    .add('Tag', () => {
+      const colorsArray = [];
+      Object.keys(colors).forEach((name) => {
+        if (colors[name]) {
+          colorsArray.push(
+            colors[name]
+          );
+        }
+      })
+      return(
+        <Tag
+          close={boolean('close',false)}
+          color={ select('color', colorsArray, colors.White) }>
+          {text('children','Tag Name')}
+        </Tag>
+      )
+    })
+
     .add("ViewAll", () => {
       const colorsArray = [];
       Object.keys(colors).forEach((name) => {
@@ -523,6 +524,7 @@ storiesOf("Navs/NavItems", module)
         />
       )
     })
+
     .add("Widget", () => (
       <div>
         <Widget widgetTitle={text('widgetTitle', 'Share')}widgetTitle={text('widgetTitle', 'Share')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
@@ -540,7 +542,7 @@ storiesOf("Navs/NavItems", module)
       </div>
     ));
 
-storiesOf("Modules", module)
+  storiesOf("Modules", module)
     .add("ArticleDetails", () => (
       <ArticleDetails />
     ))
@@ -560,7 +562,7 @@ storiesOf("Modules", module)
       <Videos />
     ));
 
-storiesOf("Sections", module)
+  storiesOf("Sections", module)
     .add("Hero", () => (
       <Hero
         visual={dobsonville}
