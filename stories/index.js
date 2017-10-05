@@ -147,9 +147,31 @@ storiesOf('Base', module)
     )
   })
 
-  .add("Copy", () => (
-    <Copy>{text("Children", "Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.")}</Copy>
-  ))
+  .add("Copy", () => {
+    const fontsArray = getStyleValue(fonts);
+    const weightsArray = getStyleValue(fontWeight);
+    const colorsArray = getStyleValue(filterStyleGroup(colors,"text"));
+    const spacingArray = getStyleValue(spacing);
+
+    return(
+      <Copy
+        fontFamily={select('fontFamily',fontsArray,fonts.sans)}
+        color={select('color',colorsArray,colors.textBase)}
+        fontWeight={select('fontWeight',weightsArray,fontWeight.light)}
+        align={text('align','left')}
+        textTransform={text('textTransform','none')}
+        display={text('display','inline-block')}
+        fs={text('fs','16px')}
+        lh={text('lh','30px')}
+        mt={select('mt',spacingArray,spacing.space0)}
+        mr={select('mr',spacingArray,spacing.space0)}
+        mb={select('mb',spacingArray,spacing.space3)}
+        ml={select('ml',spacingArray,spacing.space0)}
+      >
+        {text("Children", "Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.")}
+      </Copy>
+    )
+  })
 
   .add('Heading', () => (
     <HeadingTest

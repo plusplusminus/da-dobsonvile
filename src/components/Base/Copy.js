@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { fonts, fontStyles, fontWeight, letterSpacing, colors, spacing } from 'common/styles/variables';
 
-function Copy(props) {
+const Copy = (props) => {
 
   const { children } = props;
 
@@ -11,15 +11,14 @@ function Copy(props) {
     Copy:{
       textAlign: props.align,
       display: props.display,
-      fontWeight: fontWeight[props.fontWeight],
-      fontFamily: fonts[props.font],
-      color: colors[props.color],
-      letterSpacing: letterSpacing[props.letterSpacing],
-      textTransform: props.transform,
-      marginTop: spacing[props.mt],
-      marginBottom: spacing[props.mb],
-      marginLeft: spacing[props.ml],
-      marginRight: spacing[props.mr],
+      fontWeight: props.fontWeight,
+      fontFamily: props.fontFamily,
+      color: props.color,
+      textTransform: props.textTransform,
+      marginTop: props.mt,
+      marginBottom: props.mb,
+      marginLeft: props.ml,
+      marginRight: props.mr,
       ...fontStyles(props.fs,props.lh),
     },
   });
@@ -30,35 +29,45 @@ function Copy(props) {
 }
 
 Copy.defaultProps = {
-  font: 'Sans',
-  color: 'Copy',
-  letterSpacing: 'None',
-  fontWeight: 'Light',
   align: 'left',
-  textTransform: 'none',
+  color: colors.textBase,
   display:'inline-block',
-  mt: 'Space',
-  mr: 'Space',
-  mb: 'Space3',
-  ml: 'Space',
+  fontFamily: fonts.sans,
+  fontWeight: fontWeight.light,
+  textTransform: 'none',
   fs: '16px',
   lh: '30px',
+  mt:  spacing.space0,
+  mr:  spacing.space0,
+  mb:  spacing.space3,
+  ml:  spacing.space0,
 }
 
 Copy.propTypes = {
-  font: PropTypes.string,
-  color: PropTypes.string,
-  letterSpacing: PropTypes.string,
-  fontWeight: PropTypes.string,
+  /** Align value as per CSS */
   align: PropTypes.string,
+  /** Text color as per variables.js */
+  color: PropTypes.string.isRequired,
+  /** Font as per variables.js */
+  fontFamily: PropTypes.string.isRequired,
+  /** Text Transform as per CSS */
   textTransform: PropTypes.string,
+  /** Display property as per CSS */
   display: PropTypes.string,
-  mt: PropTypes.string,
-  mr: PropTypes.string,
-  mb: PropTypes.string,
-  ml: PropTypes.string,
+  /** Font weight as per CSS */
+  fontWeight: PropTypes.string,
+  /** Font size as pixel value */
   fs: PropTypes.string,
+  /** Line height as pixel value */
   lh: PropTypes.string,
+  /** Margin top in Spacing value as per variables.js */
+  mt:  PropTypes.string,
+  /** Margin right in Spacing value as per variables.js */
+  mr:  PropTypes.string,
+  /** Margin bottom in Spacing value as per variables.js */
+  mb:  PropTypes.string,
+  /** Margin left in Spacing value as per variables.js */
+  ml:  PropTypes.string,
 };
 
 export default Copy;
