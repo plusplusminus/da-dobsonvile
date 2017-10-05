@@ -12,12 +12,12 @@ const CardNews = (props) => {
     cardNews:{
       display: 'inline-block',
       width: '100%',
-      marginBottom: spacing.Space4,
+      marginBottom: spacing.space4,
     },
     visual:{
       display: 'block',
       float: 'left',
-      marginRight: spacing.Space2,
+      marginRight: spacing.space2,
     },
   });
 

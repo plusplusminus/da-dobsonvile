@@ -13,7 +13,7 @@ const AsideList = (props) => {
     asideList:{
       display: 'block',
       width: '100%',
-      marginBottom: spacing.Space10,
+      marginBottom: spacing.space10,
     }
   });
 

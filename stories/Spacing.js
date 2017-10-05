@@ -8,7 +8,7 @@ function Spacing() {
     storySpacing:{
       position: 'relative',
       display: 'inline-block',
-      minWidth: 150,
+      minWidth: 250,
       marginBottom: 20,
       marginTop: '-1px',
       marginLeft: '-1px',
@@ -26,7 +26,7 @@ function Spacing() {
     if (spacing[name]) {
       spacingArray.push(
         <div className={css(styles.storySpacing)} style={{height: spacing[name]}}>
-          <code>{ name }</code>
+          <code>spacing.{ name }</code>
           <p>{ spacing[name] }</p>
         </div>
       );

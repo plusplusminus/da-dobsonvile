@@ -16,7 +16,7 @@ function Progress(props) {
     bg:{
       backgroundColor: props.color,
       borderColor: colors.bgLightO,
-      borderRadius: spacing.Space3,
+      borderRadius: spacing.space3,
       overflow: 'hidden',
       clear: 'both',
     },
@@ -27,16 +27,16 @@ function Progress(props) {
     fill:{
       backgroundColor: props.color,
       borderColor: props.color,
-      height: spacing.Space3,
+      height: spacing.space3,
       width: '' + props.progress + '%',
     },
     label:{
       ...fontStyles('13px','14px'),
       display: 'block',
       paddingTop: '5px',
-      paddingRight: spacing.Space1,
+      paddingRight: spacing.space1,
       paddingBottom: '5px',
-      paddingLeft: spacing.Space1,
+      paddingLeft: spacing.space1,
     }
   });
 

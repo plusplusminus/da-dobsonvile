@@ -92,8 +92,8 @@ storiesOf('StyleGuide', module)
 
   .add('Fonts', () => (
     <div>
-      <Heading font="Serif">Serif</Heading>
-      <Heading font="Sans">Sans</Heading>
+      <Heading font="serif">Serif</Heading>
+      <Heading font="sans">Sans</Heading>
     </div>
   ))
 
@@ -297,10 +297,10 @@ storiesOf("Navs/NavItems", module)
         fontWeight={select('fontWeight',weightArray,fontWeight.normal)}
         fs={text('fs','14px')}
         lh={text('fs','18px')}
-        mt={select('mt',spacingArray,spacing.Space0)}
-        mr={select('mr',spacingArray,spacing.Space1)}
-        mb={select('mb',spacingArray,spacing.Space0)}
-        ml={select('ml',spacingArray,spacing.Space1)}
+        mt={select('mt',spacingArray,spacing.space0)}
+        mr={select('mr',spacingArray,spacing.space1)}
+        mb={select('mb',spacingArray,spacing.space0)}
+        ml={select('ml',spacingArray,spacing.space1)}
       >
         {text('children','NavItem')}
       </NavItem>

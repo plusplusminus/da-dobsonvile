@@ -12,10 +12,10 @@ const CardVideo = (props) => {
     cardVideo:{
       display: 'inline-block',
       width: '100%',
-      marginBottom: spacing.Space5,
+      marginBottom: spacing.space5,
     },
     visual:{
-      marginBottom: spacing.Space3,
+      marginBottom: spacing.space3,
     },
   });
 

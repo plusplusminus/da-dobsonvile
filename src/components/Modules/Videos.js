@@ -9,7 +9,7 @@ const Videos = (props) => {
   const styles = StyleSheet.create({
     videos:{
       display: 'block',
-      marginBottom: spacing.Space2,
+      marginBottom: spacing.space2,
     },
   });
 

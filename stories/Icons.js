@@ -8,7 +8,7 @@ function Icons() {
   const styles = StyleSheet.create({
     storyIcon:{
       display: 'block',
-      padding: spacing.Space1,
+      padding: spacing.space1,
       textAlign: 'center',
     },
     label:{
@@ -24,7 +24,7 @@ function Icons() {
         <div className={css(styles.storyIcon)}>
           <Icon name={icons[name]} />
           <div className={css(styles.label)}>
-            <code>{name}</code>
+            <code>icons.{name}</code>
           </div>
         </div>
       );

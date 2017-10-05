@@ -12,13 +12,13 @@ function AsideOverlay(props) {
 
   const styles = StyleSheet.create({
     asideOverlay:{
-      borderRadius: spacing.Space1,
-      marginBottom: spacing.Space5,
+      borderRadius: spacing.space1,
+      marginBottom: spacing.space5,
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
     },
     bg:{
-      borderRadius: spacing.Space1,
+      borderRadius: spacing.space1,
       backgroundColor: colors[props.backgroundColor],
       padding: spacing[props.padding],
       display: 'flex',

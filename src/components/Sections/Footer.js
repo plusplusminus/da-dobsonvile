@@ -9,14 +9,14 @@ const Footer = (props) => {
     footer:{
     },
     menus:{
-      paddingTop: spacing.Space6,
-      paddingBottom: spacing.Space3,
+      paddingTop: spacing.space6,
+      paddingBottom: spacing.space3,
       backgroundColor: colors.bgBlueLight,
       display: 'inline-block',
       width: '100%',
     },
     legal:{
-      paddingTop: spacing.Space3,
+      paddingTop: spacing.space3,
       backgroundColor: colors.bgBlue,
       display: 'inline-block',
       width: '100%',

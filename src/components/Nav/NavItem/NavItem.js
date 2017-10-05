@@ -42,10 +42,10 @@ NavItem.defaultProps = {
   fontWeight: fontWeight.normal,
   fs: '14px',
   lh: '18px',
-  mt:  spacing.Space0,
-  mr:  spacing.Space1,
-  mb:  spacing.Space0,
-  ml:  spacing.Space1,
+  mt:  spacing.space0,
+  mr:  spacing.space1,
+  mb:  spacing.space0,
+  ml:  spacing.space1,
 }
 
 NavItem.propTypes = {

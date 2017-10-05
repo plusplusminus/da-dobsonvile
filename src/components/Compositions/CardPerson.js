@@ -13,8 +13,8 @@ const CardPerson = (props) => {
     cardPerson:{
       display: 'inline-block',
       width: '100%',
-      marginBottom: spacing.Space2,
-      padding: spacing.Space3,
+      marginBottom: spacing.space2,
+      padding: spacing.space3,
       borderBottom: '1px solid',
       borderColor: colors.Border,
 
@@ -23,21 +23,21 @@ const CardPerson = (props) => {
       float: 'left',
     },
     wrapper:{
-      marginBottom: spacing.Space1,
+      marginBottom: spacing.space1,
     },
     visual:{
-      marginRight: spacing.Space2,
+      marginRight: spacing.space2,
       maxWidth: '140px',
       float: 'left',
     },
     table:{
-      fontFamily: fonts.Sans,
-      marginBottom: spacing.Space1,
+      fontFamily: fonts.sans,
+      marginBottom: spacing.space1,
       ...fontStyles('12px','14px'),
     },
     td:{
-      paddingRight: spacing.Space2,
-      paddingBottom: spacing.Space05,
+      paddingRight: spacing.space2,
+      paddingBottom: spacing.space05,
     }
   });
 

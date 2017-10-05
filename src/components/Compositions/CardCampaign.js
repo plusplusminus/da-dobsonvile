@@ -11,12 +11,12 @@ const CardCampaign = (props) => {
   const styles = StyleSheet.create({
     cardCampaign:{
       display: 'block',
-      marginBottom: spacing.Space5,
+      marginBottom: spacing.space5,
     },
     visual:{
       display: 'block',
       float: 'left',
-      marginBottom: spacing.Space4,
+      marginBottom: spacing.space4,
     },
   });
 

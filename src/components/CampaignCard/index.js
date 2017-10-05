@@ -12,7 +12,7 @@ const styles = {
   container: {
     base: {
       display: "block",
-      marginBottom: spacing.Space5,
+      marginBottom: spacing.space5,
     }
   },
   paragraph: {
@@ -20,7 +20,7 @@ const styles = {
       color: colors.Body,
       fontWeight: fontWeight.normal,
       fontSize: fontStyles(22, 26),
-      marginBottom: spacing.Space1,
+      marginBottom: spacing.space1,
     }
   },
   figure: {
@@ -32,7 +32,7 @@ const styles = {
   },
   header: {
     base: {
-      marginBottom: spacing.Space2
+      marginBottom: spacing.space2
     },
     heading: {},
     meta: {

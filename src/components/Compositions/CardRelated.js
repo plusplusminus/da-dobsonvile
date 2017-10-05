@@ -12,8 +12,8 @@ const CardHighlight = (props) => {
     cardHighlight:{
       display: 'inline-block',
       width: '100%',
-      marginBottom: spacing.Space5,
-      padding: spacing.Space4,
+      marginBottom: spacing.space5,
+      padding: spacing.space4,
       backgroundColor: colors.bgLight,
     },
     wrapper:{
@@ -21,7 +21,7 @@ const CardHighlight = (props) => {
       width: props.vertical == true ? '100%' : '60%',
     },
     visual:{
-      marginBottom: spacing.Space3,
+      marginBottom: spacing.space3,
       float: props.vertical == true ? 'none' : 'right',
       marginLeft: props.vertical == true ? '0' : '5%',
       width: props.vertical == true ? '100%' : '30%',

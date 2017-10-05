@@ -9,8 +9,8 @@ const ArticleShare = (props) => {
   const styles = StyleSheet.create({
     articleShare:{
       display: 'block',
-      marginBottom: spacing.Space2,
-      paddingTop: spacing.Space4,
+      marginBottom: spacing.space2,
+      paddingTop: spacing.space4,
       borderColor: colors.Border,
     },
   });

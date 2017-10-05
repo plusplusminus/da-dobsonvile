@@ -6,7 +6,7 @@ import { colors, fonts, fontWeight, fontStyles, letterSpacing } from "common/sty
 
 const styles = {
   base: {
-    fontFamily: fonts.Sans,
+    fontFamily: fonts.sans,
     lineHeight: 1,
     marginTop: 0,
     marginRight: 0,
@@ -35,16 +35,16 @@ const styles = {
 
   weight: {
     extraThin: {
-      fontWeight: fontWeight.Light,
+      fontWeight: fontWeight.light,
     },
     thin: {
-      fontWeight: fontWeight.Light,
+      fontWeight: fontWeight.light,
     },
     normal: {
-      fontWeight: fontWeight.Normal,
+      fontWeight: fontWeight.normal,
     },
     thick: {
-      fontWeight: fontWeight.Bold,
+      fontWeight: fontWeight.bold,
     },
   },
 

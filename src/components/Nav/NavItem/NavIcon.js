@@ -8,23 +8,23 @@ const NavIcon = (props) => {
   const styles = StyleSheet.create({
     navIcon:{
       padding: 0,
-      fontFamily: fonts.Sans,
+      fontFamily: fonts.sans,
       cursor: 'pointer',
       textAlign: 'left',
       display: 'flex',
       alignItems: 'center',
       border: 'none',
       background: colors.baseTransparent,
-      marginBottom: spacing.Space1,
+      marginBottom: spacing.space1,
       color: props.color,
       transition: `all ${timing.base} ease-in-out`,
       ...fontStyles('14px'),
       ':hover': {
-        opacity: opacity.Hover,
+        opacity: opacity.hover,
       }
     },
     label:{
-      marginLeft: spacing.Space1,
+      marginLeft: spacing.space1,
     },
     icon:{
       color: props.iconColor,

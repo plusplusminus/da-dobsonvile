@@ -9,9 +9,9 @@ const ArticleDetails = (props) => {
   const styles = StyleSheet.create({
     articleDetails:{
       display: 'block',
-      marginBottom: spacing.Space2,
-      paddingBottom: spacing.Space2,
-      paddingTop: spacing.Space4,
+      marginBottom: spacing.space2,
+      paddingBottom: spacing.space2,
+      paddingTop: spacing.space4,
       borderBottom: '1px solid',
       borderColor: colors.borderBase,
     },

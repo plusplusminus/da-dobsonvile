@@ -10,7 +10,7 @@ const Widget = (props) => {
 
   const styles = StyleSheet.create({
     widget:{
-      marginBottom: spacing.Space1,
+      marginBottom: spacing.space1,
     },
     title:{},
     section:{},

@@ -9,7 +9,7 @@ const Campaigns = (props) => {
   const styles = StyleSheet.create({
     campaigns:{
       display: 'block',
-      marginBottom: spacing.Space2,
+      marginBottom: spacing.space2,
     },
   });
 

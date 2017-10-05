@@ -13,8 +13,8 @@ const Hero = (props) => {
     },
     bg:{
       height: '100vh',
-      paddingTop: spacing.Space10,
-      paddingBottom: spacing.Space5,
+      paddingTop: spacing.space10,
+      paddingBottom: spacing.space5,
       paddingLeft: '20%',
       paddingRight: '20%',
       textAlign: 'center',

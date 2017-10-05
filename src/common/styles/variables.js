@@ -1,7 +1,6 @@
 export const fonts = {
-  Serif: "mrs-eaves-xl-serif, Georgia, 'Times New Roman', Times, serif",
-  Sans: "Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-  Round: "museo-sans-rounded, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+  serif: "mrs-eaves-xl-serif, Georgia, 'Times New Roman', Times, serif",
+  sans: "Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif",
 };
 export const timing = {
   base: ".1s",
@@ -94,30 +93,30 @@ export const icons = {
 }
 
 export const opacity = {
-  Solid: ".1",
-  Hover: ".75",
-  Transparent: "0",
+  solid: "1",
+  hover: ".75",
+  transparent: "0",
 };
 
 const spacingFactor = 8;
 export const spacing = {
-  Space0: `${spacingFactor * 0}px`,     // 0
-  Space05: `${spacingFactor / 2}px`,     // 4
-  Space1: `${spacingFactor * 1}px`,     // 8
-  Space2: `${spacingFactor * 2}px`,     // 16
-  Space3: `${spacingFactor * 3}px`,     // 24
-  Space4: `${spacingFactor * 4}px`,     // 32
-  Space5: `${spacingFactor * 5}px`,     // 40
-  Space6: `${spacingFactor * 6}px`,     // 48
-  Space7: `${spacingFactor * 7}px`,     // 56
-  Space8: `${spacingFactor * 8}px`,     // 64
-  Space9: `${spacingFactor * 9}px`,     // 72
-  Space10: `${spacingFactor * 10}px`,    // 80
-  Space11: `${spacingFactor * 11}px`,    // 88
-  Space12: `${spacingFactor * 12}px`,    // 96
-  Space13: `${spacingFactor * 13}px`,    // 104
-  Space14: `${spacingFactor * 14}px`,    // 168
-  Space15: `${spacingFactor * 15}px`,    // 120
+  space0: `${spacingFactor * 0}px`,     // 0
+  space05: `${spacingFactor / 2}px`,     // 4
+  space1: `${spacingFactor * 1}px`,     // 8
+  space2: `${spacingFactor * 2}px`,     // 16
+  space3: `${spacingFactor * 3}px`,     // 24
+  space4: `${spacingFactor * 4}px`,     // 32
+  space5: `${spacingFactor * 5}px`,     // 40
+  space6: `${spacingFactor * 6}px`,     // 48
+  space7: `${spacingFactor * 7}px`,     // 56
+  space8: `${spacingFactor * 8}px`,     // 64
+  space9: `${spacingFactor * 9}px`,     // 72
+  space10: `${spacingFactor * 10}px`,    // 80
+  space11: `${spacingFactor * 11}px`,    // 88
+  space12: `${spacingFactor * 12}px`,    // 96
+  space13: `${spacingFactor * 13}px`,    // 104
+  space14: `${spacingFactor * 14}px`,    // 168
+  space15: `${spacingFactor * 15}px`,    // 120
 };
 
 

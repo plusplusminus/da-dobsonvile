@@ -8,11 +8,11 @@ const NavBox = (props) => {
   const { content, weight, color, children } = props;
   const styles = StyleSheet.create({
     NavBox:{
-      paddingLeft: spacing.Space3,
-      paddingRight: spacing.Space3,
-      paddingTop: spacing.Space2,
-      paddingBottom: spacing.Space2,
-      fontFamily: fonts.Sans,
+      paddingLeft: spacing.space3,
+      paddingRight: spacing.space3,
+      paddingTop: spacing.space2,
+      paddingBottom: spacing.space2,
+      fontFamily: fonts.sans,
       marginBottom: '1px',
       cursor: 'pointer',
       textAlign: 'left',

@@ -108,11 +108,11 @@ const HeadingSection = (props) => {
     lineLeft:{
       position: 'relative',
       ':before': {
-        width: spacing.Space10,
+        width: spacing.space10,
         content:'""',
         height:'1px',
         position: 'absolute',
-        right: spacing.Space4,
+        right: spacing.space4,
         top: '50%',
         backgroundColor: colors[props.color],
       }
@@ -120,11 +120,11 @@ const HeadingSection = (props) => {
     lineRight:{
       position: 'relative',
       ':after': {
-        width: spacing.Space10,
+        width: spacing.space10,
         content:'""',
         height:'1px',
         position: 'absolute',
-        left: spacing.Space4,
+        left: spacing.space4,
         top: '50%',
         backgroundColor: colors[props.color],
       }

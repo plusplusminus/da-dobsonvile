@@ -12,13 +12,13 @@ function Aside(props) {
 
   const styles = StyleSheet.create({
     aside:{
-      borderRadius: spacing.Space1,
-      marginBottom: spacing.Space5,
+      borderRadius: spacing.space1,
+      marginBottom: spacing.space5,
       backgroundColor: colors[props.backgroundColor],
     },
     visual:{
-      borderTopLeftRadius: spacing.Space1,
-      borderTopRightRadius: spacing.Space1,
+      borderTopLeftRadius: spacing.space1,
+      borderTopRightRadius: spacing.space1,
       display: 'block',
     },
     wrapper:{

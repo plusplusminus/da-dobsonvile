@@ -11,9 +11,9 @@ const ViewAll = (props) => {
   const styles = StyleSheet.create({
     ViewAll:{
       width: '100%',
-      paddingTop: spacing.Space5,
-      marginTop: spacing.Space5,
-      marginBottom: spacing.Space5,
+      paddingTop: spacing.space5,
+      marginTop: spacing.space5,
+      marginBottom: spacing.space5,
       borderTop: '1px solid',
       borderColor: props.borderColor,
       textAlign: 'center',

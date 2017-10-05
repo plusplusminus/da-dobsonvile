@@ -8,14 +8,14 @@ const FooterMenus = (props) => {
   const { content, weight, col, children } = props;
   const styles = StyleSheet.create({
     footerMenus:{
-      marginBottom: spacing.Space3,
+      marginBottom: spacing.space3,
     },
     wrapper:{
-      marginBottom: spacing.Space5,
+      marginBottom: spacing.space5,
     },
     menu:{
-      margin: spacing.Space,
-      padding: spacing.Space,
+      margin: spacing.space,
+      padding: spacing.space,
     },
   });
 

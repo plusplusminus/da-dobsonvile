@@ -39,13 +39,13 @@ const Navbar = (props) => {
 
 Navbar.defaultProps = {
   background: colors.bgBlue,
-  padding: spacing.Space4,
+  padding: spacing.space4,
 }
 
 const NavbarSecondary = (props) => {
   const styles = {
     background: colors.bgBlueLight,
-    padding: spacing.Space2,
+    padding: spacing.space2,
   }
 
   return <Navbar { ...styles }>{ props.children }</Navbar>
@@ -59,8 +59,8 @@ const NavbarSub = (props) => {
   const custom = {
     borderBottom: '1px solid',
     borderColor: colors.borderLight,
-    paddingTop: parseInt(spacing.Space2)*0.75,
-    paddingBottom: parseInt(spacing.Space2)*0.75,
+    paddingTop: parseInt(spacing.space2)*0.75,
+    paddingBottom: parseInt(spacing.space2)*0.75,
     justifyContent:'flex-start',
   }
 
