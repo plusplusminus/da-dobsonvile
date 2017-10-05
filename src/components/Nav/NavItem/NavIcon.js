@@ -14,10 +14,10 @@ const NavIcon = (props) => {
       display: 'flex',
       alignItems: 'center',
       border: 'none',
-      background: colors.Transparent,
+      background: colors.baseTransparent,
       marginBottom: spacing.Space1,
-      color: colors[props.color],
-      transition: `all ${timing.default} ease-in-out`,
+      color: props.color,
+      transition: `all ${timing.base} ease-in-out`,
       ...fontStyles('14px'),
       ':hover': {
         opacity: opacity.Hover,
@@ -27,7 +27,7 @@ const NavIcon = (props) => {
       marginLeft: spacing.Space1,
     },
     icon:{
-      color: colors[props.iconColor],
+      color: props.iconColor,
       ...fontStyles('18px'),
     }
   });
@@ -43,14 +43,17 @@ const NavIcon = (props) => {
 }
 
 NavIcon.defaultProps = {
-  color: 'Copy',
-  iconColor: 'Copy',
+  color: colors.textBase,
+  iconColor: colors.textBase,
   iconName: null,
 }
 
 NavIcon.propTypes = {
+  /** Color of text as per variables.js */
   color: PropTypes.string,
+  /** Color of icon as per variables.js */
   iconColor: PropTypes.string,
+  /** Icon name as per variables.js */
   iconName: PropTypes.string,
 }
 

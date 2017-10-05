@@ -21,12 +21,12 @@ const NavBox = (props) => {
       borderColor: colors.bgLight,
       background: colors.bgLight,
       width:'100%',
-      color: colors.Copy,
+      color: colors.textCopy,
     	...fontStyles('13px','13px'),
-      transition: `all ${timing.default} ease-in-out`,
+      transition: `all ${timing.base} ease-in-out`,
       ':hover': {
-        color: colors.PrimaryHover,
-        borderColor: colors.PrimaryHover,
+        color: colors.brandBlueHover,
+        borderColor: colors.brandBlueHover,
       }
     },
   });

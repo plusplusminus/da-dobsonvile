@@ -11,7 +11,7 @@ function Progress(props) {
     progress:{
       display: 'inline-block',
       width: '100%',
-      color: colors.White,
+      color: colors.textLightO,
     },
     bg:{
       backgroundColor: props.color,

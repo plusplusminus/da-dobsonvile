@@ -1,20 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { Button } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from '../../../common/styles/variables';
 
-function NavItem(props) {
+const NavItem = (props) => {
 
   const { content, weight, color, children, mr, ml } = props;
 
   const styles = StyleSheet.create({
     navItem:{
-      color: colors[props.color],
-      marginRight: spacing[props.mr],
-      marginLeft: spacing[props.ml],
-      marginBottom: spacing[props.mb],
+      color: props.color,
+      marginTop: props.mt,
+      marginRight: props.mr,
+      marginBottom: props.mb,
+      marginLeft: props.ml,
       display: props.display,
-      fontWeight: fontWeight[props.fontWeight],
+      fontWeight: props.fontWeight,
+      listStyle:'none',
       ...fontStyles(props.fs,props.lh),
       ':hover':{
         textDecoration: 'none',
@@ -34,13 +37,36 @@ function NavItem(props) {
 }
 
 NavItem.defaultProps = {
-  color: 'White',
-  mr:  'Space1',
-  ml:  'Space1',
-  mb:  'Space',
+  color: colors.linkBase,
   display: 'inline-block',
+  fontWeight: fontWeight.normal,
   fs: '14px',
   lh: '18px',
+  mt:  spacing.Space0,
+  mr:  spacing.Space1,
+  mb:  spacing.Space0,
+  ml:  spacing.Space1,
+}
+
+NavItem.propTypes = {
+  /** Text color as per variables.js */
+  color: PropTypes.string.isRequired,
+  /** Display property as per CSS */
+  display: PropTypes.string,
+  /** Font weight as per CSS */
+  fontWeight: PropTypes.string,
+  /** Font size as pixel value */
+  fs: PropTypes.string,
+  /** Line height as pixel value */
+  lh: PropTypes.string,
+  /** Margin top in Spacing value as per variables.js */
+  mt:  PropTypes.string,
+  /** Margin right in Spacing value as per variables.js */
+  mr:  PropTypes.string,
+  /** Margin bottom in Spacing value as per variables.js */
+  mb:  PropTypes.string,
+  /** Margin left in Spacing value as per variables.js */
+  ml:  PropTypes.string,
 }
 
 export default NavItem;

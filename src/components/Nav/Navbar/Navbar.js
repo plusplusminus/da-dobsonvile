@@ -9,9 +9,9 @@ const Navbar = (props) => {
 
   const styles = StyleSheet.create({
     navbar:{
-      backgroundColor: colors[props.background],
-      paddingTop: spacing[props.padding],
-      paddingBottom: spacing[props.padding],
+      backgroundColor: props.background,
+      paddingTop: props.padding,
+      paddingBottom: props.padding,
       width: '100%',
       display: 'flex',
       justifyContent:'flex-end',
@@ -38,14 +38,14 @@ const Navbar = (props) => {
 
 
 Navbar.defaultProps = {
-  background: 'bgBlue',
-  padding: 'Space4'
+  background: colors.bgBlue,
+  padding: spacing.Space4,
 }
 
 const NavbarSecondary = (props) => {
   const styles = {
-    background: "bgBlueLight",
-    padding: "Space2"
+    background: colors.bgBlueLight,
+    padding: spacing.Space2,
   }
 
   return <Navbar { ...styles }>{ props.children }</Navbar>
@@ -53,12 +53,12 @@ const NavbarSecondary = (props) => {
 
 const NavbarSub = (props) => {
   const styles = {
-    background: "White",
+    background: colors.baseWhite,
   }
 
   const custom = {
     borderBottom: '1px solid',
-    borderColor: colors.BorderLight,
+    borderColor: colors.borderLight,
     paddingTop: parseInt(spacing.Space2)*0.75,
     paddingBottom: parseInt(spacing.Space2)*0.75,
     justifyContent:'flex-start',

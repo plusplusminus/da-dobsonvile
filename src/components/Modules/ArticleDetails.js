@@ -13,7 +13,7 @@ const ArticleDetails = (props) => {
       paddingBottom: spacing.Space2,
       paddingTop: spacing.Space4,
       borderBottom: '1px solid',
-      borderColor: colors.Border,
+      borderColor: colors.borderBase,
     },
   });
 

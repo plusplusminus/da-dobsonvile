@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
-import { fonts, fontWeight, colors, timing } from "../../common/styles/variables";
+import { colors, fonts, fontWeight, letterSpacing, timing } from "../../common/styles/variables";
 import { Icon } from "components"
 
 const hoverStyles = {
@@ -10,26 +10,30 @@ const hoverStyles = {
   },
 
   blue: {
-    color: colors.PrimaryHover,
+    color: colors.brandBlueHover,
   },
 
   green: {
-    color: colors.GreenHover,
+    color: colors.brandGreenHover,
   },
 
   red: {
-    color: colors.RedHover,
+    color: colors.brandRedHover,
   },
 
   yellow: {
-    color: colors.YellowHover,
+    color: colors.brandYellowHover,
+  },
+
+  white: {
+    color: colors.brandWhite,
   },
 };
 
 const styles = {
   container: {
     base: {
-      backgroundColor: "transparent",
+      backgroundColor: colors.baseTransparent,
       border: 0,
       display: "inline-block",
       fontFamily: fonts.Sans,
@@ -37,14 +41,14 @@ const styles = {
       fontWeight: fontWeight.normal,
       lineHeight: 1,
       padding: 0,
-      letterSpacing: "0.6px",
+      letterSpacing: letterSpacing.Base,
       textDecoration: "none",
       transition: `color ${timing.fast} ease-in-out`,
     },
 
     color: {
       blue: {
-        color: colors.Blue,
+        color: colors.brandBlue,
 
         ":hover": hoverStyles.blue,
         ":focus": hoverStyles.blue,
@@ -52,7 +56,7 @@ const styles = {
       },
 
       red: {
-        color: colors.Red,
+        color: colors.brandRed,
 
         ":hover": hoverStyles.red,
         ":focus": hoverStyles.red,
@@ -60,7 +64,7 @@ const styles = {
       },
 
       green: {
-        color: colors.Green,
+        color: colors.brandGreen,
 
         ":hover": hoverStyles.green,
         ":focus": hoverStyles.green,
@@ -68,16 +72,23 @@ const styles = {
       },
 
       yellow: {
-        color: colors.Yellow,
+        color: colors.brandYellow,
 
         ":hover": hoverStyles.yellow,
         ":focus": hoverStyles.yellow,
         ":active": hoverStyles.yellow,
       },
+
+      white: {
+        color: colors.brandWhite,
+
+        ":hover": hoverStyles.white,
+        ":focus": hoverStyles.white,
+        ":active": hoverStyles.white,
+      },
     },
 
-    caps: {
-      fontWeight: 600,
+    uppercase: {
       textTransform: "uppercase",
     },
 
@@ -98,21 +109,12 @@ const styles = {
       color: "inherit",
     }
   },
-};
+}
 
-function MoreLink({
-  href,
-  size,
-  children,
-  onClick,
-  caps,
-  color,
-  hideIcon,
-  isNested,
-  style,
-  arrowDirection,
-  target,
-}) {
+const MoreLink = (props) => {
+
+  const { href, size, children, onClick, uppercase, color, hideIcon, isNested, style, arrowDirection, target } = props
+
   let Element = "";
 
   if (isNested) {
@@ -127,7 +129,7 @@ function MoreLink({
     base: {
       ...styles.container.base,
       ...(color && styles.container.color[color]),
-      ...(caps && styles.container.caps),
+      ...(uppercase && styles.container.uppercase),
       ...(size && styles.container.size[size]),
       ...style,
     },
@@ -159,104 +161,56 @@ function MoreLink({
 }
 
 MoreLink.propTypes = {
-  /**
-   * Content for the link
-   */
-  children: PropTypes.node.isRequired,
-
-  /**
-   * Where the link should point to
-   */
-  href: PropTypes.string,
-
-  /**
-   * Color of the link
-   */
-  color: PropTypes.oneOf([
-    "blue",
-    "red",
-    "green",
-    "yellow",
-  ]),
-
-  /**
-   * Adjusts the font size
-   */
-  size: PropTypes.oneOf([
-    "",
-    "small",
-  ]),
-
-
-  /**
-   * Fires onclick function
-   */
-  onClick: PropTypes.func,
-
-  /**
-   * Applies textTransform and fontWeight CSS properties
-   */
-  caps: PropTypes.bool,
-
-  /**
-   * If the arrow icon should be hidden
-   */
-  hideIcon: PropTypes.bool,
-
-  /**
-   * If the link is nested within another link; makes the container a `span`
-   */
-  isNested: PropTypes.bool,
-
-  /**
-   * Object to add override or positioning styles
-   */
-  style: PropTypes.objectOf(
-    PropTypes.string,
-    PropTypes.number,
-  ),
-
-  /**
-   * Direction of the arrow
-   */
+  /** Direction of the arrow */
   arrowDirection: PropTypes.oneOf([
     "up",
     "down",
     "left",
     "right",
   ]),
-
-  /**
-   * Specifies where to open the linked document
-   */
+  /** Content for the link */
+  children: PropTypes.node.isRequired,
+  /** Color of the link */
+  color: PropTypes.oneOf([
+    "blue",
+    "red",
+    "green",
+    "yellow",
+  ]),
+  /** If the arrow icon should be hidden */
+  hideIcon: PropTypes.bool,
+  /** Where the link should point to */
+  href: PropTypes.string,
+  /** If the link is nested within another link; makes the container a `span` */
+  isNested: PropTypes.bool,
+  /** Fires onclick function */
+  onClick: PropTypes.func,
+  /** Adjusts the font size */
+  size: PropTypes.oneOf([
+    "",
+    "small",
+  ]),
+  /** Specifies where to open the linked document */
   target: PropTypes.oneOf([
     "_blank",
     "_parent",
     "_self",
     "_top",
   ]),
+  /** Applies textTransform CSS properties */
+  uppercase: PropTypes.bool,
 };
 
 MoreLink.defaultProps = {
-  href: null,
-
-  size: "",
-
-  color: "blue",
-
-  onClick: null,
-
-  caps: false,
-
-  hideIcon: false,
-
-  isNested: false,
-
-  style: {},
-
   arrowDirection: "right",
-
+  color: "blue",
+  hideIcon: false,
+  href: null,
+  isNested: false,
+  onClick: null,
+  size: "",
   target: null,
+  uppercase: false,
 };
 
 MoreLink.styles = styles;

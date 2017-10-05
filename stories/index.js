@@ -6,6 +6,7 @@ import { checkA11y } from "storybook-addon-a11y";
 import backgrounds from "@storybook/addon-backgrounds";
 import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs';
 import { colors, fonts, fontStyles, fontWeight, icons, letterSpacing, opacity, spacing } from 'common/styles/variables';
+import { getStyleValue, filterStyleGroup } from './utils/helpers'
 import { dobsonville } from 'common/images';
 import Colors from './Colors';
 import Icons from './Icons';
@@ -56,7 +57,6 @@ import {
   NavbarSecondary,
   NavbarSub,
   NavIcon,
-  NavText,
   Progress,
   StorySpacing,
   ViewAll,
@@ -118,21 +118,14 @@ storiesOf('Base', module)
   ))
 
   .add('Button', () => {
-    const iconsArray = [];
-    Object.keys(icons).forEach((name) => {
-      if (icons[name]) {
-        iconsArray.push(
-          icons[name]
-        );
-      }
-    })
+    const iconsArray = getStyleValue(icons);
     return(
       <ButtonTest
         full={ boolean('Full Width', false) }
         disabled={ boolean('Disable', false) }
         rounded={ boolean('Rounded', true) }
         outline={ boolean('Outline', false) }
-        color={ select('Color', ['blue', 'green', 'yellow', 'red'], 'blue') }
+        color={ select('Color', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
         size={ select('Size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
         href={text('Link','')}
         onClick={action('clicked')}
@@ -286,28 +279,56 @@ storiesOf("Navs/Navbar", module)
 
 storiesOf("Navs/NavItems", module)
   .add("NavBox", () => (
-    <NavBox>View All Newsroom Items</NavBox>
+    <NavBox>
+      {text('children','NavBox Menu Item')}
+    </NavBox>
   ))
   .add("NavButton", () => (
     <NavButton>Hello</NavButton>
   ))
-  .add("NavItem", () => (
-    <NavItem>Hello</NavItem>
-  ))
-  .add('NavIcon', () => (
-    <NavIcon iconName="whatsapp" iconColor="socialWhatsApp">WhatsApp</NavIcon>
-  ))
-  .add("NavText", () => (
-    <NavText>Hello</NavText>
-  ))
+  .add("NavItem", () => {
+    const colorsArray = getStyleValue(filterStyleGroup(colors,"text"));
+    const spacingArray = getStyleValue(spacing);
+    const weightArray = getStyleValue(fontWeight);
+    return(
+      <NavItem
+        color={select('color',colorsArray,colors.linkBase)}
+        display={text('display','inline-block')}
+        fontWeight={select('fontWeight',weightArray,fontWeight.normal)}
+        fs={text('fs','14px')}
+        lh={text('fs','18px')}
+        mt={select('mt',spacingArray,spacing.Space0)}
+        mr={select('mr',spacingArray,spacing.Space1)}
+        mb={select('mb',spacingArray,spacing.Space0)}
+        ml={select('ml',spacingArray,spacing.Space1)}
+      >
+        {text('children','NavItem')}
+      </NavItem>
+    )
+  })
+  .add('NavIcon', () => {
+    const colorsArray = getStyleValue(colors);
+    return(
+      <NavIcon
+        iconName="whatsapp"
+        color={select('color',colorsArray,colors.textBase)}
+        iconColor={select('iconColor',colorsArray,colors.textBase)}
+      >
+        {text('children','Whats App')}
+      </NavIcon>
+    )
+  })
   .add("MoreLink", () => (
     <MoreLink
-      href={text("URL", "/")}
-      size={select("size", ["", "small", "large"], "")}
-      color={select("color", ["blue", "green", "yellow", "red"], "blue")}
-      caps={boolean("caps", false)}
-      hideIcon={boolean("hideIcon", false)}
       arrowDirection={select("arrowDirection", ["up", "down", "left", "right"], "right")}
+      color={select("color", ["blue", "green", "yellow", "red"], "blue")}
+      hideIcon={boolean("hideIcon", false)}
+      href={text("URL", "/")}
+      isNested={boolean("isNested", false)}
+      size={select("size", ["", "small", "large"], "")}
+      target={select("target", ["_blank", "_parent", "_self", "_top"], "")}
+      uppercase={boolean("textTransform", false)}
+
     >
       { text("children", "Read More") }
     </MoreLink>
@@ -315,26 +336,14 @@ storiesOf("Navs/NavItems", module)
 
   storiesOf('Components', module)
     .add('Alert', () => {
-      const colorsArray = [];
-      Object.keys(colors).forEach((name) => {
-        if (colors[name]) {
-          colorsArray.push(
-            colors[name]
-          );
-        }
-      })
-      const iconsArray = [];
-      Object.keys(icons).forEach((name) => {
-        if (icons[name]) {
-          iconsArray.push(
-            icons[name]
-          );
-        }
-      })
+
+      const colorsArray = getStyleValue(filterStyleGroup(colors,"status"));
+      const iconsArray = getStyleValue(icons);
+
       return(
         <Alert
           close={boolean('close', true)}
-          color={ select('color', colorsArray, colors.bgDark) }
+          color={ select('color', colorsArray, colors.statusNeutral) }
           iconBefore={ select('iconBefore', iconsArray, '') }
           >
           {text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
@@ -472,17 +481,10 @@ storiesOf("Navs/NavItems", module)
         max: 100,
         step: 1
       }
-      const colorsArray = [];
-      Object.keys(colors).forEach((name) => {
-        if (colors[name]) {
-          colorsArray.push(
-            colors[name]
-          );
-        }
-      })
+      const colorsArray = getStyleValue(filterStyleGroup(colors,"status"));
       return (
         <Progress
-          color={ select('color', colorsArray, colors.bgDark) }
+          color={ select('color', colorsArray, colors.statusNeutral) }
           progress={number('progress', 50, options)}
           showLabel={boolean('showLabel', true)}
         />
@@ -490,32 +492,18 @@ storiesOf("Navs/NavItems", module)
     })
 
     .add('Tag', () => {
-      const colorsArray = [];
-      Object.keys(colors).forEach((name) => {
-        if (colors[name]) {
-          colorsArray.push(
-            colors[name]
-          );
-        }
-      })
+      const colorsArray = getStyleValue(filterStyleGroup(colors,"brand"));
       return(
         <Tag
           close={boolean('close',false)}
-          color={ select('color', colorsArray, colors.White) }>
+          color={ select('color', colorsArray, colors.brandWhite) }>
           {text('children','Tag Name')}
         </Tag>
       )
     })
 
     .add("ViewAll", () => {
-      const colorsArray = [];
-      Object.keys(colors).forEach((name) => {
-        if (colors[name]) {
-          colorsArray.push(
-            colors[name]
-          );
-        }
-      })
+      const colorsArray = getStyleValue(filterStyleGroup(colors,"border"));
       return(
         <ViewAll
           buttonLabel={text("buttonLabel", "View All")}
@@ -528,10 +516,10 @@ storiesOf("Navs/NavItems", module)
     .add("Widget", () => (
       <div>
         <Widget widgetTitle={text('widgetTitle', 'Share')}widgetTitle={text('widgetTitle', 'Share')} colTitle={text('colTitle', 'col-md-1')} colSection={text('colSection', 'col-md-11')}>
-          <NavIcon iconName="facebook" iconColor="socialFacebook">{"Share on Facebook"}</NavIcon>
-          <NavIcon iconName="twitter" iconColor="socialTwitter">{"Share on Twitter"}</NavIcon>
-          <NavIcon iconName="envelope" iconColor="socialEmail">{"Send by Email"}</NavIcon>
-          <NavIcon iconName="whatsapp" iconColor="socialWhatsApp">{"Share with What's App"}</NavIcon>
+          <NavIcon iconName="facebook" iconColor={colors.socialFacebook}>{"Share on Facebook"}</NavIcon>
+          <NavIcon iconName="twitter" iconColor={colors.socialTwitter}>{"Share on Twitter"}</NavIcon>
+          <NavIcon iconName="envelope" iconColor={colors.socialEmail}>{"Send by Email"}</NavIcon>
+          <NavIcon iconName="whatsapp" iconColor={colors.socialWhatsApp}>{"Share with What's App"}</NavIcon>
         </Widget>
 
         <Widget widgetTitle={text("widgetTitle", "Tags")} colTitle={text("colTitle", "col-md-1")} colSection={text("colSection", "col-md-11")}>

@@ -9,18 +9,18 @@ const Widget = (props) => {
   const { colTitle, colSection, children, widgetTitle, widgetTitleColor } = props;
 
   const styles = StyleSheet.create({
-    Widget:{
+    widget:{
       marginBottom: spacing.Space1,
     },
-    Title:{},
-    Section:{},
+    title:{},
+    section:{},
   });
 
   return (
-    <nav className={css(styles.Widget)}>
+    <nav className={css(styles.widget)}>
       <div className="row">
-        { widgetTitle && <div className={`${css(styles.Title)} ${colTitle}`}><HeadingWidget color={ widgetTitleColor }>{ widgetTitle }</HeadingWidget></div> }
-        <div className={`${css(styles.Section)} ${colSection}`}>
+        { widgetTitle && <div className={`${css(styles.title)} ${colTitle}`}><HeadingWidget color={ widgetTitleColor }>{ widgetTitle }</HeadingWidget></div> }
+        <div className={`${css(styles.section)} ${colSection}`}>
           { children }
         </div>
       </div>
@@ -35,8 +35,11 @@ Widget.defaultProps = {
 }
 
 Widget.propTypes = {
+  /** Col value for Title */
   colTitle: PropTypes.string,
+  /** Col value for Section */
   colSection: PropTypes.string,
+  /** Title of Widget */
   widgetTitle: PropTypes.string,
 }
 

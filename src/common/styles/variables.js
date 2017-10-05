@@ -4,13 +4,13 @@ export const fonts = {
   Round: "museo-sans-rounded, 'Helvetica Neue', Helvetica, Arial, sans-serif",
 };
 export const timing = {
-  default: ".1s",
+  base: ".1s",
 };
 export const fontWeight = {
-  Bold: "600",
-  Medium: "500",
-  Normal: "400",
-  Light: "300",
+  bold: "600",
+  medium: "500",
+  normal: "400",
+  light: "300",
 };
 
 export const fontStyles = (size, lh, extras = {}) => ({
@@ -41,8 +41,9 @@ export const colors = {
   brandRedHover: "#B82C4F",
   brandYellow: "#FDC842",
   brandYellowHover: "#FDCD55",
+  brandWhite: "#FFFFFF",
 
-  border: "#E8E8E8",
+  borderBase: "#E8E8E8",
   borderLight: "rgba(51,51,51,0.1)",
   borderWhiteO: "rgba(255,255,255,0.15)",
 
@@ -53,12 +54,18 @@ export const colors = {
   bgDark: "#333333",
   bgDarkO: "rgba(51,51,51,0.8)",
 
+  linkBase: "#333333",
+  linkHover: "#777777",
+  linkBlue: "#155FA2",
+  linkBlueHover: "2C6FAB",
+
   statusDanger: "#B0153C",
   statusInfo: "#85CEFF",
+  statusNeutral: "#333333",
   statusSuccess: "#52A74B",
   statusWarning: "#F5A623",
 
-  text: "#333333",
+  textBase: "#333333",
   textLight: "#777777",
   textLightO: "rgba(255,255,255,0.85)",
 
@@ -69,7 +76,7 @@ export const colors = {
 };
 
 export const icons = {
-  none: 'none',
+  none: '',
   close: "close",
   angleLeft: "angle-left",
   angleRight: "angle-right",

@@ -34,7 +34,7 @@ const ViewAll = (props) => {
 
 ViewAll.defaultProps = {
   buttonLabel: 'View All',
-  borderColor: colors.BorderLight,
+  borderColor: colors.borderLight,
   buttonColor: 'blue',
 }
 
@@ -49,6 +49,7 @@ ViewAll.propTypes = {
     "red",
     "green",
     "yellow",
+    "white",
   ]),
 };
 

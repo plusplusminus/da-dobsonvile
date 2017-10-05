@@ -21,7 +21,7 @@ const Icon = (props) => {
 
 Icon.defaultProps = {
   name: null,
-  color: 'inherit',
+  color: colors.baseInherit,
   ml: spacing.Space05,
   mr: spacing.Space05,
   fs: 'inherit',

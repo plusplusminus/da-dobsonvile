@@ -9,28 +9,28 @@ const hoverStyles = {
     textDecoration: "none",
   },
   blue: {
-    backgroundColor: colors.BlueHover,
-    color: colors.White,
+    backgroundColor: colors.brandBlueHover,
+    color: colors.baseWhite,
   },
 
   white: {
-    backgroundColor: colors.White,
-    color: colors.Blue,
+    backgroundColor: colors.baseWhite,
+    color: colors.brandBlue,
   },
 
   green: {
-    backgroundColor: colors.GreenHover,
-    color: colors.White,
+    backgroundColor: colors.brandGreenHover,
+    color: colors.baseWhite,
   },
 
   red: {
-    backgroundColor: colors.RedHover,
-    color: colors.White,
+    backgroundColor: colors.brandRedHover,
+    color: colors.baseWhite,
   },
 
   yellow: {
-    backgroundColor: colors.YellowHover,
-    color: colors.White,
+    backgroundColor: colors.brandYellowHover,
+    color: colors.baseWhite,
   },
 };
 
@@ -52,9 +52,9 @@ const styles = {
     fontWeight: fontWeight.Bold,
     letterSpacing: letterSpacing.Base,
     textTransform: "uppercase",
-    transition: `color ${timing.default} ease-in-out,
-      background-color ${timing.default} ease-in-out,
-      opacity ${timing.default} ease-in-out`,
+    transition: `color ${timing.base} ease-in-out,
+      background-color ${timing.base} ease-in-out,
+      opacity ${timing.base} ease-in-out`,
     verticalAlign: "middle",
     whiteSpace: "nowrap",
 
@@ -64,8 +64,8 @@ const styles = {
   },
   color: {
     blue: {
-      backgroundColor: colors.Blue,
-      color: colors.White,
+      backgroundColor: colors.brandBlue,
+      color: colors.baseWhite,
 
       ":hover": hoverStyles.blue,
       ":focus": hoverStyles.blue,
@@ -73,8 +73,8 @@ const styles = {
     },
 
     white: {
-      backgroundColor: colors.White,
-      color: colors.Blue,
+      backgroundColor: colors.baseWhite,
+      color: colors.brandBlue,
 
       ":hover": hoverStyles.blue,
       ":focus": hoverStyles.blue,
@@ -82,8 +82,8 @@ const styles = {
     },
 
     red: {
-      backgroundColor: colors.Red,
-      color: colors.White,
+      backgroundColor: colors.brandRed,
+      color: colors.baseWhite,
 
       ":hover": hoverStyles.red,
       ":focus": hoverStyles.red,
@@ -91,8 +91,8 @@ const styles = {
     },
 
     green: {
-      backgroundColor: colors.Green,
-      color: colors.White,
+      backgroundColor: colors.brandGreen,
+      color: colors.baseWhite,
 
       ":hover": hoverStyles.green,
       ":focus": hoverStyles.green,
@@ -100,8 +100,8 @@ const styles = {
     },
 
     yellow: {
-      backgroundColor: colors.Yellow,
-      color: colors.White,
+      backgroundColor: colors.brandYellow,
+      color: colors.baseWhite,
 
       ":hover": hoverStyles.yellow,
       ":focus": hoverStyles.yellow,
@@ -111,11 +111,11 @@ const styles = {
 
   outline: {
     red: {
-      backgroundColor: "transparent",
+      backgroundColor: colors.baseTransparent,
       borderWidth: "2px",
       borderStyle: "solid",
-      borderColor: colors.Red,
-      color: colors.Red,
+      borderColor: colors.brandRed,
+      color: colors.brandRed,
 
       ":hover": hoverStyles.red,
       ":focus": hoverStyles.red,
@@ -123,11 +123,11 @@ const styles = {
     },
 
     blue: {
-      backgroundColor: "transparent",
+      backgroundColor: colors.baseTransparent,
       borderWidth: "2px",
       borderStyle: "solid",
-      borderColor: colors.Blue,
-      color: colors.Blue,
+      borderColor: colors.brandBlue,
+      color: colors.brandBlue,
 
       ":hover": hoverStyles.blue,
       ":focus": hoverStyles.blue,
@@ -135,11 +135,11 @@ const styles = {
     },
 
     green: {
-      backgroundColor: "transparent",
+      backgroundColor: colors.baseTransparent,
       borderWidth: "2px",
       borderStyle: "solid",
-      borderColor: colors.Green,
-      color: colors.Green,
+      borderColor: colors.brandGreen,
+      color: colors.brandGreen,
 
       ":hover": hoverStyles.green,
       ":focus": hoverStyles.green,
@@ -147,11 +147,11 @@ const styles = {
     },
 
     yellow: {
-      backgroundColor: "transparent",
+      backgroundColor: colors.baseTransparent,
       borderWidth: "2px",
       borderStyle: "solid",
-      borderColor: colors.Yellow,
-      color: colors.Yellow,
+      borderColor: colors.brandYellow,
+      color: colors.brandYellow,
 
       ":hover": hoverStyles.yellow,
       ":focus": hoverStyles.yellow,
@@ -159,11 +159,11 @@ const styles = {
     },
 
     white: {
-      backgroundColor: "transparent",
+      backgroundColor: colors.baseTransparent,
       borderWidth: "2px",
       borderStyle: "solid",
-      borderColor: colors.White,
-      color: colors.White,
+      borderColor: colors.baseWhite,
+      color: colors.baseWhite,
 
       ":hover": hoverStyles.white,
       ":focus": hoverStyles.white,

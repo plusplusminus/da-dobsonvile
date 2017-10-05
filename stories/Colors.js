@@ -60,6 +60,11 @@ const createColorGroup = (prefix) => Object.keys(colors)
         {createColorGroup("bg").map((name) => colorGroup(name))}
 
         <tr><th colSpan="3"><h6>
+          Link colors <small className="text-muted">Text links and NavItems</small>
+        </h6></th></tr>
+        {createColorGroup("link").map((name) => colorGroup(name))}
+
+        <tr><th colSpan="3"><h6>
           Status colors <small className="text-muted">Colors indicating status of component</small>
         </h6></th></tr>
         {createColorGroup("status").map((name) => colorGroup(name))}
