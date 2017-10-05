@@ -4,11 +4,11 @@ import { HeadingSmall, NavText, NavIcon, NavItem } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
 const FooterLegal = (props) => {
-  const { content, weight, color, children } = props;
+  const { content, children } = props;
   const styles = StyleSheet.create({
     footerLegal:{
       marginBottom: spacing.space3,
-      color: colors.White,
+      color: colors.baseWhite,
     },
     legal:{
       ...fontStyles('11px','30px'),
@@ -35,7 +35,6 @@ const FooterLegal = (props) => {
 }
 
 FooterLegal.defaultProps = {
-  color: 'Copy',
 }
 
 export default FooterLegal;

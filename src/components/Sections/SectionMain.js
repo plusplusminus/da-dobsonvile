@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { SectionMainLegal, SectionMainMenus } from 'components';
+import { MoreLink, SectionMainLegal, SectionMainMenus } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
 const SectionMain = (props) => {
   const { aside, colMain, colAside, main } = props;
   const styles = StyleSheet.create({
     sectionMain:{
-      paddingTop: spacing[props.pt],
-      paddingBottom: spacing[props.pt],
+      paddingTop: props.pt,
+      paddingBottom: props.pt,
     },
     section:{
     },
@@ -36,8 +36,8 @@ const SectionMain = (props) => {
 SectionMain.defaultProps = {
   colMain: 'col-md-7',
   colAside: 'col-md-4 offset-md-1',
-  pt: 'Space10',
-  pb: 'Space15',
+  pt: spacing.pace10,
+  pb: spacing.space15,
 }
 
 SectionMain.propTypes = {

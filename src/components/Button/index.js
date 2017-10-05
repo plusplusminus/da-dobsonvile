@@ -38,7 +38,9 @@ const styles = {
   base: {
     appearance: "none",
     backfaceVisibility: "hidden",
-    border: 0,
+    borderWidth: "2px",
+    borderStyle: "solid",
+    borderColor: colors.borderBase,
     borderRadius: 0,
     cursor: "pointer",
     display: 'flex',
@@ -66,6 +68,7 @@ const styles = {
     blue: {
       backgroundColor: colors.brandBlue,
       color: colors.baseWhite,
+      borderColor: colors.brandBlue,
 
       ":hover": hoverStyles.blue,
       ":focus": hoverStyles.blue,
@@ -75,6 +78,7 @@ const styles = {
     white: {
       backgroundColor: colors.baseWhite,
       color: colors.brandBlue,
+      borderColor: colors.baseWhite,
 
       ":hover": hoverStyles.blue,
       ":focus": hoverStyles.blue,
@@ -84,6 +88,7 @@ const styles = {
     red: {
       backgroundColor: colors.brandRed,
       color: colors.baseWhite,
+      borderColor: colors.brandRed,
 
       ":hover": hoverStyles.red,
       ":focus": hoverStyles.red,
@@ -93,6 +98,7 @@ const styles = {
     green: {
       backgroundColor: colors.brandGreen,
       color: colors.baseWhite,
+      borderColor: colors.brandGreen,
 
       ":hover": hoverStyles.green,
       ":focus": hoverStyles.green,
@@ -102,6 +108,7 @@ const styles = {
     yellow: {
       backgroundColor: colors.brandYellow,
       color: colors.baseWhite,
+      borderColor: colors.brandYellow,
 
       ":hover": hoverStyles.yellow,
       ":focus": hoverStyles.yellow,

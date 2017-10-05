@@ -39,7 +39,7 @@ const NavItem = (props) => {
 NavItem.defaultProps = {
   color: colors.linkBase,
   display: 'inline-block',
-  fontWeight: fontWeight.normal,
+  fontWeight: fontWeight.regular,
   fs: '14px',
   lh: '18px',
   mt:  spacing.space0,

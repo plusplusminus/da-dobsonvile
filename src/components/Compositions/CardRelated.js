@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { ButtonViewAll, Copy, HeaderArticle, Heading, HeadingMeta, HeadingSmall, HeadingSection, NavText } from 'components';
+import { Copy, HeaderArticle, Heading } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+
 
 const CardHighlight = (props) => {
 
   const { body, copy, cta, heading, visual } = props;
 
   const styles = StyleSheet.create({
-    cardHighlight:{
+    cardRelated:{
       display: 'inline-block',
       width: '100%',
       marginBottom: spacing.space5,
@@ -29,7 +30,7 @@ const CardHighlight = (props) => {
   });
 
   return (
-    <div className={css(styles.cardHighlight)}>
+    <div className={css(styles.cardRelated)}>
       <div className={css(styles.visual)}>
         { visual }
       </div>

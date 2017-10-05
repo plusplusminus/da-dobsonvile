@@ -14,7 +14,7 @@ function Spacing() {
       marginLeft: '-1px',
       borderLeft: '1px solid',
       borderBottom: '1px solid',
-      borderColor: colors.Border,
+      borderColor: colors.borderBase,
       backgroundColor: colors.bgLight,
       textAlign: 'center',
     },

@@ -36,10 +36,10 @@ Copy.defaultProps = {
   fontWeight: fontWeight.light,
   textTransform: 'none',
   fs: '16px',
-  lh: '30px',
+  lh: '24px',
   mt:  spacing.space0,
   mr:  spacing.space0,
-  mb:  spacing.space3,
+  mb:  spacing.space2,
   ml:  spacing.space0,
 }
 

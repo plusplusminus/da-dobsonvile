@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import { HeadingHero, HeadingSmall, HeadingSection, NavText } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
+import { Heading, MoreLink } from 'components';
+
 
 const Hero = (props) => {
-  const { content, heading, weight, color, children, visual } = props;
+  const { heading, children, visual } = props;
   const styles = StyleSheet.create({
-    Hero:{
+    hero:{
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
     },
@@ -29,23 +30,60 @@ const Hero = (props) => {
   });
 
   return (
-    <div className={css(styles.Hero)} style={{backgroundImage:`url(${visual})`}}>
+    <div className={css(styles.hero)} style={{backgroundImage:`url(${visual})`}}>
       <div className={css(styles.bg)}>
-        <HeadingHero>{ heading }</HeadingHero>
-        <HeadingSection color={"White"} lineLeft lineRight>Take Action</HeadingSection>
+
+        <Heading
+          size={"huge"}
+          weight={"bold"}
+          color={"white"}
+        >
+          { heading }
+        </Heading>
+
+        <Heading
+          size={"medium"}
+          weight={"bold"}
+          color={"white"}
+        >
+          Take Action
+        </Heading>
+
         <div className="row justify-content-center">
+
           <div className="col-lg-3 text-center">
-            <HeadingSmall color={"White"} align={"center"}>Contribute to our campaign cause</HeadingSmall>
-            <NavText color={"BlueLight1"}>Donate</NavText>
+            <Heading
+              color={"white"}
+              weight={"bold"}
+              size={"small"}
+            >
+              Contribute to our campaign cause
+            </Heading>
+            <MoreLink color={"yellow"}>Donate</MoreLink>
           </div>
+
           <div className="col-lg-3 text-center">
-            <HeadingSmall color={"White"} align={"center"}>Sign our petition to remove Zuma</HeadingSmall>
-            <NavText color={"BlueLight1"}>Sign Petition</NavText>
+            <Heading
+              color={"white"}
+              weight={"bold"}
+              size={"small"}
+            >
+              Sign our petition to remove Zuma
+            </Heading>
+            <MoreLink color={"yellow"}>Donate</MoreLink>
           </div>
+
           <div className="col-lg-3 text-center">
-            <HeadingSmall color={"White"} align={"center"}>Make a difference by joining the DA</HeadingSmall>
-            <NavText color={"BlueLight1"}>Join Now</NavText>
+            <Heading
+              color={"white"}
+              weight={"bold"}
+              size={"small"}
+            >
+              Make a difference by joining the DA
+            </Heading>
+            <MoreLink color={"yellow"}>Donate</MoreLink>
           </div>
+
         </div>
       </div>
     </div>
@@ -53,7 +91,6 @@ const Hero = (props) => {
 }
 
 Hero.defaultProps = {
-  color: 'Copy',
 }
 
 export default Hero;

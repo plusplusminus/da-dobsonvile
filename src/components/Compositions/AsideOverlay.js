@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { Button, Copy, HeadingAside } from 'components';
+import { Button, Copy, Heading } from 'components';
 import { colors, fontWeight, spacing } from 'common/styles/variables';
-import {default as HeadingTest} from 'components/Heading';
+
 import {default as ButtonTest} from 'components/Button'
 
 function AsideOverlay(props) {
@@ -19,8 +19,8 @@ function AsideOverlay(props) {
     },
     bg:{
       borderRadius: spacing.space1,
-      backgroundColor: colors[props.backgroundColor],
-      padding: spacing[props.padding],
+      backgroundColor: props.backgroundColor,
+      padding: props.padding,
       display: 'flex',
       alignItems: props.align,
       flexDirection: 'column'
@@ -30,17 +30,17 @@ function AsideOverlay(props) {
   return (
     <aside className={css(styles.asideOverlay)} style={{backgroundImage:`url(${visual})`}}>
       <div className={css(styles.bg)}>
-        <HeadingTest
-          importance="high"
-          size="large"
-          weight="thick"
+        <Heading
+          color={"white"}
+          weight={"bold"}
+          size={"large"}
         >
           { heading }
-        </HeadingTest>
+        </Heading>
         <Copy
-          color={ copyColor }
+          color={ colors.textWhite }
           align={"center"}
-          fontWeight={copyWeight}>
+          fontWeight={fontWeight.bold}>
           { copy }
         </Copy>
         <ButtonTest
@@ -54,14 +54,11 @@ function AsideOverlay(props) {
 
 AsideOverlay.defaultProps = {
   align: 'center',
-  backgroundColor: 'bgDarkO',
+  backgroundColor: colors.bgDarkO,
   buttonLabel: 'View All',
   copy: 'Aenean lacinia bibendum nulla sed consectetur. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.',
-  copyColor: 'White',
-  copyWeight: 'Light',
   heading: 'Heading',
-  headingColor: 'White',
-  padding: 'Space5',
+  padding: spacing.space5,
 }
 
 AsideOverlay.propTypes = {

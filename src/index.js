@@ -23,7 +23,7 @@ export { default as NavItem } from './components/Nav/NavItem/NavItem';
 export { default as NavBox } from './components/Nav/NavItem/NavBox';
 export { default as NavButton } from './components/Nav/NavItem/NavButton';
 export { default as NavIcon } from './components/Nav/NavItem/NavIcon';
-export { default as NavText } from './components/Nav/NavItem/NavText';
+export { default as MoreLink } from './components/Nav/NavItem/MoreLink';
 
 
 // Button

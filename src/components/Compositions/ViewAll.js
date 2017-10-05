@@ -6,7 +6,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 
 const ViewAll = (props) => {
 
-  const { buttonColor, buttonLabel, } = props;
+  const { buttonColor, children } = props;
 
   const styles = StyleSheet.create({
     ViewAll:{
@@ -26,21 +26,21 @@ const ViewAll = (props) => {
 
   return (
     <div className={css(styles.ViewAll)}>
-      <ButtonTest color={props.buttonColor} outline >{ buttonLabel }</ButtonTest>
+      <ButtonTest color={props.buttonColor} outline >{ children }</ButtonTest>
     </div>
   )
 }
 
 
 ViewAll.defaultProps = {
-  buttonLabel: 'View All',
+  children: 'View All',
   borderColor: colors.borderLight,
   buttonColor: 'blue',
 }
 
 ViewAll.propTypes = {
   /** Label of button*/
-  buttonLabel: PropTypes.string,
+  children: PropTypes.string,
   /** Color of Border as per variables.js*/
   borderColor: PropTypes.string,
   /** Color of the button */

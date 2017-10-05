@@ -4,6 +4,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { ButtonViewAll, Copy, HeaderArticle, Heading, HeadingMeta, HeadingSmall, HeadingSection, NavText } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
+
 const CardNews = (props) => {
 
   const { heading, meta, visual } = props;
@@ -26,8 +27,8 @@ const CardNews = (props) => {
       { visual &&
         <div className={css(styles.visual)}>{ visual }</div>
       }
-        <HeadingSmall>{ heading }</HeadingSmall>
-        <HeadingMeta textTransform={"uppercase"} letterSpacing={"Base"}>{ meta }</HeadingMeta>
+        <Heading size={"small"} weight={"bold"}>{ heading }</Heading>
+        <Heading size={"tiny"} uppercase >{ meta }</Heading>
     </div>
   )
 }

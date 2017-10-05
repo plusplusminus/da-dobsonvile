@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { HeadingSmall, NavText, NavIcon, NavItem } from 'components';
+import { Heading, MoreLink, NavIcon, NavItem } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+
 
 const FooterMenus = (props) => {
   const { content, weight, col, children } = props;
@@ -14,8 +15,8 @@ const FooterMenus = (props) => {
       marginBottom: spacing.space5,
     },
     menu:{
-      margin: spacing.space,
-      padding: spacing.space,
+      margin: spacing.space0,
+      padding: spacing.space0,
     },
   });
 
@@ -23,7 +24,7 @@ const FooterMenus = (props) => {
     <div className={css(styles.footerMenus)}>
       <div className="row">
         <div className={`${css(styles.wrapper)} ${col}`}>
-          <HeadingSmall color={"White"}>Contact Details</HeadingSmall>
+          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"}>Contact Details</Heading>
           <div className={css(styles.menu)}>
             <NavIcon color={"White"} iconColor={"White"} iconName="mobile">+27 832 234 1232</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="instagram">Instagram</NavIcon>
@@ -31,39 +32,39 @@ const FooterMenus = (props) => {
             <NavIcon color={"White"} iconColor={"White"} iconName="twitter">Twitter</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="youtube">YouTube</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="envelope">Email</NavIcon>
-            <NavText color={"White"}>View all Contact Details</NavText>
+            <MoreLink color={"white"} size="small" uppercase>View all Contact Details</MoreLink>
           </div>
         </div>
 
         <div className={`${css(styles.wrapper)} ${col}`}>
-          <HeadingSmall color={"White"}>About the DA</HeadingSmall>
+          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"}>About the DA</Heading>
           <ul className={css(styles.menu)}>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Vision</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Policies</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Principles</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>History</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Our Constitution</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>DA Youth</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Blue, the Network</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Vision</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Policies</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Principles</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>History</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Our Constitution</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>DA Youth</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Blue, the Network</NavItem>
           </ul>
         </div>
 
         <div className={`${css(styles.wrapper)} ${col}`}>
-          <HeadingSmall color={"White"}>Newsroom</HeadingSmall>
+          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"}>Newsroom</Heading>
           <ul className={css(styles.menu)}>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>News</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Speeches</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>News</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Speeches</NavItem>
           </ul>
         </div>
 
         <div className={`${css(styles.wrapper)} ${col}`}>
-          <HeadingSmall color={"White"}>Campaigns</HeadingSmall>
+          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"}>Campaigns</Heading>
           <ul className={css(styles.menu)}>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Remove President Zuma</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Social Grants Crisis</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Education in the DA-led Western Cape</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>Vision 2029</NavItem>
-            <NavItem ml={"Space"} mr={"Space"} mb={"Space1"} display={"block"} fontWeight={"Normal"}>A Rescue Mission for the Lost Generation</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Remove President Zuma</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Social Grants Crisis</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Education in the DA-led Western Cape</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Vision 2029</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>A Rescue Mission for the Lost Generation</NavItem>
           </ul>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import { NavIcon, Widget } from 'components';
+import { Heading, NavIcon, Widget } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
 
@@ -19,7 +19,7 @@ const ArticleShare = (props) => {
     <footer className={css(styles.articleShare)}>
       <Widget
         widgetTitle={"Direct Link"}
-        widgetTitleColor={colors.brandBlue}
+        widgetTitleColor={"blue"}
         colTitle={"col-md-12"}
         colSection={"col-md-12"}>
         <form>
@@ -30,7 +30,7 @@ const ArticleShare = (props) => {
       </Widget>
       <Widget
         widgetTitle={"Share"}
-        widgetTitleColor={colors.brandBlue}
+        widgetTitleColor={"blue"}
         colTitle={"col-md-12"}
         colSection={"col-md-12"}>
         <div className="row">
@@ -40,6 +40,7 @@ const ArticleShare = (props) => {
             <NavIcon iconName="envelope" iconColor={colors.socialEmail}>{"Send by Email"}</NavIcon>
             <NavIcon iconName="whatsapp" iconColor={colors.socialWhatsApp}>{"Share with What's App"}</NavIcon>
           </div>
+
           <div className="col-md-3">
             <NavIcon iconName="print" iconColor={colors.brandBlue}>{"Print"}</NavIcon>
             <NavIcon iconName="bookmark" iconColor={colors.brandBlue}>{"Bookmark"}</NavIcon>

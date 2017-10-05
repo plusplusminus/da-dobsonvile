@@ -6,9 +6,9 @@ export const timing = {
   base: ".1s",
 };
 export const fontWeight = {
-  bold: "600",
+  bold: "700",
   medium: "500",
-  normal: "400",
+  regular: "400",
   light: "300",
 };
 
@@ -20,8 +20,10 @@ export const fontStyles = (size, lh, extras = {}) => ({
 
 export const letterSpacing = {
   none: "0",
-  base: "0.015rem",
-  large: "0.025rem",
+  small: "0.05rem",
+  base: "0.15rem",
+  large: "0.25rem",
+  huge: "0.4rem",
 };
 
 export const colors = {
@@ -67,6 +69,7 @@ export const colors = {
   textBase: "#333333",
   textLight: "#777777",
   textLightO: "rgba(255,255,255,0.85)",
+  textWhite: "#FFFFFF",
 
   socialEmail: '#B0153C',
   socialFacebook: "#3A579A",

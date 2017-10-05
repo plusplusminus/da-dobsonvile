@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { Button, Copy, HeadingWidget } from 'components';
+import { Button, Copy, Heading } from 'components';
 import { colors, fontWeight, spacing } from 'common/styles/variables';
+
 
 const Widget = (props) => {
 
@@ -19,7 +20,7 @@ const Widget = (props) => {
   return (
     <nav className={css(styles.widget)}>
       <div className="row">
-        { widgetTitle && <div className={`${css(styles.title)} ${colTitle}`}><HeadingWidget color={ widgetTitleColor }>{ widgetTitle }</HeadingWidget></div> }
+        { widgetTitle && <div className={`${css(styles.title)} ${colTitle}`}><Heading size={"small"} weight={"bold"} color={ widgetTitleColor }>{ widgetTitle }</Heading></div> }
         <div className={`${css(styles.section)} ${colSection}`}>
           { children }
         </div>
@@ -32,6 +33,7 @@ Widget.defaultProps = {
   colTitle: 'col-2',
   colSection: 'col-12',
   widgetTitle: 'Title',
+  widgetTitleColor: null,
 }
 
 Widget.propTypes = {
@@ -41,6 +43,8 @@ Widget.propTypes = {
   colSection: PropTypes.string,
   /** Title of Widget */
   widgetTitle: PropTypes.string,
+  /** Color of Widget based on color prop of Heading component */
+  widgetTitleColor: PropTypes.string,
 }
 
 export default Widget;

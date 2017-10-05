@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { ButtonViewAll, Copy, HeaderArticle, Heading, HeadingMeta, HeadingSmall, HeadingSection, NavText } from 'components';
+import { ButtonViewAll, Copy, HeaderArticle, Heading, HeadingMeta, HeadingSmall, HeadingSection, MoreLink } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
-import {default as HeadingTest} from 'components/Heading';
+
 
 const CardPerson = (props) => {
 
@@ -16,7 +16,7 @@ const CardPerson = (props) => {
       marginBottom: spacing.space2,
       padding: spacing.space3,
       borderBottom: '1px solid',
-      borderColor: colors.Border,
+      borderColor: colors.borderBase,
 
     },
     content:{
@@ -48,10 +48,10 @@ const CardPerson = (props) => {
       }
       <div className={css(styles.content)}>
         <div className={css(styles.wrapper)}>
-          <HeadingTest size="medium">
+          <Heading size="medium" weight="medium">
             { heading }
-          </HeadingTest>
-          <HeadingTest size="small" caps importance="low" tracking="base">{ meta }</HeadingTest>
+          </Heading>
+          <Heading size="tiny" color="blue" letterSpacing="small">{ meta }</Heading>
         </div>
         <table className={css(styles.table)}>
           <tr>
@@ -64,7 +64,7 @@ const CardPerson = (props) => {
           </tr>
         </table>
         { moreLink &&
-          <NavText color="Red">More info</NavText>
+          <MoreLink color={"red"} size={"small"} uppercase>More info</MoreLink>
         }
       </div>
     </div>

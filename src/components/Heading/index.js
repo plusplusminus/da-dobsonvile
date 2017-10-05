@@ -17,49 +17,49 @@ const styles = {
 
   size: {
     tiny: {
-      ...fontStyles("8px", `${8 * 1.5}px`),
+      ...fontStyles("13px", `${13 * 1.5}px`),
     },
     small: {
-      ...fontStyles("12px", `${12 * 1.5}px`),
-    },
-    medium: {
       ...fontStyles("16px", `${16 * 1.5}px`),
     },
+    medium: {
+      ...fontStyles("20px", `${20 * 1.5}px`),
+    },
     large: {
-      ...fontStyles("24px", `${24 * 1.5}px`),
+      ...fontStyles("25px", `${25 * 1.5}px`),
     },
     huge: {
-      ...fontStyles("36px", `${36 * 1.5}px`),
+      ...fontStyles("49px", `${49 * 1.5}px`),
     },
   },
 
   weight: {
-    extraThin: {
+    light: {
       fontWeight: fontWeight.light,
     },
-    thin: {
-      fontWeight: fontWeight.light,
+    regular: {
+      fontWeight: fontWeight.regular,
     },
-    normal: {
-      fontWeight: fontWeight.normal,
+    medium: {
+      fontWeight: fontWeight.medium,
     },
-    thick: {
+    bold: {
       fontWeight: fontWeight.bold,
     },
   },
 
-  importance: {
-    low: {
-      color: colors.BlueLight,
+  color: {
+    base: {
+      color: colors.textBase,
     },
-    normal: {
-      color: colors.Black,
+    blue: {
+      color: colors.brandBlue,
     },
-    high: {
-      color: colors.Blue,
+    red: {
+      color: colors.brandRed,
     },
-    alert: {
-      color: colors.Red,
+    white: {
+      color: colors.brandWhite,
     },
   },
 
@@ -73,10 +73,12 @@ const styles = {
       whiteSpace: "nowrap",
     },
   },
-
   letterSpacing: {
     none: {
       letterSpacing: letterSpacing.none,
+    },
+    small: {
+      letterSpacing: letterSpacing.small,
     },
     base: {
       letterSpacing: letterSpacing.base,
@@ -84,12 +86,15 @@ const styles = {
     large: {
       letterSpacing: letterSpacing.large,
     },
+    huge: {
+      letterSpacing: letterSpacing.huge,
+    },
   },
 };
 
 const Heading = (props) => {
 
-  const { children, level, size, weight, importance, letterSpacing, truncate, uppercase, override } = props;
+  const { children, level, size, weight, color, letterSpacing, truncate, uppercase, override } = props;
 
   const Component = `h${level}`;
 
@@ -97,7 +102,7 @@ const Heading = (props) => {
     styles.base,
     size && styles.size[size],
     weight && styles.weight[weight],
-    importance && styles.importance[importance],
+    color && styles.color[color],
     letterSpacing && styles.letterSpacing[letterSpacing],
     truncate && styles.variant.truncate,
     uppercase && styles.variant.uppercase,
@@ -128,8 +133,8 @@ const Heading = (props) => {
 Heading.defaultProps = {
   level: 2,
   size: "medium",
-  weight: "normal",
-  importance: "normal",
+  weight: "regular",
+  color: "base",
   letterSpacing: "normal",
   truncate: false,
   uppercase: false,
@@ -159,17 +164,17 @@ Heading.propTypes = {
   ]).isRequired,
   /** Adjusts the font weight of the heading */
   weight: PropTypes.oneOf([
-    "thick",
-    "normal",
-    "thin",
-    "extraThin",
+    "bold",
+    "medium",
+    "regular",
+    "light",
   ]),
   /** The heading color changes based on importance */
-  importance: PropTypes.oneOf([
-    "alert",
-    "high",
-    "normal",
-    "low",
+  color: PropTypes.oneOf([
+    "base",
+    "blue",
+    "red",
+    "white",
   ]),
   /** Controls the letter spacing */
   letterSpacing: PropTypes.oneOf([

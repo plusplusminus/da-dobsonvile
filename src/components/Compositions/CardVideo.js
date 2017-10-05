@@ -4,6 +4,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { ButtonViewAll, Copy, HeaderArticle, Heading, HeadingMeta, HeadingSmall, HeadingSection, NavText } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
+
 const CardVideo = (props) => {
 
   const { body, color, copy, cta, featured, heading, visual } = props;
@@ -25,8 +26,8 @@ const CardVideo = (props) => {
         <div className={css(styles.visual)}>{ visual }</div>
       }
       { featured == true
-        ? <Heading color={color}>{ heading }</Heading>
-        : <HeadingSmall color={color}>{ heading }</HeadingSmall>
+        ? <Heading color={color} weight={"bold"} size={"large"}>{ heading }</Heading>
+        : <Heading color={color} weight={"bold"} size={"small"}>{ heading }</Heading>
       }
       { featured &&
         <div>{ body }{ cta }</div>
@@ -40,7 +41,7 @@ const CardVideo = (props) => {
 CardVideo.defaultProps = {
   body: null,
   cta: null,
-  color: 'Primary',
+  color: 'blue',
   featured: false,
   heading: null,
 }

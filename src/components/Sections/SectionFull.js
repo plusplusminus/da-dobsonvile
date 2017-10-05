@@ -12,9 +12,9 @@ const sectionFull = (props) => {
       backgroundPosition: 'center center'
     },
     bg:{
-      paddingTop: spacing[props.pt],
-      paddingBottom: spacing[props.pb],
-      backgroundColor: colors[props.backgroundColor]
+      paddingTop: props.pt,
+      paddingBottom: props.pb,
+      backgroundColor: props.backgroundColor,
     },
   });
 
@@ -35,12 +35,12 @@ const sectionFull = (props) => {
 }
 
 sectionFull.defaultProps = {
-  backgroundColor: 'bgLight',
+  backgroundColor: colors.bgLight,
   col: 'col-12',
   heading: null,
   section: null,
-  pt: 'Space15',
-  pb: 'Space15',
+  pt: spacing.space15,
+  pb: spacing.space15,
   visual: null,
 }
 

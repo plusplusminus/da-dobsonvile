@@ -13,10 +13,10 @@ const Header = (props) => {
     header:{
       display: 'block',
       width: '100%',
-      marginBottom: spacing[props.mb],
-      paddingBottom: spacing[props.pb],
+      marginBottom: props.mb,
+      paddingBottom: props.pb,
       borderBottomWidth: props.borderWidth,
-      borderBottomColor: colors.Border,
+      borderBottomColor: colors.borderBase,
       borderBottomStyle: 'solid',
     }
   });
@@ -29,8 +29,8 @@ const Header = (props) => {
 }
 
 Header.defaultProps = {
-  mb: 'Space2',
-  pb: 'Space1',
+  mb: spacing.space2,
+  pb: spacing.space1,
   borderWidth: 0,
 }
 

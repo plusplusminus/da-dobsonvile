@@ -4,7 +4,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { colors, fonts, fontStyles, fontWeight, letterSpacing, opacity, spacing, timing } from 'common/styles/variables';
 
 const NavIcon = (props) => {
-  const { content, weight, color, children, iconName, iconColor } = props;
+  const { content, color, children, iconName, iconColor } = props;
   const styles = StyleSheet.create({
     navIcon:{
       padding: 0,
@@ -12,6 +12,7 @@ const NavIcon = (props) => {
       cursor: 'pointer',
       textAlign: 'left',
       display: 'flex',
+      fontWeight: fontWeight.light,
       alignItems: 'center',
       border: 'none',
       background: colors.baseTransparent,

@@ -38,15 +38,10 @@ import {
   FooterMenus,
   Header,
   Heading,
-  HeadingAside,
-  HeadingHero,
-  HeadingMeta,
-  HeadingSection,
-  HeadingSmall,
-  HeadingWidget,
   Hero,
   Icon,
   Logo,
+  MoreLink,
   SectionMain,
   SectionFull,
   Tag,
@@ -66,8 +61,6 @@ import {
 
 // Sergio components
 import { default as ButtonTest } from "../src/components/Button";
-import { default as HeadingTest } from "../src/components/Heading";
-import { default as MoreLink } from "../src/components/MoreLink";
 import { default as CampaignCard } from "../src/components/CampaignCard";
 
 
@@ -136,10 +129,12 @@ storiesOf('Base', module)
   })
   .add('Button Custom Styles', () => {
     const styles = {
-      color: colors.White,
-      backgroundColor: colors.BlueLight,
+      color: colors.brandGreen,
+      backgroundColor: colors.brandYellow,
       ":hover": {
-        backgroundColor: colors.Blue,
+        color: colors.brandRed,
+        backgroundColor: colors.brandBlue,
+        borderColor: colors.brandGreen,
       }
     }
     return (
@@ -168,24 +163,24 @@ storiesOf('Base', module)
         mb={select('mb',spacingArray,spacing.space3)}
         ml={select('ml',spacingArray,spacing.space0)}
       >
-        {text("Children", "Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.")}
+        {text("children", "Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.")}
       </Copy>
     )
   })
 
   .add('Heading', () => (
-    <HeadingTest
+    <Heading
       level={select("level", [1, 2, 3, 4, 5, 6], 1)}
       size={select("size", ["huge", "large", "medium", "small", "tiny"], "medium")}
-      importance={select("importance", ["high", "low", "normal", "alert"], "normal")}
+      color={select("color", ["base", "blue", "red", "white"], "base")}
       uppercase={boolean("uppercase", false)}
       truncate={boolean("truncate", false)}
-      weight={select("weight", ["thick", "normal", "thin", "extraThin"], "normal")}
-      letterSpacing={select("letterSpacing", ["none", "base", "large"], "none")}
+      fontWeight={select("weight", ["bold", "medium", "regular", "light"], "regular")}
+      letterSpacing={select("letterSpacing", ["none", "small", "base", "large", "huge"], "none")}
       override={object("override", {})}
     >
       {text("children", "Heading")}
-    </HeadingTest>
+    </Heading>
   ))
 
   .add('Icon', () =>  {
@@ -243,59 +238,59 @@ storiesOf("Navs/Navbar", module)
   .add("Masthead", () => (
     <div>
       <NavbarSecondary>
-        <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"} /> Visit da.org.za</NavItem>
-        <NavItem fs={"13px"} lh={"16px"}><a>Why the DA?</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"}><a>Where we govern</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"}><a>Our People</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"}><a>Newsroom</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"}><a>Contact</a></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><MoreLink color={"white"}  arrowDirection="left">Visit da.org.za</MoreLink></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Contact</a></NavItem>
       </NavbarSecondary>
       <Navbar>
-        <NavItem fontWeight={"Bold"}><Logo /></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
-        <NavItem fontWeight={"Bold"} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
-        <NavItem fontWeight={"Bold"}>Campaigns</NavItem>
-        <NavItem fontWeight={"Bold"}>Get Involved</NavItem>
-        <NavItem fontWeight={"Bold"}><ButtonDonate>Donate</ButtonDonate></NavItem>
-        <NavItem fontWeight={"Bold"}><ButtonOutline color="White">Join the DA</ButtonOutline></NavItem>
+        <NavItem fontWeight={fontWeight.bold}><Logo /></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Get Involved</NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Join the DA</ButtonTest></NavItem>
       </Navbar>
       <NavbarSub>
-        <NavItem fontWeight={"Bold"} fs={"13px"} lh={"16px"} color={"BlueLight"}>Bokamoso</NavItem>
-        <NavItem fontWeight={"Bold"} fs={"13px"} lh={"16px"} color={"BlueLight"}>Speeches</NavItem>
-        <NavItem fontWeight={"Bold"} fs={"13px"} lh={"16px"} color={"BlueLight"}>Archive</NavItem>
-        <NavItem fontWeight={"Bold"}><NavText color={"BlueLight"}>Subscribe to Bokamoso</NavText></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Bokamoso</NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><MoreLink color={"blue"}>Subscribe to Bokamoso</MoreLink></NavItem>
       </NavbarSub>
     </div>
   ))
   .add("Navbar", () => (
     <Navbar>
       <NavItem><Logo /></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
-      <NavItem fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
-      <NavItem>Campaigns</NavItem>
-      <NavItem>Get Involved</NavItem>
-      <NavItem><ButtonDonate>Donate</ButtonDonate></NavItem>
-      <NavItem><ButtonOutline color="White">Join the DA</ButtonOutline></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Get Involved</NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Join the DA</ButtonTest></NavItem>
     </Navbar>
   ))
   .add("NavbarSecondary", () => (
     <NavbarSecondary>
-      <NavItem fs={"13px"} lh={"16px"}><Icon name={"angle-left"} color={"White"} mr={"Space1"} /> Visit da.org.za</NavItem>
-      <NavItem fs={"13px"} lh={"16px"}><a>Why the DA?</a></NavItem>
-      <NavItem fs={"13px"} lh={"16px"}><a>Where we govern</a></NavItem>
-      <NavItem fs={"13px"} lh={"16px"}><a>Our People</a></NavItem>
-      <NavItem fs={"13px"} lh={"16px"}><a>Newsroom</a></NavItem>
-      <NavItem fs={"13px"} lh={"16px"}><a>Contact</a></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><MoreLink color={"white"}  arrowDirection="left">Visit da.org.za</MoreLink></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Contact</a></NavItem>
     </NavbarSecondary>
   ))
   .add("NavbarSub", () => (
     <NavbarSub>
-      <NavItem fs={"13px"} lh={"16px"} color={"BlueLight"}>Bokamoso</NavItem>
-      <NavItem fs={"13px"} lh={"16px"} color={"BlueLight"}>Speeches</NavItem>
-      <NavItem fs={"13px"} lh={"16px"} color={"BlueLight"}>Archive</NavItem>
-      <NavItem><NavText color={"BlueLight"}>Subscribe to Bokamoso</NavText></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Bokamoso</NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Speeches</NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Archive</NavItem>
+      <NavItem><MoreLink color={"blue"}>Subscribe to Bokamoso</MoreLink></NavItem>
     </NavbarSub>
   ));
 
@@ -316,7 +311,7 @@ storiesOf("Navs/NavItems", module)
       <NavItem
         color={select('color',colorsArray,colors.linkBase)}
         display={text('display','inline-block')}
-        fontWeight={select('fontWeight',weightArray,fontWeight.normal)}
+        fontWeight={select('fontWeight',weightArray,fontWeight.regular)}
         fs={text('fs','14px')}
         lh={text('fs','18px')}
         mt={select('mt',spacingArray,spacing.space0)}
@@ -349,7 +344,7 @@ storiesOf("Navs/NavItems", module)
       isNested={boolean("isNested", false)}
       size={select("size", ["", "small", "large"], "")}
       target={select("target", ["_blank", "_parent", "_self", "_top"], "")}
-      uppercase={boolean("textTransform", false)}
+      uppercase={boolean("uppercase", false)}
 
     >
       { text("children", "Read More") }
@@ -373,6 +368,14 @@ storiesOf("Navs/NavItems", module)
       )
     })
 
+    .add("ArticleDetails", () => (
+      <ArticleDetails />
+    ))
+
+    .add("ArticleShare", () => (
+      <ArticleShare />
+    ))
+
     .add('Aside', () => (
       <Aside
         visual={dobsonville}
@@ -382,7 +385,7 @@ storiesOf("Navs/NavItems", module)
     .add("AsideList", () => (
       <AsideList
         heading={"Latest News"}
-        cta={<NavText color={"Red"}>More news</NavText>}
+        cta={<MoreLink color={"red"} size={"small"} uppercase >More news</MoreLink>}
       >
         <CardNews
           visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
@@ -434,12 +437,12 @@ storiesOf("Navs/NavItems", module)
         visual={dobsonville}
         header={
           <Header>
-            <Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
-            <HeadingMeta color={"Primary"} textTransform={"uppercase"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</HeadingMeta>
+            <Heading size={"large"} color={"blue"} letterSpacing={"small"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
+            <Heading color={"blue"} weight={"medium"} size={"tiny"} >{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</Heading>
           </Header>
           }
         body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
-        cta={<NavText color={"Red"} display={"block"}>{"View More"}</NavText>}
+        cta={<MoreLink color={"red"} size={"small"} uppercase >{"View More"}</MoreLink>}
       />
     ))
 
@@ -470,29 +473,29 @@ storiesOf("Navs/NavItems", module)
         <CardRelated
           vertical={boolean('vertical?', 'false')}
           visual={<img width={"300px"} className="img-fluid" src={ dobsonville } alt="alt" />}
-          heading={<HeadingSmall color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</HeadingSmall>}
+          heading={<Heading color={"blue"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
           body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-          cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}
+          cta={<MoreLink color={"red"} uppercase size={"small"}>{"Read More"}</MoreLink>}
         />
     ))
 
     .add("CardVideo", () => (
       <CardVideo
         featured={boolean("featured", "false")}
-        color={select("color", ["Primary", "White"], "Primary")}
+        color={select("color", ["blue", "white"], "blue")}
         visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
         heading={"Fermentum Sem Mollis Pharetra"}
-        body={<Copy color={"White"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-        cta={<NavText color={"White"}>Play video</NavText>}
+        body={<Copy color={colors.textBase}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
+        cta={<MoreLink color={"white"} size={"small"} uppercase>Play video</MoreLink>}
       />
     ))
 
     .add("Header", () => (
       <Header borderWidth={"1px"}>
-        <HeadingMeta textTransform={"uppercase"} letterSpacing={"Base"}>Western Cape</HeadingMeta>
-        <Heading color={"Primary"}>Jacob Zuma Foundation has failed our students</Heading>
-        <HeadingMeta color={"CopyLight"}>Written by Belinda Bozzoli MP – DA Shadow Minister of Higher Education and Training</HeadingMeta>
-        <HeadingMeta>August 20, 2017 in News</HeadingMeta>
+        <Heading uppercase color={"blue"} letterSpacing={"base"} weight={"light"} size={"tiny"}>Western Cape</Heading>
+        <Heading color={"blue"} weight={"bold"} size={"large"}>Jacob Zuma Foundation has failed our students</Heading>
+        <Heading letterSpacing={"small"} weight={"light"} size={"tiny"}>Written by Belinda Bozzoli MP – DA Shadow Minister of Higher Education and Training</Heading>
+        <Heading letterSpacing={"small"} weight={"light"} size={"tiny"}>August 20, 2017 in News</Heading>
       </Header>
     ))
 
@@ -553,12 +556,6 @@ storiesOf("Navs/NavItems", module)
     ));
 
   storiesOf("Modules", module)
-    .add("ArticleDetails", () => (
-      <ArticleDetails />
-    ))
-    .add("ArticleShare", () => (
-      <ArticleShare />
-    ))
     .add("Campaigns", () => (
       <Campaigns />
     ))
@@ -585,7 +582,12 @@ storiesOf("Navs/NavItems", module)
         aside={
           <div>
             <AsideOverlay visual={dobsonville} />
-            <Aside visual={dobsonville} />
+
+            <Aside
+              visual={dobsonville}
+              buttonLabel="Donate Now"
+            />
+
             <AsideMenu>
               <NavBox>Item One</NavBox>
               <NavBox>Item Two</NavBox>
@@ -593,9 +595,10 @@ storiesOf("Navs/NavItems", module)
               <NavBox>Item Four</NavBox>
               <NavBox>Item Five</NavBox>
             </AsideMenu>
+
             <AsideList
               heading={"Latest News"}
-              cta={<NavText color={"Red"}>More news</NavText>}
+              cta={<MoreLink color={"red"} size={"small"} uppercase>{"More News"}</MoreLink>}
             >
               <CardNews
                 visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
@@ -613,64 +616,69 @@ storiesOf("Navs/NavItems", module)
                 meta={"July 4, 2017 in News"}
               />
             </AsideList>
+
             <CardRelated
               vertical
               visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
-              heading={<HeadingSmall color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</HeadingSmall>}
+              heading={<Heading color={"blue"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
               body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-              cta={<NavText color={"Red"} display={"block"}>{"Read More"}</NavText>}
+              cta={<MoreLink color={"red"} size={"small"} uppercase>{"Read More"}</MoreLink>}
             />
 
           </div>
         }
       />
     ))
-    .add("SectionFull", () => (
-      <div>
-        <SectionFull
-          section={
-            <CardHighlight
-              visual={dobsonville}
-              header={
-                <Header>
-                  <Heading color={"Primary"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
-                  <HeadingMeta color={"Primary"} textTransform={"uppercase"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</HeadingMeta>
-                </Header>
-              }
-              body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
-              cta={<NavText color={"Red"} display={"block"}>{"View More"}</NavText>}
-            />
-          }
-        />
+    .add("SectionFull", () => {
+      const colorsArray = getStyleValue(filterStyleGroup(colors,"bg"));
+      const spacingArray = getStyleValue(spacing);
+      return(
+        <div>
+          <SectionFull
+            section={
+              <CardHighlight
+                visual={dobsonville}
+                header={
+                  <Header>
+                    <Heading size={"large"} color={"blue"} letterSpacing={"small"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
+                    <Heading color={"blue"} weight={"medium"} size={"tiny"} >{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</Heading>
+                  </Header>
+                }
+                body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
+                cta={<MoreLink color={"red"} size={"small"} uppercase>{"View More"}</MoreLink>}
+              />
+            }
+          />
 
-        <SectionFull
-          pt={text("paddingTop", "Space12")}
-          pb={text("paddingBottom", "Space5")}
-          backgroundColor={text("backgroundColor", "Blue")}
-          visual={dobsonville}
-          heading={
-            <HeadingSection color={"White"}>Latest Videos</HeadingSection>
-          }
-          section={
-            <Videos />
-          }
-        />
+          <SectionFull
+            pt={select("pt", spacingArray, spacing.space12)}
+            pb={select("pb", spacingArray, spacing.space5)}
+            backgroundColor={select("backgroundColor",colorsArray, colors.bgBlue)}
+            visual={dobsonville}
+            heading={
+              <Heading color={"white"} size={"tiny"} letterSpacing={"huge"} weight={"light"} uppercase>Latest Videos</Heading>
+            }
+            section={
+              <Videos />
+            }
+          />
 
-        <SectionFull
-          backgroundColor={text("backgroundColor", "bgLightO")}
-          pt={text("paddingTop", "Space12")}
-          visual={dobsonville}
-          heading={
-            <HeadingSection color={"Primary"}>Get Involved</HeadingSection>
-          }
-          section={
-            <div>
-              <Copy color={"Blue"} align={"center"}>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
-            </div>
-          }
-        />
-      </div>
-    ))
+          <SectionFull
+            backgroundColor={colors.bgLightO}
+            pt={spacing.space12}
+            visual={dobsonville}
+            heading={
+              <Heading color={"blue"} weight={"bold"}>Get Involved</Heading>
+            }
+            section={
+              <div>
+                <Copy align={"center"}>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
+              </div>
+            }
+          />
+        </div>
+      )
+    })
     .add("Footer", () => (
       <Footer />
     ));

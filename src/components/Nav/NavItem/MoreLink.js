@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
-import { colors, fonts, fontWeight, letterSpacing, timing } from "../../common/styles/variables";
+import { colors, fonts, fontWeight, letterSpacing, timing } from "common/styles/variables";
 import { Icon } from "components"
 
 const hoverStyles = {
@@ -38,7 +38,7 @@ const styles = {
       display: "inline-block",
       fontFamily: fonts.sans,
       fontSize: "13px",
-      fontWeight: fontWeight.normal,
+      fontWeight: fontWeight.regular,
       lineHeight: 1,
       padding: 0,
       letterSpacing: letterSpacing.base,
@@ -188,6 +188,7 @@ MoreLink.propTypes = {
   /** Adjusts the font size */
   size: PropTypes.oneOf([
     "",
+    "large",
     "small",
   ]),
   /** Specifies where to open the linked document */

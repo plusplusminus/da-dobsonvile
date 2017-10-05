@@ -6,7 +6,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity,
 const createMarkup = (content) => ({ __html: `${content}` });
 
 import Heading from "../Heading";
-import MoreLink from "../MoreLink";
+import MoreLink from "components";
 
 const styles = {
   container: {
@@ -18,7 +18,7 @@ const styles = {
   paragraph: {
     base: {
       color: colors.Body,
-      fontWeight: fontWeight.normal,
+      fontWeight: fontWeight.regular,
       fontSize: fontStyles(22, 26),
       marginBottom: spacing.space1,
     }

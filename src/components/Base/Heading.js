@@ -1,215 +1,201 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-import { fonts, fontStyles, fontWeight, letterSpacing, colors, spacing } from 'common/styles/variables';
+import React from "react";
+import PropTypes from "prop-types";
+import { flatten } from 'rambda'
+import { StyleSheet, css } from "aphrodite";
+import { colors, fonts, fontWeight, fontStyles, letterSpacing } from "common/styles/variables";
 
-function Heading(props) {
+const styles = {
+  base: {
+    fontFamily: fonts.sans,
+    lineHeight: 1,
+    marginTop: 0,
+    marginRight: 0,
+    marginBottom: 0,
+    marginLeft: 0,
+    padding: 0,
+  },
 
-  const { children } = props;
-
-  const styles = StyleSheet.create({
-    Heading:{
-      display: props.display,
-      position: 'relative',
-      textAlign: props.align,
-      fontWeight: fontWeight[props.fontWeight],
-      fontFamily: fonts[props.font],
-      color: colors[props.color],
-      letterSpacing: letterSpacing[props.letterSpacing],
-      textTransform: props.textTransform,
-      marginTop: spacing[props.mt],
-      marginBottom: spacing[props.mb],
-      marginLeft: spacing[props.ml],
-      marginRight: spacing[props.mr],
-      ...fontStyles(props.fs,props.lh),
+  size: {
+    tiny: {
+      ...fontStyles("13px", `${13 * 1.5}px`),
     },
+    small: {
+      ...fontStyles("16px", `${16 * 1.5}px`),
+    },
+    medium: {
+      ...fontStyles("20px", `${20 * 1.5}px`),
+    },
+    large: {
+      ...fontStyles("25px", `${25 * 1.5}px`),
+    },
+    huge: {
+      ...fontStyles("49px", `${49 * 1.5}px`),
+    },
+  },
+
+  weight: {
+    light: {
+      fontWeight: fontWeight.light,
+    },
+    regular: {
+      fontWeight: fontWeight.regular,
+    },
+    medium: {
+      fontWeight: fontWeight.medium,
+    },
+    bold: {
+      fontWeight: fontWeight.bold,
+    },
+  },
+
+  color: {
+    base: {
+      color: colors.textBase,
+    },
+    blue: {
+      color: colors.brandBlue,
+    },
+    red: {
+      color: colors.brandRed,
+    },
+    white: {
+      color: colors.brandWhite,
+    },
+  },
+
+  variant: {
+    uppercase: {
+      textTransform: "uppercase",
+    },
+    truncate: {
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+    },
+  },
+  letterSpacing: {
+    none: {
+      letterSpacing: letterSpacing.none,
+    },
+    small: {
+      letterSpacing: letterSpacing.small,
+    },
+    base: {
+      letterSpacing: letterSpacing.base,
+    },
+    large: {
+      letterSpacing: letterSpacing.large,
+    },
+    huge: {
+      letterSpacing: letterSpacing.huge,
+    },
+  },
+};
+
+const Heading = (props) => {
+
+  const { children, level, size, weight, color, letterSpacing, truncate, uppercase, override } = props;
+
+  const Component = `h${level}`;
+
+  const style = [
+    styles.base,
+    size && styles.size[size],
+    weight && styles.weight[weight],
+    color && styles.color[color],
+    letterSpacing && styles.letterSpacing[letterSpacing],
+    truncate && styles.variant.truncate,
+    uppercase && styles.variant.uppercase,
+    flatten(override),
+  ];
+
+  const temp = StyleSheet.create({
+    heading: style.reduce((result, item) => {
+      if (item) {
+        return {
+          ...result,
+          ...item,
+        };
+      }
+      return result;
+    }, {}),
   });
 
   return (
-    <span className={css(styles.Heading)}>{children}</span>
-  )
+    <Component
+      className={css(temp.heading)}
+    >
+      {children}
+    </Component>
+  );
 }
 
 Heading.defaultProps = {
-  font: 'Sans',
-  color: 'Heading',
-  letterSpacing: 'None',
-  fontWeight: 'Bold',
-  align: 'left',
-  textTransform: 'none',
-  display:'block',
-  mt: 'Space',
-  mr: 'Space',
-  mb: 'Space2',
-  ml: 'Space',
-  fs: '25px',
-  lh: '32px',
-}
-
-const HeadingAside = (props) => {
-  const styles = {
-    color: props.color,
-    fs: '25px',
-    lh: '32px',
-    fontWeight: 'Bold',
-    align: props.align,
-  }
-  return (
-    <Heading { ...styles } >{ props.children }</Heading>
-  )
-}
-
-HeadingAside.defaultProps = {
-  color: 'Primary',
-  align: 'left',
-}
-
-const HeadingHero = (props) => {
-  const styles = {
-    color: props.color,
-    fs: '49px',
-    lh: '59px',
-    align: 'center',
-    mt: 'Space15',
-    mb: 'Space15',
-  }
-  return (
-    <Heading { ...styles } >{ props.children }</Heading>
-  )
-}
-
-HeadingHero.defaultProps = {
-  color: 'White',
-}
-
-const HeadingMeta = (props) => {
-  const styles = {
-    color: props.color,
-    fs: '13px',
-    lh: '18px',
-    mb: 'Space1',
-    fontWeight: 'Normal',
-    textTransform: props.textTransform,
-    letterSpacing: props.letterSpacing
-  }
-  return (
-    <Heading { ...styles } >{ props.children }</Heading>
-  )
-}
-
-HeadingMeta.defaultProps = {
-  color: 'Copy',
-  textTransform: 'none',
-  letterSpacing: 'None'
-}
-
-const HeadingSection = (props) => {
-  const styles = StyleSheet.create({
-    lineLeft:{
-      position: 'relative',
-      ':before': {
-        width: spacing.space10,
-        content:'""',
-        height:'1px',
-        position: 'absolute',
-        right: spacing.space4,
-        top: '50%',
-        backgroundColor: colors[props.color],
-      }
-    },
-    lineRight:{
-      position: 'relative',
-      ':after': {
-        width: spacing.space10,
-        content:'""',
-        height:'1px',
-        position: 'absolute',
-        left: spacing.space4,
-        top: '50%',
-        backgroundColor: colors[props.color],
-      }
-    }
-  })
-
-  const style = {
-    color: props.color,
-    fs: '20px',
-    lh: '24px',
-    align: props.align,
-    textTransform: props.textTransform,
-    fontWeight: 'Medium',
-    letterSpacing: props.letterSpacing,
-    mb:'Space4',
-  }
-
-  return (
-    <Heading { ...style } >
-      { props.lineLeft && <span className={css(styles.lineLeft)}></span>}
-      { props.children }
-      { props.lineRight && <span className={css(styles.lineRight)}></span>}
-    </Heading>
-  )
-}
-
-HeadingSection.defaultProps = {
-  color: 'Heading',
-  align: 'center',
-  textTransform: 'none',
-  letterSpacing: 'Base',
-  lineLeft: false,
-  lineRight: false,
-}
-
-HeadingSection.propTypes = {
-  color: PropTypes.string,
-  align: PropTypes.string,
-  textTransform: PropTypes.string,
-  letterSpacing: PropTypes.string,
-  lineLeft: PropTypes.bool,
-  lineRight: PropTypes.bool,
-}
+  level: 2,
+  size: "medium",
+  weight: "regular",
+  color: "base",
+  letterSpacing: "normal",
+  truncate: false,
+  uppercase: false,
+  override: {},
+};
 
 
-const HeadingSmall = (props) => {
-  const styles = {
-    color: props.color,
-    align: props.align,
-    fs: '16px',
-    lh: '22px',
-    mb:'Space1',
-  }
-  return (
-    <Heading { ...styles } >{ props.children }</Heading>
-  )
-}
+Heading.propTypes = {
+  /** Text for the heading */
+  children: PropTypes.node.isRequired,
+  /** Creates the heading HTML element */
+  level: PropTypes.oneOf([
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+  ]).isRequired,
+  /** Declares the font size of the heading */
+  size: PropTypes.oneOf([
+    "huge",
+    "large",
+    "medium",
+    "small",
+    "tiny",
+  ]).isRequired,
+  /** Adjusts the font weight of the heading */
+  weight: PropTypes.oneOf([
+    "bold",
+    "medium",
+    "regular",
+    "light",
+  ]),
+  /** The heading color changes based on importance */
+  color: PropTypes.oneOf([
+    "base",
+    "blue",
+    "red",
+    "white",
+  ]),
+  /** Controls the letter spacing */
+  letterSpacing: PropTypes.oneOf([
+    "none",
+    "base",
+    "large",
+  ]),
+  /** Whether or not to hide the text overflow with an ellipsis */
+  truncate: PropTypes.bool,
+  /** Whether or not to set the heading in all caps */
+  Uppercase: PropTypes.bool,
+  /** Override styles */
+  override: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
+};
 
-HeadingSmall.defaultProps = {
-  color: 'Heading',
-  align: 'left',
-}
+Heading.styles = styles;
 
-const HeadingWidget = (props) => {
-  const styles = {
-    color: props.color,
-    fs: '16px',
-    lh: '30px',
-    fontWeight: 'Bold',
-  }
-  return (
-    <Heading { ...styles } >{ props.children }</Heading>
-  )
-}
-
-HeadingWidget.defaultProps = {
-  color: 'Heading',
-}
-
-export {
-  HeadingAside,
-  HeadingHero,
-  HeadingMeta,
-  HeadingSection,
-  HeadingSmall,
-  HeadingWidget,
-}
 export default Heading;
