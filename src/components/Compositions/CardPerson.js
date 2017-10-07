@@ -64,7 +64,7 @@ const CardPerson = (props) => {
           </tr>
         </table>
         { moreLink &&
-          <MoreLink color={"red"} size={"small"} uppercase>More info</MoreLink>
+          <MoreLink>More info</MoreLink>
         }
       </div>
     </div>

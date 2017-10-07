@@ -59,7 +59,7 @@ const Hero = (props) => {
             >
               Contribute to our campaign cause
             </Heading>
-            <MoreLink color={"yellow"}>Donate</MoreLink>
+            <MoreLink color={"yellow"} size="large" lowercase>Donate</MoreLink>
           </div>
 
           <div className="col-lg-3 text-center">
@@ -70,7 +70,7 @@ const Hero = (props) => {
             >
               Sign our petition to remove Zuma
             </Heading>
-            <MoreLink color={"yellow"}>Donate</MoreLink>
+            <MoreLink color={"yellow"} size="large" lowercase>Donate</MoreLink>
           </div>
 
           <div className="col-lg-3 text-center">
@@ -81,7 +81,7 @@ const Hero = (props) => {
             >
               Make a difference by joining the DA
             </Heading>
-            <MoreLink color={"yellow"}>Donate</MoreLink>
+            <MoreLink color={"yellow"} size="large" lowercase>Donate</MoreLink>
           </div>
 
         </div>

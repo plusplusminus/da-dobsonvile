@@ -103,7 +103,7 @@ const CampaignCard = ({ title, url, imageUrl, meta, paragraph, cta }) => {
             dangerouslySetInnerHTML={createMarkup(paragraph)}
           />
 
-          <MoreLink href={url} color={"red"} caps style={styles.moreLink}>
+          <MoreLink href={url} uppercase style={styles.moreLink}>
             { cta }
           </MoreLink>
         </main>

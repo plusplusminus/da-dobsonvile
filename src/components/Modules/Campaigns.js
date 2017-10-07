@@ -30,21 +30,21 @@ const Campaigns = (props) => {
         meta={<Heading color={"blue"} size={"tiny"} letterSpacing={"small"} weight={"regular"} tracking={"small"} uppercase>{"Western Cape"}</Heading>}
         heading={<Heading color={"blue"} mb={"small"} size={"large"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
         body={<Copy>{"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}</Copy>}
-        cta={<MoreLink color={"red"} size={"small"} uppercase>{"Join the fight"}</MoreLink>}
+        cta={<MoreLink>{"Join the fight"}</MoreLink>}
       />
       <CardCampaign
         visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
         meta={<Heading color={"blue"} size={"tiny"} letterSpacing={"small"} weight={"regular"} tracking={"small"} uppercase>{"Western Cape"}</Heading>}
         heading={<Heading color={"blue"} mb={"small"} size={"large"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
         body={<Copy>{"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}</Copy>}
-        cta={<MoreLink color={"red"} size={"small"} uppercase>{"Join the fight"}</MoreLink>}
+        cta={<MoreLink>{"Join the fight"}</MoreLink>}
       />
       <CardCampaign
         visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
         meta={<Heading color={"blue"} size={"tiny"} letterSpacing={"small"} weight={"regular"} tracking={"small"} uppercase>{"Western Cape"}</Heading>}
         heading={<Heading color={"blue"} mb={"small"} size={"large"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
         body={<Copy>{"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}</Copy>}
-        cta={<MoreLink color={"red"} size={"small"} uppercase>{"Join the fight"}</MoreLink>}
+        cta={<MoreLink>{"Join the fight"}</MoreLink>}
       />
       <ViewAll>View all Campaigns</ViewAll>
     </section>

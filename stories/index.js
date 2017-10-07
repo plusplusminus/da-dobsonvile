@@ -245,7 +245,7 @@ storiesOf("Navs/Navbar", module)
   .add("Masthead", () => (
     <div>
       <NavbarSecondary>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><MoreLink color={"white"}  arrowDirection="left">Visit da.org.za</MoreLink></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink></NavItem>
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
@@ -266,7 +266,7 @@ storiesOf("Navs/Navbar", module)
         <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Bokamoso</NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><MoreLink color={"blue"}>Subscribe to Bokamoso</MoreLink></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><MoreLink color={"blue"} size={"base"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink></NavItem>
       </NavbarSub>
     </div>
   ))
@@ -284,7 +284,7 @@ storiesOf("Navs/Navbar", module)
   ))
   .add("NavbarSecondary", () => (
     <NavbarSecondary>
-      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><MoreLink color={"white"}  arrowDirection="left">Visit da.org.za</MoreLink></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink></NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
@@ -297,7 +297,7 @@ storiesOf("Navs/Navbar", module)
       <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Bokamoso</NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Speeches</NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Archive</NavItem>
-      <NavItem><MoreLink color={"blue"}>Subscribe to Bokamoso</MoreLink></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><MoreLink color={"blue"} size={"base"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink></NavItem>
     </NavbarSub>
   ));
 
@@ -345,13 +345,16 @@ storiesOf("Navs/NavItems", module)
   .add("MoreLink", () => (
     <MoreLink
       arrowDirection={select("arrowDirection", ["up", "down", "left", "right"], "right")}
-      color={select("color", ["blue", "green", "yellow", "red"], "blue")}
+      color={select("color", ["blue", "green", "yellow", "red", "white"], "blue")}
       hideIcon={boolean("hideIcon", false)}
       href={text("URL", "/")}
       isNested={boolean("isNested", false)}
-      size={select("size", ["", "small", "large"], "")}
+      size={select("size", ["small", "medium", "large"], "small")}
       target={select("target", ["_blank", "_parent", "_self", "_top"], "")}
-      uppercase={boolean("uppercase", false)}
+      uppercase={boolean("uppercase", true)}
+      lowercase={boolean("lowercase", false)}
+      weight={select("weight", ["bold", "medium", "regular", "light"], "medium")}
+      tracking={select("tracking", ["small", "base"], "base")}
 
     >
       { text("children", "Read More") }
@@ -392,7 +395,7 @@ storiesOf("Navs/NavItems", module)
     .add("AsideList", () => (
       <AsideList
         heading={"Latest News"}
-        cta={<MoreLink color={"red"} size={"small"} uppercase >More news</MoreLink>}
+        cta={<MoreLink>More news</MoreLink>}
       >
         <CardNews
           visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
@@ -449,7 +452,7 @@ storiesOf("Navs/NavItems", module)
           </div>
           }
         body={<Copy>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
-        cta={<MoreLink color={"red"} size={"small"} uppercase >{"View More"}</MoreLink>}
+        cta={<MoreLink>{"View More"}</MoreLink>}
       />
     ))
 
@@ -482,7 +485,7 @@ storiesOf("Navs/NavItems", module)
           visual={<img width={"300px"} className="img-fluid" src={ dobsonville } alt="alt" />}
           heading={<Heading mb={"small"} size="small">{"Fermentum Sem Mollis Pharetra"}</Heading>}
           body={<Copy size={"small"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-          cta={<MoreLink color={"red"} uppercase size={"small"}>{"Read More"}</MoreLink>}
+          cta={<MoreLink>{"Read More"}</MoreLink>}
         />
     ))
 
@@ -493,7 +496,7 @@ storiesOf("Navs/NavItems", module)
         visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
         heading={<Heading color={"blue"} mb={"small"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
         body={<Copy>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-        cta={<MoreLink color={"blue"} size={"small"} uppercase>Play video</MoreLink>}
+        cta={<MoreLink>{"Read More"}</MoreLink>}
       />
     ))
 
@@ -596,7 +599,7 @@ storiesOf("Navs/NavItems", module)
 
             <AsideList
               heading={"Latest News"}
-              cta={<MoreLink color={"red"} size={"small"} uppercase>{"More News"}</MoreLink>}
+              cta={<MoreLink>{"More News"}</MoreLink>}
             >
               <CardNews
                 visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
@@ -620,7 +623,7 @@ storiesOf("Navs/NavItems", module)
               visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
               heading={<Heading mb={"small"} size="small">{"Fermentum Sem Mollis Pharetra"}</Heading>}
               body={<Copy size="small">{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-              cta={<MoreLink color={"red"} size={"small"} uppercase>{"Read More"}</MoreLink>}
+              cta={<MoreLink>{"Read More"}</MoreLink>}
             />
 
           </div>
@@ -643,7 +646,7 @@ storiesOf("Navs/NavItems", module)
                   </div>
                 }
                 body={<Copy>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
-                cta={<MoreLink color={"red"} size={"small"} uppercase>{"View More"}</MoreLink>}
+                cta={<MoreLink>{"View More"}</MoreLink>}
               />
             }
           />

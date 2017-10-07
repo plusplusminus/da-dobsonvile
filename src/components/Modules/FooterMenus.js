@@ -32,7 +32,7 @@ const FooterMenus = (props) => {
             <NavIcon color={"White"} iconColor={"White"} iconName="twitter">Twitter</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="youtube">YouTube</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="envelope">Email</NavIcon>
-            <MoreLink color={"white"} size="small" uppercase>View all Info</MoreLink>
+            <MoreLink color={"white"} uppercase>View all Info</MoreLink>
           </div>
         </div>
 

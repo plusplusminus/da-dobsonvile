@@ -8,25 +8,20 @@ const hoverStyles = {
   base: {
     textDecoration: "none",
   },
-
   blue: {
     color: colors.brandBlueHover,
   },
-
   green: {
     color: colors.brandGreenHover,
   },
-
   red: {
     color: colors.brandRedHover,
   },
-
   yellow: {
     color: colors.brandYellowHover,
   },
-
   white: {
-    color: colors.brandWhite,
+    color: colors.textLight,
   },
 };
 
@@ -37,13 +32,34 @@ const styles = {
       border: 0,
       display: "inline-block",
       fontFamily: fonts.sans,
-      fontSize: "13px",
-      fontWeight: fontWeight.regular,
       lineHeight: 1,
       padding: 0,
-      letterSpacing: letterSpacing.base,
       textDecoration: "none",
       transition: `color ${timing.fast} ease-in-out`,
+    },
+
+    weight: {
+      light: {
+        fontWeight: fontWeight.light,
+      },
+      regular: {
+        fontWeight: fontWeight.regular,
+      },
+      medium: {
+        fontWeight: fontWeight.medium,
+      },
+      bold: {
+        fontWeight: fontWeight.bold,
+      },
+    },
+
+    tracking:{
+      base:{
+        letterSpacing: letterSpacing.base,
+      },
+      small:{
+        letterSpacing: letterSpacing.small,
+      }
     },
 
     color: {
@@ -88,13 +104,21 @@ const styles = {
       },
     },
 
-    uppercase: {
-      textTransform: "uppercase",
+    variant: {
+      uppercase: {
+        textTransform: "uppercase",
+      },
+      lowercase: {
+        textTransform: "none",
+      }
     },
 
     size: {
       small: {
         fontSize: "11px",
+      },
+      medium: {
+        fontSize: "13px",
       },
       large: {
         fontSize: "14px",
@@ -113,7 +137,7 @@ const styles = {
 
 const MoreLink = (props) => {
 
-  const { href, size, children, onClick, uppercase, color, hideIcon, isNested, style, arrowDirection, target } = props
+  const { href, size, children, onClick, uppercase, color, hideIcon, isNested, style, arrowDirection, target, variant, lowercase, weight, tracking } = props
 
   let Element = "";
 
@@ -129,7 +153,10 @@ const MoreLink = (props) => {
     base: {
       ...styles.container.base,
       ...(color && styles.container.color[color]),
-      ...(uppercase && styles.container.uppercase),
+      ...(uppercase && styles.container.variant.uppercase),
+      ...(lowercase && styles.container.variant.lowercase),
+      ...(weight && styles.container.weight[weight]),
+      ...(tracking && styles.container.tracking[tracking]),
       ...(size && styles.container.size[size]),
       ...style,
     },
@@ -176,6 +203,7 @@ MoreLink.propTypes = {
     "red",
     "green",
     "yellow",
+    "white",
   ]),
   /** If the arrow icon should be hidden */
   hideIcon: PropTypes.bool,
@@ -187,8 +215,8 @@ MoreLink.propTypes = {
   onClick: PropTypes.func,
   /** Adjusts the font size */
   size: PropTypes.oneOf([
-    "",
     "large",
+    "medium",
     "small",
   ]),
   /** Specifies where to open the linked document */
@@ -200,18 +228,34 @@ MoreLink.propTypes = {
   ]),
   /** Applies textTransform CSS properties */
   uppercase: PropTypes.bool,
+  lowercase: PropTypes.bool,
+  /** Adjusts the font weight*/
+  weight: PropTypes.oneOf([
+    "bold",
+    "medium",
+    "regular",
+    "light",
+  ]),
+  /** Adjusts the letterSpacing */
+  tracking: PropTypes.oneOf([
+    "base",
+    "small",
+  ]),
 };
 
 MoreLink.defaultProps = {
   arrowDirection: "right",
-  color: "blue",
+  color: "red",
   hideIcon: false,
   href: null,
   isNested: false,
   onClick: null,
-  size: "",
+  size: "small",
   target: null,
-  uppercase: false,
+  uppercase: true,
+  lowercase: false,
+  tracking: "base",
+  weight: "medium",
 };
 
 MoreLink.styles = styles;
