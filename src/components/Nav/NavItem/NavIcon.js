@@ -9,10 +9,10 @@ const NavIcon = (props) => {
     navIcon:{
       padding: 0,
       fontFamily: fonts.sans,
+      fontWeight: fontWeight.regular,
       cursor: 'pointer',
       textAlign: 'left',
       display: 'flex',
-      fontWeight: fontWeight.light,
       alignItems: 'center',
       border: 'none',
       background: colors.baseTransparent,

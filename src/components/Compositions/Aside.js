@@ -14,7 +14,7 @@ function Aside(props) {
     aside:{
       borderRadius: spacing.space1,
       marginBottom: spacing.space5,
-      backgroundColor: props.backgroundColor,
+      backgroundColor: colors.bgLight,
     },
     visual:{
       borderTopLeftRadius: spacing.space1,
@@ -22,7 +22,8 @@ function Aside(props) {
       display: 'block',
     },
     wrapper:{
-      padding: props.padding,
+      padding: spacing.space4,
+      paddingBottom: spacing.space6,
     }
   });
 
@@ -35,18 +36,16 @@ function Aside(props) {
         <Heading
           color="blue"
           size="large"
-          weight="bold"
+          mb="small"
         >
           { heading }
         </Heading>
-        <Copy
-          align={"left"}
-        >
+
+        <Copy mb={"large"}>
           { copy }
         </Copy>
-        <ButtonTest
-          color="blue"
-          >
+
+        <ButtonTest color="blue">
           { buttonLabel }
         </ButtonTest>
       </div>
@@ -55,21 +54,15 @@ function Aside(props) {
 }
 
 Aside.defaultProps = {
-  align: 'left',
-  backgroundColor: colors.bgLight,
   buttonLabel: 'View All',
   copy: 'Aenean lacinia bibendum nulla sed consectetur. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.',
   heading: 'Heading',
-  padding: spacing.space5,
 }
 
 Aside.propTypes = {
-  align: PropTypes.string,
-  backgroundColor: PropTypes.string,
   buttonLabel: PropTypes.string,
   copy: PropTypes.string,
   heading: PropTypes.string,
-  padding: PropTypes.string,
 }
 
 export default Aside;

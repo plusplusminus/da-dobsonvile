@@ -19,7 +19,11 @@ const AsideList = (props) => {
 
   return (
     <nav className={css(styles.asideList)}>
-      <Heading color={"red"} letterSpacing={"huge"} size={"tiny"} uppercase>{ heading }</Heading>
+      { heading &&
+        <Heading color={"red"} tracking={"huge"} size={"tiny"} mb={"medium"} weight={"light"} uppercase>
+          { heading }
+        </Heading>
+      }
       { children }
       { cta }
     </nav>

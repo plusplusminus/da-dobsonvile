@@ -19,10 +19,13 @@ function AsideOverlay(props) {
     },
     bg:{
       borderRadius: spacing.space1,
-      backgroundColor: props.backgroundColor,
-      padding: props.padding,
+      backgroundColor: colors.bgDarkO,
+      paddingTop: spacing.space9,
+      paddingRight: spacing.space7,
+      paddingBottom: spacing.space9,
+      paddingLeft: spacing.space7,
       display: 'flex',
-      alignItems: props.align,
+      alignItems: 'center',
       flexDirection: 'column'
     },
   });
@@ -32,19 +35,23 @@ function AsideOverlay(props) {
       <div className={css(styles.bg)}>
         <Heading
           color={"white"}
-          weight={"bold"}
           size={"large"}
+          mb={"small"}
         >
           { heading }
         </Heading>
         <Copy
-          color={ colors.textWhite }
-          align={"center"}
-          fontWeight={fontWeight.bold}>
+          color={"white"}
+          weight={"bold"}
+          mb={"large"}
+          center
+        >
           { copy }
         </Copy>
         <ButtonTest
-          color="blue">
+          color="blue"
+          center
+        >
           { buttonLabel }
         </ButtonTest>
       </div>
@@ -53,24 +60,14 @@ function AsideOverlay(props) {
 }
 
 AsideOverlay.defaultProps = {
-  align: 'center',
-  backgroundColor: colors.bgDarkO,
   buttonLabel: 'View All',
-  copy: 'Aenean lacinia bibendum nulla sed consectetur. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.',
+  copy: 'Find out more about DAs delivery record',
   heading: 'Heading',
-  padding: spacing.space5,
 }
 
 AsideOverlay.propTypes = {
-  align: PropTypes.string,
-  backgroundColor: PropTypes.string,
   buttonLabel: PropTypes.string,
-  copy: PropTypes.string,
-  copyColor: PropTypes.string,
-  copyWeight: PropTypes.string,
   heading: PropTypes.string,
-  headingColor: PropTypes.string,
-  padding: PropTypes.string,
 }
 
 export default AsideOverlay;

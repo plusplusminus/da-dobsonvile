@@ -24,7 +24,7 @@ const FooterMenus = (props) => {
     <div className={css(styles.footerMenus)}>
       <div className="row">
         <div className={`${css(styles.wrapper)} ${col}`}>
-          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"}>Contact Details</Heading>
+          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"} mb={"tiny"} uppercase>Contact Details</Heading>
           <div className={css(styles.menu)}>
             <NavIcon color={"White"} iconColor={"White"} iconName="mobile">+27 832 234 1232</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="instagram">Instagram</NavIcon>
@@ -32,12 +32,12 @@ const FooterMenus = (props) => {
             <NavIcon color={"White"} iconColor={"White"} iconName="twitter">Twitter</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="youtube">YouTube</NavIcon>
             <NavIcon color={"White"} iconColor={"White"} iconName="envelope">Email</NavIcon>
-            <MoreLink color={"white"} size="small" uppercase>View all Contact Details</MoreLink>
+            <MoreLink color={"white"} size="small" uppercase>View all Info</MoreLink>
           </div>
         </div>
 
         <div className={`${css(styles.wrapper)} ${col}`}>
-          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"}>About the DA</Heading>
+          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"} mb={"tiny"} uppercase>About the DA</Heading>
           <ul className={css(styles.menu)}>
             <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Vision</NavItem>
             <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Policies</NavItem>
@@ -50,7 +50,7 @@ const FooterMenus = (props) => {
         </div>
 
         <div className={`${css(styles.wrapper)} ${col}`}>
-          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"}>Newsroom</Heading>
+          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"} mb={"tiny"} uppercase>Newsroom</Heading>
           <ul className={css(styles.menu)}>
             <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>News</NavItem>
             <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Speeches</NavItem>
@@ -58,7 +58,7 @@ const FooterMenus = (props) => {
         </div>
 
         <div className={`${css(styles.wrapper)} ${col}`}>
-          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"}>Campaigns</Heading>
+          <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"} mb={"tiny"} uppercase>Campaigns</Heading>
           <ul className={css(styles.menu)}>
             <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Remove President Zuma</NavItem>
             <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Social Grants Crisis</NavItem>

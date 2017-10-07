@@ -7,15 +7,19 @@ const FooterLegal = (props) => {
   const { content, children } = props;
   const styles = StyleSheet.create({
     footerLegal:{
+      fontFamily: fonts.sans,
+
       marginBottom: spacing.space3,
       color: colors.baseWhite,
     },
     legal:{
+      fontWeight: fontWeight.light,
       ...fontStyles('11px','30px'),
     },
     attribution:{
       textAlign: 'right',
       display: 'block',
+      fontWeight: fontWeight.light,
       ...fontStyles('11px','30px'),
     }
   });

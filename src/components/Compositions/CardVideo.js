@@ -26,8 +26,8 @@ const CardVideo = (props) => {
         <div className={css(styles.visual)}>{ visual }</div>
       }
       { featured == true
-        ? <Heading color={color} weight={"bold"} size={"large"}>{ heading }</Heading>
-        : <Heading color={color} weight={"bold"} size={"small"}>{ heading }</Heading>
+        ? <Heading color={color} size={"large"}>{ heading }</Heading>
+        : <Heading color={color} size={"small"}>{ heading }</Heading>
       }
       { featured &&
         <div>{ body }{ cta }</div>

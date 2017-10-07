@@ -11,22 +11,17 @@ const ViewAll = (props) => {
   const styles = StyleSheet.create({
     ViewAll:{
       width: '100%',
-      paddingTop: spacing.space5,
-      marginTop: spacing.space5,
-      marginBottom: spacing.space5,
+      paddingTop: spacing.space6,
+      marginTop: spacing.space7,
       borderTop: '1px solid',
       borderColor: props.borderColor,
-      textAlign: 'center',
-      display: 'flex',
-      justfyContent: 'center',
-      flexDirection: 'column',
-      alignItems: 'center',
+      display: 'inline-block',
     },
   });
 
   return (
     <div className={css(styles.ViewAll)}>
-      <ButtonTest color={props.buttonColor} outline >{ children }</ButtonTest>
+      <ButtonTest color={props.buttonColor} center outline >{ children }</ButtonTest>
     </div>
   )
 }

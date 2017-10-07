@@ -17,6 +17,7 @@ const NavItem = (props) => {
       marginLeft: props.ml,
       display: props.display,
       fontWeight: props.fontWeight,
+      fontFamily: fonts.sans,
       listStyle:'none',
       ...fontStyles(props.fs,props.lh),
       ':hover':{

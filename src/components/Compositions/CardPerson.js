@@ -51,7 +51,7 @@ const CardPerson = (props) => {
           <Heading size="medium" weight="medium">
             { heading }
           </Heading>
-          <Heading size="tiny" color="blue" letterSpacing="small">{ meta }</Heading>
+          <Heading size="tiny" color="blue" weight={"medium"}>{ meta }</Heading>
         </div>
         <table className={css(styles.table)}>
           <tr>

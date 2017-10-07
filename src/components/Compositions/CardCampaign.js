@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { Header, Heading, HeadingMeta, HeadingSmall, HeadingSection } from 'components';
+import { Heading, HeadingMeta, HeadingSmall, HeadingSection } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
 const CardCampaign = (props) => {
@@ -11,21 +11,22 @@ const CardCampaign = (props) => {
   const styles = StyleSheet.create({
     cardCampaign:{
       display: 'block',
-      marginBottom: spacing.space5,
+      marginBottom: spacing.space6,
     },
     visual:{
       display: 'block',
       float: 'left',
-      marginBottom: spacing.space4,
+      // Should only be on responsive
+      // marginBottom: spacing.space4,
     },
   });
 
   return (
     <div className={css(styles.cardCampaign)}>
-      <Header mb={"0"} pb={"0"}>
+      <div>
         { meta }
         { heading }
-      </Header>
+      </div>
       <div className="row">
         { visual &&
           <div className="col-sm-3">

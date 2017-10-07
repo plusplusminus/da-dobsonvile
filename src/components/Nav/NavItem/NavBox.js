@@ -19,14 +19,15 @@ const NavBox = (props) => {
       display: 'block',
       border: '1px solid',
       borderColor: colors.bgLight,
-      background: colors.bgLight,
+      backgroundColor: colors.bgLight,
       width:'100%',
       color: colors.textCopy,
     	...fontStyles('13px','13px'),
       transition: `all ${timing.base} ease-in-out`,
       ':hover': {
         color: colors.brandBlueHover,
-        borderColor: colors.brandBlueHover,
+        borderColor: colors.borderDark,
+        backgroundColor: colors.bgWhite,
       }
     },
   });

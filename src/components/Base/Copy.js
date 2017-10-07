@@ -1,73 +1,212 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { flatten } from 'rambda'
 import { StyleSheet, css } from 'aphrodite';
 import { fonts, fontStyles, fontWeight, letterSpacing, colors, spacing } from 'common/styles/variables';
 
+const styles = {
+  base: {
+    fontFamily: fonts.sans,
+    lineHeight: 1,
+    margin: 0,
+    padding: 0,
+  },
+
+  size: {
+    tiny: {
+      ...fontStyles("12px", `${13 * 1.5}px`),
+    },
+    small: {
+      ...fontStyles("13px", `${13 * 1.5}px`),
+    },
+    medium: {
+      ...fontStyles("16px", `${16 * 1.5}px`),
+    },
+    large: {
+      ...fontStyles("18px", `${18 * 1.5}px`),
+    },
+  },
+
+  mb: {
+    none: {
+      marginBottom: spacing.space0,
+    },
+    small: {
+      marginBottom: spacing.space1,
+    },
+    medium: {
+      marginBottom: spacing.space2,
+    },
+    large: {
+      marginBottom: spacing.space4,
+    },
+  },
+
+  weight: {
+    light: {
+      fontWeight: fontWeight.light,
+    },
+    regular: {
+      fontWeight: fontWeight.regular,
+    },
+    medium: {
+      fontWeight: fontWeight.medium,
+    },
+    bold: {
+      fontWeight: fontWeight.bold,
+    },
+  },
+
+  color: {
+    base: {
+      color: colors.textBase,
+    },
+    blue: {
+      color: colors.textBlue,
+    },
+    light: {
+      color: colors.textLight,
+    },
+    light0: {
+      color: colors.textLightO,
+    },
+    white: {
+      color: colors.textWhite,
+    },
+  },
+
+  variant: {
+    uppercase: {
+      textTransform: "uppercase",
+    },
+    truncate: {
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+    },
+    left: {
+      textAlign: "left",
+    },
+    right: {
+      textAlign: "right",
+    },
+    center: {
+      textAlign: "center",
+    },
+    justify: {
+      textAlign: "justify",
+    },
+  },
+};
+
 const Copy = (props) => {
 
-  const { children } = props;
+  const { color, children, mb, override, size, truncate, uppercase, left, right, center, justify, weight } = props;
 
-  const styles = StyleSheet.create({
-    Copy:{
-      textAlign: props.align,
-      display: props.display,
-      fontWeight: props.fontWeight,
-      fontFamily: props.fontFamily,
-      color: props.color,
-      textTransform: props.textTransform,
-      marginTop: props.mt,
-      marginBottom: props.mb,
-      marginLeft: props.ml,
-      marginRight: props.mr,
-      ...fontStyles(props.fs,props.lh),
-    },
+  const style = [
+    styles.base,
+    size && styles.size[size],
+    mb && styles.mb[mb],
+    weight && styles.weight[weight],
+    color && styles.color[color],
+    truncate && styles.variant.truncate,
+    uppercase && styles.variant.uppercase,
+    left && styles.variant.left,
+    right && styles.variant.right,
+    center && styles.variant.center,
+    justify && styles.variant.justify,
+    flatten(override),
+  ]
+
+  const temp = StyleSheet.create({
+    copy: style.reduce((result, item) => {
+      if (item) {
+        return {
+          ...result,
+          ...item,
+        };
+      }
+      return result;
+    }, {}),
   });
 
   return (
-    <span className={css(styles.Copy)}>{children}</span>
-  )
+    <p
+      className={css(temp.copy)}
+    >
+      {children}
+    </p>
+  );
 }
 
 Copy.defaultProps = {
-  align: 'left',
-  color: colors.textBase,
-  display:'inline-block',
-  fontFamily: fonts.sans,
-  fontWeight: fontWeight.light,
-  textTransform: 'none',
-  fs: '16px',
-  lh: '24px',
-  mt:  spacing.space0,
-  mr:  spacing.space0,
-  mb:  spacing.space2,
-  ml:  spacing.space0,
+  color: "base",
+  mb: "medium",
+  override: {},
+  size: "medium",
+  truncate: false,
+  uppercase: false,
+  left: true,
+  right: false,
+  center: false,
+  justify: false,
+  weight: "light",
 }
 
 Copy.propTypes = {
-  /** Align value as per CSS */
-  align: PropTypes.string,
-  /** Text color as per variables.js */
-  color: PropTypes.string.isRequired,
-  /** Font as per variables.js */
-  fontFamily: PropTypes.string.isRequired,
-  /** Text Transform as per CSS */
-  textTransform: PropTypes.string,
-  /** Display property as per CSS */
-  display: PropTypes.string,
-  /** Font weight as per CSS */
-  fontWeight: PropTypes.string,
-  /** Font size as pixel value */
-  fs: PropTypes.string,
-  /** Line height as pixel value */
-  lh: PropTypes.string,
-  /** Margin top in Spacing value as per variables.js */
-  mt:  PropTypes.string,
-  /** Margin right in Spacing value as per variables.js */
-  mr:  PropTypes.string,
-  /** Margin bottom in Spacing value as per variables.js */
-  mb:  PropTypes.string,
-  /** Margin left in Spacing value as per variables.js */
-  ml:  PropTypes.string,
+  /** The copy color */
+  color: PropTypes.oneOf([
+    "base",
+    "blue",
+    "textBase",
+    "textLight",
+    "textLightO",
+    "textWhite",
+  ]),
+  /** Text for the copy */
+  children: PropTypes.node.isRequired,
+  /** Margin bottom  */
+  mb: PropTypes.oneOf([
+    "none",
+    "tiny",
+    "small",
+    "medium",
+    "large",
+  ]),
+  /** Override styles */
+  override: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
+  /** Declares the font size of the heading */
+  size: PropTypes.oneOf([
+    "tiny",
+    "small",
+    "medium",
+    "large",
+  ]).isRequired,
+  /** Whether or not to hide the text overflow with an ellipsis */
+  truncate: PropTypes.bool,
+  /** Whether or not to set the copy in all caps */
+  uppercase: PropTypes.bool,
+  /** Whether or not to align left */
+  left: PropTypes.bool,
+  /** Whether or not to align right */
+  right: PropTypes.bool,
+  /** Whether or not to align center */
+  center: PropTypes.bool,
+  /** Adjusts the font weight of the copy */
+  weight: PropTypes.oneOf([
+    "bold",
+    "medium",
+    "regular",
+    "light",
+  ]),
 };
+
+Copy.styles = styles;
 
 export default Copy;

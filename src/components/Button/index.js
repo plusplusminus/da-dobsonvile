@@ -8,6 +8,7 @@ const hoverStyles = {
   base: {
     textDecoration: "none",
   },
+
   blue: {
     backgroundColor: colors.brandBlueHover,
     color: colors.baseWhite,
@@ -243,28 +244,25 @@ const styles = {
     },
   },
 
+  variant: {
+    center:{
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    }
+  },
+
   disabled: {
     cursor: "not-allowed",
     opacity: 0.5,
   },
 };
 
-function Button({
-  href,
-  children,
-  onClick,
-  color,
-  size,
-  rounded,
-  outline,
-  full,
-  disabled,
-  customStyles,
-  iconBefore,
-  iconAfter
-})
-{
+const Button = (props) => {
+
+  const { href, children, onClick, color, center, size, rounded, outline, full, disabled, customStyles, iconBefore, iconAfter, variant } = props;
+
   const Element = href ? "a" : "button";
+
   const role = Element === "a" ? "button" : null;
 
   const style = [
@@ -275,6 +273,7 @@ function Button({
     rounded && styles.type.rounded[size],
     outline && styles.outline[color],
     full && styles.type.full,
+    center && styles.variant.center,
     customStyles,
     disabled && styles.disabled,
   ];
@@ -316,6 +315,7 @@ Button.defaultProps = {
   href: null,
   onClick: null,
   color: "blue",
+  center: false,
   size: "medium",
   rounded: true,
   full: false,
@@ -331,6 +331,8 @@ Button.propTypes = {
   href: PropTypes.string,
   /** Content for the button */
   children: PropTypes.node.isRequired,
+  /** Should button be aligned center */
+  center: PropTypes.bool,
   /** Function to run when the button is clicked */
   onClick: PropTypes.func,
   /** Color of the button */

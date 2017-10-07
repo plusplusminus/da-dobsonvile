@@ -13,7 +13,7 @@ const AsideMenu = (props) => {
     asideMenu:{
       display: 'block',
       width: '100%',
-      marginBottom: spacing.space5,
+      marginBottom: spacing.space9,
     }
   });
 

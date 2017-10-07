@@ -114,12 +114,13 @@ storiesOf('Base', module)
     const iconsArray = getStyleValue(icons);
     return(
       <ButtonTest
-        full={ boolean('Full Width', false) }
-        disabled={ boolean('Disable', false) }
-        rounded={ boolean('Rounded', true) }
-        outline={ boolean('Outline', false) }
-        color={ select('Color', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
-        size={ select('Size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
+        full={ boolean('full', false) }
+        disabled={ boolean('disabled', false) }
+        rounded={ boolean('rounded', true) }
+        outline={ boolean('outline', false) }
+        center={ boolean('center', false) }
+        color={ select('color', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
+        size={ select('size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
         href={text('Link','')}
         onClick={action('clicked')}
         iconBefore={ select('iconBefore', iconsArray, '') }
@@ -150,38 +151,44 @@ storiesOf('Base', module)
 
     return(
       <Copy
-        fontFamily={select('fontFamily',fontsArray,fonts.sans)}
-        color={select('color',colorsArray,colors.textBase)}
-        fontWeight={select('fontWeight',weightsArray,fontWeight.light)}
-        align={text('align','left')}
-        textTransform={text('textTransform','none')}
-        display={text('display','inline-block')}
-        fs={text('fs','16px')}
-        lh={text('lh','30px')}
-        mt={select('mt',spacingArray,spacing.space0)}
-        mr={select('mr',spacingArray,spacing.space0)}
-        mb={select('mb',spacingArray,spacing.space3)}
-        ml={select('ml',spacingArray,spacing.space0)}
+        color={select("color", ["base", "blue", "light", "light0", "white"], "base")}
+        mb={select("mb", ["none", "small", "medium", "large"], "medium")}
+        override={object("override", {})}
+        size={select("size", ["large", "medium", "small", "tiny"], "medium")}
+        truncate={boolean("truncate", false)}
+        uppercase={boolean("uppercase", false)}
+        left={boolean("left", true)}
+        right={boolean("right", false)}
+        center={boolean("center", false)}
+        justify={boolean("justify", false)}
+        weight={select("weight", ["bold", "medium", "regular", "light"], "light")}
       >
         {text("children", "Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.")}
       </Copy>
     )
   })
 
-  .add('Heading', () => (
-    <Heading
-      level={select("level", [1, 2, 3, 4, 5, 6], 1)}
-      size={select("size", ["huge", "large", "medium", "small", "tiny"], "medium")}
-      color={select("color", ["base", "blue", "red", "white"], "base")}
-      uppercase={boolean("uppercase", false)}
-      truncate={boolean("truncate", false)}
-      fontWeight={select("weight", ["bold", "medium", "regular", "light"], "regular")}
-      letterSpacing={select("letterSpacing", ["none", "small", "base", "large", "huge"], "none")}
-      override={object("override", {})}
-    >
-      {text("children", "Heading")}
-    </Heading>
-  ))
+  .add('Heading', () => {
+    const spacingArray = getStyleValue(spacing);
+    return(
+      <Heading
+        color={select("color", ["base", "blue", "red", "white"], "base")}
+        level={select("level", [1, 2, 3, 4, 5, 6], 1)}
+        tracking={select("letterSpacing", ["none", "small", "base", "large", "huge"], "small")}
+        mb={select("mb", ["none", "tiny", "small", "medium", "large", "huge"], "none")}
+        override={object("override", {})}
+        size={select("size", ["huge", "large", "medium", "small", "tiny"], "medium")}
+        truncate={boolean("truncate", false)}
+        uppercase={boolean("uppercase", false)}
+        left={boolean("left", true)}
+        right={boolean("right", false)}
+        center={boolean("center", false)}
+        weight={select("weight", ["bold", "medium", "regular", "light"], "bold")}
+      >
+        {text("children", "Heading")}
+      </Heading>
+    )
+  })
 
   .add('Icon', () =>  {
     const spacingArray = [];
@@ -436,12 +443,12 @@ storiesOf("Navs/NavItems", module)
       <CardHighlight
         visual={dobsonville}
         header={
-          <Header>
-            <Heading size={"large"} color={"blue"} letterSpacing={"small"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
-            <Heading color={"blue"} weight={"medium"} size={"tiny"} >{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</Heading>
-          </Header>
+          <div>
+          <Heading size={"large"} color={"blue"} mb={"tiny"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
+          <Heading color={"blue"} weight={"medium"} size={"tiny"} mb={"small"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</Heading>
+          </div>
           }
-        body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
+        body={<Copy>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
         cta={<MoreLink color={"red"} size={"small"} uppercase >{"View More"}</MoreLink>}
       />
     ))
@@ -473,8 +480,8 @@ storiesOf("Navs/NavItems", module)
         <CardRelated
           vertical={boolean('vertical?', 'false')}
           visual={<img width={"300px"} className="img-fluid" src={ dobsonville } alt="alt" />}
-          heading={<Heading color={"blue"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
-          body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
+          heading={<Heading mb={"small"} size="small">{"Fermentum Sem Mollis Pharetra"}</Heading>}
+          body={<Copy size={"small"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
           cta={<MoreLink color={"red"} uppercase size={"small"}>{"Read More"}</MoreLink>}
         />
     ))
@@ -484,19 +491,10 @@ storiesOf("Navs/NavItems", module)
         featured={boolean("featured", "false")}
         color={select("color", ["blue", "white"], "blue")}
         visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
-        heading={"Fermentum Sem Mollis Pharetra"}
-        body={<Copy color={colors.textBase}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-        cta={<MoreLink color={"white"} size={"small"} uppercase>Play video</MoreLink>}
+        heading={<Heading color={"blue"} mb={"small"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
+        body={<Copy>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
+        cta={<MoreLink color={"blue"} size={"small"} uppercase>Play video</MoreLink>}
       />
-    ))
-
-    .add("Header", () => (
-      <Header borderWidth={"1px"}>
-        <Heading uppercase color={"blue"} letterSpacing={"base"} weight={"light"} size={"tiny"}>Western Cape</Heading>
-        <Heading color={"blue"} weight={"bold"} size={"large"}>Jacob Zuma Foundation has failed our students</Heading>
-        <Heading letterSpacing={"small"} weight={"light"} size={"tiny"}>Written by Belinda Bozzoli MP – DA Shadow Minister of Higher Education and Training</Heading>
-        <Heading letterSpacing={"small"} weight={"light"} size={"tiny"}>August 20, 2017 in News</Heading>
-      </Header>
     ))
 
     .add('Progress', () =>  {
@@ -620,8 +618,8 @@ storiesOf("Navs/NavItems", module)
             <CardRelated
               vertical
               visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
-              heading={<Heading color={"blue"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
-              body={<Copy fs={"13px"} lh={"24px"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
+              heading={<Heading mb={"small"} size="small">{"Fermentum Sem Mollis Pharetra"}</Heading>}
+              body={<Copy size="small">{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
               cta={<MoreLink color={"red"} size={"small"} uppercase>{"Read More"}</MoreLink>}
             />
 
@@ -639,12 +637,12 @@ storiesOf("Navs/NavItems", module)
               <CardHighlight
                 visual={dobsonville}
                 header={
-                  <Header>
-                    <Heading size={"large"} color={"blue"} letterSpacing={"small"} weight={"bold"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
-                    <Heading color={"blue"} weight={"medium"} size={"tiny"} >{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</Heading>
-                  </Header>
+                  <div>
+                    <Heading size={"large"} color={"blue"} mb={"tiny"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
+                    <Heading color={"blue"} weight={"medium"} size={"tiny"} mb={"small"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</Heading>
+                  </div>
                 }
-                body={<Copy color={"Primary"}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
+                body={<Copy>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
                 cta={<MoreLink color={"red"} size={"small"} uppercase>{"View More"}</MoreLink>}
               />
             }
@@ -656,7 +654,7 @@ storiesOf("Navs/NavItems", module)
             backgroundColor={select("backgroundColor",colorsArray, colors.bgBlue)}
             visual={dobsonville}
             heading={
-              <Heading color={"white"} size={"tiny"} letterSpacing={"huge"} weight={"light"} uppercase>Latest Videos</Heading>
+              <Heading color={"white"} size={"tiny"} tracking={"huge"} mb={"huge"} weight={"light"} uppercase>Latest Videos</Heading>
             }
             section={
               <Videos />
@@ -668,11 +666,11 @@ storiesOf("Navs/NavItems", module)
             pt={spacing.space12}
             visual={dobsonville}
             heading={
-              <Heading color={"blue"} weight={"bold"}>Get Involved</Heading>
+              <Heading color={"blue"} mb={"small"} center>Get Involved</Heading>
             }
             section={
               <div>
-                <Copy align={"center"}>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
+                <Copy center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
               </div>
             }
           />

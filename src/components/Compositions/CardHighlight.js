@@ -15,8 +15,8 @@ const CardHighlight = (props) => {
       display: 'flex',
     },
     wrapper:{
-      padding: spacing.space6,
-      backgroundColor: colors.White,
+      padding: spacing.space9,
+      backgroundColor: colors.bgWhite,
       width: '50%',
     },
     visual:{

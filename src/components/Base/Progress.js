@@ -9,6 +9,7 @@ function Progress(props) {
 
   const styles = StyleSheet.create({
     progress:{
+      fontFamily: fonts.sans,
       display: 'inline-block',
       width: '100%',
       color: colors.textLightO,

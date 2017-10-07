@@ -27,8 +27,8 @@ const CardNews = (props) => {
       { visual &&
         <div className={css(styles.visual)}>{ visual }</div>
       }
-        <Heading size={"small"} weight={"bold"}>{ heading }</Heading>
-        <Heading size={"tiny"} uppercase >{ meta }</Heading>
+        <Heading size={"small"} mb={"tiny"} tracking={"none"}>{ heading }</Heading>
+        <Heading size={"tiny"} tracking={"none"} weight={"light"}  uppercase>{ meta }</Heading>
     </div>
   )
 }

@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { Icon } from 'components';
-import { fontStyles, colors, icons, spacing } from 'common/styles/variables';
+import { colors, fonts, fontStyles, icons, spacing } from 'common/styles/variables';
 
 const Tag = (props) => {
   const { children,close } = props;
 
   const styles = StyleSheet.create({
     tag:{
-      ...fontStyles('13px','16px'),
+      fontFamily: fonts.sans,
       position: 'relative',
       display: 'inline-block',
       border: '1px solid',
@@ -20,6 +20,7 @@ const Tag = (props) => {
       backgroundColor: props.color,
       padding: spacing.space1,
       paddingRight: props.close ? spacing.space4 : spacing.space1,
+      ...fontStyles('13px','16px'),
     },
     label:{
       color: props.color === '#FFFFFF' ? colors.textBase : colors.textLightO,

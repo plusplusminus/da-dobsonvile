@@ -2,16 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { flatten } from 'rambda'
 import { StyleSheet, css } from "aphrodite";
-import { colors, fonts, fontWeight, fontStyles, letterSpacing } from "common/styles/variables";
+import { colors, fonts, fontWeight, fontStyles, letterSpacing, spacing } from "common/styles/variables";
 
 const styles = {
   base: {
     fontFamily: fonts.sans,
     lineHeight: 1,
-    marginTop: 0,
-    marginRight: 0,
-    marginBottom: 0,
-    marginLeft: 0,
+    margin: 0,
     padding: 0,
   },
 
@@ -30,6 +27,27 @@ const styles = {
     },
     huge: {
       ...fontStyles("49px", `${49 * 1.5}px`),
+    },
+  },
+
+  mb: {
+    none: {
+      marginBottom: spacing.space0,
+    },
+    tiny: {
+      marginBottom: spacing.space1,
+    },
+    small: {
+      marginBottom: spacing.space2,
+    },
+    medium: {
+      marginBottom: spacing.space4,
+    },
+    large: {
+      marginBottom: spacing.space6,
+    },
+    huge: {
+      marginBottom: spacing.space9,
     },
   },
 
@@ -53,13 +71,13 @@ const styles = {
       color: colors.textBase,
     },
     blue: {
-      color: colors.brandBlue,
+      color: colors.textBlue,
     },
     red: {
-      color: colors.brandRed,
+      color: colors.textRed,
     },
     white: {
-      color: colors.brandWhite,
+      color: colors.textWhite,
     },
   },
 
@@ -72,8 +90,18 @@ const styles = {
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
     },
+    left: {
+      textAlign: "left",
+    },
+    right: {
+      textAlign: "right",
+    },
+    center: {
+      textAlign: "center",
+    },
   },
-  letterSpacing: {
+
+  tracking: {
     none: {
       letterSpacing: letterSpacing.none,
     },
@@ -94,18 +122,22 @@ const styles = {
 
 const Heading = (props) => {
 
-  const { children, level, size, weight, color, letterSpacing, truncate, uppercase, override } = props;
+  const { color, children, level, tracking, mb, override, size, truncate, uppercase, left, right, center, weight } = props;
 
   const Component = `h${level}`;
 
   const style = [
     styles.base,
     size && styles.size[size],
+    mb && styles.mb[mb],
     weight && styles.weight[weight],
     color && styles.color[color],
-    letterSpacing && styles.letterSpacing[letterSpacing],
+    tracking && styles.tracking[tracking],
     truncate && styles.variant.truncate,
     uppercase && styles.variant.uppercase,
+    left && styles.variant.left,
+    right && styles.variant.right,
+    center && styles.variant.center,
     flatten(override),
   ];
 
@@ -131,18 +163,29 @@ const Heading = (props) => {
 }
 
 Heading.defaultProps = {
-  level: 2,
-  size: "medium",
-  weight: "regular",
   color: "base",
-  letterSpacing: "normal",
+  level: 2,
+  tracking: "small",
+  mb: "none",
+  override: {},
+  size: "medium",
   truncate: false,
   uppercase: false,
-  override: {},
+  left: true,
+  right: false,
+  center: false,
+  weight: "bold",
 };
 
 
 Heading.propTypes = {
+  /** The heading color*/
+  color: PropTypes.oneOf([
+    "base",
+    "blue",
+    "red",
+    "white",
+  ]),
   /** Text for the heading */
   children: PropTypes.node.isRequired,
   /** Creates the heading HTML element */
@@ -154,38 +197,22 @@ Heading.propTypes = {
     5,
     6,
   ]).isRequired,
-  /** Declares the font size of the heading */
-  size: PropTypes.oneOf([
-    "huge",
-    "large",
-    "medium",
-    "small",
-    "tiny",
-  ]).isRequired,
-  /** Adjusts the font weight of the heading */
-  weight: PropTypes.oneOf([
-    "bold",
-    "medium",
-    "regular",
-    "light",
-  ]),
-  /** The heading color changes based on importance */
-  color: PropTypes.oneOf([
-    "base",
-    "blue",
-    "red",
-    "white",
-  ]),
   /** Controls the letter spacing */
-  letterSpacing: PropTypes.oneOf([
+  tracking: PropTypes.oneOf([
     "none",
+    "small",
     "base",
     "large",
+    "huge",
   ]),
-  /** Whether or not to hide the text overflow with an ellipsis */
-  truncate: PropTypes.bool,
-  /** Whether or not to set the heading in all caps */
-  Uppercase: PropTypes.bool,
+  /** Margin bottom  */
+  mb: PropTypes.oneOf([
+    "none",
+    "tiny",
+    "small",
+    "medium",
+    "large",
+  ]),
   /** Override styles */
   override: PropTypes.objectOf(
     PropTypes.oneOfType([
@@ -194,6 +221,31 @@ Heading.propTypes = {
       PropTypes.object,
     ]),
   ),
+  /** Declares the font size of the heading */
+  size: PropTypes.oneOf([
+    "huge",
+    "large",
+    "medium",
+    "small",
+    "tiny",
+  ]).isRequired,
+  /** Whether or not to hide the text overflow with an ellipsis */
+  truncate: PropTypes.bool,
+  /** Whether or not to set the heading in all caps */
+  uppercase: PropTypes.bool,
+  /** Whether or not to align left */
+  left: PropTypes.bool,
+  /** Whether or not to align right */
+  right: PropTypes.bool,
+  /** Whether or not to align center */
+  center: PropTypes.bool,
+  /** Adjusts the font weight of the heading */
+  weight: PropTypes.oneOf([
+    "bold",
+    "medium",
+    "regular",
+    "light",
+  ]),
 };
 
 Heading.styles = styles;

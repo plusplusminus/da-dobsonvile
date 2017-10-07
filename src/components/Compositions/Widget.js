@@ -20,7 +20,13 @@ const Widget = (props) => {
   return (
     <nav className={css(styles.widget)}>
       <div className="row">
-        { widgetTitle && <div className={`${css(styles.title)} ${colTitle}`}><Heading size={"small"} weight={"bold"} color={ widgetTitleColor }>{ widgetTitle }</Heading></div> }
+        { widgetTitle &&
+          <div className={`${css(styles.title)} ${colTitle}`}>
+            <Heading size={"small"} color={ widgetTitleColor } mb={"small"} tracking={"none"}>
+              { widgetTitle }
+            </Heading>
+          </div>
+        }
         <div className={`${css(styles.section)} ${colSection}`}>
           { children }
         </div>

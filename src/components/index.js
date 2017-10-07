@@ -46,7 +46,6 @@ export CardNews from './Compositions/CardNews';
 export CardPerson from './Compositions/CardPerson';
 export CardRelated from './Compositions/CardRelated';
 export CardVideo from './Compositions/CardVideo';
-export Header from './Compositions/Header';
 export ViewAll from './Compositions/ViewAll';
 export Widget from './Compositions/Widget';
 

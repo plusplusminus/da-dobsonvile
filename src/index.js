@@ -45,7 +45,6 @@ export CardHighlight from './components/Compositions/CardHighlight';
 export CardNews from './components/Compositions/CardNews';
 export CardRelated from './components/Compositions/CardRelated';
 export CardVideo from './components/Compositions/CardVideo';
-export Header from './components/Compositions/Header';
 export ViewAll from './components/Compositions/ViewAll';
 export Widget from './components/Compositions/Widget';
 

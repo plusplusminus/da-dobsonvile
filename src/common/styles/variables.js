@@ -45,20 +45,22 @@ export const colors = {
   brandWhite: "#FFFFFF",
 
   borderBase: "#E8E8E8",
+  borderDark: "#EEEEEE",
   borderLight: "rgba(51,51,51,0.1)",
   borderWhiteO: "rgba(255,255,255,0.15)",
 
   bgBlue: "#155FA2",
   bgBlueLight: "#1D7BB9",
-  bgLight: "#EEEEEE",
+  bgLight: "#F6F6F6",
   bgLightO: "rgba(255,255,255,0.8)",
   bgDark: "#333333",
   bgDarkO: "rgba(51,51,51,0.8)",
+  bgWhite: "#FFFFFF",
 
   linkBase: "#333333",
   linkHover: "#777777",
   linkBlue: "#155FA2",
-  linkBlueHover: "2C6FAB",
+  linkBlueHover: "#2C6FAB",
 
   statusDanger: "#B0153C",
   statusInfo: "#85CEFF",
@@ -67,7 +69,9 @@ export const colors = {
   statusWarning: "#F5A623",
 
   textBase: "#333333",
+  textBlue: "#155FA2",
   textLight: "#777777",
+  textRed: "#B82C4F",
   textLightO: "rgba(255,255,255,0.85)",
   textWhite: "#FFFFFF",
 
