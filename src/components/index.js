@@ -1,9 +1,10 @@
 // Base
 export Alert from './Base/Alert';
+export Border from './Base/Border';
 export Copy from './Base/Copy';
 export Heading from './Base/Heading';
 export HeadingLines from './Base/HeadingLines';
-export { default as Icon } from './Base/Icon';
+export Icon from './Base/Icon';
 export Logo from './Base/Logo';
 export Progress from './Base/Progress';
 export Tag from './Base/Tag';

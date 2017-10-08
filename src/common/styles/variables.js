@@ -47,6 +47,7 @@ export const colors = {
   borderBase: "#E8E8E8",
   borderDark: "#EEEEEE",
   borderLight: "rgba(51,51,51,0.1)",
+  borderWhite: "#FFFFFF",
   borderWhiteO: "rgba(255,255,255,0.15)",
 
   bgBlue: "#155FA2",

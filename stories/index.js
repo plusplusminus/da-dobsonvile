@@ -25,6 +25,7 @@ import {
   ButtonOutline,
   ButtonPrimary,
   ButtonViewAll,
+  Border,
   CardCampaign,
   CardHighlight,
   CardNews,
@@ -142,6 +143,14 @@ storiesOf('Base', module)
       <ButtonTest customStyles={styles} onClick={action('clicked')}>Custom Button</ButtonTest>
     )
   })
+
+  .add('Border', () =>  (
+    <Border
+      color={select("color", ["base", "dark", "light", "white", "whiteO"], "dark")}
+      mt={select("mt", ["none", "small", "medium", "large"], "medium")}
+      mb={select("mb", ["none", "small", "medium", "large"], "medium")}
+    />
+  ))
 
   .add("Copy", () => {
     const fontsArray = getStyleValue(fonts);
@@ -646,6 +655,8 @@ storiesOf("Navs/NavItems", module)
       return(
         <div>
           <SectionFull
+            pt={select("pt", spacingArray, spacing.space13)}
+            pb={select("pb", spacingArray, spacing.space13)}
             section={
               <CardHighlight
                 imageUrl={dobsonville}
@@ -658,8 +669,8 @@ storiesOf("Navs/NavItems", module)
           />
 
           <SectionFull
-            pt={select("pt", spacingArray, spacing.space12)}
-            pb={select("pb", spacingArray, spacing.space5)}
+            pt={select("pt", spacingArray, spacing.space13)}
+            pb={select("pb", spacingArray, spacing.space13)}
             backgroundColor={select("backgroundColor",colorsArray, colors.bgBlue)}
             visual={dobsonville}
             heading={
@@ -674,14 +685,16 @@ storiesOf("Navs/NavItems", module)
 
           <SectionFull
             backgroundColor={colors.bgLightO}
-            pt={spacing.space12}
+            pt={spacing.space9}
+            pb={spacing.space9}
             visual={dobsonville}
             heading={
               <Heading color={"blue"} mb={"small"} center>Get Involved</Heading>
             }
             section={
               <div>
-                <Copy center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
+                <Copy mb={"large"} center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
+                <ButtonTest center>Get Involved</ButtonTest>
               </div>
             }
           />
