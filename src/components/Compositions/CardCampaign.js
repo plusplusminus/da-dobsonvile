@@ -102,11 +102,17 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
 }
 
 CardCampaign.propTypes = {
+  /** Title of Card */
   title: PropTypes.string.isRequired,
+  /** Meta text of Card */
   meta: PropTypes.string.isRequired,
+  /** URL of Card */
   url: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-  paragraph: PropTypes.string.isRequired,
+  /** ImageURL of Card */
+  imageUrl: PropTypes.string,
+  /** Paragraph content of Card */
+  paragraph: PropTypes.string,
+  /** Call to Action of Card */
   cta: PropTypes.string.isRequired,
 };
 

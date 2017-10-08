@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { ButtonViewAll, Card, Copy, Heading, HeadingMeta, HeadingSmall, HeadingSection, ViewAll } from 'components';
+import { ButtonViewAll, Card, Copy, Heading, HeadingMeta, HeadingSmall, HeadingSection, ViewAll, MoreLink } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
 
@@ -25,7 +25,9 @@ const AsideList = (props) => {
         </Heading>
       }
       { children }
-      { cta }
+      { cta &&
+        <MoreLink>{cta}</MoreLink>
+      }
     </nav>
   )
 }

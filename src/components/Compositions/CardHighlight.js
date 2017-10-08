@@ -1,54 +1,114 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-import { ButtonViewAll, Copy, HeaderArticle, Heading, HeadingMeta, HeadingSmall, HeadingSection } from 'components';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
+import { Copy, Heading, MoreLink } from "components";
+import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
 
-const CardHighlight = (props) => {
+const createMarkup = (content) => ({ __html: `${content}` });
 
-  const { body, copy, cta, header, visual } = props;
+const styles = {
+  container: {
+    display: 'inline-block',
+    width: '100%',
+    display: 'flex',
+  },
+  wrapper: {
+    padding: spacing.space9,
+    backgroundColor: colors.bgWhite,
+    width: '50%',
+  },
+  figure:{
+    width: '50%',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    margin: 0,
+  },
+};
 
-  const styles = StyleSheet.create({
-    cardHighlight:{
-      display: 'inline-block',
-      width: '100%',
-      display: 'flex',
+const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta }) => {
+
+  const baseStyles = StyleSheet.create({
+    container: {
+      ...styles.container,
     },
-    wrapper:{
-      padding: spacing.space9,
-      backgroundColor: colors.bgWhite,
-      width: '50%',
+    wrapper: {
+      ...styles.wrapper,
     },
-    visual:{
-      width: '50%',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center',
+    figure: {
+      ...styles.figure,
     },
   });
 
   return (
-    <div className={css(styles.cardHighlight)}>
-      <div className={css(styles.wrapper)}>
-        { header }
-        { body }
-        { cta }
-      </div>
-      <div className={css(styles.visual)} style={{backgroundImage:`url(${visual})`}}></div>
-    </div>
-  )
-}
+    <section className={css(baseStyles.container)}>
+      <div className={css(baseStyles.wrapper)}>
+        <header>
+          <Heading
+            level={3}
+            color={"blue"}
+            size={"large"}
+            mb={"tiny"}
+          >
+            {title}
+          </Heading>
+          {
+            meta && <Heading
+              level={6}
+              color={"blue"}
+              size={"tiny"}
+              letterSpacing={"small"}
+              weight={"regular"}
+              tracking={"small"}
+              mb={"small"}
+            >
+              {meta}
+            </Heading>
+          }
+        </header>
 
+        <div className={css(baseStyles.paragraph)}>
+          <Copy isParent>
+            <p
+              className={css(baseStyles.paragraph)}
+              dangerouslySetInnerHTML={createMarkup(paragraph)}
+            />
+          </Copy>
+
+          <MoreLink href={url} style={styles.moreLink}>
+            { cta }
+          </MoreLink>
+        </div>
+
+      </div>
+
+      <figure className={css(baseStyles.figure)} style={{backgroundImage:`url(${imageUrl})`}}></figure>
+
+    </section>
+  );
+}
 
 CardHighlight.defaultProps = {
-  heading: null,
-  body: null,
+  title: null,
+  meta: null,
+  url: null,
+  imageUrl: null,
+  paragraph: null,
   cta: null,
-}
+};
 
 CardHighlight.propTypes = {
-  heading: PropTypes.string,
-  body: PropTypes.string,
-  cta: PropTypes.string,
+  /** Title of Card */
+  title: PropTypes.string.isRequired,
+  /** Meta text of Card */
+  meta: PropTypes.string.isRequired,
+  /** URL of Card */
+  url: PropTypes.string.isRequired,
+  /** ImageURL of Card */
+  imageUrl: PropTypes.string,
+  /** Paragraph content of Card */
+  paragraph: PropTypes.string,
+  /** Call to Action of Card */
+  cta: PropTypes.string.isRequired,
 };
 
 export default CardHighlight;

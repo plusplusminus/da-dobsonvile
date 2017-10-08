@@ -1,61 +1,135 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-import { Copy, HeaderArticle, Heading } from 'components';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
+import { Copy, Heading, MoreLink } from "components";
+import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
 
+const createMarkup = (content) => ({ __html: `${content}` });
 
-const CardHighlight = (props) => {
-
-  const { body, copy, cta, heading, visual } = props;
-
-  const styles = StyleSheet.create({
-    cardRelated:{
+const styles = {
+  container: {
+    base:{
       display: 'inline-block',
       width: '100%',
-      marginBottom: spacing.space5,
-      padding: spacing.space4,
       backgroundColor: colors.bgLight,
     },
-    wrapper:{
-      float: props.vertical == true ? 'none' : 'left',
-      width: props.vertical == true ? '100%' : '60%',
+    horizontal:{
+      padding: spacing.space6,
     },
-    visual:{
+    vertical:{
+      padding: spacing.space4,
+    }
+  },
+  wrapper: {
+    vertical: {
+      width: '100%',
+    },
+    horizontal: {
+      width: '60%',
+    }
+  },
+  figure: {
+    base: {
+      margin: 0,
+    },
+    vertical:{
+      float: 'none',
+      marginLeft: '0',
+      maxWidth: '100%',
       marginBottom: spacing.space3,
-      float: props.vertical == true ? 'none' : 'right',
-      marginLeft: props.vertical == true ? '0' : '5%',
-      width: props.vertical == true ? '100%' : '30%',
     },
+    horizontal:{
+      float: 'right',
+      marginLeft: '5%',
+      width: '30%',
+    },
+    image: {
+      maxWidth: '100%',
+      height: 'auto',
+    },
+  },
+};
+
+const CardRelated = ({ title, url, imageUrl, paragraph, cta, vertical, horizontal }) => {
+
+  const baseStyles = StyleSheet.create({
+    container: {
+      ...styles.container.base,
+      ...(vertical && styles.container.vertical),
+      ...(horizontal && styles.container.horizontal),
+    },
+    wrapper: {
+      ...styles.wrapper,
+    },
+    figure: {
+      ...styles.figure.base,
+    },
+    image: {
+      ...styles.figure.image,
+      ...(vertical && styles.figure.vertical),
+      ...(horizontal && styles.figure.horizontal)
+    }
   });
 
   return (
-    <div className={css(styles.cardRelated)}>
-      <div className={css(styles.visual)}>
-        { visual }
+    <article className={css(baseStyles.container)}>
+      { imageUrl &&
+        <figure className={css(baseStyles.figure)}>
+          <img src={imageUrl} alt="" className={css(baseStyles.image)} />
+        </figure>
+      }
+
+      <div className={css(baseStyles.wrapper)}>
+        <header>
+          <Heading
+            level={3}
+            mb={"small"}
+            size="small"
+          >
+            {title}
+          </Heading>
+        </header>
+
+        <Copy isParent size={"small"}>
+          <p
+            className={css(baseStyles.paragraph)}
+            dangerouslySetInnerHTML={createMarkup(paragraph)}
+          />
+        </Copy>
+
+        <MoreLink href={url}>
+          { cta }
+        </MoreLink>
       </div>
-      <div className={css(styles.wrapper)}>
-        { heading }
-        { body }
-        { cta }
-      </div>
-    </div>
-  )
+    </article>
+  );
 }
 
-
-CardHighlight.defaultProps = {
-  heading: null,
-  body: null,
-  cta: null,
-  vertical: false,
-}
-
-CardHighlight.propTypes = {
-  heading: PropTypes.string,
-  body: PropTypes.string,
-  cta: PropTypes.string,
-  vertical: PropTypes.bool,
+CardRelated.propTypes = {
+  /** Title of Card */
+  title: PropTypes.string.isRequired,
+  /** Paragraph content of Card */
+  paragraph: PropTypes.string,
+  /** URL of Card */
+  url: PropTypes.string.isRequired,
+  /** ImageURL of Card */
+  imageUrl: PropTypes.string,
+  /** Call to Action of Card */
+  cta: PropTypes.string.isRequired,
+  /** Is card vertically aligned */
+  vertical: PropTypes.bool.isRequired,
+  /** Is card horizontaly aligned */
+  horizontal: PropTypes.bool.isRequired,
 };
 
-export default CardHighlight;
+CardRelated.defaultProps = {
+  title: null,
+  url: null,
+  imageUrl: null,
+  paragraph: null,
+  cta: null,
+  vertical: true,
+  horizontal: false,
+};
+
+export default CardRelated;

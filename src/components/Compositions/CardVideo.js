@@ -1,57 +1,110 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-import { ButtonViewAll, Copy, HeaderArticle, Heading, HeadingMeta, HeadingSmall, HeadingSection, NavText } from 'components';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
+import { Copy, Heading, MoreLink } from "components";
+import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
 
+const createMarkup = (content) => ({ __html: `${content}` });
 
-const CardVideo = (props) => {
-
-  const { body, color, copy, cta, featured, heading, visual } = props;
-
-  const styles = StyleSheet.create({
-    cardVideo:{
-      display: 'inline-block',
-      width: '100%',
-      marginBottom: spacing.space5,
-    },
-    visual:{
+const styles = {
+  container: {
+    display: 'inline-block',
+    width: '100%',
+    marginBottom: spacing.space3,
+  },
+  figure: {
+    base: {
       marginBottom: spacing.space3,
     },
+    image: {
+      maxWidth: '100%',
+      height: 'auto',
+    },
+  },
+};
+
+const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured }) => {
+
+  const baseStyles = StyleSheet.create({
+    container: {
+      ...styles.container,
+    },
+    figure: {
+      ...styles.figure.base,
+    },
+    image: {
+      ...styles.figure.image,
+    }
   });
 
   return (
-    <div className={css(styles.cardVideo)}>
-      { visual &&
-        <div className={css(styles.visual)}>{ visual }</div>
-      }
-      { featured == true
-        ? <Heading color={color} size={"large"}>{ heading }</Heading>
-        : <Heading color={color} size={"small"}>{ heading }</Heading>
-      }
-      { featured &&
-        <div>{ body }{ cta }</div>
+    <article className={css(baseStyles.container)}>
+
+      <figure className={css(baseStyles.figure)}>
+        <img src={imageUrl} alt="" className={css(baseStyles.image)} />
+      </figure>
+
+      <header>
+        { featured == true ?
+          <Heading
+            level={3}
+            mb={"small"}
+            size={"large"}
+          >
+            {title}
+          </Heading>
+          :
+          <Heading
+            level={3}
+            mb={"small"}
+            size={"small"}
+          >
+            {title}
+          </Heading>
+        }
+      </header>
+
+      { featured && paragraph &&
+        <Copy isParent>
+          <p
+            className={css(baseStyles.paragraph)}
+            dangerouslySetInnerHTML={createMarkup(paragraph)}
+          />
+        </Copy>
       }
 
-    </div>
-  )
-}
+      { featured && cta &&
+        <MoreLink href={url}>
+          { cta }
+        </MoreLink>
+      }
 
-
-CardVideo.defaultProps = {
-  body: null,
-  cta: null,
-  color: 'blue',
-  featured: false,
-  heading: null,
+    </article>
+  );
 }
 
 CardVideo.propTypes = {
-  body: PropTypes.string,
-  cta: PropTypes.string,
-  color: PropTypes.string,
-  featured: PropTypes.bool,
-  heading: PropTypes.string,
+  /** Title of Card */
+  title: PropTypes.string.isRequired,
+  /** Paragraph content of Card */
+  paragraph: PropTypes.string,
+  /** URL of Card */
+  url: PropTypes.string.isRequired,
+  /** ImageURL of Card */
+  imageUrl: PropTypes.string,
+  /** Call to Action of Card */
+  cta: PropTypes.string.isRequired,
+  /** Is card featured */
+  featured: PropTypes.bool.isRequired,
+};
+
+CardVideo.defaultProps = {
+  title: null,
+  paragraph: null,
+  url: null,
+  imageUrl: null,
+  cta: null,
+  featured: false,
 };
 
 export default CardVideo;

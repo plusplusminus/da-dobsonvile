@@ -405,23 +405,26 @@ storiesOf("Navs/NavItems", module)
 
     .add("AsideList", () => (
       <AsideList
-        heading={"Latest News"}
-        cta={<MoreLink>More news</MoreLink>}
+        heading={text("heading","Latest News")}
+        cta={text("cta","More news")}
       >
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
-          heading={"Fermentum Sem Mollis Pharetra"}
-          color={"Primary"}
+          imageUrl={dobsonville}
+          title={"Fermentum Sem Mollis Pharetra"}
+          meta={"July 4, 2017 in News"}
+          url={"/"}
         />
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
-          heading={"Fermentum Sem Mollis Pharetra"}
-          color={"Primary"}
+          imageUrl={dobsonville}
+          title={"Fermentum Sem Mollis Pharetra"}
+          meta={"July 4, 2017 in News"}
+          url={"/"}
         />
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
-          heading={"Fermentum Sem Mollis Pharetra"}
-          color={"Primary"}
+          imageUrl={dobsonville}
+          title={"Fermentum Sem Mollis Pharetra"}
+          meta={"July 4, 2017 in News"}
+          url={"/"}
         />
       </AsideList>
     ))
@@ -442,69 +445,65 @@ storiesOf("Navs/NavItems", module)
 
     .add("CardCampaign", () => (
       <CardCampaign
-        imageUrl={dobsonville}
-        meta="Western Cape"
-        title="Firing Zuma is the first step towards building a better tomorrow"
-        paragraph="Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."
-        cta="Join the fight"
-        url={"/"}
+        imageUrl={text("imageUrl", dobsonville)}
+        meta={text("meta","Western Cape")}
+        title={text("title", "Firing Zuma is the first step towards building a better tomorrow")}
+        paragraph={text("paragraph","Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.")}
+        cta={text("cta","Join the fight")}
+        url={text("url","/")}
       />
     ))
 
     .add("CardHighlight", () => (
       <CardHighlight
-        visual={dobsonville}
-        header={
-          <div>
-          <Heading size={"large"} color={"blue"} mb={"tiny"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
-          <Heading color={"blue"} weight={"medium"} size={"tiny"} mb={"small"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</Heading>
-          </div>
-          }
-        body={<Copy>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
-        cta={<MoreLink>{"View More"}</MoreLink>}
+        imageUrl={text("imageUrl", dobsonville)}
+        title={text("title", "Fermentum Sem Mollis Pharetra")}
+        meta={text("meta","Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance")}
+        paragraph={text("paragraph","Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.")}
+        cta={text("cta","View More")}
+        url={text("url","/")}
       />
     ))
 
     .add("CardNews", () => (
-      <div>
-        <CardNews
-          imageUrl={text("imageUrl", dobsonville)}
-          title={text("title", "Fermentum Sem Mollis Pharetra")}
-          meta={text("meta", "July 4, 2017 in News")}
-        />
-      </div>
+      <CardNews
+        imageUrl={text("imageUrl", dobsonville)}
+        title={text("title", "Fermentum Sem Mollis Pharetra")}
+        meta={text("meta", "July 4, 2017 in News")}
+        url={text("url","/")}
+      />
     ))
 
     .add('CardPerson', () => (
-      <div>
-        <CardPerson
-          noVisual={boolean('noVisual',false)}
-          visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
-          heading={text('heading','Fermentum Sem Mollis Pharetra')}
-          meta={text('meta','Federal Leader Of The Democratic Alliance')}
-          moreLink={boolean('moreLink',true)}
-        />
-      </div>
+      <CardPerson
+        noVisual={boolean('noVisual',false)}
+        visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
+        heading={text('heading','Fermentum Sem Mollis Pharetra')}
+        meta={text('meta','Federal Leader Of The Democratic Alliance')}
+        moreLink={boolean('moreLink',true)}
+      />
     ))
 
     .add('CardRelated', () => (
-        <CardRelated
-          vertical={boolean('vertical?', 'false')}
-          visual={<img width={"300px"} className="img-fluid" src={ dobsonville } alt="alt" />}
-          heading={<Heading mb={"small"} size="small">{"Fermentum Sem Mollis Pharetra"}</Heading>}
-          body={<Copy size={"small"}>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-          cta={<MoreLink>{"Read More"}</MoreLink>}
-        />
+      <CardRelated
+        imageUrl={ text("imageUrl",dobsonville )}
+        title={text("title","Fermentum Sem Mollis Pharetra")}
+        paragraph={text("paragraph","Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue.")}
+        url={ text("url",dobsonville )}
+        cta={text("cta","Read More")}
+        vertical={boolean("vertical", true)}
+        horizontal={boolean("horizontal", false)}
+      />
     ))
 
     .add("CardVideo", () => (
       <CardVideo
+        title={text("title","Fermentum Sem Mollis Pharetra")}
+        paragraph={text("paragraph","Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue.")}
+        url={ text("url","/" )}
+        imageUrl={ text("imageUrl",dobsonville )}
+        cta={text("cta","Play Video")}
         featured={boolean("featured", "false")}
-        color={select("color", ["blue", "white"], "blue")}
-        visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
-        heading={<Heading color={"blue"} mb={"small"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
-        body={<Copy>{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-        cta={<MoreLink>{"Read More"}</MoreLink>}
       />
     ))
 
@@ -607,31 +606,34 @@ storiesOf("Navs/NavItems", module)
 
             <AsideList
               heading={"Latest News"}
-              cta={<MoreLink>{"More News"}</MoreLink>}
+              cta={"More News"}
             >
               <CardNews
                 imageUrl={dobsonville}
                 title={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
+                url={"/"}
               />
               <CardNews
                 imageUrl={dobsonville}
                 title={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
+                url={"/"}
               />
               <CardNews
                 imageUrl={dobsonville}
                 title={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
+                url={"/"}
               />
             </AsideList>
 
             <CardRelated
               vertical
-              visual={<img className="img-fluid" src={dobsonville} alt="alt" />}
-              heading={<Heading mb={"small"} size="small">{"Fermentum Sem Mollis Pharetra"}</Heading>}
-              body={<Copy size="small">{"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}</Copy>}
-              cta={<MoreLink>{"Read More"}</MoreLink>}
+              imageUrl={dobsonville}
+              title={"Fermentum Sem Mollis Pharetra"}
+              paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}
+              cta={"Read More"}
             />
 
           </div>
@@ -646,15 +648,11 @@ storiesOf("Navs/NavItems", module)
           <SectionFull
             section={
               <CardHighlight
-                visual={dobsonville}
-                header={
-                  <div>
-                    <Heading size={"large"} color={"blue"} mb={"tiny"}>{"Fermentum Sem Mollis Pharetra"}</Heading>
-                    <Heading color={"blue"} weight={"medium"} size={"tiny"} mb={"small"}>{"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}</Heading>
-                  </div>
-                }
-                body={<Copy>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}</Copy>}
-                cta={<MoreLink>{"View More"}</MoreLink>}
+                imageUrl={dobsonville}
+                title={"Fermentum Sem Mollis Pharetra"}
+                meta={"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}
+                paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                cta={"View More"}
               />
             }
           />
