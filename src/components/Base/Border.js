@@ -8,7 +8,7 @@ const styles = {
   base: {
     width: '100%',
     display: 'block',
-    border: '1px solid',
+    borderTop: '1px solid',
   },
 
   mt: {
@@ -81,7 +81,7 @@ const Border = (props) => {
 Border.defaultProps = {
   color: "dark",
   mb: "medium",
-  mt: "large",
+  mt: "medium",
 }
 
 Border.propTypes = {

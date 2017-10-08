@@ -15,6 +15,7 @@ import Spacing from './Spacing';
 import {
   Alert,
   ArticleDetails,
+  ArticleHeader,
   ArticleShare,
   Aside,
   AsideList,
@@ -400,6 +401,15 @@ storiesOf("Navs/NavItems", module)
 
     .add("ArticleDetails", () => (
       <ArticleDetails />
+    ))
+
+    .add("ArticleHeader", () => (
+      <ArticleHeader
+        subHeading={text('meta', 'Western Cape')}
+        title={text('title', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
+        attribution={text('attribution', 'Written by Belinda Bozzoli MP – DA Shadow Minister of Higher Education and Training')}
+        meta={text('text',"August 20, 2017 in News")}
+      />
     ))
 
     .add("ArticleShare", () => (

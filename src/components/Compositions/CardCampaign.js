@@ -55,7 +55,6 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
             level={6}
             color={"blue"}
             size={"tiny"}
-            letterSpacing={"small"}
             weight={"regular"}
             tracking={"small"}
             uppercase
