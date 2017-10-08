@@ -18,7 +18,7 @@ const Widget = (props) => {
   });
 
   return (
-    <nav className={css(styles.widget)}>
+    <section className={css(styles.widget)}>
       <div className="row">
         { widgetTitle &&
           <div className={`${css(styles.title)} ${colTitle}`}>
@@ -31,7 +31,7 @@ const Widget = (props) => {
           { children }
         </div>
       </div>
-    </nav>
+    </section>
   )
 }
 

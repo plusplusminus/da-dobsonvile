@@ -14,9 +14,8 @@ import Spacing from './Spacing';
 
 import {
   Alert,
-  ArticleDetails,
   ArticleHeader,
-  ArticleShare,
+  ArticleFooter,
   Aside,
   AsideList,
   AsideMenu,
@@ -399,10 +398,6 @@ storiesOf("Navs/NavItems", module)
       )
     })
 
-    .add("ArticleDetails", () => (
-      <ArticleDetails />
-    ))
-
     .add("ArticleHeader", () => (
       <ArticleHeader
         subHeading={text('meta', 'Western Cape')}
@@ -412,8 +407,8 @@ storiesOf("Navs/NavItems", module)
       />
     ))
 
-    .add("ArticleShare", () => (
-      <ArticleShare />
+    .add("ArticleFooter", () => (
+      <ArticleFooter />
     ))
 
     .add('Aside', () => (
@@ -508,7 +503,7 @@ storiesOf("Navs/NavItems", module)
         imageUrl={ text("imageUrl",dobsonville )}
         title={text("title","Fermentum Sem Mollis Pharetra")}
         paragraph={text("paragraph","Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue.")}
-        url={ text("url",dobsonville )}
+        url={ text("url","/" )}
         cta={text("cta","Read More")}
         vertical={boolean("vertical", true)}
         horizontal={boolean("horizontal", false)}

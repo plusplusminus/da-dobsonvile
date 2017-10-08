@@ -47,9 +47,8 @@ export Widget from './Compositions/Widget';
 
 
 // Modules
-export ArticleDetails from './Modules/ArticleDetails';
 export ArticleHeader from './Modules/ArticleHeader';
-export ArticleShare from './Modules/ArticleShare';
+export ArticleFooter from './Modules/ArticleFooter';
 export Campaigns from './Modules/Campaigns';
 export FooterLegal from './Modules/FooterLegal';
 export FooterMenus from './Modules/FooterMenus';

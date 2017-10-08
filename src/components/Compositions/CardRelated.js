@@ -7,7 +7,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity,
 const createMarkup = (content) => ({ __html: `${content}` });
 
 const styles = {
-  container: {
+  card: {
     base:{
       display: 'inline-block',
       width: '100%',
@@ -18,6 +18,18 @@ const styles = {
     },
     vertical:{
       padding: spacing.space4,
+    }
+  },
+  container: {
+    vertical:{
+      padding: spacing.space0,
+      maxWidth: '100%',
+      width: '100%',
+      vertical: 'x',
+    },
+    horizontal:{
+      maxWidth: '100%',
+      horizontal: 'x',
     }
   },
   wrapper: {
@@ -53,8 +65,12 @@ const styles = {
 const CardRelated = ({ title, url, imageUrl, paragraph, cta, vertical, horizontal }) => {
 
   const baseStyles = StyleSheet.create({
+    card: {
+      ...styles.card.base,
+      ...(vertical && styles.card.vertical),
+      ...(horizontal && styles.card.horizontal),
+    },
     container: {
-      ...styles.container.base,
       ...(vertical && styles.container.vertical),
       ...(horizontal && styles.container.horizontal),
     },
@@ -72,34 +88,36 @@ const CardRelated = ({ title, url, imageUrl, paragraph, cta, vertical, horizonta
   });
 
   return (
-    <article className={css(baseStyles.container)}>
-      { imageUrl &&
-        <figure className={css(baseStyles.figure)}>
-          <img src={imageUrl} alt="" className={css(baseStyles.image)} />
-        </figure>
-      }
+    <article className={css(baseStyles.card)}>
+      <div className={`container ${css(baseStyles.container)}`}>
+        { imageUrl &&
+          <figure className={css(baseStyles.figure)}>
+            <img src={imageUrl} alt="" className={css(baseStyles.image)} />
+          </figure>
+        }
 
-      <div className={css(baseStyles.wrapper)}>
-        <header>
-          <Heading
-            level={3}
-            mb={"small"}
-            size="small"
-          >
-            {title}
-          </Heading>
-        </header>
+        <div className={css(baseStyles.wrapper)}>
+          <header>
+            <Heading
+              level={3}
+              mb={"small"}
+              size="small"
+            >
+              {title}
+            </Heading>
+          </header>
 
-        <Copy isParent size={"small"}>
-          <p
-            className={css(baseStyles.paragraph)}
-            dangerouslySetInnerHTML={createMarkup(paragraph)}
-          />
-        </Copy>
+          <Copy isParent size={"small"}>
+            <p
+              className={css(baseStyles.paragraph)}
+              dangerouslySetInnerHTML={createMarkup(paragraph)}
+            />
+          </Copy>
 
-        <MoreLink href={url}>
-          { cta }
-        </MoreLink>
+          <MoreLink href={url}>
+            { cta }
+          </MoreLink>
+        </div>
       </div>
     </article>
   );
@@ -128,7 +146,7 @@ CardRelated.defaultProps = {
   imageUrl: null,
   paragraph: null,
   cta: null,
-  vertical: true,
+  vertical: false,
   horizontal: false,
 };
 
