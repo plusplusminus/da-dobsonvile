@@ -53,14 +53,14 @@ const ArticleHeader = (props) => {
           {attribution}
         </Heading>
       }
-      { date &&
+      { meta &&
         <Heading
           level={6}
           size={"tiny"}
           weight={"regular"}
           tracking={"small"}
         >
-          {date}
+          {meta}
         </Heading>
       }
       <Border
