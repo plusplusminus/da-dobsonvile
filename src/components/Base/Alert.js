@@ -52,7 +52,7 @@ Alert.defaultProps = {
   close: true,
   iconBefore: null,
   color: colors.bgDark,
-}
+};
 
 Alert.propTypes = {
   /** Should be replaced with onClick logic */

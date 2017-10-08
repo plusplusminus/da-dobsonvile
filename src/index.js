@@ -2,13 +2,8 @@ import * as dobsonville from "."
 
 // Base
 export Copy from './components/Base/Copy';
-export Heading, {
-  HeadingHero,
-  HeadingMeta,
-  HeadingSection,
-  HeadingSmall,
-  HeadingWidget,
-} from './components/Base/Heading';
+export Heading from './components/Base/Heading';
+export HeadingLines from './components/Base/HeadingLines';
 export { default as Icon } from './components/Base/Icon';
 export Label from './components/Base/Label';
 export Logo from './components/Base/Logo';

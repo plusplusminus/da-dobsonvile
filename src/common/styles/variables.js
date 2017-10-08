@@ -6,7 +6,7 @@ export const timing = {
   base: ".1s",
 };
 export const fontWeight = {
-  bold: "700",
+  bold: "600",
   medium: "500",
   regular: "400",
   light: "300",

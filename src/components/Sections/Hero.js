@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
-import { Heading, MoreLink } from 'components';
+import { Heading, HeadingLines, MoreLink } from 'components';
 
 
 const Hero = (props) => {
@@ -35,27 +35,31 @@ const Hero = (props) => {
 
         <Heading
           size={"huge"}
-          weight={"bold"}
           color={"white"}
+          mb={"huge"}
+          center
         >
           { heading }
         </Heading>
 
-        <Heading
-          size={"medium"}
-          weight={"bold"}
-          color={"white"}
-        >
-          Take Action
-        </Heading>
+        <HeadingLines lineLeft lineRight color={"white"} mb={"large"}>
+          <Heading
+            size={"medium"}
+            color={"white"}
+            center
+          >
+            Take Action
+          </Heading>
+        </HeadingLines>
 
         <div className="row justify-content-center">
 
           <div className="col-lg-3 text-center">
             <Heading
               color={"white"}
-              weight={"bold"}
               size={"small"}
+              mb={"small"}
+              center
             >
               Contribute to our campaign cause
             </Heading>
@@ -65,23 +69,25 @@ const Hero = (props) => {
           <div className="col-lg-3 text-center">
             <Heading
               color={"white"}
-              weight={"bold"}
               size={"small"}
+              mb={"small"}
+              center
             >
               Sign our petition to remove Zuma
             </Heading>
-            <MoreLink color={"yellow"} size="large" lowercase>Donate</MoreLink>
+            <MoreLink color={"yellow"} size="large" lowercase>Sign Petition</MoreLink>
           </div>
 
           <div className="col-lg-3 text-center">
             <Heading
               color={"white"}
-              weight={"bold"}
               size={"small"}
+              mb={"small"}
+              center
             >
               Make a difference by joining the DA
             </Heading>
-            <MoreLink color={"yellow"} size="large" lowercase>Donate</MoreLink>
+            <MoreLink color={"yellow"} size="large" lowercase>Join Us</MoreLink>
           </div>
 
         </div>

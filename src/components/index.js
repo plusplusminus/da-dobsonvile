@@ -1,13 +1,8 @@
 // Base
 export Alert from './Base/Alert';
 export Copy from './Base/Copy';
-export Heading, {
-  HeadingHero,
-  HeadingMeta,
-  HeadingSection,
-  HeadingSmall,
-  HeadingWidget,
-} from './Base/Heading';
+export Heading from './Base/Heading';
+export HeadingLines from './Base/HeadingLines';
 export { default as Icon } from './Base/Icon';
 export Logo from './Base/Logo';
 export Progress from './Base/Progress';

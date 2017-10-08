@@ -38,6 +38,7 @@ import {
   FooterMenus,
   Header,
   Heading,
+  HeadingLines,
   Hero,
   Icon,
   Logo,
@@ -168,27 +169,37 @@ storiesOf('Base', module)
     )
   })
 
-  .add('Heading', () => {
-    const spacingArray = getStyleValue(spacing);
-    return(
-      <Heading
-        color={select("color", ["base", "blue", "red", "white"], "base")}
-        level={select("level", [1, 2, 3, 4, 5, 6], 1)}
-        tracking={select("letterSpacing", ["none", "small", "base", "large", "huge"], "small")}
-        mb={select("mb", ["none", "tiny", "small", "medium", "large", "huge"], "none")}
-        override={object("override", {})}
-        size={select("size", ["huge", "large", "medium", "small", "tiny"], "medium")}
-        truncate={boolean("truncate", false)}
-        uppercase={boolean("uppercase", false)}
-        left={boolean("left", true)}
-        right={boolean("right", false)}
-        center={boolean("center", false)}
-        weight={select("weight", ["bold", "medium", "regular", "light"], "bold")}
-      >
-        {text("children", "Heading")}
-      </Heading>
-    )
-  })
+  .add('Heading', () => (
+    <Heading
+      color={select("color", ["base", "blue", "red", "white"], "base")}
+      level={select("level", [1, 2, 3, 4, 5, 6], 1)}
+      tracking={select("letterSpacing", ["none", "small", "base", "large", "huge"], "small")}
+      mb={select("mb", ["none", "tiny", "small", "medium", "large", "huge"], "none")}
+      override={object("override", {})}
+      size={select("size", ["huge", "large", "medium", "small", "tiny"], "medium")}
+      truncate={boolean("truncate", false)}
+      uppercase={boolean("uppercase", false)}
+      left={boolean("left", true)}
+      right={boolean("right", false)}
+      center={boolean("center", false)}
+      lineLeft={boolean("lineLeft", false)}
+      lineRight={boolean("lineRight", false)}
+      weight={select("weight", ["bold", "medium", "regular", "light"], "bold")}
+    >
+      {text("children", "Heading")}
+    </Heading>
+  ))
+
+  .add('HeadingLines', () => (
+    <HeadingLines
+      color={select("color", ["base", "blue", "red", "white"], "base")}
+      lineLeft={boolean("lineLeft", false)}
+      lineRight={boolean("lineRight", false)}
+      mb={select("mb", ["none", "tiny", "small", "medium", "large", "huge"], "none")}
+    >
+      {text("children", "Heading")}
+    </HeadingLines>
+  ))
 
   .add('Icon', () =>  {
     const spacingArray = [];
@@ -657,7 +668,9 @@ storiesOf("Navs/NavItems", module)
             backgroundColor={select("backgroundColor",colorsArray, colors.bgBlue)}
             visual={dobsonville}
             heading={
-              <Heading color={"white"} size={"tiny"} tracking={"huge"} mb={"huge"} weight={"light"} uppercase>Latest Videos</Heading>
+              <HeadingLines lineLeft color={"white"} mb={"huge"} >
+                <Heading color={"white"} size={"tiny"} tracking={"huge"} weight={"light"} uppercase>Latest Videos</Heading>
+              </HeadingLines>
             }
             section={
               <Videos />

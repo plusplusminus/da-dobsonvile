@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import { ButtonViewAll, CardCampaign, Copy, Heading, MoreLink, ViewAll } from 'components';
+import { ButtonViewAll, CardCampaign, Copy, Heading, HeadingLines, MoreLink, ViewAll } from 'components';
 
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
@@ -16,15 +16,19 @@ const Campaigns = (props) => {
 
   return (
     <section className={css(styles.campaigns)}>
-      <Heading
-        color={"red"}
-        letterSpacing={"huge"}
-        size={"tiny"}
-        mb={"large"}
-        uppercase
-      >
-        Latest Campaigns
-      </Heading>
+
+      <HeadingLines lineLeft color={"red"} mb={"large"}>
+        <Heading
+          color={"red"}
+          tracking={"huge"}
+          size={"tiny"}
+          weight={"light"}
+          uppercase
+        >
+          Latest Campaigns
+        </Heading>
+      </HeadingLines>
+
       <CardCampaign
         visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
         meta={<Heading color={"blue"} size={"tiny"} letterSpacing={"small"} weight={"regular"} tracking={"small"} uppercase>{"Western Cape"}</Heading>}
@@ -32,6 +36,7 @@ const Campaigns = (props) => {
         body={<Copy>{"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}</Copy>}
         cta={<MoreLink>{"Join the fight"}</MoreLink>}
       />
+
       <CardCampaign
         visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
         meta={<Heading color={"blue"} size={"tiny"} letterSpacing={"small"} weight={"regular"} tracking={"small"} uppercase>{"Western Cape"}</Heading>}
@@ -39,6 +44,7 @@ const Campaigns = (props) => {
         body={<Copy>{"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}</Copy>}
         cta={<MoreLink>{"Join the fight"}</MoreLink>}
       />
+
       <CardCampaign
         visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
         meta={<Heading color={"blue"} size={"tiny"} letterSpacing={"small"} weight={"regular"} tracking={"small"} uppercase>{"Western Cape"}</Heading>}
@@ -46,7 +52,9 @@ const Campaigns = (props) => {
         body={<Copy>{"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}</Copy>}
         cta={<MoreLink>{"Join the fight"}</MoreLink>}
       />
+
       <ViewAll>View all Campaigns</ViewAll>
+
     </section>
   )
 }
