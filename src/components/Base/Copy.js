@@ -101,7 +101,15 @@ const styles = {
 
 const Copy = (props) => {
 
-  const { color, children, mb, override, size, truncate, uppercase, left, right, center, justify, weight } = props;
+  const { color, children, mb, override, size, truncate, uppercase, left, right, center, justify, weight, isParent } = props;
+
+  let Element = "";
+
+  if (isParent) {
+    Element = "span";
+  } else {
+    Element = "p";
+  }
 
   const style = [
     styles.base,
@@ -131,11 +139,11 @@ const Copy = (props) => {
   });
 
   return (
-    <p
+    <Element
       className={css(temp.copy)}
     >
       {children}
-    </p>
+    </Element>
   );
 }
 
@@ -144,6 +152,7 @@ Copy.defaultProps = {
   mb: "medium",
   override: {},
   size: "medium",
+  isParent: false,
   truncate: false,
   uppercase: false,
   left: true,
@@ -181,6 +190,8 @@ Copy.propTypes = {
       PropTypes.object,
     ]),
   ),
+  /** If the Copy container is a parent of other <p> tags then make the component a 'span' instead*/
+  isParent: PropTypes.bool,
   /** Declares the font size of the heading */
   size: PropTypes.oneOf([
     "tiny",

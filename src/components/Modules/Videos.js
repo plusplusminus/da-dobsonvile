@@ -26,11 +26,13 @@ const Videos = (props) => {
             cta={<MoreLink color={"white"}>{"Play Video"}</MoreLink>}
           />
         </div>
+
         <div className="col-md-4">
           <CardVideo
             visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
             heading={<Heading color={"white"} size={"small"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}
           />
+
           <CardVideo
             visual={<img className="img-fluid" src={ dobsonville } alt="alt" />}
             heading={<Heading color={"white"} size={"small"}>{"Fermentum Sem Mollis Pharetra"}</Heading>}

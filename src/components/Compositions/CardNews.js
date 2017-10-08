@@ -1,49 +1,90 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-import { ButtonViewAll, Copy, HeaderArticle, Heading, HeadingMeta, HeadingSmall, HeadingSection, NavText } from 'components';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
+import { Copy, Heading, MoreLink } from "components";
+import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
 
+const createMarkup = (content) => ({ __html: `${content}` });
 
-const CardNews = (props) => {
-
-  const { heading, meta, visual } = props;
-
-  const styles = StyleSheet.create({
-    cardNews:{
-      display: 'inline-block',
-      width: '100%',
-      marginBottom: spacing.space4,
-    },
-    visual:{
-      display: 'block',
+const styles = {
+  container: {
+    display: "block",
+    marginBottom: spacing.space4,
+  },
+  header: {},
+  figure: {
+    base: {
       float: 'left',
       marginRight: spacing.space2,
+    },
+    image: {
+      display: "block",
+      maxWidth: "100px",
+    },
+  },
+};
+
+const CardNews = ({ title, url, imageUrl, meta, paragraph, visual }) => {
+
+  const baseStyles = StyleSheet.create({
+    container: {
+      ...styles.container,
+    },
+    header: {
+      ...styles.header.base,
+    },
+    figure: {
+      ...styles.figure.base,
     },
   });
 
   return (
-    <div className={css(styles.cardNews)}>
-      { visual &&
-        <div className={css(styles.visual)}>{ visual }</div>
+    <article className={css(baseStyles.container)}>
+      { imageUrl &&
+        <figure className={css(baseStyles.figure)}>
+          <img src={imageUrl} alt="" style={styles.figure.image} />
+        </figure>
       }
-        <Heading size={"small"} mb={"tiny"} tracking={"none"}>{ heading }</Heading>
-        <Heading size={"tiny"} tracking={"none"} weight={"light"}  uppercase>{ meta }</Heading>
-    </div>
-  )
-}
-
-
-CardNews.defaultProps = {
-  heading: null,
-  meta: null,
-  color: 'Copy',
+      <header className={css(baseStyles.header)}>
+        <Heading
+          level={3}
+          size={"small"}
+          mb={"tiny"}
+          tracking={"none"}
+        >
+          {title}
+        </Heading>
+        {
+          meta && <Heading
+            level={6}
+            size={"tiny"}
+            tracking={"none"}
+            weight={"light"}
+            uppercase
+            override={styles.header.meta}
+          >
+            {meta}
+          </Heading>
+        }
+      </header>
+    </article>
+  );
 }
 
 CardNews.propTypes = {
-  heading: PropTypes.string,
-  meta: PropTypes.string,
-  color: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  meta: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  paragraph: PropTypes.string.isRequired,
+};
+
+CardNews.defaultProps = {
+  title: null,
+  meta: null,
+  url: null,
+  imageUrl: null,
+  paragraph: null,
 };
 
 export default CardNews;

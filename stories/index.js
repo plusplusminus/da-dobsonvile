@@ -62,7 +62,6 @@ import {
 
 // Sergio components
 import { default as ButtonTest } from "../src/components/Button";
-import { default as CampaignCard } from "../src/components/CampaignCard";
 
 
 addDecorator((story, context) => withInfo("")(story)(context));
@@ -160,6 +159,7 @@ storiesOf('Base', module)
         uppercase={boolean("uppercase", false)}
         left={boolean("left", true)}
         right={boolean("right", false)}
+        isParent={boolean("isParent", false)}
         center={boolean("center", false)}
         justify={boolean("justify", false)}
         weight={select("weight", ["bold", "medium", "regular", "light"], "light")}
@@ -441,16 +441,14 @@ storiesOf("Navs/NavItems", module)
     ))
 
     .add("CardCampaign", () => (
-      <div>
-        <CampaignCard
-          title="Firing Zuma is the first step towards building a better tomorrow"
-          cta="Join the fight"
-          paragraph="Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."
-          meta="Western Cape"
-          imageUrl={dobsonville}
-          url={"/"}
-        />
-      </div>
+      <CardCampaign
+        imageUrl={dobsonville}
+        meta="Western Cape"
+        title="Firing Zuma is the first step towards building a better tomorrow"
+        paragraph="Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."
+        cta="Join the fight"
+        url={"/"}
+      />
     ))
 
     .add("CardHighlight", () => (
@@ -470,9 +468,8 @@ storiesOf("Navs/NavItems", module)
     .add("CardNews", () => (
       <div>
         <CardNews
-          visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
-          heading={"Fermentum Sem Mollis Pharetra"}
-          color={select("color", ["Primary", "Copy"], "Copy")}
+          imageUrl={text("imageUrl", dobsonville)}
+          title={text("title", "Fermentum Sem Mollis Pharetra")}
           meta={text("meta", "July 4, 2017 in News")}
         />
       </div>
@@ -613,18 +610,18 @@ storiesOf("Navs/NavItems", module)
               cta={<MoreLink>{"More News"}</MoreLink>}
             >
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
-                heading={"Fermentum Sem Mollis Pharetra"}
+                imageUrl={dobsonville}
+                title={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
               />
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
-                heading={"Fermentum Sem Mollis Pharetra"}
+                imageUrl={dobsonville}
+                title={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
               />
               <CardNews
-                visual={<img width={"100px"} className="img-fluid" src={dobsonville} alt="alt" />}
-                heading={"Fermentum Sem Mollis Pharetra"}
+                imageUrl={dobsonville}
+                title={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
               />
             </AsideList>

@@ -1,60 +1,122 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-import { Heading, HeadingMeta, HeadingSmall, HeadingSection } from 'components';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
+import { Copy, Heading, MoreLink } from "components";
+import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
 
-const CardCampaign = (props) => {
+const createMarkup = (content) => ({ __html: `${content}` });
 
-  const { body, copy, cta, heading, meta, visual } = props;
-
-  const styles = StyleSheet.create({
-    cardCampaign:{
-      display: 'block',
-      marginBottom: spacing.space6,
+const styles = {
+  container: {
+    display: "block",
+    marginBottom: spacing.space6,
+  },
+  figure: {
+    base: {},
+    image: {
+      display: "block",
+      maxWidth: "100%",
     },
-    visual:{
-      display: 'block',
-      float: 'left',
-      // Should only be on responsive
-      // marginBottom: spacing.space4,
+  },
+  header: {
+    base: {},
+    heading: {},
+    meta: {},
+  },
+  paragraph: {},
+  moreLink: {},
+};
+
+const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
+
+  const baseStyles = StyleSheet.create({
+    container: {
+      ...styles.container,
+    },
+    header: {
+      ...styles.header.base,
+    },
+    paragraph: {
+      ...styles.paragraph.base,
+    },
+    figure: {
+      ...styles.figure.base,
+    },
+    moreLink: {
+      ...styles.moreLink,
     },
   });
 
   return (
-    <div className={css(styles.cardCampaign)}>
-      <div>
-        { meta }
-        { heading }
-      </div>
-      <div className="row">
-        { visual &&
-          <div className="col-sm-3">
-            <div className={css(styles.visual)}>{ visual }</div>
-          </div>
+    <article className={css(baseStyles.container)}>
+      <header className={css(baseStyles.header)}>
+        {
+          meta && <Heading
+            level={6}
+            color={"blue"}
+            size={"tiny"}
+            letterSpacing={"small"}
+            weight={"regular"}
+            tracking={"small"}
+            uppercase
+            override={styles.header.meta}
+          >
+            {meta}
+          </Heading>
         }
-        <div className="col-sm-9">
-          { body }
-          { cta }
+        <Heading
+          level={3}
+          color={"blue"}
+          mb={"small"}
+          size={"large"}
+          override={styles.header.heading}
+        >
+          {title}
+        </Heading>
+      </header>
+
+      <div className="row">
+        <div className="col-sm-3">
+          <figure className={css(baseStyles.figure)}>
+            <img src={imageUrl} alt="" style={styles.figure.image} />
+          </figure>
         </div>
+
+        <main className="col-md-9">
+          <div className={css(baseStyles.paragraph)}>
+            <Copy isParent>
+              <p
+                className={css(baseStyles.paragraph)}
+                dangerouslySetInnerHTML={createMarkup(paragraph)}
+              />
+            </Copy>
+
+            <MoreLink href={url} style={styles.moreLink}>
+              { cta }
+            </MoreLink>
+          </div>
+        </main>
       </div>
-    </div>
-  )
-}
-
-
-CardCampaign.defaultProps = {
-  body: null,
-  heading: null,
-  meta: null,
-  visual: null,
+    </article>
+  );
 }
 
 CardCampaign.propTypes = {
-  body: PropTypes.string,
-  heading: PropTypes.string,
-  meta: PropTypes.string,
-  visual: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  meta: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  paragraph: PropTypes.string.isRequired,
+  cta: PropTypes.string.isRequired,
+};
+
+CardCampaign.defaultProps = {
+  title: null,
+  meta: null,
+  url: null,
+  imageUrl: null,
+  paragraph: null,
+  cta: null,
 };
 
 export default CardCampaign;
