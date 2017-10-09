@@ -490,11 +490,14 @@ storiesOf("Navs/NavItems", module)
 
     .add('CardPerson', () => (
       <CardPerson
-        noVisual={boolean('noVisual',false)}
-        visual={<img width={"100px"} className="img-fluid" src={ dobsonville } alt="alt" />}
-        heading={text('heading','Fermentum Sem Mollis Pharetra')}
+        border={boolean("border", true)}
+        imageUrl={text("imageUrl", dobsonville)}
+        title={text('title','Fermentum Sem Mollis Pharetra')}
         meta={text('meta','Federal Leader Of The Democratic Alliance')}
-        moreLink={boolean('moreLink',true)}
+        url={text("url","/")}
+        cta={text("cta","View More")}
+        tel={text("tel","+27 84 485 4832")}
+        email={text("email","mmusi@da.org.za")}
       />
     ))
 
