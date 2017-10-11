@@ -635,7 +635,68 @@ storiesOf("Navs/NavItems", module)
             />
 
           </div>
+
         </SectionFull>
+
+        <SectionFull
+          bgColor={colors.bgBlue}
+          mb={spacing.space0}
+          mt={spacing.space0}
+          color={"white"}
+          title={"Latest Videos"}
+        >
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-8">
+                <CardVideo
+                  featured
+                  imageUrl={ dobsonville }
+                  title={"Fermentum Sem Mollis Pharetra"}
+                  paragraph={"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}
+                  cta={"Play Video"}
+                  color={"white"}
+                />
+              </div>
+
+              <div className="col-md-4">
+                <CardVideo
+                  imageUrl={ dobsonville }
+                  title={"Fermentum Sem Mollis Pharetra"}
+                  color={"white"}
+                />
+
+                <CardVideo
+                  imageUrl={ dobsonville }
+                  title={"Fermentum Sem Mollis Pharetra"}
+                  color={"white"}
+                />
+              </div>
+            </div>
+            <div className="col-md-12">
+              <ViewAll
+                borderColor={colors.borderWhiteO}
+                buttonColor={"white"}
+              >
+                View all Videos
+              </ViewAll>
+            </div>
+          </div>
+        </SectionFull>
+
+        <SectionFull
+         bgColor={colors.bgLight}
+         mb={spacing.space0}
+         mt={spacing.space0}
+        >
+          <CardHighlight
+            imageUrl={dobsonville}
+            title={"Fermentum Sem Mollis Pharetra"}
+            meta={"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}
+            paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+            cta={"View More"}
+          />
+        </SectionFull>
+
       </div>
     ))
     .add("Article", () => (
