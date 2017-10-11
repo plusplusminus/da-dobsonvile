@@ -13,7 +13,7 @@ function AsideOverlay(props) {
   const styles = StyleSheet.create({
     asideOverlay:{
       borderRadius: spacing.space1,
-      marginBottom: spacing.space5,
+      marginBottom: spacing.space4,
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
     },

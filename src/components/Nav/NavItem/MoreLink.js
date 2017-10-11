@@ -29,6 +29,7 @@ const styles = {
   container: {
     base: {
       backgroundColor: colors.baseTransparent,
+      color: colors.textBase,
       border: 0,
       display: "inline-block",
       fontFamily: fonts.sans,

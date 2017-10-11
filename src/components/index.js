@@ -52,11 +52,9 @@ export ArticleFooter from './Modules/ArticleFooter';
 export Campaigns from './Modules/Campaigns';
 export FooterLegal from './Modules/FooterLegal';
 export FooterMenus from './Modules/FooterMenus';
-export Videos from './Modules/Videos';
 
 
 // Sections
 export Hero from './Sections/Hero';
 export SectionFull from './Sections/SectionFull';
-export SectionMain from './Sections/SectionMain';
 export Footer from './Sections/Footer';

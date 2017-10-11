@@ -12,6 +12,7 @@ const styles = {
       display: 'inline-block',
       width: '100%',
       backgroundColor: colors.bgLight,
+      marginBottom: spacing.space5,
     },
     horizontal:{
       padding: spacing.space6,

@@ -44,7 +44,6 @@ import {
   Icon,
   Logo,
   MoreLink,
-  SectionMain,
   SectionFull,
   Tag,
   NavBox,
@@ -55,9 +54,7 @@ import {
   NavbarSub,
   NavIcon,
   Progress,
-  StorySpacing,
   ViewAll,
-  Videos,
   Widget,
 } from "../src/components";
 
@@ -521,6 +518,7 @@ storiesOf("Navs/NavItems", module)
         imageUrl={ text("imageUrl",dobsonville )}
         cta={text("cta","Play Video")}
         featured={boolean("featured", "false")}
+        color={ select('color', ['base', 'blue', 'textBase', 'textLight', 'textLightO', 'textWhite'], 'textBase') }
       />
     ))
 
@@ -556,10 +554,11 @@ storiesOf("Navs/NavItems", module)
       const colorsArray = getStyleValue(filterStyleGroup(colors,"border"));
       return(
         <ViewAll
-          buttonLabel={text("buttonLabel", "View All")}
           borderColor={select("borderColor", colorsArray, colors.BorderLight)}
           buttonColor={ select('buttonColor', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
-        />
+        >
+          {text("buttonLabel", "View All")}
+        </ViewAll>
       )
     })
 
@@ -591,27 +590,79 @@ storiesOf("Navs/NavItems", module)
       <FooterMenus />
     ))
     .add("Videos", () => (
-      <Videos />
+      <Videos
+        color={ select('color', ['base', 'blue', 'red', 'white'], 'base') }
+      />
     ));
 
-  storiesOf("Sections", module)
-    .add("Hero", () => (
-      <Hero
-        visual={dobsonville}
-        heading={"Firing Zuma is the first step towards building a better tomorrow"}
-      />
-    ))
-    .add("SectionMain", () => (
-      <SectionMain
-        main={<Campaigns />}
-        aside={
+  storiesOf("Templates", module)
+    .add("Home", () => (
+      <div>
+        <Hero
+          mb={spacing.space0}
+          visual={dobsonville}
+          heading={"Firing Zuma is the first step towards building a better tomorrow"}
+        />
+
+        <SectionFull
+          bgColor={colors.bgLight}
+          pt={spacing.space9}
+          pb={spacing.space9}
+          mt={spacing.space0}
+          title={"Newsletter Subscribe"}
+          center
+        >
           <div>
+            <Copy mb={"large"} center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
+            <ButtonTest center>Subscribe Now</ButtonTest>
+          </div>
+        </SectionFull>
+
+        <SectionFull
+          pt={"spacing.pace10"}
+          pb={"spacing.space15"}
+        >
+          <div className={"col-md-7"}>
+            <Campaigns />
+          </div>
+
+          <div className={"col-md-4 offset-md-1"}>
             <AsideOverlay visual={dobsonville} />
 
             <Aside
               visual={dobsonville}
               buttonLabel="Donate Now"
             />
+
+          </div>
+        </SectionFull>
+      </div>
+    ))
+    .add("Article", () => (
+      <div>
+
+        <SectionFull
+          pt={"spacing.pace10"}
+          pb={"spacing.space15"}
+        >
+          <div className={"col-md-7"}>
+            <ArticleHeader
+              subHeading={text('meta', 'Western Cape')}
+              title={text('title', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
+              attribution={text('attribution', 'Written by Belinda Bozzoli MP – DA Shadow Minister of Higher Education and Training')}
+              meta={text('meta',"August 20, 2017 in News")}
+            />
+            <Copy isParent>
+              <Copy size="large" weight={"regular"} mb={"large"}>Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</Copy>
+              <Copy>Sed posuere consectetur est at lobortis. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum.</Copy>
+              <Copy>Donec sed odio dui. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</Copy>
+              <Copy>Nullam id dolor id nibh ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Copy>
+            </Copy>
+            <Border mt={"large"} mb={"large"}/>
+            <ArticleFooter/>
+          </div>
+
+          <div className={"col-md-4 offset-md-1"}>
 
             <AsideMenu>
               <NavBox>Item One</NavBox>
@@ -622,7 +673,7 @@ storiesOf("Navs/NavItems", module)
             </AsideMenu>
 
             <AsideList
-              heading={"Latest News"}
+              heading={"Related News"}
               cta={"More News"}
             >
               <CardNews
@@ -654,8 +705,17 @@ storiesOf("Navs/NavItems", module)
             />
 
           </div>
-        }
-      />
+
+        </SectionFull>
+        <CardRelated
+          imageUrl={dobsonville}
+          title={"Fermentum Sem Mollis Pharetra"}
+          paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}
+          url={"/"}
+          cta={"Read More"}
+          horizontal={true}
+        />
+      </div>
     ))
     .add("SectionFull", () => {
       const colorsArray = getStyleValue(filterStyleGroup(colors,"bg"));
@@ -663,49 +723,77 @@ storiesOf("Navs/NavItems", module)
       return(
         <div>
           <SectionFull
-            pt={select("pt", spacingArray, spacing.space13)}
-            pb={select("pb", spacingArray, spacing.space13)}
-            section={
-              <CardHighlight
-                imageUrl={dobsonville}
-                title={"Fermentum Sem Mollis Pharetra"}
-                meta={"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}
-                paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
-                cta={"View More"}
-              />
-            }
-          />
+           bgColor={colors.bgLight}
+          >
+            <CardHighlight
+              imageUrl={dobsonville}
+              title={"Fermentum Sem Mollis Pharetra"}
+              meta={"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}
+              paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+              cta={"View More"}
+            />
+          </SectionFull>
 
           <SectionFull
-            pt={select("pt", spacingArray, spacing.space13)}
-            pb={select("pb", spacingArray, spacing.space13)}
-            backgroundColor={select("backgroundColor",colorsArray, colors.bgBlue)}
-            visual={dobsonville}
-            heading={
-              <HeadingLines lineLeft color={"white"} mb={"huge"} >
-                <Heading color={"white"} size={"tiny"} tracking={"huge"} weight={"light"} uppercase>Latest Videos</Heading>
-              </HeadingLines>
-            }
-            section={
-              <Videos />
-            }
-          />
+            bgColor={select("bgColor",colorsArray, '')}
+            color={select("color",["base","blue","red","white"], "base")}
+            title={text("title","Latest Videos")}
+            center={boolean("center",false)}
+            pt={select("pt",spacingArray,spacing.space13)}
+            pb={select("pb",spacingArray,spacing.space13)}
+            bgUrl={text("bgUrl","")}
+          >
+          <div className="col-md-12">
+            <div className="row">
+              <div className="col-md-8">
+                <CardVideo
+                  featured
+                  imageUrl={ dobsonville }
+                  title={"Fermentum Sem Mollis Pharetra"}
+                  paragraph={"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}
+                  cta={"Play Video"}
+                  color={select("color",["base","blue","red","white"], "base")}
+                />
+              </div>
+
+              <div className="col-md-4">
+                <CardVideo
+                  imageUrl={ dobsonville }
+                  title={"Fermentum Sem Mollis Pharetra"}
+                  color={select("color",["base","blue","red","white"], "base")}
+                />
+
+                <CardVideo
+                  imageUrl={ dobsonville }
+                  title={"Fermentum Sem Mollis Pharetra"}
+                  color={select("color",["base","blue","red","white"], "base")}
+                />
+              </div>
+            </div>
+            <div className="col-md-12">
+              <ViewAll
+                borderColor={colors.borderWhiteO}
+                buttonColor={"white"}
+              >
+                View all Videos
+              </ViewAll>
+            </div>
+          </div>
+        </SectionFull>
 
           <SectionFull
-            backgroundColor={colors.bgLightO}
+            bgColor={colors.bgLightO}
             pt={spacing.space9}
             pb={spacing.space9}
-            visual={dobsonville}
-            heading={
-              <Heading color={"blue"} mb={"small"} center>Get Involved</Heading>
-            }
-            section={
-              <div>
-                <Copy mb={"large"} center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
-                <ButtonTest center>Get Involved</ButtonTest>
-              </div>
-            }
-          />
+            bgUrl={dobsonville}
+            title={"Get Involved"}
+            center
+          >
+            <div>
+              <Copy mb={"large"} center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
+              <ButtonTest center>Get Involved</ButtonTest>
+            </div>
+          </SectionFull>
         </div>
       )
     })

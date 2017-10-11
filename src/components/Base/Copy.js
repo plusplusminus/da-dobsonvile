@@ -73,6 +73,9 @@ const styles = {
     white: {
       color: colors.textWhite,
     },
+    red: {
+      color: colors.textRed,
+    },
   },
 
   variant: {

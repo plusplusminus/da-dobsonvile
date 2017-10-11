@@ -57,7 +57,7 @@ const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta }) => {
               color={"blue"}
               size={"tiny"}
               letterSpacing={"small"}
-              weight={"regular"}
+              weight={"medium"}
               tracking={"small"}
               mb={"small"}
             >

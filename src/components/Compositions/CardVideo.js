@@ -23,7 +23,7 @@ const styles = {
   },
 };
 
-const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured }) => {
+const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured, color }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
@@ -50,6 +50,7 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured }) => {
             level={3}
             mb={"small"}
             size={"large"}
+            color={color}
           >
             {title}
           </Heading>
@@ -58,6 +59,7 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured }) => {
             level={3}
             mb={"small"}
             size={"small"}
+            color={color}
           >
             {title}
           </Heading>
@@ -65,7 +67,10 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured }) => {
       </header>
 
       { featured && paragraph &&
-        <Copy isParent>
+        <Copy
+          isParent
+          color={color}
+        >
           <p
             className={css(baseStyles.paragraph)}
             dangerouslySetInnerHTML={createMarkup(paragraph)}
@@ -74,7 +79,7 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured }) => {
       }
 
       { featured && cta &&
-        <MoreLink href={url}>
+        <MoreLink href={url} color={color}>
           { cta }
         </MoreLink>
       }
@@ -86,6 +91,8 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured }) => {
 CardVideo.propTypes = {
   /** Title of Card */
   title: PropTypes.string.isRequired,
+  /** Color of Headings and Copy of Card */
+  color: PropTypes.string,
   /** Paragraph content of Card */
   paragraph: PropTypes.string,
   /** URL of Card */
@@ -96,6 +103,8 @@ CardVideo.propTypes = {
   cta: PropTypes.string.isRequired,
   /** Is card featured */
   featured: PropTypes.bool.isRequired,
+  /** Color of Headings and Copy in card */
+  featured: PropTypes.string,
 };
 
 CardVideo.defaultProps = {
@@ -105,6 +114,7 @@ CardVideo.defaultProps = {
   imageUrl: null,
   cta: null,
   featured: false,
+  color: "base",
 };
 
 export default CardVideo;

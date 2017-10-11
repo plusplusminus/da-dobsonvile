@@ -75,13 +75,14 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
       </header>
 
       <div className="row">
-        <div className="col-sm-3">
-          <figure className={css(baseStyles.figure)}>
-            <img src={imageUrl} alt="" style={styles.figure.image} />
-          </figure>
-        </div>
-
-        <main className="col-md-9">
+        { imageUrl &&
+          <div className="col-sm-3">
+            <figure className={css(baseStyles.figure)}>
+              <img src={imageUrl} alt="" style={styles.figure.image} />
+            </figure>
+          </div>
+        }
+        <main className={ !imageUrl ? "col-md-12" : "col-md-9"}>
           <div className={css(baseStyles.paragraph)}>
             <Copy isParent>
               <p
@@ -90,9 +91,11 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
               />
             </Copy>
 
-            <MoreLink href={url} style={styles.moreLink}>
-              { cta }
-            </MoreLink>
+            { cta &&
+              <MoreLink href={url} style={styles.moreLink}>
+                { cta }
+              </MoreLink>
+            }
           </div>
         </main>
       </div>
@@ -104,7 +107,7 @@ CardCampaign.propTypes = {
   /** Title of Card */
   title: PropTypes.string.isRequired,
   /** Meta text of Card */
-  meta: PropTypes.string.isRequired,
+  meta: PropTypes.string,
   /** URL of Card */
   url: PropTypes.string.isRequired,
   /** ImageURL of Card */

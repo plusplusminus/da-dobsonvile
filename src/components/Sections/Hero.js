@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
@@ -11,11 +12,11 @@ const Hero = (props) => {
     hero:{
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
+      marginBottom: props.mb,
     },
     bg:{
-      height: '100vh',
-      paddingTop: spacing.space10,
-      paddingBottom: spacing.space5,
+      paddingTop: spacing.space13,
+      paddingBottom: spacing.space13,
       paddingLeft: '20%',
       paddingRight: '20%',
       textAlign: 'center',
@@ -97,6 +98,11 @@ const Hero = (props) => {
 }
 
 Hero.defaultProps = {
+  mb: spacing.space13,
+}
+
+Hero.propTypes = {
+  mb: PropTypes.string,
 }
 
 export default Hero;

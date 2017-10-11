@@ -13,7 +13,7 @@ function Aside(props) {
   const styles = StyleSheet.create({
     aside:{
       borderRadius: spacing.space1,
-      marginBottom: spacing.space5,
+      marginBottom: spacing.space4,
       backgroundColor: colors.bgLight,
     },
     visual:{
