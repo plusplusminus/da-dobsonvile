@@ -36,6 +36,7 @@ export Aside from './Compositions/Aside';
 export AsideList from './Compositions/AsideList';
 export AsideMenu from './Compositions/AsideMenu';
 export AsideOverlay from './Compositions/AsideOverlay';
+export AsideTwitter from './Compositions/AsideTwitter';
 export CardCampaign from './Compositions/CardCampaign';
 export CardHighlight from './Compositions/CardHighlight';
 export CardNews from './Compositions/CardNews';

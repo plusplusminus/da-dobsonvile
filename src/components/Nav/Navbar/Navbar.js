@@ -19,19 +19,21 @@ const Navbar = (props) => {
       ...props.custom
     },
     ul: {
+      width: '100%',
       marginBottom: 0,
       paddingLeft: 0,
       display: 'flex',
-      justifyContent:'flex-end',
       alignItems: 'center',
     }
   });
 
   return (
     <nav className={css(styles.navbar)}>
-      <ul className={css(styles.ul)}>
-        {props.children}
-      </ul>
+      <div className="container">
+        <ul className={css(styles.ul)}>
+          {props.children}
+        </ul>
+      </div>
     </nav>
   )
 }
@@ -54,6 +56,7 @@ const NavbarSecondary = (props) => {
 const NavbarSub = (props) => {
   const styles = {
     background: colors.baseWhite,
+    justifyContent:'flex-start',
   }
 
   const custom = {

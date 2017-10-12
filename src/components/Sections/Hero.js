@@ -98,7 +98,7 @@ const Hero = (props) => {
 }
 
 Hero.defaultProps = {
-  mb: spacing.space13,
+  mb: spacing.space0,
 }
 
 Hero.propTypes = {

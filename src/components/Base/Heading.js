@@ -76,6 +76,9 @@ const styles = {
     red: {
       color: colors.textRed,
     },
+    light: {
+      color: colors.textLight,
+    },
     white: {
       color: colors.textWhite,
     },
@@ -98,6 +101,9 @@ const styles = {
     },
     center: {
       textAlign: "center",
+    },
+    inline: {
+      display: "inline-block",
     },
   },
 
@@ -122,7 +128,7 @@ const styles = {
 
 const Heading = (props) => {
 
-  const { color, children, level, tracking, mb, override, size, truncate, uppercase, left, right, center, weight } = props;
+  const { color, children, inline, level, tracking, mb, override, size, truncate, uppercase, left, right, center, weight } = props;
 
   const Component = `h${level}`;
 
@@ -138,6 +144,7 @@ const Heading = (props) => {
     left && styles.variant.left,
     right && styles.variant.right,
     center && styles.variant.center,
+    inline && styles.variant.inline,
     flatten(override),
   ];
 
@@ -174,6 +181,7 @@ Heading.defaultProps = {
   left: true,
   right: false,
   center: false,
+  inline: false,
   weight: "bold",
 };
 
@@ -185,6 +193,7 @@ Heading.propTypes = {
     "blue",
     "red",
     "white",
+    "light",
   ]),
   /** Text for the heading */
   children: PropTypes.node.isRequired,
@@ -239,6 +248,8 @@ Heading.propTypes = {
   right: PropTypes.bool,
   /** Whether or not to align center */
   center: PropTypes.bool,
+  /** Whether or not to apply inline-block display property */
+  inline: PropTypes.bool,
   /** Adjusts the font weight of the heading */
   weight: PropTypes.oneOf([
     "bold",

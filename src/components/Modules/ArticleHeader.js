@@ -12,8 +12,7 @@ const ArticleHeader = (props) => {
     articleHeader:{
       display: 'inline-block',
       width: '100%',
-      paddingTop: spacing.space4,
-      paddingBottom: spacing.space4,
+      marginBottom: spacing.space4,
     },
   });
 

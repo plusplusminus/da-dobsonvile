@@ -7,6 +7,7 @@ import { Icon } from "components"
 const hoverStyles = {
   base: {
     textDecoration: "none",
+    color: colors.linkHover,
   },
   blue: {
     color: colors.brandBlueHover,
@@ -21,7 +22,7 @@ const hoverStyles = {
     color: colors.brandYellowHover,
   },
   white: {
-    color: colors.textLight,
+    color: colors.textLightO,
   },
 };
 
@@ -29,7 +30,7 @@ const styles = {
   container: {
     base: {
       backgroundColor: colors.baseTransparent,
-      color: colors.textBase,
+      color: colors.linkBase,
       border: 0,
       display: "inline-block",
       fontFamily: fonts.sans,
@@ -37,6 +38,7 @@ const styles = {
       padding: 0,
       textDecoration: "none",
       transition: `color ${timing.fast} ease-in-out`,
+      cursor: 'pointer',
     },
 
     weight: {

@@ -8,67 +8,62 @@ const createMarkup = (content) => ({ __html: `${content}` });
 
 const styles = {
   container: {
-    display: "block",
+    display: "inline-block",
     marginBottom: spacing.space4,
   },
   header: {},
   figure: {
-    base: {
-      margin: 0,
-      float: 'left',
-      marginRight: spacing.space2,
-    },
-    image: {
-      display: "block",
-      maxWidth: "100px",
-    },
+    margin: 0,
   },
 };
 
-const CardNews = ({ title, url, imageUrl, meta, paragraph, visual }) => {
+const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
       ...styles.container,
     },
-    header: {
-      ...styles.header.base,
-    },
     figure: {
-      ...styles.figure.base,
+      ...styles.figure,
     },
   });
 
   return (
     <article className={css(baseStyles.container)}>
-    <div style={{display: 'inline-block'}}>
-      { imageUrl &&
-        <figure className={css(baseStyles.figure)}>
-          <img src={imageUrl} alt="" style={styles.figure.image} />
-        </figure>
-      }
-      <header className={css(baseStyles.header)}>
-        <Heading
-          level={3}
-          size={"small"}
-          mb={"tiny"}
-          tracking={"none"}
-        >
-          {title}
-        </Heading>
-        {
-          meta && <Heading
-            level={6}
-            size={"tiny"}
-            tracking={"none"}
-            weight={"light"}
-            uppercase
-            override={styles.header.meta}
-          >
-            {meta}
-          </Heading>
+      <div className="row">
+
+        { imageUrl &&
+          <div className="col-md-6">
+            <figure className={css(baseStyles.figure)}>
+              <img src={imageUrl} alt="" className="img-fluid" />
+            </figure>
+          </div>
         }
-      </header>
+
+        <div className={`${imageUrl && "col-md-6"} ${!imageUrl && "col-md-12"}`}>
+          <header className={css(baseStyles.header)}>
+            <Heading
+              level={3}
+              size={`${featured == true ? "medium" : "small"}`}
+              mb={"tiny"}
+              tracking={"none"}
+            >
+              {title}
+            </Heading>
+            {
+              meta && <Heading
+                level={6}
+                size={"tiny"}
+                tracking={"none"}
+                weight={"light"}
+                uppercase
+              >
+                {meta}
+              </Heading>
+            }
+          </header>
+        </div>
+
       </div>
     </article>
   );
@@ -85,6 +80,7 @@ CardNews.propTypes = {
   imageUrl: PropTypes.string,
   /** Paragraph content of Card */
   paragraph: PropTypes.string,
+  featured: PropTypes.bool,
 };
 
 CardNews.defaultProps = {
@@ -93,6 +89,7 @@ CardNews.defaultProps = {
   url: null,
   imageUrl: null,
   paragraph: null,
+  featured: false,
 };
 
 export default CardNews;

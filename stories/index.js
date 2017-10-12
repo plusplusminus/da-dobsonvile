@@ -20,6 +20,7 @@ import {
   AsideList,
   AsideMenu,
   AsideOverlay,
+  AsideTwitter,
   Button,
   ButtonDonate,
   ButtonOutline,
@@ -177,7 +178,7 @@ storiesOf('Base', module)
 
   .add('Heading', () => (
     <Heading
-      color={select("color", ["base", "blue", "red", "white"], "base")}
+      color={select("color", ["base", "blue", "red", "white", "light"], "base")}
       level={select("level", [1, 2, 3, 4, 5, 6], 1)}
       tracking={select("letterSpacing", ["none", "small", "base", "large", "huge"], "small")}
       mb={select("mb", ["none", "tiny", "small", "medium", "large", "huge"], "none")}
@@ -188,6 +189,7 @@ storiesOf('Base', module)
       left={boolean("left", true)}
       right={boolean("right", false)}
       center={boolean("center", false)}
+      inline={boolean("inline", false)}
       lineLeft={boolean("lineLeft", false)}
       lineRight={boolean("lineRight", false)}
       weight={select("weight", ["bold", "medium", "regular", "light"], "bold")}
@@ -208,30 +210,9 @@ storiesOf('Base', module)
   ))
 
   .add('Icon', () =>  {
-    const spacingArray = [];
-    Object.keys(spacing).forEach((name) => {
-      if (spacing[name]) {
-        spacingArray.push(
-          spacing[name]
-        );
-      }
-    })
-    const colorsArray = [];
-    Object.keys(colors).forEach((name) => {
-      if (colors[name]) {
-        colorsArray.push(
-          colors[name]
-        );
-      }
-    })
-    const iconsArray = [];
-    Object.keys(icons).forEach((name) => {
-      if (icons[name]) {
-        iconsArray.push(
-          icons[name]
-        );
-      }
-    })
+    const spacingArray = getStyleValue(spacing);
+    const colorsArray = getStyleValue(colors);
+    const iconsArray = getStyleValue(icons);
     return(
       <Icon
         name={ select('name', iconsArray, 'close') }
@@ -258,63 +239,97 @@ storiesOf('Base', module)
     )
   })
 
+  .add("SectionFull", () => {
+    const colorsArray = getStyleValue(filterStyleGroup(colors,"bg"));
+    return(
+      <SectionFull
+        bgColor={select("bgColor",["blue","blueLight","light","lightO","dark","darkO","white"],"white")}
+        bgUrl={text("bgUrl","")}
+        center={boolean("center",false)}
+        color={select("color",["base","blue","red","white"], "base")}
+        title={text("title","Latest Videos")}
+        mt={select("mt",["small","medium","large","none"],"large")}
+        mb={select("mb",["small","medium","large","none"],"large")}
+        pt={select("pt",["small","medium","large","none"],"large")}
+        pb={select("pb",["small","medium","large","none"],"large")}
+      >
+        <CardHighlight
+          imageUrl={dobsonville}
+          title={"Fermentum Sem Mollis Pharetra"}
+          meta={"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}
+          paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+          cta={"View More"}
+        />
+      </SectionFull>
+    )
+  })
+
 storiesOf("Navs/Navbar", module)
   .add("Masthead", () => (
     <div>
       <NavbarSecondary>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={"auto"} ml={spacing.space0}>
+          <MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink>
+        </NavItem>
+        <NavItem fs={"16px"} lh={"16px"} color={colors.brandWhite}><a><Icon name="search" mr={spacing.space0} ml={spacing.space0}/></a></NavItem>
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Contact</a></NavItem>
+        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
       </NavbarSecondary>
       <Navbar>
-        <NavItem fontWeight={fontWeight.bold}><Logo /></NavItem>
+        <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Get Involved</NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Join the DA</ButtonTest></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
       </Navbar>
       <NavbarSub>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Bokamoso</NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"} ml={spacing.space0}>Bokamoso</NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><MoreLink color={"blue"} size={"base"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink></NavItem>
+        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} ml={"auto"} mr={spacing.space0}>
+          <MoreLink color={"blue"} size={"medium"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink>
+        </NavItem>
       </NavbarSub>
     </div>
   ))
   .add("Navbar", () => (
     <Navbar>
-      <NavItem><Logo /></NavItem>
+      <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
       <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
       <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
       <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
       <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
-      <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Get Involved</NavItem>
-      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
-      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Join the DA</ButtonTest></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
     </Navbar>
   ))
   .add("NavbarSecondary", () => (
     <NavbarSecondary>
-      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={"auto"} ml={spacing.space0}>
+        <MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink>
+      </NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
       <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
-      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Contact</a></NavItem>
+      <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
     </NavbarSecondary>
   ))
   .add("NavbarSub", () => (
     <NavbarSub>
-      <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Bokamoso</NavItem>
-      <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Speeches</NavItem>
-      <NavItem fs={"13px"} lh={"16px"} color={colors.linkBlue}>Archive</NavItem>
-      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><MoreLink color={"blue"} size={"base"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink></NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"} ml={spacing.space0}>Bokamoso</NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
+      <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} ml={"auto"} mr={spacing.space0}>
+        <MoreLink color={"blue"} size={"medium"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink>
+      </NavItem>
     </NavbarSub>
   ));
 
@@ -372,7 +387,6 @@ storiesOf("Navs/NavItems", module)
       lowercase={boolean("lowercase", false)}
       weight={select("weight", ["bold", "medium", "regular", "light"], "medium")}
       tracking={select("tracking", ["small", "base"], "base")}
-
     >
       { text("children", "Read More") }
     </MoreLink>
@@ -380,10 +394,8 @@ storiesOf("Navs/NavItems", module)
 
   storiesOf('Components', module)
     .add('Alert', () => {
-
       const colorsArray = getStyleValue(filterStyleGroup(colors,"status"));
       const iconsArray = getStyleValue(icons);
-
       return(
         <Alert
           close={boolean('close', true)}
@@ -454,6 +466,13 @@ storiesOf("Navs/NavItems", module)
       />
     ))
 
+    .add("AsideTwitter", () => (
+      <AsideTwitter
+        heading={"Tweets by @Our_DA"}
+      />
+    ))
+
+
     .add("CardCampaign", () => (
       <CardCampaign
         imageUrl={text("imageUrl", dobsonville)}
@@ -478,6 +497,7 @@ storiesOf("Navs/NavItems", module)
 
     .add("CardNews", () => (
       <CardNews
+        featured={boolean("featured",false)}
         imageUrl={text("imageUrl", dobsonville)}
         title={text("title", "Fermentum Sem Mollis Pharetra")}
         meta={text("meta", "July 4, 2017 in News")}
@@ -598,29 +618,82 @@ storiesOf("Navs/NavItems", module)
   storiesOf("Templates", module)
     .add("Home", () => (
       <div>
+        <div>
+          <NavbarSecondary>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={"auto"} ml={spacing.space0}>
+              <MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink>
+            </NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
+          </NavbarSecondary>
+          <Navbar>
+            <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
+          </Navbar>
+          <NavbarSub>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"} ml={spacing.space0}>Bokamoso</NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} ml={"auto"} mr={spacing.space0}>
+              <MoreLink color={"blue"} size={"medium"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink>
+            </NavItem>
+          </NavbarSub>
+        </div>
+
         <Hero
-          mb={spacing.space0}
           visual={dobsonville}
           heading={"Firing Zuma is the first step towards building a better tomorrow"}
         />
 
         <SectionFull
-          bgColor={colors.bgLight}
-          pt={spacing.space9}
-          pb={spacing.space9}
-          mt={spacing.space0}
+          bgColor={"light"}
+          pt={"medium"}
+          pb={"medium"}
+          mt={"none"}
+          mb={"none"}
           title={"Newsletter Subscribe"}
           center
         >
-          <div>
-            <Copy mb={"large"} center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
-            <ButtonTest center>Subscribe Now</ButtonTest>
+          <div className={"col-md-12"}>
+            <Copy mb={"large"} center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</Copy>
+            <Copy isParent>
+              <form>
+                <div className="row">
+                  <div className="col-md-4 offset-md-2">
+                    <div className="form-group">
+                      <label for="name">Your Name</label>
+                      <input type="text" className="form-control" id="name" placeholder=""></input>
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="form-group">
+                      <label for="email">Your Email Address</label>
+                      <input type="text" className="form-control" id="email" placeholder=""></input>
+                    </div>
+                  </div>
+                </div>
+                <ButtonTest center>Subscribe</ButtonTest>
+              </form>
+            </Copy>
+
+
+
+
           </div>
         </SectionFull>
 
         <SectionFull
-          pt={"spacing.pace10"}
-          pb={"spacing.space15"}
+          pt={"none"}
+          pb={"none"}
         >
           <div className={"col-md-7"}>
             <Campaigns />
@@ -639,11 +712,12 @@ storiesOf("Navs/NavItems", module)
         </SectionFull>
 
         <SectionFull
-          bgColor={colors.bgBlue}
-          mb={spacing.space0}
-          mt={spacing.space0}
+          bgColor={"blueLight"}
           color={"white"}
           title={"Latest Videos"}
+          mb={"none"}
+          pb={"large"}
+          pt={"large"}
         >
           <div className="col-md-12">
             <div className="row">
@@ -672,21 +746,113 @@ storiesOf("Navs/NavItems", module)
                 />
               </div>
             </div>
-            <div className="col-md-12">
-              <ViewAll
-                borderColor={colors.borderWhiteO}
-                buttonColor={"white"}
-              >
-                View all Videos
-              </ViewAll>
-            </div>
+
+            <ViewAll
+              borderColor={colors.borderWhiteO}
+              buttonColor={"white"}
+            >
+              View all Videos
+            </ViewAll>
+
           </div>
         </SectionFull>
 
         <SectionFull
-         bgColor={colors.bgLight}
-         mb={spacing.space0}
-         mt={spacing.space0}
+          title={"Newsroom"}
+          mb={"none"}
+          mt={"none"}
+          pb={"large"}
+          pt={"large"}
+        >
+          <div className="col-md-8">
+            <div className="row">
+              <div className="col-md-12">
+                <CardNews
+                  featured
+                  imageUrl={dobsonville}
+                  title={"Maecenas faucibus mollis interdum."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Maecenas faucibus mollis interdum."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Cras justo odio, dapibus ac facilisis in, egestas eget quam."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Donec ullamcorper nulla non metus auctor fringilla."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Nulla vitae elit libero, a pharetra augue."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Nullam quis risus eget urna mollis ornare vel eu leo."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Etiam porta sem malesuada magna mollis euismod."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+            </div>
+            <ViewAll>View All News</ViewAll>
+          </div>
+          <div className="col-md-4">
+            <AsideTwitter
+              heading={"Tweets by @Our_DA"}
+            />
+          </div>
+        </SectionFull>
+
+        <SectionFull
+          bgColor={"light"}
+          mb={"none"}
+          mt={"none"}
+          pb={"large"}
+          pt={"large"}
         >
           <CardHighlight
             imageUrl={dobsonville}
@@ -697,14 +863,44 @@ storiesOf("Navs/NavItems", module)
           />
         </SectionFull>
 
+        <Footer />
+
       </div>
     ))
     .add("Article", () => (
       <div>
-
+        <div>
+          <NavbarSecondary>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={"auto"} ml={spacing.space0}>
+              <MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink>
+            </NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
+            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
+          </NavbarSecondary>
+          <Navbar>
+            <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
+          </Navbar>
+          <NavbarSub>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"} ml={spacing.space0}>Bokamoso</NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
+            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} ml={"auto"} mr={spacing.space0}>
+              <MoreLink color={"blue"} size={"medium"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink>
+            </NavItem>
+          </NavbarSub>
+        </div>
         <SectionFull
-          pt={"spacing.pace10"}
-          pb={"spacing.space15"}
+          mt={"small"}
         >
           <div className={"col-md-7"}>
             <ArticleHeader
@@ -768,6 +964,7 @@ storiesOf("Navs/NavItems", module)
           </div>
 
         </SectionFull>
+
         <CardRelated
           imageUrl={dobsonville}
           title={"Fermentum Sem Mollis Pharetra"}
@@ -776,88 +973,11 @@ storiesOf("Navs/NavItems", module)
           cta={"Read More"}
           horizontal={true}
         />
+
+        <Footer />
+
       </div>
     ))
-    .add("SectionFull", () => {
-      const colorsArray = getStyleValue(filterStyleGroup(colors,"bg"));
-      const spacingArray = getStyleValue(spacing);
-      return(
-        <div>
-          <SectionFull
-           bgColor={colors.bgLight}
-          >
-            <CardHighlight
-              imageUrl={dobsonville}
-              title={"Fermentum Sem Mollis Pharetra"}
-              meta={"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}
-              paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
-              cta={"View More"}
-            />
-          </SectionFull>
-
-          <SectionFull
-            bgColor={select("bgColor",colorsArray, '')}
-            color={select("color",["base","blue","red","white"], "base")}
-            title={text("title","Latest Videos")}
-            center={boolean("center",false)}
-            pt={select("pt",spacingArray,spacing.space13)}
-            pb={select("pb",spacingArray,spacing.space13)}
-            bgUrl={text("bgUrl","")}
-          >
-          <div className="col-md-12">
-            <div className="row">
-              <div className="col-md-8">
-                <CardVideo
-                  featured
-                  imageUrl={ dobsonville }
-                  title={"Fermentum Sem Mollis Pharetra"}
-                  paragraph={"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}
-                  cta={"Play Video"}
-                  color={select("color",["base","blue","red","white"], "base")}
-                />
-              </div>
-
-              <div className="col-md-4">
-                <CardVideo
-                  imageUrl={ dobsonville }
-                  title={"Fermentum Sem Mollis Pharetra"}
-                  color={select("color",["base","blue","red","white"], "base")}
-                />
-
-                <CardVideo
-                  imageUrl={ dobsonville }
-                  title={"Fermentum Sem Mollis Pharetra"}
-                  color={select("color",["base","blue","red","white"], "base")}
-                />
-              </div>
-            </div>
-            <div className="col-md-12">
-              <ViewAll
-                borderColor={colors.borderWhiteO}
-                buttonColor={"white"}
-              >
-                View all Videos
-              </ViewAll>
-            </div>
-          </div>
-        </SectionFull>
-
-          <SectionFull
-            bgColor={colors.bgLightO}
-            pt={spacing.space9}
-            pb={spacing.space9}
-            bgUrl={dobsonville}
-            title={"Get Involved"}
-            center
-          >
-            <div>
-              <Copy mb={"large"} center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue.</Copy>
-              <ButtonTest center>Get Involved</ButtonTest>
-            </div>
-          </SectionFull>
-        </div>
-      )
-    })
     .add("Footer", () => (
       <Footer />
     ));

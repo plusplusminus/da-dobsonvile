@@ -16,6 +16,7 @@ const styles = {
     },
     horizontal:{
       padding: spacing.space6,
+      marginBottom: spacing.space0,
     },
     vertical:{
       padding: spacing.space4,
