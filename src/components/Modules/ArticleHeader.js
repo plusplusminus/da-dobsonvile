@@ -26,6 +26,7 @@ const ArticleHeader = (props) => {
           letterSpacing={"small"}
           weight={"regular"}
           tracking={"small"}
+          mb={"tiny"}
           uppercase
         >
           {subHeading}
@@ -48,6 +49,7 @@ const ArticleHeader = (props) => {
           size={"tiny"}
           weight={"medium"}
           tracking={"small"}
+          mb={"tiny"}
         >
           {attribution}
         </Heading>

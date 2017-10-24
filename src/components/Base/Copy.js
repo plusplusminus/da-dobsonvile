@@ -25,6 +25,9 @@ const styles = {
     large: {
       ...fontStyles("18px", `${18 * 1.5}px`),
     },
+    huge: {
+      ...fontStyles("20px", `${20 * 1.5}px`),
+    },
   },
 
   mb: {
@@ -201,6 +204,7 @@ Copy.propTypes = {
     "small",
     "medium",
     "large",
+    "huge",
   ]).isRequired,
   /** Whether or not to hide the text overflow with an ellipsis */
   truncate: PropTypes.bool,

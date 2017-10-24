@@ -43,6 +43,10 @@ export CardNews from './Compositions/CardNews';
 export CardPerson from './Compositions/CardPerson';
 export CardRelated from './Compositions/CardRelated';
 export CardVideo from './Compositions/CardVideo';
+export Hero from './Compositions/Hero';
+export Masthead from './Compositions/Masthead';
+export Sticker from './Compositions/Sticker';
+export Testimonial from './Compositions/Testimonial';
 export ViewAll from './Compositions/ViewAll';
 export Widget from './Compositions/Widget';
 
@@ -56,6 +60,5 @@ export FooterMenus from './Modules/FooterMenus';
 
 
 // Sections
-export Hero from './Sections/Hero';
 export SectionFull from './Sections/SectionFull';
 export Footer from './Sections/Footer';

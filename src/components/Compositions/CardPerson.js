@@ -12,12 +12,16 @@ const styles = {
       display: 'inline-block',
       width: '100%',
       padding: 0,
-      marginBottom: spacing.space2,
+      marginBottom: spacing.space4,
+      backgroundColor: colors.bgWhite,
     },
-  },
-  border: {
-    border: '1px solid',
-    borderColor: colors.borderBase,
+    border: {
+      border: '1px solid',
+      borderColor: colors.borderBase,
+    },
+    rounded:{
+      borderRadius: spacing.space05,
+    }
   },
   wrapper:{
     float: 'left',
@@ -50,12 +54,13 @@ const styles = {
   }
 };
 
-const CardPerson = ({ title, url, imageUrl, border, cta, meta, tel, email }) => {
+const CardPerson = ({ title, url, imageUrl, border, cta, meta, tel, email, rounded }) => {
 
   const baseStyles = StyleSheet.create({
     card: {
       ...styles.card.base,
-      ...(border && styles.border),
+      ...(border && styles.card.border),
+      ...(rounded && styles.card.rounded),
     },
     wrapper: {
       ...styles.wrapper,
@@ -90,6 +95,7 @@ const CardPerson = ({ title, url, imageUrl, border, cta, meta, tel, email }) => 
           <Heading
             level={3}
             weight={"medium"}
+            color={"blue" }
             size={"small"}
           >
             {title}
@@ -145,6 +151,8 @@ CardPerson.propTypes = {
   cta: PropTypes.string.isRequired,
   /** Is the card bordered */
   border: PropTypes.bool.isRequired,
+  /** Is the card rounded */
+  rounded: PropTypes.bool.isRequired,
   /** Email details of person */
   email: PropTypes.string,
   /** Tel number of person */
@@ -156,6 +164,7 @@ CardPerson.defaultProps = {
   url: null,
   meta: null,
   border: true,
+  rounded: true,
   imageUrl: null,
   cta: null,
   tel: null,

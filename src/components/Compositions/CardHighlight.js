@@ -11,6 +11,9 @@ const styles = {
     display: 'inline-block',
     width: '100%',
     display: 'flex',
+    borderRadius: spacing.space05,
+    overflow: 'hidden',
+    marginBottom: spacing.space4,
   },
   wrapper: {
     padding: spacing.space9,
@@ -74,9 +77,11 @@ const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta }) => {
             />
           </Copy>
 
-          <MoreLink href={url} style={styles.moreLink}>
-            { cta }
-          </MoreLink>
+          { cta &&
+            <MoreLink href={url} style={styles.moreLink}>
+              { cta }
+            </MoreLink>
+          }
         </div>
 
       </div>

@@ -31,8 +31,8 @@ import {
   CardHighlight,
   CardNews,
   CardPerson,
-  CardRelated,
   CardVideo,
+  Masthead,
   Campaigns,
   Copy,
   Footer,
@@ -46,7 +46,9 @@ import {
   Logo,
   MoreLink,
   SectionFull,
+  Sticker,
   Tag,
+  Testimonial,
   NavBox,
   NavButton,
   NavItem,
@@ -119,8 +121,8 @@ storiesOf('Base', module)
         outline={ boolean('outline', false) }
         center={ boolean('center', false) }
         color={ select('color', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
-        size={ select('size', ['tiny', 'small', 'medium', 'large','huge'], 'medium') }
-        href={text('Link','')}
+        size={ select('size', ['small', 'medium', 'large'], 'medium') }
+        href={text('href','')}
         onClick={action('clicked')}
         iconBefore={ select('iconBefore', iconsArray, '') }
         iconAfter={ select('iconAfter', iconsArray, '') }
@@ -161,7 +163,7 @@ storiesOf('Base', module)
         color={select("color", ["base", "blue", "light", "light0", "white"], "base")}
         mb={select("mb", ["none", "small", "medium", "large"], "medium")}
         override={object("override", {})}
-        size={select("size", ["large", "medium", "small", "tiny"], "medium")}
+        size={select("size", ["huge","large", "medium", "small", "tiny"], "medium")}
         truncate={boolean("truncate", false)}
         uppercase={boolean("uppercase", false)}
         left={boolean("left", true)}
@@ -246,6 +248,7 @@ storiesOf('Base', module)
         bgColor={select("bgColor",["blue","blueLight","light","lightO","dark","darkO","white"],"white")}
         bgUrl={text("bgUrl","")}
         center={boolean("center",false)}
+        container={boolean("container",true)}
         color={select("color",["base","blue","red","white"], "base")}
         title={text("title","Latest Videos")}
         mt={select("mt",["small","medium","large","none"],"large")}
@@ -266,37 +269,7 @@ storiesOf('Base', module)
 
 storiesOf("Navs/Navbar", module)
   .add("Masthead", () => (
-    <div>
-      <NavbarSecondary>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={"auto"} ml={spacing.space0}>
-          <MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink>
-        </NavItem>
-        <NavItem fs={"16px"} lh={"16px"} color={colors.brandWhite}><a><Icon name="search" mr={spacing.space0} ml={spacing.space0}/></a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
-      </NavbarSecondary>
-      <Navbar>
-        <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
-      </Navbar>
-      <NavbarSub>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"} ml={spacing.space0}>Bokamoso</NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
-        <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} ml={"auto"} mr={spacing.space0}>
-          <MoreLink color={"blue"} size={"medium"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink>
-        </NavItem>
-      </NavbarSub>
-    </div>
+    <Masthead />
   ))
   .add("Navbar", () => (
     <Navbar>
@@ -422,13 +395,20 @@ storiesOf("Navs/NavItems", module)
 
     .add('Aside', () => (
       <Aside
-        visual={dobsonville}
+        imageUrl={ text("imageUrl",dobsonville )}
+        title={text("title","Fermentum Sem Mollis Pharetra")}
+        paragraph={text("paragraph","Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue.")}
+        url={ text("url","/" )}
+        cta={text("cta","Read More")}
+        vertical={boolean("vertical", true)}
+        horizontal={boolean("horizontal", false)}
+        small={boolean("small", false)}
       />
     ))
 
     .add("AsideList", () => (
       <AsideList
-        heading={text("heading","Latest News")}
+        title={text("title","Latest News")}
         cta={text("cta","More news")}
       >
         <CardNews
@@ -508,6 +488,7 @@ storiesOf("Navs/NavItems", module)
     .add('CardPerson', () => (
       <CardPerson
         border={boolean("border", true)}
+        rounded={boolean("rounded", true)}
         imageUrl={text("imageUrl", dobsonville)}
         title={text('title','Fermentum Sem Mollis Pharetra')}
         meta={text('meta','Federal Leader Of The Democratic Alliance')}
@@ -515,18 +496,6 @@ storiesOf("Navs/NavItems", module)
         cta={text("cta","View More")}
         tel={text("tel","+27 84 485 4832")}
         email={text("email","mmusi@da.org.za")}
-      />
-    ))
-
-    .add('CardRelated', () => (
-      <CardRelated
-        imageUrl={ text("imageUrl",dobsonville )}
-        title={text("title","Fermentum Sem Mollis Pharetra")}
-        paragraph={text("paragraph","Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue.")}
-        url={ text("url","/" )}
-        cta={text("cta","Read More")}
-        vertical={boolean("vertical", true)}
-        horizontal={boolean("horizontal", false)}
       />
     ))
 
@@ -542,6 +511,19 @@ storiesOf("Navs/NavItems", module)
       />
     ))
 
+    .add('Hero', () =>  {
+      return (
+        <Hero
+          center={boolean('center',false)}
+          children={text('children',"")}
+          imageUrl={ text('imageUrl',dobsonville)}
+          mb={select('mb',['none', 'large'],'none')}
+          small={boolean('small',true)}
+          title={ text('title',"Zuma is the Number One that must go!")}
+        />
+      )
+    })
+
     .add('Progress', () =>  {
       const options = {
         range: true,
@@ -555,6 +537,20 @@ storiesOf("Navs/NavItems", module)
           color={ select('color', colorsArray, colors.statusNeutral) }
           progress={number('progress', 50, options)}
           showLabel={boolean('showLabel', true)}
+        />
+      )
+    })
+
+    .add('Sticker', () =>  {
+      const iconsArray = getStyleValue(icons);
+      return (
+        <Sticker
+          imageUrl={text('imageUrl',dobsonville)}
+          icon={"facebook"}
+          color={ select('color', ["white","green","blue","red","yellow"], "white") }
+          title={text('title','1,200')}
+          content={text('content','DA-Led City of Cape Town has received clean audits for three years running for excellent spending of public funds.')}
+          icon={select('icon', iconsArray, null)}
         />
       )
     })
@@ -618,41 +614,69 @@ storiesOf("Navs/NavItems", module)
   storiesOf("Templates", module)
     .add("Home", () => (
       <div>
-        <div>
-          <NavbarSecondary>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={"auto"} ml={spacing.space0}>
-              <MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink>
-            </NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
-          </NavbarSecondary>
-          <Navbar>
-            <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
-          </Navbar>
-          <NavbarSub>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"} ml={spacing.space0}>Bokamoso</NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} ml={"auto"} mr={spacing.space0}>
-              <MoreLink color={"blue"} size={"medium"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink>
-            </NavItem>
-          </NavbarSub>
-        </div>
+
+        <Masthead />
 
         <Hero
-          visual={dobsonville}
-          heading={"Firing Zuma is the first step towards building a better tomorrow"}
-        />
+          center
+          imageUrl={dobsonville}
+          small={false}
+          title={"Firing Zuma is the first step towards building a better tomorrow"}
+        >
+
+          <div className="row justify-content-center">
+            <div>
+              <HeadingLines lineLeft lineRight color={"white"} mb={"large"}>
+                <Heading
+                  size={"medium"}
+                  color={"white"}
+                  center
+                >
+                  Take Action
+                </Heading>
+              </HeadingLines>
+            </div>
+          </div>
+
+          <div className="row justify-content-center">
+
+            <div className="col-lg-3 text-center">
+              <Heading
+                color={"white"}
+                size={"small"}
+                mb={"small"}
+                center
+              >
+                Contribute to our campaign cause
+              </Heading>
+              <MoreLink color={"yellow"} size="large" lowercase>Donate</MoreLink>
+            </div>
+
+            <div className="col-lg-3 text-center">
+              <Heading
+                color={"white"}
+                size={"small"}
+                mb={"small"}
+                center
+              >
+                Sign our petition to remove Zuma
+              </Heading>
+              <MoreLink color={"yellow"} size="large" lowercase>Sign Petition</MoreLink>
+            </div>
+
+            <div className="col-lg-3 text-center">
+              <Heading
+                color={"white"}
+                size={"small"}
+                mb={"small"}
+                center
+              >
+                Make a difference by joining the DA
+              </Heading>
+              <MoreLink color={"yellow"} size="large" lowercase>Join Us</MoreLink>
+            </div>
+          </div>
+        </Hero>
 
         <SectionFull
           bgColor={"light"}
@@ -685,9 +709,6 @@ storiesOf("Navs/NavItems", module)
               </form>
             </Copy>
 
-
-
-
           </div>
         </SectionFull>
 
@@ -703,8 +724,12 @@ storiesOf("Navs/NavItems", module)
             <AsideOverlay visual={dobsonville} />
 
             <Aside
-              visual={dobsonville}
-              buttonLabel="Donate Now"
+              imageUrl={dobsonville}
+              title={"Fermentum Sem Mollis Pharetra"}
+              paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}
+              url={"/"}
+              cta={"Donate Now"}
+              vertical
             />
 
           </div>
@@ -759,10 +784,8 @@ storiesOf("Navs/NavItems", module)
 
         <SectionFull
           title={"Newsroom"}
-          mb={"none"}
-          mt={"none"}
-          pb={"large"}
-          pt={"large"}
+          mb={"large"}
+          mt={"large"}
         >
           <div className="col-md-8">
             <div className="row">
@@ -869,40 +892,13 @@ storiesOf("Navs/NavItems", module)
     ))
     .add("Article", () => (
       <div>
-        <div>
-          <NavbarSecondary>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={"auto"} ml={spacing.space0}>
-              <MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink>
-            </NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
-            <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
-          </NavbarSecondary>
-          <Navbar>
-            <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-twitter"} /></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
-          </Navbar>
-          <NavbarSub>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"} ml={spacing.space0}>Bokamoso</NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Speeches</NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"}>Archive</NavItem>
-            <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} ml={"auto"} mr={spacing.space0}>
-              <MoreLink color={"blue"} size={"medium"} lowercase tracking={"small"} weight={"regular"}>Subscribe to Bokamoso</MoreLink>
-            </NavItem>
-          </NavbarSub>
-        </div>
+
+        <Masthead />
+
         <SectionFull
           mt={"small"}
         >
-          <div className={"col-md-7"}>
+          <div className={"col-md-8"}>
             <ArticleHeader
               subHeading={text('meta', 'Western Cape')}
               title={text('title', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
@@ -919,7 +915,7 @@ storiesOf("Navs/NavItems", module)
             <ArticleFooter/>
           </div>
 
-          <div className={"col-md-4 offset-md-1"}>
+          <div className={"col-md-3 offset-md-1"}>
 
             <AsideMenu>
               <NavBox>Item One</NavBox>
@@ -930,7 +926,7 @@ storiesOf("Navs/NavItems", module)
             </AsideMenu>
 
             <AsideList
-              heading={"Related News"}
+              title={"Related News"}
               cta={"More News"}
             >
               <CardNews
@@ -953,31 +949,321 @@ storiesOf("Navs/NavItems", module)
               />
             </AsideList>
 
-            <CardRelated
-              vertical
+            <Aside
               imageUrl={dobsonville}
               title={"Fermentum Sem Mollis Pharetra"}
-              paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}
-              cta={"Read More"}
+              paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. "}
+              url={"/"}
+              cta={"Read more"}
+              vertical
+              small
             />
 
           </div>
 
         </SectionFull>
 
-        <CardRelated
-          imageUrl={dobsonville}
-          title={"Fermentum Sem Mollis Pharetra"}
-          paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}
-          url={"/"}
-          cta={"Read More"}
-          horizontal={true}
-        />
+        <SectionFull mt={"none"} mb={"none"} bgColor={"light"}>
+          <div className={"col-md-8"}>
+            <Aside
+              imageUrl={dobsonville}
+              title={"Fermentum Sem Mollis Pharetra"}
+              paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}
+              url={"/"}
+              cta={"Read More"}
+              horizontal
+              small
+            />
+          </div>
+        </SectionFull>
 
         <Footer />
 
       </div>
     ))
+
+    .add("Metro", () => (
+      <div>
+        <Masthead />
+        <Hero
+          imageUrl={dobsonville}
+          title={"City of Cape Town"}
+          mb={"large"}
+        />
+        <SectionFull
+          mt={"none"}
+        >
+          <div className={"col-md-8"}>
+
+            <Copy
+              size={"large"}
+              weight={"medium"}
+            >
+              Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </Copy>
+
+            <SectionFull
+              title={"Cape Town’s Vision for the Term"}
+              color={"red"}
+              mt={"large"}
+              mb={"none"}
+              container={false}
+            >
+              <div className={"col-md-12"}>
+                <CardCampaign
+                  imageUrl={dobsonville}
+                  title={"An Opportunity City"}
+                  paragraph={"A city where entrepreneurs and investors can grow the economy and create jobs."}
+                />
+                <CardCampaign
+                  imageUrl={dobsonville}
+                  title={"A Safe City"}
+                  paragraph={"A city where people feel protected and where communities work with the police and other law enforcement agencies to keep our neighbourhoods and businesses free from violence and crime."}
+                />
+                <CardCampaign
+                  imageUrl={dobsonville}
+                  title={"A Caring City"}
+                  paragraph={"We want to keep making progress in a city where people know that their government cares for them, one that works to make basic services available to ALL residents."}
+                />
+                <CardCampaign
+                  imageUrl={dobsonville}
+                  title={"An Inclusive City"}
+                  paragraph={"Cape Town belongs to everyone who lives in it. Whilst we have made progress to realise this vision, there is still much work to be done to redress the wrongs of apartheid and break down barriers."}
+                />
+                <CardCampaign
+                  imageUrl={dobsonville}
+                  title={"A Well-Run City"}
+                  paragraph={"DA governments are known for being committed to transparent and clean management. The tender process is open to the public and those found guilty of corruption are shown the door."}
+                />
+              </div>
+            </SectionFull>
+
+          </div>
+
+          <div className={"col-md-3 offset-md-1"}>
+            <AsideMenu
+              title={"Metros where we govern"}
+            >
+              <NavBox>City of Cape Town</NavBox>
+              <NavBox>City of Tshwane</NavBox>
+              <NavBox>Nelson Mandela Bay</NavBox>
+              <NavBox>City of Johannesburg</NavBox>
+            </AsideMenu>
+
+            <Aside
+              imageUrl={dobsonville}
+              title={"Help us continue the good work in Cape Town"}
+              paragraph={"Cras mattis consectetur purus sit amet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."}
+              url={"/"}
+              cta={"Donate Now"}
+              vertical
+              small
+            />
+
+          </div>
+
+        </SectionFull>
+
+        <SectionFull
+          bgColor={"light"}
+          pt={"large"}
+          pb={"large"}
+        >
+          <div className="col-md-12">
+            <Testimonial
+              highlight={"Pullquote example si stante, hoc natura videlicet vult, salvam esse se, quod concedimus ad eos igitur converte te, quaeso. Simus igitur contenti hisoc dixerit potius Ennius."}
+              paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra aliquet eget sit amet tellus. Habitant morbi et netus et malesuada fames. Aliquam id diam maecenas ultricies mi eget."}
+              meta={"Joe Smith – Resident of Town Governed by the DA"}
+              imageUrl={dobsonville}
+            />
+          </div>
+        </SectionFull>
+
+        <SectionFull
+          title={"City of Cape Town's Success Stories"}
+          color={"red"}
+        >
+          <div className={"col-md-3"}>
+            <Sticker
+              color={"red"}
+              title={"Cras"}
+              content={"DA-Led City of Cape Town has received clean audits for three years running for excellent spending of public funds."}
+            />
+          </div>
+          <div className={"col-md-3"}>
+            <Sticker
+              color={"green"}
+              icon={"facebook"}
+              content={"Integer posuere erat a ante venenatis dapibus posuere velit aliquet."}
+            />
+          </div>
+          <div className={"col-md-3"}>
+            <Sticker
+              color={"yellow"}
+              title={"1,200"}
+              content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+            />
+          </div>
+          <div className={"col-md-3"}>
+            <Sticker
+              color={"white"}
+              imageUrl={dobsonville}
+              content={"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."}
+            />
+          </div>
+
+          <ViewAll>
+            Load More Stories
+          </ViewAll>
+
+        </SectionFull>
+
+        <SectionFull
+          title={"Meet the Mayor & Mayoral Commitee"}
+          color={"blue"}
+          bgColor={"light"}
+          pt={"large"}
+          pb={"large"}
+        >
+          <div className={"col-md-12"}>
+            <CardHighlight
+              imageUrl={dobsonville}
+              title={"Get to know Patricia de Lille"}
+              meta={"Executive Mayor of the City of Cape Town"}
+              paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+              cta={"Read More"}
+            />
+          </div>
+          <div className={"col-md-6"}>
+            <CardPerson
+              title={"Cllr Benedicta Van Minnen"}
+              meta={"Human Settlements"}
+              tel={"021 400 1206"}
+              email={"ernest.sonnenberg"}
+              border={false}
+            />
+          </div>
+          <div className={"col-md-6"}>
+            <CardPerson
+              title={"Cllr Benedicta Van Minnen"}
+              meta={"Human Settlements"}
+              tel={"021 400 1206"}
+              email={"ernest.sonnenberg"}
+              border={false}
+            />
+          </div>
+          <div className={"col-md-6"}>
+            <CardPerson
+              title={"Cllr Benedicta Van Minnen"}
+              meta={"Human Settlements"}
+              tel={"021 400 1206"}
+              email={"ernest.sonnenberg"}
+              border={false}
+            />
+          </div>
+          <div className={"col-md-6"}>
+            <CardPerson
+              title={"Cllr Benedicta Van Minnen"}
+              meta={"Human Settlements"}
+              tel={"021 400 1206"}
+              email={"ernest.sonnenberg"}
+              border={false}
+            />
+          </div>
+        </SectionFull>
+
+        <SectionFull
+          title={"Newsroom"}
+          mb={"none"}
+          mt={"none"}
+          pb={"large"}
+        >
+          <div className="col-md-8">
+            <div className="row">
+              <div className="col-md-12">
+                <CardNews
+                  featured
+                  imageUrl={dobsonville}
+                  title={"Maecenas faucibus mollis interdum."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Maecenas faucibus mollis interdum."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Cras justo odio, dapibus ac facilisis in, egestas eget quam."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Donec ullamcorper nulla non metus auctor fringilla."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Nulla vitae elit libero, a pharetra augue."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Nullam quis risus eget urna mollis ornare vel eu leo."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+              <div className="col-md-6">
+                <CardNews
+                  imageUrl={dobsonville}
+                  title={"Etiam porta sem malesuada magna mollis euismod."}
+                  meta={"July 4th in News"}
+                  paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
+                  cta={"View More"}
+                  url={"/"}
+                />
+              </div>
+            </div>
+            <ViewAll>View All News</ViewAll>
+          </div>
+          <div className="col-md-4">
+            <AsideTwitter
+              heading={"Tweets by @Our_DA"}
+            />
+          </div>
+        </SectionFull>
+      </div>
+    ))
+
     .add("Footer", () => (
       <Footer />
+
     ));

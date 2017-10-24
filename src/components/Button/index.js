@@ -52,7 +52,7 @@ const styles = {
     textAlign: "center",
     textDecoration: "none",
     fontFamily: fonts.sans,
-    fontWeight: fontWeight.bold,
+    fontWeight: fontWeight.medium,
     letterSpacing: letterSpacing.base,
     textTransform: "uppercase",
     transition: `color ${timing.base} ease-in-out,
@@ -180,32 +180,20 @@ const styles = {
   },
 
   size: {
-    tiny: {
-      fontSize: "9px",
-      paddingBottom: `${9 / 9}em`,
-      paddingLeft: `${19 / 9}em`,
-      paddingRight: `${19 / 9}em`,
-      paddingTop: `${9 / 9}em`,
-    },
     small: {
       fontSize: "11px",
       paddingBottom: `${15 / 11}em`,
       paddingTop: `${15 / 11}em`,
     },
     medium: {
-      fontSize: "13px",
-      paddingBottom: `${21 / 13}em`,
-      paddingTop: `${21 / 13}em`,
+      fontSize: "11px",
+      paddingBottom: "15px",
+      paddingTop: "15px",
     },
     large: {
-      fontSize: "15px",
+      fontSize: "11px",
       paddingBottom: `${23 / 15}em`,
       paddingTop: `${23 / 15}em`,
-    },
-    huge: {
-      fontSize: "17px",
-      paddingBottom: `${25 / 17}em`,
-      paddingTop: `${25 / 17}em`,
     },
   },
 
@@ -213,30 +201,29 @@ const styles = {
     rounded: {
       base: {
         borderRadius: "30px",
-        paddingLeft: `${21 / 9}em`,
-        paddingRight: `${21 / 9}em`,
-        paddingTop: `${9 / 9}em`,
-      },
-
-      tiny: {
-        paddingBottom: `${9 / 9}em`,
       },
 
       small: {
-        paddingBottom: `${9 / 9}em`,
+        paddingBottom: "12px",
+        paddingTop: "12px",
+        paddingLeft: "30px",
+        paddingRight: "30px",
       },
 
       medium: {
-        paddingBottom: `${9 / 9}em`,
+        paddingBottom: "15px",
+        paddingTop: "15px",
+        paddingLeft: "40px",
+        paddingRight: "40px",
       },
 
       large: {
-        paddingBottom: `${9 / 9}em`,
+        paddingBottom: "18px",
+        paddingTop: "18px",
+        paddingLeft: "50px",
+        paddingRight: "50px",
       },
 
-      huge: {
-        paddingBottom: `${9 / 9}em`,
-      },
     },
     full: {
       justifyContent: 'center',
@@ -345,11 +332,9 @@ Button.propTypes = {
   ]),
   /** Size of the button */
   size: PropTypes.oneOf([
-    "tiny",
     "small",
     "medium",
     "large",
-    "huge",
   ]),
   /** Use a rounded button */
   rounded: PropTypes.bool,

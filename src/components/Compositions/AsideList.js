@@ -19,9 +19,9 @@ const AsideList = (props) => {
 
   return (
     <nav className={css(styles.asideList)}>
-      { heading &&
+      { title &&
         <Heading color={"red"} tracking={"huge"} size={"tiny"} mb={"medium"} weight={"light"} uppercase>
-          { heading }
+          { title }
         </Heading>
       }
       { children }
@@ -34,12 +34,12 @@ const AsideList = (props) => {
 
 AsideList.defaultProps = {
   children: null,
-  heading: null,
+  title: null,
 }
 
 AsideList.propTypes = {
   children: PropTypes.array,
-  heading: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default AsideList;

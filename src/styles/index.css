@@ -1,5 +1,4 @@
-@import "../node_modules/da-bootstrap";
-
 body{
-  background: red;
+  background: 'red';
+  -webkit-font-smoothing: antialiased;
 }

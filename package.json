@@ -11,6 +11,7 @@
     "rambda": "^0.9.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-media": "^1.6.1",
     "react-slick": "0.14.4"
   },
   "scripts": {

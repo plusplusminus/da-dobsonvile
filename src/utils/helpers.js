@@ -1,6 +1,7 @@
 import { spacing, colors } from 'common/styles/variables';
+import color from "color";
 
-
+/** Hover Attributes */
 export const getHoverAttributes = (args, colors) => {
   if (!args) return null;
 
@@ -23,4 +24,10 @@ export const getHoverAttributes = (args, colors) => {
       ...styles,
     },
   }
+}
+
+
+/** Convert Hex to RGBA */
+export const rgba = (hex, opacity) => {
+  return color(hex).alpha(opacity).rgbString();
 }

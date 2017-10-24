@@ -5357,6 +5357,13 @@ react-komposer@^2.0.0:
     react-stubber "^1.0.0"
     shallowequal "^0.2.2"
 
+react-media@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/react-media/-/react-media-1.6.1.tgz#84e7986a92356b106dca026363f8f5c88054fe72"
+  dependencies:
+    json2mq "^0.2.0"
+    prop-types "^15.5.10"
+
 react-modal@^2.2.4:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-2.3.2.tgz#af9d625da218461de3e87551609dfca12d8d4946"

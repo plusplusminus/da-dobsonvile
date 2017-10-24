@@ -100,7 +100,7 @@ const styles = {
 
 const sectionFull = (props) => {
 
-  const { bgColor, bgUrl, color, center, mb, mt, pb, pt, title, children } = props;
+  const { bgColor, bgUrl, color, center, mb, mt, pb, pt, title, children, container } = props;
 
   const baseStyles = StyleSheet.create({
     base:{
@@ -120,7 +120,7 @@ const sectionFull = (props) => {
   return (
     <section className={css(baseStyles.base)} style={{backgroundImage:`url(${bgUrl})`}}>
       <div className={css(baseStyles.bg)}>
-        <div className="container">
+        <div className={ container === true ? "container" : null }>
           { title && !center &&
             <HeadingLines lineLeft color={color} mb={"huge"} >
               <Heading color={color} size={"tiny"} tracking={"huge"} weight={"light"} uppercase>{title}</Heading>
@@ -145,10 +145,11 @@ sectionFull.defaultProps = {
   center: false,
   children: null,
   mb: 'large',
-  mt: 'large',
+  mt: 'none',
   pt: 'none',
   pb: 'none',
   title: null,
+  container: true,
 }
 
 sectionFull.propTypes = {
@@ -175,6 +176,8 @@ sectionFull.propTypes = {
   center: PropTypes.bool,
   /** Content of section. For coloumns, apply Bootstrap col values to divs inside children. */
   children: PropTypes.node.isRequired,
+  /** Should section contents be wrapped in container div */
+  container: PropTypes.bool,
   /** Margin Bottom of Section. Margin is primary spacing unit. Top down approach */
   mb: PropTypes.oneOf([
     "none",

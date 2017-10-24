@@ -7,7 +7,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 
 const AsideMenu = (props) => {
 
-  const { children } = props;
+  const { children, title } = props;
 
   const styles = StyleSheet.create({
     asideMenu:{
@@ -18,16 +18,27 @@ const AsideMenu = (props) => {
   });
 
   return (
-    <nav className={css(styles.asideMenu)}>
-      { children }
-    </nav>
+    <div>
+      { title &&
+        <Heading color={"red"} tracking={"huge"} size={"tiny"} mb={"medium"} weight={"light"} uppercase>
+          { title }
+        </Heading>
+      }
+      <nav className={css(styles.asideMenu)}>
+        { children }
+      </nav>
+    </div>
   )
 }
 
 AsideMenu.defaultProps = {
+  title: null,
+  children: null,
 }
 
 AsideMenu.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default AsideMenu;
