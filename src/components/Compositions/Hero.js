@@ -23,7 +23,6 @@ const styles = {
   },
   wrapper:{
     base:{
-      minHeight: parseInt(spacing.space6)*6,
       paddingTop: parseInt(spacing.space9)*2,
       paddingBottom: spacing.space13,
       textAlign: 'center',
@@ -33,13 +32,14 @@ const styles = {
       flexDirection: 'column',
     },
     imageUrl:{
+      minHeight: parseInt(spacing.space6)*6,
       background: colors.bgLight,
       backgroundColor: 'rgba(0,0,0,0.3)',
       background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(21,95,162,0.85) 100%)',
     },
     small:{
-      paddingTop: spacing.space9,
-      paddingBottom: spacing.space0,
+      paddingTop: spacing.space10,
+      paddingBottom: spacing.space8,
       justifyContent: 'flex-end',
     }
   },
@@ -66,13 +66,13 @@ const styles = {
       <div className={css(baseStyles.wrapper)}>
         <div className="container">
           <div className="row">
-            <div className={`col-md-8 ${center ? "offset-md-2" : null}`}>
+            <div className={`col-md-10 ${center ? "offset-md-1" : null}`}>
 
               { title &&
                 <Heading
                   size={"huge"}
                   color={ imageUrl ? "white" : "blue" }
-                  mb={"huge"}
+                  mb={ !small ? "huge" : "small"}
                   center={ !center ? false : true }
                 >
                   { title }

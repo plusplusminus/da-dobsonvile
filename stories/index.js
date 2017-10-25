@@ -448,7 +448,7 @@ storiesOf("Navs/NavItems", module)
 
     .add("AsideOverlay", () => (
       <AsideOverlay
-        visual={dobsonville}
+        imageUrl={dobsonville}
       />
     ))
 
@@ -743,7 +743,7 @@ storiesOf("Navs/NavItems", module)
           </div>
 
           <div className={"col-md-4 offset-md-1"}>
-            <AsideOverlay visual={dobsonville} />
+            <AsideOverlay imageUrl={dobsonville} />
 
             <Aside
               imageUrl={dobsonville}
@@ -1011,7 +1011,9 @@ storiesOf("Navs/NavItems", module)
           imageUrl={dobsonville}
           title={"City of Cape Town"}
           mb={"large"}
-        />
+          small
+        >
+        </Hero>
         <SectionFull
           mt={"none"}
         >
@@ -1306,6 +1308,188 @@ storiesOf("Navs/NavItems", module)
           </div>
         </SectionFull>
       </div>
+    ))
+
+
+    .add("Get Involved", () => (
+      <div>
+
+        <Masthead />
+
+        <Hero
+          title={"Do your part and get involved"}
+          mb={"none"}
+          small
+        >
+        </Hero>
+
+        <SectionFull
+          mt={"none"}
+        >
+          <div className={"col-md-8"}>
+            <Copy
+              weight={"medium"}
+              size={"large"}
+            >
+              Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum.
+            </Copy>
+          </div>
+        </SectionFull>
+        <SectionFull
+          mt={"none"}
+        >
+          <div className={"col-md-8"}>
+            <CardHighlight
+              imageUrl={dobsonville}
+              title={"Become a Volunteer"}
+              paragraph={"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."}
+            >
+              <ButtonTest color={"green"}>Volunteer</ButtonTest>
+            </CardHighlight>
+          </div>
+          <div className={"col-md-4"}>
+            <div className={"row"}>
+              <div className={"col-md-12"}>
+                <AsideOverlay
+                  imageUrl={dobsonville}
+                  title={"Contribute to the DA's cause"}
+                  paragraph={null}
+                  cta={"Donate"}
+                />
+              </div>
+            </div>
+            <div className={"row"}>
+              <div className={"col-md-12"}>
+                <AsideOverlay
+                  imageUrl={dobsonville}
+                  title={"Subscribe to the Newsletter"}
+                  paragraph={null}
+                  cta={"Subscribe"}
+                />
+              </div>
+            </div>
+          </div>
+        </SectionFull>
+
+        <SectionFull
+          mt={"none"}
+          pt={"large"}
+          pb={"large"}
+          bgColor={"light"}
+        >
+          <div className={"col-md-12"}>
+            <Copy center size={"large"} weight={"medium"}>
+              Are you registered to vote?
+            </Copy>
+          </div>
+        </SectionFull>
+
+        <SectionFull
+          mt={"large"}
+          mb={"none"}
+          title={"Share the facts"}
+          color={"red"}
+        >
+        <div className={"col-md-7"}>
+          <CardCampaign
+            imageUrl={dobsonville}
+            title={"An Opportunity City"}
+            paragraph={"A city where entrepreneurs and investors can grow the economy and create jobs."}
+            cta={"share"}
+          />
+          <CardCampaign
+            imageUrl={dobsonville}
+            title={"A Safe City"}
+            paragraph={"A city where people feel protected and where communities work with the police and other law enforcement agencies to keep our neighbourhoods and businesses free from violence and crime."}
+            cta={"share"}
+          />
+          <CardCampaign
+            imageUrl={dobsonville}
+            title={"A Caring City"}
+            paragraph={"We want to keep making progress in a city where people know that their government cares for them, one that works to make basic services available to ALL residents."}
+            cta={"share"}
+          />
+          <CardCampaign
+            imageUrl={dobsonville}
+            title={"An Inclusive City"}
+            paragraph={"Cape Town belongs to everyone who lives in it. Whilst we have made progress to realise this vision, there is still much work to be done to redress the wrongs of apartheid and break down barriers."}
+            cta={"share"}
+          />
+          <CardCampaign
+            imageUrl={dobsonville}
+            title={"A Well-Run City"}
+            paragraph={"DA governments are known for being committed to transparent and clean management. The tender process is open to the public and those found guilty of corruption are shown the door."}
+            cta={"share"}
+          />
+          <CardCampaign
+            imageUrl={dobsonville}
+            title={"An Opportunity City"}
+            paragraph={"A city where entrepreneurs and investors can grow the economy and create jobs."}
+            cta={"share"}
+          />
+          <CardCampaign
+            imageUrl={dobsonville}
+            title={"A Safe City"}
+            paragraph={"A city where people feel protected and where communities work with the police and other law enforcement agencies to keep our neighbourhoods and businesses free from violence and crime."}
+            cta={"share"}
+          />
+          <CardCampaign
+            imageUrl={dobsonville}
+            title={"A Caring City"}
+            paragraph={"We want to keep making progress in a city where people know that their government cares for them, one that works to make basic services available to ALL residents."}
+            cta={"share"}
+          />
+          <ViewAll>View More</ViewAll>
+        </div>
+
+        <div className={"col-md-4 offset-md-1"}>
+          <AsideOverlay
+            imageUrl={dobsonville}
+          title={"Report Corruption"}
+            paragraph={"Fight against corrupt activity in your area"}
+            cta={"Report Now"}
+          />
+          <AsideOverlay
+            imageUrl={dobsonville}
+            title={"Jobs at the DA"}
+            paragraph={"Work or intern at the Democratic Alliance"}
+            cta={"View More"}
+          />
+          <AsideOverlay
+            imageUrl={dobsonville}
+            title={"Membership"}
+            paragraph={"Become a member, or update your membership"}
+            cta={"More Info"}
+          />
+          <Border color="whiteO"/>
+          <List
+            title="More Links"
+            items={api.moreLinks}
+          />
+          <div>
+            <Heading
+              color={"red"}
+              size={"tiny"}
+              tracking={"huge"}
+              weight={"light"}
+              mb={"medium"}
+              uppercase
+            >
+              Stay in touch
+            </Heading>
+            <div>
+              <NavIcon iconColor={colors.socialMobile} iconName="mobile">+27 832 234 1232</NavIcon>
+              <NavIcon iconColor={colors.socialInstagram} iconName="instagram">Instagram</NavIcon>
+              <NavIcon iconColor={colors.socialFacebook} iconName="facebook">Facebook</NavIcon>
+              <NavIcon iconColor={colors.socialTwitter} iconName="twitter">Twitter</NavIcon>
+              <NavIcon iconColor={colors.socialYoutube} iconName="youtube">YouTube</NavIcon>
+              <NavIcon iconColor={colors.socialEmail} iconName="envelope">Email</NavIcon>
+              <MoreLink>View all contact Info</MoreLink>
+            </div>
+          </div>
+        </div>
+      </SectionFull>
+    </div>
     ))
 
     .add("Footer", () => (

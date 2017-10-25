@@ -8,7 +8,7 @@ import {default as ButtonTest} from 'components/Button'
 
 function AsideOverlay(props) {
 
-  const { heading, headingColor, copy, copyColor, buttonLabel, copyWeight, visual } = props;
+  const { title, headingColor, paragraph, copyColor, cta, copyWeight, imageUrl } = props;
 
   const styles = StyleSheet.create({
     asideOverlay:{
@@ -21,9 +21,9 @@ function AsideOverlay(props) {
       borderRadius: spacing.space1,
       backgroundColor: colors.bgDarkO,
       paddingTop: spacing.space9,
-      paddingRight: spacing.space7,
+      paddingRight: spacing.space6,
       paddingBottom: spacing.space9,
-      paddingLeft: spacing.space7,
+      paddingLeft: spacing.space6,
       display: 'flex',
       alignItems: 'center',
       flexDirection: 'column'
@@ -31,43 +31,53 @@ function AsideOverlay(props) {
   });
 
   return (
-    <aside className={css(styles.asideOverlay)} style={{backgroundImage:`url(${visual})`}}>
+    <aside className={css(styles.asideOverlay)} style={{backgroundImage:`url(${imageUrl})`}}>
       <div className={css(styles.bg)}>
-        <Heading
-          color={"white"}
-          size={"large"}
-          mb={"small"}
-        >
-          { heading }
-        </Heading>
-        <Copy
-          color={"white"}
-          weight={"bold"}
-          mb={"large"}
-          center
-        >
-          { copy }
-        </Copy>
-        <ButtonTest
-          color="blue"
-          center
-        >
-          { buttonLabel }
-        </ButtonTest>
+      { title &&
+          <Heading
+            color={"white"}
+            size={"large"}
+            mb={"small"}
+            center
+          >
+            { title }
+          </Heading>
+        }
+
+        { paragraph &&
+          <Copy
+            color={"white"}
+            weight={"bold"}
+            mb={"large"}
+            center
+          >
+            { paragraph }
+          </Copy>
+        }
+
+        { cta &&
+          <ButtonTest
+            color="blue"
+            center
+          >
+            { cta }
+          </ButtonTest>
+        }
       </div>
     </aside>
   )
 }
 
 AsideOverlay.defaultProps = {
-  buttonLabel: 'View All',
-  copy: 'Find out more about DAs delivery record',
-  heading: 'Heading',
+  cta: 'View All',
+  paragraph: 'Find out more about DAs delivery record',
+  title: 'Heading',
 }
 
 AsideOverlay.propTypes = {
-  buttonLabel: PropTypes.string,
-  heading: PropTypes.string,
+  cta: PropTypes.string,
+  paragraph: PropTypes.string,
+  title: PropTypes.string,
 }
 
 export default AsideOverlay;

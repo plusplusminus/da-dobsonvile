@@ -76,9 +76,13 @@ export const colors = {
   textLightO: "rgba(255,255,255,0.85)",
   textWhite: "#FFFFFF",
 
+
   socialEmail: '#B0153C',
   socialFacebook: "#3A579A",
+  socialInstagram: "#333333",
+  socialMobile: '#155FA2',
   socialTwitter: "#00AAF0",
+  socialYoutube: "#FF0000",
   socialWhatsApp: "#52A74B",
 };
 

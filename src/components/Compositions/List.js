@@ -33,7 +33,8 @@ class ListItem extends Component {
         justifyContent: 'space-between',
         borderBottom: '1px solid',
         borderBottomColor: colors.borderBase,
-        padding: spacing.space2,
+        paddingTop: spacing.space2,
+        paddingBottom: spacing.space2,
       },
     });
     return (
@@ -153,11 +154,12 @@ ListAction.propTypes = {
 
 const List = (props) => {
 
-  const { items, collapsed } = props;
+  const { items, collapsed, title } = props;
   const styles = StyleSheet.create({
     list:{
       margin: 0,
       marginTop: spacing.space2,
+      marginBottom: spacing.space8,
       padding: 0,
     },
   });
@@ -178,15 +180,29 @@ const List = (props) => {
   });
 
   return (
-    <ul className={css(styles.list)}>
-      { output }
-    </ul>
+    <div>
+      { title &&
+        <Heading
+          color={"red"}
+          size={"tiny"}
+          tracking={"huge"}
+          weight={"light"}
+          uppercase
+        >
+          {title}
+        </Heading>
+      }
+      <ul className={css(styles.list)}>
+        { output }
+      </ul>
+    </div>
   )
 };
 
 List.defaultProps = {
   items: null,
   collapsed: false,
+  title: null,
 };
 
 List.propTypes = {
@@ -194,6 +210,8 @@ List.propTypes = {
   collapsed: PropTypes.node.isRequired,
   /** Items for the list from API */
   items: PropTypes.array.isRequired,
+  /** Title of List */
+  title: PropTypes.string,
 };
 
 export {

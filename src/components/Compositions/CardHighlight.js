@@ -28,7 +28,7 @@ const styles = {
   },
 };
 
-const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta }) => {
+const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta, children }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
@@ -82,6 +82,7 @@ const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta }) => {
               { cta }
             </MoreLink>
           }
+          { children }
         </div>
 
       </div>
