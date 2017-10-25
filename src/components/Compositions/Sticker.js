@@ -10,8 +10,9 @@ const styles = {
   sticker:{
     base:{
       borderRadius: spacing.space05,
-      marginBottom: spacing.space4,
+      marginBottom: spacing.space2,
       overflow: 'hidden',
+      display: 'inline-block',
     },
     imageUrl:{
       backgroundSize: 'cover',
@@ -121,7 +122,7 @@ Sticker.defaultProps = {
   imageUrl: null,
   title: null,
   icon: null,
-  bgColor: "white",
+  color: "white",
   content: null,
 }
 
@@ -135,7 +136,7 @@ Sticker.propTypes = {
   /** Title of Sticker Component */
   title: PropTypes.string,
   /** Background Color Sticker Component */
-  bgColor: PropTypes.oneOf([
+  color: PropTypes.oneOf([
     "white",
     "blue",
     "red",

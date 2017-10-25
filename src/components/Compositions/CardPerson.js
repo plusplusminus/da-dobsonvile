@@ -25,7 +25,10 @@ const styles = {
   },
   wrapper:{
     float: 'left',
-    padding: spacing.space2,
+    paddingTop: spacing.space3,
+    paddingRight: spacing.space4,
+    paddingBottom: spacing.space2,
+    paddingLeft: spacing.space4,
   },
   figure: {
     base: {

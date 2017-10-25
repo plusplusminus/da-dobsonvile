@@ -129,7 +129,7 @@ const Copy = (props) => {
     right && styles.variant.right,
     center && styles.variant.center,
     justify && styles.variant.justify,
-    flatten(override),
+    override && override,
   ]
 
   const temp = StyleSheet.create({
@@ -143,7 +143,8 @@ const Copy = (props) => {
       return result;
     }, {}),
   });
-
+  console.log('override',override)
+  console.log('base',styles.base)
   return (
     <Element
       className={css(temp.copy)}

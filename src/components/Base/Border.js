@@ -7,7 +7,7 @@ import { fonts, fontStyles, fontWeight, letterSpacing, colors, spacing } from 'c
 const styles = {
   base: {
     width: '100%',
-    display: 'block',
+    display: 'inline-block',
     borderTop: '1px solid',
   },
 

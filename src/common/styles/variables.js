@@ -85,9 +85,12 @@ export const colors = {
 export const icons = {
   none: '',
   close: "close",
-  angleLeft: "angle-left",
+  angleTop: "angle-top",
   angleRight: "angle-right",
+  angleDown: "angle-down",
+  angleLeft: "angle-left",
   bookmark: "bookmark",
+  lock: "lock",
   mobile: "mobile",
   newspaper: "newspaper",
   download: "download",

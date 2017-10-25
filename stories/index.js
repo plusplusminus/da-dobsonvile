@@ -8,6 +8,7 @@ import { withKnobs, text, boolean, number, select, object } from '@storybook/add
 import { colors, fonts, fontStyles, fontWeight, icons, letterSpacing, opacity, spacing } from 'common/styles/variables';
 import { getStyleValue, filterStyleGroup } from './utils/helpers'
 import { dobsonville } from 'common/images';
+import { api } from './utils/api';
 import Colors from './Colors';
 import Icons from './Icons';
 import Spacing from './Spacing';
@@ -21,6 +22,7 @@ import {
   AsideMenu,
   AsideOverlay,
   AsideTwitter,
+  Badge,
   Button,
   ButtonDonate,
   ButtonOutline,
@@ -43,6 +45,9 @@ import {
   HeadingLines,
   Hero,
   Icon,
+  List,
+  ListItem,
+  ListChild,
   Logo,
   MoreLink,
   SectionFull,
@@ -281,6 +286,7 @@ storiesOf("Navs/Navbar", module)
       <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
       <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
       <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
+      <NavItem mr={spacing.space0} ml={spacing.space2}><Badge status={"neutral"}/></NavItem>
     </Navbar>
   ))
   .add("NavbarSecondary", () => (
@@ -452,6 +458,16 @@ storiesOf("Navs/NavItems", module)
       />
     ))
 
+    .add("Badge", () => {
+      const iconsArray = getStyleValue(icons);
+      return(
+        <Badge
+          title={text("title","Secured")}
+          status={ select('status', ["danger","info","neutral","succes","warning"], "info") }
+          icon={select("icon",iconsArray,"lock")}
+        />
+      )
+    })
 
     .add("CardCampaign", () => (
       <CardCampaign
@@ -521,6 +537,11 @@ storiesOf("Navs/NavItems", module)
           small={boolean('small',true)}
           title={ text('title',"Zuma is the Number One that must go!")}
         />
+      )
+    })
+    .add('List', () =>  {
+      return(
+        <List items={api.listItems} collapsed={boolean("collapsed",true)}/>
       )
     })
 
@@ -683,7 +704,7 @@ storiesOf("Navs/NavItems", module)
           pt={"medium"}
           pb={"medium"}
           mt={"none"}
-          mb={"none"}
+          mb={"large"}
           title={"Newsletter Subscribe"}
           center
         >
@@ -1083,33 +1104,56 @@ storiesOf("Navs/NavItems", module)
           title={"City of Cape Town's Success Stories"}
           color={"red"}
         >
-          <div className={"col-md-3"}>
-            <Sticker
-              color={"red"}
-              title={"Cras"}
-              content={"DA-Led City of Cape Town has received clean audits for three years running for excellent spending of public funds."}
-            />
-          </div>
-          <div className={"col-md-3"}>
-            <Sticker
-              color={"green"}
-              icon={"facebook"}
-              content={"Integer posuere erat a ante venenatis dapibus posuere velit aliquet."}
-            />
-          </div>
-          <div className={"col-md-3"}>
-            <Sticker
-              color={"yellow"}
-              title={"1,200"}
-              content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-            />
-          </div>
-          <div className={"col-md-3"}>
-            <Sticker
-              color={"white"}
-              imageUrl={dobsonville}
-              content={"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."}
-            />
+          <div className={"col-md-12"}>
+            <div className={"card-columns"}>
+              <Sticker
+                color={"red"}
+                title={"Cras"}
+                content={"DA-Led City of Cape Town has received clean audits for three years running for excellent spending of public funds."}
+              />
+
+              <Sticker
+                color={"green"}
+                icon={"facebook"}
+                content={"Integer posuere erat a ante venenatis dapibus posuere velit aliquet."}
+              />
+
+              <Sticker
+                color={"yellow"}
+                title={"1,200"}
+                content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+              />
+
+              <Sticker
+                color={"white"}
+                imageUrl={dobsonville}
+                content={"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."}
+              />
+
+              <Sticker
+                color={"red"}
+                title={"Cras"}
+                content={"DA-Led City of Cape Town has received clean audits for three years running for excellent spending of public funds."}
+              />
+
+              <Sticker
+                color={"green"}
+                icon={"facebook"}
+                content={"Integer posuere erat a ante venenatis dapibus posuere velit aliquet."}
+              />
+
+              <Sticker
+                color={"yellow"}
+                title={"1,200"}
+                content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+              />
+
+              <Sticker
+                color={"white"}
+                imageUrl={dobsonville}
+                content={"Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."}
+              />
+            </div>
           </div>
 
           <ViewAll>

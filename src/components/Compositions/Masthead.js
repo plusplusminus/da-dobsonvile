@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
-import { Logo, NavbarSecondary, NavItem, Navbar, NavbarSub, MoreLink, Icon} from "components";
+import { Badge, Logo, NavbarSecondary, NavItem, Navbar, NavbarSub, MoreLink, Icon} from "components";
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
 import {default as ButtonTest} from 'components/Button'
 
@@ -30,6 +30,7 @@ const Masthead = (props) => {
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite}>Campaigns</NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue}><ButtonTest color="white" outline>Get Involved</ButtonTest></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} mr={spacing.space0}><ButtonTest color={"green"}>Donate</ButtonTest></NavItem>
+        <NavItem mr={spacing.space0} ml={spacing.space2}><Badge status={"neutral"}/></NavItem>
       </Navbar>
       <NavbarSub>
         <NavItem fontWeight={fontWeight.bold} color={colors.linkBlue} fs={"13px"} lh={"16px"} ml={spacing.space0}>Bokamoso</NavItem>
