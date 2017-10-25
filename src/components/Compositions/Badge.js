@@ -92,18 +92,18 @@ Badge.defaultProps = {
 }
 
 Badge.propTypes = {
-  /** Icon for the Title */
+  /** Icon for the Badge */
   icon: PropTypes.string,
-  /** Title of Badge Component */
-  title: PropTypes.string,
-  /** Background Color Badge Component */
+  /** Title of the Badge */
+  title: PropTypes.string.isRequired,
+  /** Status of Badge to indicate color */
   status: PropTypes.oneOf([
     "danger",
     "info",
     "neutral",
     "success",
     "warning",
-  ]),
+  ]).isRequired,
 }
 
 export default Badge;

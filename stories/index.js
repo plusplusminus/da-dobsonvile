@@ -463,7 +463,7 @@ storiesOf("Navs/NavItems", module)
       return(
         <Badge
           title={text("title","Secured")}
-          status={ select('status', ["danger","info","neutral","succes","warning"], "info") }
+          status={ select('status', ["danger","info","neutral","success","warning"], "info") }
           icon={select("icon",iconsArray,"lock")}
         />
       )
@@ -552,12 +552,13 @@ storiesOf("Navs/NavItems", module)
         max: 100,
         step: 1
       }
-      const colorsArray = getStyleValue(filterStyleGroup(colors,"status"));
       return (
         <Progress
-          color={ select('color', colorsArray, colors.statusNeutral) }
+          status={ select('status', ["danger","info","neutral","success","warning"], "info") }
           progress={number('progress', 50, options)}
-          showLabel={boolean('showLabel', true)}
+          showProgress={boolean('showProgress', true)}
+          labelTop={text('labelTop',"3045 supporters")}
+          labelBottom={text('labelBottom',"16955 needed to reach 20000")}
         />
       )
     })
