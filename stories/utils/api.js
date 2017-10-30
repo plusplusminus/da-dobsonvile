@@ -1,4 +1,40 @@
 export const api = {
+  asideListCats:[
+    {
+      title:"All Newsroom Items",
+      children:[],
+    },
+    {
+      title:"News",
+      children:[],
+    },
+    {
+      title:"Bokamoso",
+      children:[],
+    },
+    {
+      title:"Speeches",
+      children:[],
+    },
+  ],
+  asideListMetros:[
+    {
+      title:"City of Cape Town",
+      children: [],
+    },
+    {
+      title:"City of Tshwane",
+      children: [],
+    },
+    {
+      title:"Nelson Mandela Bay",
+      children: [],
+    },
+    {
+      title:"City of Johannesburg",
+      children:[],
+    },
+  ],
   listItems:[
     {
       title:"Title with children",

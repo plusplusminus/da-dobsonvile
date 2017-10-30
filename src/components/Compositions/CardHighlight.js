@@ -8,37 +8,84 @@ const createMarkup = (content) => ({ __html: `${content}` });
 
 const styles = {
   container: {
-    display: 'inline-block',
-    width: '100%',
-    display: 'flex',
-    borderRadius: spacing.space05,
-    overflow: 'hidden',
-    marginBottom: spacing.space4,
+    base:{
+      display: 'inline-block',
+      width: '100%',
+      display: 'flex',
+      borderRadius: spacing.space05,
+      overflow: 'hidden',
+      marginBottom: spacing.space4,
+    },
+    col:{
+      flexDirection: 'column'
+    },
+    row:{
+      flexDirection: 'row'
+    }
   },
   wrapper: {
-    padding: spacing.space9,
-    backgroundColor: colors.bgWhite,
-    width: '50%',
+    base:{
+      padding: spacing.space9,
+      backgroundColor: colors.bgWhite,
+
+    },
+    col:{
+      width: '100%',
+    },
+    row:{
+      width: '50%',
+    }
   },
   figure:{
-    width: '50%',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    margin: 0,
+    base:{
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      margin: 0,
+    },
+    row:{
+      width: '50%',
+    },
+    col:{
+      width: '100%',
+      paddingBottom: '60%',
+      order: -1,
+    }
+  },
+  paragraph:{
+    marginBottom: spacing.space4,
+  },
+  bgColor: {
+    white: {
+      backgroundColor: colors.bgWhite,
+      color: colors.textBase,
+    },
+    blue: {
+      backgroundColor: colors.bgBlue,
+    },
   },
 };
 
-const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta, children }) => {
+const CardHighlight = ({ bgColor, title, url, imageUrl, meta, paragraph, children, col }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
-      ...styles.container,
+      ...styles.container.base,
+      ...(styles.container.row),
+      ...(col && styles.container.col),
     },
     wrapper: {
-      ...styles.wrapper,
+      ...styles.wrapper.base,
+      ...(styles.wrapper.row),
+      ...(col && styles.wrapper.col),
+      ...(bgColor && styles.bgColor[bgColor]),
     },
     figure: {
-      ...styles.figure,
+      ...styles.figure.base,
+      ...(styles.figure.row),
+      ...(col && styles.figure.col),
+    },
+    paragraph: {
+      ...styles.paragraph,
     },
   });
 
@@ -48,16 +95,16 @@ const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta, children })
         <header>
           <Heading
             level={3}
-            color={"blue"}
+            color={ bgColor === "white" ? "blue" : "white"}
             size={"large"}
-            mb={"tiny"}
+            mb={ meta === true ? "tiny" : "small"}
           >
             {title}
           </Heading>
           {
             meta && <Heading
               level={6}
-              color={"blue"}
+              color={ bgColor === "white" ? "blue" : "white"}
               size={"tiny"}
               letterSpacing={"small"}
               weight={"medium"}
@@ -70,18 +117,16 @@ const CardHighlight = ({ title, url, imageUrl, meta, paragraph, cta, children })
         </header>
 
         <div className={css(baseStyles.paragraph)}>
-          <Copy isParent>
+          <Copy
+            isParent
+            color={ bgColor === "white" ? null : "white"}
+          >
             <p
               className={css(baseStyles.paragraph)}
               dangerouslySetInnerHTML={createMarkup(paragraph)}
             />
           </Copy>
 
-          { cta &&
-            <MoreLink href={url} style={styles.moreLink}>
-              { cta }
-            </MoreLink>
-          }
           { children }
         </div>
 
@@ -97,12 +142,15 @@ CardHighlight.defaultProps = {
   title: null,
   meta: null,
   url: null,
+  col: null,
   imageUrl: null,
   paragraph: null,
-  cta: null,
+  bgColor: "white",
 };
 
 CardHighlight.propTypes = {
+  /** Background Color of Card */
+  bgColor: PropTypes.string.isRequired,
   /** Title of Card */
   title: PropTypes.string.isRequired,
   /** Meta text of Card */
@@ -113,8 +161,8 @@ CardHighlight.propTypes = {
   imageUrl: PropTypes.string,
   /** Paragraph content of Card */
   paragraph: PropTypes.string,
-  /** Call to Action of Card */
-  cta: PropTypes.string.isRequired,
+  /** Is image and text below each other? */
+  col: PropTypes.bool.isRequired,
 };
 
 export default CardHighlight;

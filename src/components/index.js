@@ -34,7 +34,6 @@ export Button, {
 // Compositions
 export Aside from './Compositions/Aside';
 export AsideList from './Compositions/AsideList';
-export AsideMenu from './Compositions/AsideMenu';
 export AsideOverlay from './Compositions/AsideOverlay';
 export AsideTwitter from './Compositions/AsideTwitter';
 export Badge from './Compositions/Badge';

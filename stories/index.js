@@ -19,7 +19,6 @@ import {
   ArticleFooter,
   Aside,
   AsideList,
-  AsideMenu,
   AsideOverlay,
   AsideTwitter,
   Badge,
@@ -266,8 +265,9 @@ storiesOf('Base', module)
           title={"Fermentum Sem Mollis Pharetra"}
           meta={"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}
           paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
-          cta={"View More"}
-        />
+          >
+          <MoreLink>{"View More"}</MoreLink>
+        </CardHighlight>
       </SectionFull>
     )
   })
@@ -438,14 +438,6 @@ storiesOf("Navs/NavItems", module)
       </AsideList>
     ))
 
-    .add("AsideMenu", () => (
-      <AsideMenu>
-        <NavBox>Item One</NavBox>
-        <NavBox>Item Two</NavBox>
-        <NavBox>Item Three</NavBox>
-      </AsideMenu>
-    ))
-
     .add("AsideOverlay", () => (
       <AsideOverlay
         imageUrl={dobsonville}
@@ -482,12 +474,14 @@ storiesOf("Navs/NavItems", module)
 
     .add("CardHighlight", () => (
       <CardHighlight
+        col={boolean("col",false)}
+        bgColor={select("bgColor",["blue","white"],"white")}
         imageUrl={text("imageUrl", dobsonville)}
         title={text("title", "Fermentum Sem Mollis Pharetra")}
         meta={text("meta","Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance")}
         paragraph={text("paragraph","Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.")}
-        cta={text("cta","View More")}
         url={text("url","/")}
+        children={text("children","")}
       />
     ))
 
@@ -904,8 +898,9 @@ storiesOf("Navs/NavItems", module)
             title={"Fermentum Sem Mollis Pharetra"}
             meta={"Federal Leader of the Democratic Alliance | Parliamentary Leader of the Democratic Alliance"}
             paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
-            cta={"View More"}
-          />
+          >
+            <MoreLink>{"Read More"}</MoreLink>
+          </CardHighlight>
         </SectionFull>
 
         <Footer />
@@ -939,13 +934,10 @@ storiesOf("Navs/NavItems", module)
 
           <div className={"col-md-3 offset-md-1"}>
 
-            <AsideMenu>
-              <NavBox>Item One</NavBox>
-              <NavBox>Item Two</NavBox>
-              <NavBox>Item Three</NavBox>
-              <NavBox>Item Four</NavBox>
-              <NavBox>Item Five</NavBox>
-            </AsideMenu>
+            <List
+              title={"Categories"}
+              items={api.asideListCats}>
+            </List>
 
             <AsideList
               title={"Related News"}
@@ -1065,14 +1057,11 @@ storiesOf("Navs/NavItems", module)
           </div>
 
           <div className={"col-md-3 offset-md-1"}>
-            <AsideMenu
+            <List
               title={"Metros where we govern"}
+              items={api.asideListMetros}
             >
-              <NavBox>City of Cape Town</NavBox>
-              <NavBox>City of Tshwane</NavBox>
-              <NavBox>Nelson Mandela Bay</NavBox>
-              <NavBox>City of Johannesburg</NavBox>
-            </AsideMenu>
+            </List>
 
             <Aside
               imageUrl={dobsonville}
@@ -1178,8 +1167,9 @@ storiesOf("Navs/NavItems", module)
               title={"Get to know Patricia de Lille"}
               meta={"Executive Mayor of the City of Cape Town"}
               paragraph={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deinde qui fit, ut ego nesciam, sciant omnes, quicumque Epicurei esse voluerunt. Sed ille, ut dixi, vitiose. "}
-              cta={"Read More"}
-            />
+            >
+              <MoreLink>{"Read More"}</MoreLink>
+            </CardHighlight>
           </div>
           <div className={"col-md-6"}>
             <CardPerson
@@ -1340,6 +1330,8 @@ storiesOf("Navs/NavItems", module)
         >
           <div className={"col-md-8"}>
             <CardHighlight
+              col
+              bgColor={"blue"}
               imageUrl={dobsonville}
               title={"Become a Volunteer"}
               paragraph={"Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."}
@@ -1421,31 +1413,13 @@ storiesOf("Navs/NavItems", module)
             paragraph={"DA governments are known for being committed to transparent and clean management. The tender process is open to the public and those found guilty of corruption are shown the door."}
             cta={"share"}
           />
-          <CardCampaign
-            imageUrl={dobsonville}
-            title={"An Opportunity City"}
-            paragraph={"A city where entrepreneurs and investors can grow the economy and create jobs."}
-            cta={"share"}
-          />
-          <CardCampaign
-            imageUrl={dobsonville}
-            title={"A Safe City"}
-            paragraph={"A city where people feel protected and where communities work with the police and other law enforcement agencies to keep our neighbourhoods and businesses free from violence and crime."}
-            cta={"share"}
-          />
-          <CardCampaign
-            imageUrl={dobsonville}
-            title={"A Caring City"}
-            paragraph={"We want to keep making progress in a city where people know that their government cares for them, one that works to make basic services available to ALL residents."}
-            cta={"share"}
-          />
           <ViewAll>View More</ViewAll>
         </div>
 
         <div className={"col-md-4 offset-md-1"}>
           <AsideOverlay
             imageUrl={dobsonville}
-          title={"Report Corruption"}
+            title={"Report Corruption"}
             paragraph={"Fight against corrupt activity in your area"}
             cta={"Report Now"}
           />

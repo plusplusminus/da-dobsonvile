@@ -7,7 +7,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 
 const AsideList = (props) => {
 
-  const { cta, children, heading } = props;
+  const { cta, children, heading, title } = props;
 
   const styles = StyleSheet.create({
     asideList:{
