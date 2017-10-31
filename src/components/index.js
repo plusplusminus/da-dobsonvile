@@ -7,7 +7,9 @@ export HeadingLines from './Base/HeadingLines';
 export Icon from './Base/Icon';
 export Logo from './Base/Logo';
 export Progress from './Base/Progress';
+export Sidebar from './Base/Sidebar';
 export Tag from './Base/Tag';
+
 
 
 // Navs
@@ -37,6 +39,7 @@ export AsideList from './Compositions/AsideList';
 export AsideOverlay from './Compositions/AsideOverlay';
 export AsideTwitter from './Compositions/AsideTwitter';
 export Badge from './Compositions/Badge';
+export Breadcrumb from './Compositions/Breadcrumb';
 export CardCampaign from './Compositions/CardCampaign';
 export CardHighlight from './Compositions/CardHighlight';
 export CardNews from './Compositions/CardNews';

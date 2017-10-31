@@ -89,7 +89,8 @@ const ListChild = (props) => {
     child:{
       borderBottom: '1px solid',
       borderBottomColor: colors.borderBase,
-      padding: spacing.space2,
+      paddingTop: spacing.space2,
+      paddingBottom: spacing.space2,
     },
   });
   const { title,children } = props;

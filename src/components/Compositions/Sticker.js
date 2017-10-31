@@ -13,6 +13,7 @@ const styles = {
       marginBottom: spacing.space2,
       overflow: 'hidden',
       display: 'inline-block',
+      height: '100%',
     },
     imageUrl:{
       backgroundSize: 'cover',
@@ -29,9 +30,10 @@ const styles = {
       paddingTop: spacing.space3,
       display: 'flex',
       alignItems: 'flex-start',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
       flexDirection: 'column',
       border: '1px solid',
+      height: '100%',
     },
   },
   color: {

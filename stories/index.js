@@ -28,6 +28,7 @@ import {
   ButtonPrimary,
   ButtonViewAll,
   Border,
+  Breadcrumb,
   CardCampaign,
   CardHighlight,
   CardNews,
@@ -51,6 +52,7 @@ import {
   MoreLink,
   SectionFull,
   Sticker,
+  Sidebar,
   Tag,
   Testimonial,
   NavBox,
@@ -272,6 +274,18 @@ storiesOf('Base', module)
     )
   })
 
+  .add('Sidebar', () => {
+    return(
+      <Sidebar
+        pl={select('pl', ["none","medium"], 'medium')}
+        col={text('col', '')}
+      >
+        {text('children','')}
+      </Sidebar>
+
+    )
+  })
+
 storiesOf("Navs/Navbar", module)
   .add("Masthead", () => (
     <Masthead />
@@ -461,6 +475,16 @@ storiesOf("Navs/NavItems", module)
       )
     })
 
+    .add("Breadcrumb", () => {
+      return(
+        <Breadcrumb
+          mb={select("mb",["small","large"],"small")}
+        >
+          {text("children","Home")}
+        </Breadcrumb>
+      )
+    })
+
     .add("CardCampaign", () => (
       <CardCampaign
         imageUrl={text("imageUrl", dobsonville)}
@@ -535,7 +559,7 @@ storiesOf("Navs/NavItems", module)
     })
     .add('List', () =>  {
       return(
-        <List items={api.listItems} collapsed={boolean("collapsed",true)}/>
+        <List items={api.listItems} collapsed={boolean("collapsed",false)}/>
       )
     })
 
@@ -589,7 +613,7 @@ storiesOf("Navs/NavItems", module)
           borderColor={select("borderColor", colorsArray, colors.BorderLight)}
           buttonColor={ select('buttonColor', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
         >
-          {text("buttonLabel", "View All")}
+          {text("children", "View All")}
         </ViewAll>
       )
     })
@@ -736,9 +760,8 @@ storiesOf("Navs/NavItems", module)
             <Campaigns />
           </div>
 
-          <div className={"col-md-4 offset-md-1"}>
+          <Sidebar col={"col-md-4 offset-md-1"}>
             <AsideOverlay imageUrl={dobsonville} />
-
             <Aside
               imageUrl={dobsonville}
               title={"Fermentum Sem Mollis Pharetra"}
@@ -747,8 +770,7 @@ storiesOf("Navs/NavItems", module)
               cta={"Donate Now"}
               vertical
             />
-
-          </div>
+          </Sidebar>
 
         </SectionFull>
 
@@ -913,9 +935,12 @@ storiesOf("Navs/NavItems", module)
         <Masthead />
 
         <SectionFull
-          mt={"small"}
+          mt={"medium"}
         >
           <div className={"col-md-8"}>
+            <Breadcrumb mb={"large"}>
+              {"Home"}
+            </Breadcrumb>
             <ArticleHeader
               subHeading={text('meta', 'Western Cape')}
               title={text('title', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
@@ -932,7 +957,7 @@ storiesOf("Navs/NavItems", module)
             <ArticleFooter/>
           </div>
 
-          <div className={"col-md-3 offset-md-1"}>
+          <Sidebar col={"col-md-4"} pl="medium">
 
             <List
               title={"Categories"}
@@ -973,7 +998,7 @@ storiesOf("Navs/NavItems", module)
               small
             />
 
-          </div>
+          </Sidebar>
 
         </SectionFull>
 
@@ -1301,6 +1326,96 @@ storiesOf("Navs/NavItems", module)
     ))
 
 
+    .add("Single Policy", () => (
+      <div>
+
+        <Masthead />
+
+        <SectionFull mt={"medium"}>
+
+          <div className={"col-md-8"}>
+            <Breadcrumb mb={"small"}>
+              {"Why the DA"}
+            </Breadcrumb>
+            <Heading
+              level={1}
+              color={"blue"}
+              mb={"medium"}
+              size={"large"}
+            >
+              {'Arts, Culture and Heritage Policy'}
+            </Heading>
+            <Border
+              mt={"none"}
+              mb={"medium"}
+            />
+            <Copy isParent>
+              <Copy size="large" weight={"regular"} mb={"large"}>Cultural goods like language and the arts are fundamental, and not incidental, to what it means to be human.</Copy>
+            </Copy>
+
+            <div className={"row"}>
+              <div className={"col-md-4"}>
+                <Sticker
+                  color={"red"}
+                  title={"Cras"}
+                  content={"DA-Led City of Cape Town has received clean audits for three years."}
+                />
+              </div>
+              <div className={"col-md-4"}>
+                <Sticker
+                  color={"green"}
+                  icon={"facebook"}
+                  content={"Integer posuere erat a ante venenatis dapibus posuere velit aliquet."}
+                />
+              </div>
+              <div className={"col-md-4"}>
+                <Sticker
+                  color={"yellow"}
+                  title={"1,200"}
+                  content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+                />
+              </div>
+            </div>
+
+            <Border
+              mt={"none"}
+              mb={"large"}
+              color={"whiteO"}
+            />
+
+            <Copy isParent>
+              <Copy>Sed posuere consectetur est at lobortis. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum.</Copy>
+              <Copy>Donec sed odio dui. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</Copy>
+              <Copy>Nullam id dolor id nibh ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Copy>
+            </Copy>
+            <Border mt={"large"} mb={"large"}/>
+            <ArticleFooter/>
+
+          </div>
+
+          <Sidebar col={"col-md-4"} pl="medium">
+            <AsideOverlay
+              imageUrl={dobsonville}
+              title={"2019 Manifesto"}
+              paragraph={"We are ready for 2019"}
+              cta={"Read More"}
+            >
+            </AsideOverlay>
+            <List
+              title={"More Policies"}
+              items={api.asideListPolicies}
+              collapsed
+            />
+          </Sidebar>
+
+        </SectionFull>
+
+        <Footer />
+
+      </div>
+    ))
+
+
     .add("Get Involved", () => (
       <div>
 
@@ -1416,7 +1531,7 @@ storiesOf("Navs/NavItems", module)
           <ViewAll>View More</ViewAll>
         </div>
 
-        <div className={"col-md-4 offset-md-1"}>
+        <Sidebar col={"col-md-4"} pl="medium">
           <AsideOverlay
             imageUrl={dobsonville}
             title={"Report Corruption"}
@@ -1461,7 +1576,7 @@ storiesOf("Navs/NavItems", module)
               <MoreLink>View all contact Info</MoreLink>
             </div>
           </div>
-        </div>
+        </Sidebar>
       </SectionFull>
     </div>
     ))

@@ -1,4 +1,94 @@
 export const api = {
+  asideListPolicies:[
+    {
+      title:"Your Country",
+      children:[
+        {
+          title:"Land Reform Policy",
+        },
+        {
+          title:"Housing Policy",
+        }
+      ],
+    },
+    {
+      title:"Your Safety",
+      children:[
+        {
+          title:"Land Reform Policy",
+        },
+        {
+          title:"Housing Policy",
+        }
+      ],
+    },
+    {
+      title:"Your Environment",
+      children:[
+        {
+          title:"Land Reform Policy",
+        },
+        {
+          title:"Housing Policy",
+        }
+      ],
+    },
+    {
+      title:"Your Land",
+      children:[
+        {
+          title:"Land Reform Policy",
+        },
+        {
+          title:"Housing Policy",
+        }
+      ],
+    },
+    {
+      title:"Your Job and Your Business",
+      children:[
+        {
+          title:"Land Reform Policy",
+        },
+        {
+          title:"Housing Policy",
+        }
+      ],
+    },
+    {
+      title:"Your Wellbeing",
+      children:[
+        {
+          title:"Land Reform Policy",
+        },
+        {
+          title:"Housing Policy",
+        }
+      ],
+    },
+    {
+      title:"Your Education",
+      children:[
+        {
+          title:"Land Reform Policy",
+        },
+        {
+          title:"Housing Policy",
+        }
+      ],
+    },
+    {
+      title:"Your Government",
+      children:[
+        {
+          title:"Land Reform Policy",
+        },
+        {
+          title:"Housing Policy",
+        }
+      ],
+    }
+  ],
   asideListCats:[
     {
       title:"All Newsroom Items",

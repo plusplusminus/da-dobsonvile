@@ -21,9 +21,9 @@ function AsideOverlay(props) {
       borderRadius: spacing.space1,
       backgroundColor: colors.bgDarkO,
       paddingTop: spacing.space9,
-      paddingRight: spacing.space6,
+      paddingRight: spacing.space2,
       paddingBottom: spacing.space9,
-      paddingLeft: spacing.space6,
+      paddingLeft: spacing.space2,
       display: 'flex',
       alignItems: 'center',
       flexDirection: 'column'
@@ -57,7 +57,7 @@ function AsideOverlay(props) {
 
         { cta &&
           <ButtonTest
-            color="blue"
+            color="white"
             center
           >
             { cta }
