@@ -765,7 +765,7 @@ storiesOf("Navs/NavItems", module)
             <Campaigns />
           </div>
 
-          <Sidebar col={"col-md-4 offset-md-1"}>
+          <Sidebar col={"col-md-4 offset-md-1"} pl="none">
             <AsideOverlay imageUrl={dobsonville} />
             <Aside
               imageUrl={dobsonville}
