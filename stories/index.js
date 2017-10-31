@@ -1537,7 +1537,7 @@ storiesOf("Navs/NavItems", module)
           <ViewAll>View More</ViewAll>
         </div>
 
-        <Sidebar col={"col-md-4"} pl="medium">
+        <Sidebar col={"col-md-4 offset-md-1"} pl="none">
           <AsideOverlay
             imageUrl={dobsonville}
             title={"Report Corruption"}
