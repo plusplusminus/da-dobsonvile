@@ -145,7 +145,7 @@ const Heading = (props) => {
     right && styles.variant.right,
     center && styles.variant.center,
     inline && styles.variant.inline,
-    flatten(override),
+    override && override,
   ];
 
   const temp = StyleSheet.create({

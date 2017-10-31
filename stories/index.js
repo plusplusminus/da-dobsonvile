@@ -454,7 +454,12 @@ storiesOf("Navs/NavItems", module)
 
     .add("AsideOverlay", () => (
       <AsideOverlay
-        imageUrl={dobsonville}
+        imageUrl={text('imageUrl',dobsonville)}
+        color={select('color',["dark","blue","green","red","yellow"],"dark")}
+        mb={select('mb',["none","small","large"],"small")}
+        title={text('title',"Placeholder Title")}
+        cta={text('cta',"View All")}
+        paragraph={text('paragraph',"Find out more about placeholder text")}
       />
     ))
 
@@ -1399,6 +1404,7 @@ storiesOf("Navs/NavItems", module)
               title={"2019 Manifesto"}
               paragraph={"We are ready for 2019"}
               cta={"Read More"}
+              mb={"large"}
             >
             </AsideOverlay>
             <List

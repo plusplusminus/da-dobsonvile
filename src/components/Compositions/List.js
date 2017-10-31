@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from "aphrodite";
 import { Border, Copy, Heading, Icon, MoreLink } from 'components';
-import { fontStyles, colors, spacing } from "common/styles/variables";
+import { fontStyles, colors, spacing, letterSpacing } from "common/styles/variables";
 
 
 class ListItem extends Component {
@@ -44,7 +44,9 @@ class ListItem extends Component {
             level={"5"}
             color={"blue"}
             weight={"medium"}
-            size={"medium"}>
+            size={"medium"}
+            override={{fontSize:'18px'}}
+          >
             { this.props.title }
           </Heading>
 

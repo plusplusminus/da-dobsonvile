@@ -38,24 +38,54 @@ const styles = {
   },
   color: {
     white: {
-      backgroundColor: rgba(colors.brandWhite, 0.9),
-      borderColor: colors.borderLight,
+      base:{
+        backgroundColor: rgba(colors.brandWhite, 1),
+        borderColor: colors.borderLight,
+      },
+      imageUrl: {
+        backgroundColor: rgba(colors.brandWhite, 0.9),
+        borderColor: colors.borderLight,
+      }
     },
     blue: {
-      backgroundColor: rgba(colors.brandBlue, 0.9),
-      borderColor: colors.brandBlue,
+      base:{
+        backgroundColor: rgba(colors.brandBlue, 1),
+        borderColor: colors.brandBlue,
+      },
+      imageUrl: {
+        backgroundColor: rgba(colors.brandBlue, 0.9),
+        borderColor: colors.brandBlue,
+      }
     },
     green: {
-      backgroundColor: rgba(colors.brandGreen, 0.9),
-      borderColor: colors.brandGreen,
+      base:{
+        backgroundColor: rgba(colors.brandGreen, 1),
+        borderColor: colors.brandGreen,
+      },
+      imageUrl: {
+        backgroundColor: rgba(colors.brandGreen, 0.9),
+        borderColor: colors.brandGreen,
+      }
     },
     red: {
-      backgroundColor: rgba(colors.brandRed, 0.9),
-      borderColor: colors.brandRed,
+      base:{
+        backgroundColor: rgba(colors.brandRed, 1),
+        borderColor: colors.brandRed,
+      },
+      imageUrl: {
+        backgroundColor: rgba(colors.brandRed, 0.9),
+        borderColor: colors.brandRed,
+      }
     },
     yellow: {
-      backgroundColor: rgba(colors.brandYellow, 0.9),
-      borderColor: colors.brandYellow,
+      base:{
+        backgroundColor: rgba(colors.brandYellow, 1),
+        borderColor: colors.brandYellow,
+      },
+      imageUrl: {
+        backgroundColor: rgba(colors.brandYellow, 0.9),
+        borderColor: colors.brandYellow,
+      }
     },
   },
 };
@@ -74,9 +104,8 @@ const styles = {
     },
     wrapper:{
       ...styles.wrapper.base,
-
-      ...(color && styles.color[color]),
-      ...(imageUrl && styles.wrapper.imageUrl),
+      ...(imageUrl && color && styles.color[color].imageUrl),
+      ...(!imageUrl && color && styles.color[color].base),
     },
   });
 
@@ -143,7 +172,7 @@ Sticker.propTypes = {
     "blue",
     "red",
     "green",
-    "yello",
+    "yellow",
   ]),
 }
 
