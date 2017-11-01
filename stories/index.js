@@ -243,6 +243,7 @@ storiesOf('Base', module)
     return(
       <Logo
         size={number('size', 130, options)}
+        division={text('division', '')}
       />
     )
   })

@@ -22,7 +22,7 @@ const Masthead = (props) => {
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
       </NavbarSecondary>
       <Navbar>
-        <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
+        <NavItem mr={"auto"} ml={spacing.space0}><Logo division={"Western Cape"}/></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>

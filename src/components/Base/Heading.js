@@ -130,7 +130,7 @@ const Heading = (props) => {
 
   const { color, children, inline, level, tracking, mb, override, size, truncate, uppercase, left, right, center, weight } = props;
 
-  const Component = `h${level}`;
+  const Component = level !== 'text' ? `h${level}` : level;
 
   const style = [
     styles.base,
