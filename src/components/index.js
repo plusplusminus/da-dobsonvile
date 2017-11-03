@@ -5,10 +5,15 @@ export Copy from './Base/Copy';
 export Heading from './Base/Heading';
 export HeadingLines from './Base/HeadingLines';
 export Icon from './Base/Icon';
+export Image from './Base/Image';
 export Logo from './Base/Logo';
 export Progress from './Base/Progress';
 export Sidebar from './Base/Sidebar';
 export Tag from './Base/Tag';
+
+
+// Forms
+export Quantity from './Forms/Quantity';
 
 
 
@@ -44,6 +49,7 @@ export CardCampaign from './Compositions/CardCampaign';
 export CardHighlight from './Compositions/CardHighlight';
 export CardNews from './Compositions/CardNews';
 export CardPerson from './Compositions/CardPerson';
+export CardProduct from './Compositions/CardProduct';
 export CardRelated from './Compositions/CardRelated';
 export CardVideo from './Compositions/CardVideo';
 export Hero from './Compositions/Hero';

@@ -97,6 +97,8 @@ export const icons = {
   lock: "lock",
   mobile: "mobile",
   newspaper: "newspaper",
+  plus: "plus",
+  minus: "minus",
   download: "download",
   print: "print",
   whatsapp: "whatsapp",

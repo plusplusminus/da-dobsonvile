@@ -73,7 +73,7 @@ const styles = {
   },
 };
 
-const Aside = ({ title, url, imageUrl, paragraph, cta, vertical, horizontal, small }) => {
+const Aside = ({ title, url, imageUrl, paragraph, cta, vertical, horizontal, small, children, meta }) => {
 
   const baseStyles = StyleSheet.create({
     card: {
@@ -104,6 +104,19 @@ const Aside = ({ title, url, imageUrl, paragraph, cta, vertical, horizontal, sma
         </figure>
       }
       <div className={css(baseStyles.wrapper)}>
+        { meta &&
+          <Heading
+            level={6}
+            color={"blue"}
+            size={"tiny"}
+            weight={"regular"}
+            tracking={"small"}
+            uppercase
+          >
+            { meta }
+          </Heading>
+        }
+
         { title &&
           <Heading
             color="blue"
@@ -122,6 +135,8 @@ const Aside = ({ title, url, imageUrl, paragraph, cta, vertical, horizontal, sma
             { paragraph }
           </Copy>
         }
+
+        { children && children }
 
         { cta && !small &&
           <ButtonTest color={"blue"}>
@@ -147,6 +162,8 @@ Aside.propTypes = {
   url: PropTypes.string.isRequired,
   /** ImageURL of Card */
   imageUrl: PropTypes.string,
+  /** Meta text to appear above Title */
+  meta: PropTypes.string,
   /** Call to Action of Card */
   cta: PropTypes.string.isRequired,
   /** Is card vertically aligned */
@@ -160,6 +177,7 @@ Aside.propTypes = {
 Aside.defaultProps = {
   title: null,
   url: null,
+  meta: null,
   imageUrl: null,
   paragraph: null,
   cta: null,

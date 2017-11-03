@@ -163,6 +163,7 @@ function Logo(props) {
                     weight={"bold"}
                     tracking={"base"}
                     size={"small"}
+                    color={"white"}
                     override={{fontStyle: 'italic'}}
                     uppercase
                   >
