@@ -8,7 +8,7 @@ const FooterLegal = (props) => {
   const styles = StyleSheet.create({
     footerLegal:{
       fontFamily: fonts.sans,
-
+      marginTop: spacing.space3,
       marginBottom: spacing.space3,
       color: colors.baseWhite,
     },

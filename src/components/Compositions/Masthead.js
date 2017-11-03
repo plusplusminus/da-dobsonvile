@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
-import { Badge, Logo, NavbarSecondary, NavItem, Navbar, NavbarSub, MoreLink, Icon} from "components";
+import { Badge, Logo, NavbarSecondary, NavItem, Navbar, NavbarSub, MoreLink, Icon, ButtonTest} from "../../components";
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
-import {default as ButtonTest} from 'components/Button'
-
 
 const Masthead = (props) => {
 
@@ -14,12 +12,6 @@ const Masthead = (props) => {
         <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={"auto"} ml={spacing.space0}>
           <MoreLink color={"white"}  arrowDirection="left" lowercase size={"large"} weight={"regular"} tracking={"small"} size={"medium"}>Visit da.org.za</MoreLink>
         </NavItem>
-        <NavItem fs={"16px"} lh={"16px"} color={colors.brandWhite}><a><Icon name="search" mr={spacing.space0} ml={spacing.space0}/></a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Why the DA?</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Where We Govern</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Our People</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite}><a>Newsroom</a></NavItem>
-        <NavItem fs={"13px"} lh={"16px"} color={colors.brandWhite} mr={spacing.space0}><a>Contact</a></NavItem>
       </NavbarSecondary>
       <Navbar>
         <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>

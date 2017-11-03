@@ -4,7 +4,6 @@ import { StyleSheet, css } from 'aphrodite';
 import { HeadingLines, Heading } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 
-
 const styles = {
   base:{
     backgroundSize: 'cover',
