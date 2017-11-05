@@ -143,8 +143,7 @@ const Copy = (props) => {
       return result;
     }, {}),
   });
-  console.log('override',override)
-  console.log('base',styles.base)
+
   return (
     <Element
       className={css(temp.copy)}

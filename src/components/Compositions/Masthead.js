@@ -14,7 +14,7 @@ const Masthead = (props) => {
         </NavItem>
       </NavbarSecondary>
       <Navbar>
-        <NavItem mr={"auto"} ml={spacing.space0}><Logo /></NavItem>
+        <NavItem mr={"auto"} ml={spacing.space0}><Logo division={"Western Cape"}/></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-youtube"} /></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-instagram"} /></NavItem>
         <NavItem fontWeight={fontWeight.bold} color={colors.baseWhite} fs={"18px"}><span className={"icon icon-facebook"} /></NavItem>

@@ -33,6 +33,7 @@ import {
   CardHighlight,
   CardNews,
   CardPerson,
+  CardProduct,
   CardVideo,
   Masthead,
   Campaigns,
@@ -45,6 +46,7 @@ import {
   HeadingLines,
   Hero,
   Icon,
+  Image,
   List,
   ListItem,
   ListChild,
@@ -63,6 +65,7 @@ import {
   NavbarSub,
   NavIcon,
   Progress,
+  Quantity,
   ViewAll,
   Widget,
 } from "../src/components";
@@ -233,6 +236,15 @@ storiesOf('Base', module)
     )
   })
 
+  .add('Image', () => (
+    <Image
+      imageUrl={text('imageUrl',dobsonville)}
+      alt={text('alt','alt text')}
+      fixed={boolean('fixed',false)}
+      rounded={boolean('rounded',false)}
+    />
+  ))
+
   .add('Logo', () => {
     const options = {
       range: true,
@@ -243,6 +255,7 @@ storiesOf('Base', module)
     return(
       <Logo
         size={number('size', 130, options)}
+        division={text('division', '')}
       />
     )
   })
@@ -416,6 +429,7 @@ storiesOf("Navs/NavItems", module)
     .add('Aside', () => (
       <Aside
         imageUrl={ text("imageUrl",dobsonville )}
+        meta={ text("meta","" )}
         title={text("title","Fermentum Sem Mollis Pharetra")}
         paragraph={text("paragraph","Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue.")}
         url={ text("url","/" )}
@@ -454,7 +468,12 @@ storiesOf("Navs/NavItems", module)
 
     .add("AsideOverlay", () => (
       <AsideOverlay
-        imageUrl={dobsonville}
+        imageUrl={text('imageUrl',dobsonville)}
+        color={select('color',["dark","blue","green","red","yellow"],"dark")}
+        mb={select('mb',["none","small","large"],"small")}
+        title={text('title',"Placeholder Title")}
+        cta={text('cta',"View All")}
+        paragraph={text('paragraph',"Find out more about placeholder text")}
       />
     ))
 
@@ -530,6 +549,17 @@ storiesOf("Navs/NavItems", module)
         cta={text("cta","View More")}
         tel={text("tel","+27 84 485 4832")}
         email={text("email","mmusi@da.org.za")}
+      />
+    ))
+
+    .add('CardProduct', () => (
+      <CardProduct
+        imageUrl={ text("imageUrl",dobsonville )}
+        meta={ text("meta","" )}
+        title={text("title","Fermentum Sem Mollis Pharetra")}
+        text={text("paragraph","Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue.")}
+        url={ text("url","/" )}
+        small={boolean("small", false)}
       />
     ))
 
@@ -760,7 +790,7 @@ storiesOf("Navs/NavItems", module)
             <Campaigns />
           </div>
 
-          <Sidebar col={"col-md-4 offset-md-1"}>
+          <Sidebar col={"col-md-4 offset-md-1"} pl="none">
             <AsideOverlay imageUrl={dobsonville} />
             <Aside
               imageUrl={dobsonville}
@@ -1399,6 +1429,7 @@ storiesOf("Navs/NavItems", module)
               title={"2019 Manifesto"}
               paragraph={"We are ready for 2019"}
               cta={"Read More"}
+              mb={"large"}
             >
             </AsideOverlay>
             <List
@@ -1415,6 +1446,171 @@ storiesOf("Navs/NavItems", module)
       </div>
     ))
 
+
+    .add("Shop", () => (
+      <div>
+
+        <Masthead/>
+
+        <Hero
+          title={"DA Christmas Pop-up Store"}
+          mb={"none"}
+          small
+          center
+        >
+          <Copy center>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.</Copy>
+        </Hero>
+
+        <SectionFull
+
+        >
+          <div className={"col-md-4"}>
+            <CardProduct
+              imageUrl={dobsonville}
+              title={"Product Name"}
+              meta={"Minimum Donation: R200"}
+              text={"Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna."}
+              vertical
+            >
+              <div className="form-group">
+                <label>Donation Amount</label>
+                <div className="input-group">
+                  <span className="input-group-addon" id="basic-addon1">R</span>
+                  <input type="text" className="form-control" id="amount" value="200"/>
+                </div>
+              </div>
+
+              <ButtonTest>Add to Cart</ButtonTest>
+
+            </CardProduct>
+          </div>
+
+          <div className={"col-md-4"}>
+            <CardProduct
+              imageUrl={dobsonville}
+              meta={"Minimum Donation: R200"}
+              title={"Product Name"}
+              text={"Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna."}
+              vertical
+            >
+              <ButtonTest>Add to Cart</ButtonTest>
+            </CardProduct>
+          </div>
+
+          <div className={"col-md-4"}>
+            <CardProduct
+              imageUrl={dobsonville}
+              meta={"Minimum Donation: R200"}
+              title={"Product Name"}
+              text={"Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna."}
+              vertical
+            >
+              <ButtonTest>Add to Cart</ButtonTest>
+            </CardProduct>
+          </div>
+
+        </SectionFull>
+
+        <SectionFull
+          bgColor={"light"}
+          pt={"large"}
+          pb={"large"}
+          mb={"none"}
+        >
+          <CardHighlight
+            imageUrl={dobsonville}
+            title={"Donation CTA Fermentum Sem Mollis Pharetra"}
+            paragraph={"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}
+          >
+            <ButtonTest color={"green"}>Donate Now</ButtonTest>
+          </CardHighlight>
+        </SectionFull>
+
+        <Footer/>
+
+      </div>
+    ))
+
+    .add("Shop - Product", () => (
+      <div>
+
+        <Masthead/>
+
+        <Hero
+          title={"Product Title"}
+          mb={"none"}
+          small
+        >
+          <Heading
+            level={6}
+            color={"blue"}
+            size={"tiny"}
+            weight={"regular"}
+            tracking={"small"}
+            uppercase
+          >
+            {"Minimum Donation: R200"}
+          </Heading>
+        </Hero>
+
+        <SectionFull>
+          <div className={"col-md-5"}>
+            <Copy size="large" weight="medium">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.</Copy>
+            <Copy>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</Copy>
+            <Border/>
+            <div className="form-group">
+              <label>Color</label>
+              <select className="form-control" id="exampleFormControlSelect1">
+                <option>Black</option>
+                <option>White</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label>Size</label>
+              <select className="form-control" id="exampleFormControlSelect1">
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label>Donation Amount</label>
+              <div className="input-group">
+                <span className="input-group-addon" id="basic-addon1">R</span>
+                <input type="text" className="form-control" id="amount" value="200"/>
+              </div>
+            </div>
+            <ButtonTest>Add to Cart</ButtonTest>
+          </div>
+          <div className={"col-md-6 offset-md-1"}>
+            <Image
+              imageUrl={dobsonville}
+              rounded
+            />
+          </div>
+
+        </SectionFull>
+
+        <SectionFull
+          bgColor={"light"}
+          pt={"large"}
+          pb={"large"}
+          mb={"none"}
+        >
+          <CardHighlight
+            imageUrl={dobsonville}
+            title={"Donation CTA Fermentum Sem Mollis Pharetra"}
+            paragraph={"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}
+          >
+            <ButtonTest color={"green"}>Donate Now</ButtonTest>
+          </CardHighlight>
+        </SectionFull>
+
+        <Footer/>
+
+      </div>
+    ))
 
     .add("Get Involved", () => (
       <div>
@@ -1531,7 +1727,7 @@ storiesOf("Navs/NavItems", module)
           <ViewAll>View More</ViewAll>
         </div>
 
-        <Sidebar col={"col-md-4"} pl="medium">
+        <Sidebar col={"col-md-4 offset-md-1"} pl="none">
           <AsideOverlay
             imageUrl={dobsonville}
             title={"Report Corruption"}

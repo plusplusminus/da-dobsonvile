@@ -130,7 +130,7 @@ const Heading = (props) => {
 
   const { color, children, inline, level, tracking, mb, override, size, truncate, uppercase, left, right, center, weight } = props;
 
-  const Component = `h${level}`;
+  const Component = level !== 'text' ? `h${level}` : level;
 
   const style = [
     styles.base,
@@ -145,7 +145,7 @@ const Heading = (props) => {
     right && styles.variant.right,
     center && styles.variant.center,
     inline && styles.variant.inline,
-    flatten(override),
+    override && override,
   ];
 
   const temp = StyleSheet.create({
