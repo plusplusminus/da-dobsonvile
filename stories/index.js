@@ -1459,7 +1459,7 @@ storiesOf("Navs/NavItems", module)
         <SectionFull
 
         >
-          <div className={"col-md-4"}>
+          <div className={"col-lg-4 col-md-6"}>
             <CardProduct
               imageUrl={dobsonville}
               title={"Product Name"}
@@ -1480,7 +1480,7 @@ storiesOf("Navs/NavItems", module)
             </CardProduct>
           </div>
 
-          <div className={"col-md-4"}>
+          <div className={"col-lg-4 col-md-6"}>
             <CardProduct
               imageUrl={dobsonville}
               meta={"Minimum Donation: R200"}
@@ -1492,7 +1492,7 @@ storiesOf("Navs/NavItems", module)
             </CardProduct>
           </div>
 
-          <div className={"col-md-4"}>
+          <div className={"col-lg-4 col-md-6"}>
             <CardProduct
               imageUrl={dobsonville}
               meta={"Minimum Donation: R200"}

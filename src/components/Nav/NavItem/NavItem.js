@@ -23,16 +23,19 @@ const NavItem = (props) => {
       ':hover':{
         textDecoration: 'none',
       },
+    },
+    link:{
+      color: props.color,
+      textDecoration: 'none',
+      ':hover':{
+        opacity: '0.5'
+      },
     }
   });
 
-  const className = css(
-    styles.navItem,
-  )
-
   return (
-    <li className={className}>
-      { href && <a href={href} title={children}>{props.children}</a> }
+    <li className={css(styles.navItem)}>
+      { href && <a href={href} title={children} className={css(styles.link)}>{props.children}</a> }
       { !href && props.children }
     </li>
   )

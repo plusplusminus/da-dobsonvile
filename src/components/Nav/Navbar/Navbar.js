@@ -19,7 +19,9 @@ const Navbar = (props) => {
       ...props.custom
     },
     container:{
-      width: '100%',
+      '@media (max-width: 1199px)': {
+        width: '100%',
+      },
     },
     ul: {
       width: '100%',

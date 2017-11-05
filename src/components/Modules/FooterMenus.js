@@ -39,32 +39,32 @@ const FooterMenus = (props) => {
         <div className={`${css(styles.wrapper)} ${col}`}>
           <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"} mb={"tiny"} uppercase>About the DA</Heading>
           <ul className={css(styles.menu)}>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Vision</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Policies</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Principles</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>History</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Our Constitution</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>DA Youth</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Blue, the Network</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Vision</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Policies</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Principles</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>History</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Our Constitution</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>DA Youth</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Blue, the Network</NavItem>
           </ul>
         </div>
 
         <div className={`${css(styles.wrapper)} ${col}`}>
           <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"} mb={"tiny"} uppercase>Newsroom</Heading>
           <ul className={css(styles.menu)}>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>News</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Speeches</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>News</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Speeches</NavItem>
           </ul>
         </div>
 
         <div className={`${css(styles.wrapper)} ${col}`}>
           <Heading color={"white"} size={"tiny"} weight={"bold"} letterSpacing={"small"} mb={"tiny"} uppercase>Campaigns</Heading>
           <ul className={css(styles.menu)}>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Remove President Zuma</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Social Grants Crisis</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Education in the DA-led Western Cape</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>Vision 2029</NavItem>
-            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite}>A Rescue Mission for the Lost Generation</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Remove President Zuma</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Social Grants Crisis</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Education in the DA-led Western Cape</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>Vision 2029</NavItem>
+            <NavItem ml={spacing.space0} mr={spacing.space0} mb={spacing.space1} display={"block"} fontWeight={fontWeight.light} color={colors.baseWhite} href={"#"}>A Rescue Mission for the Lost Generation</NavItem>
           </ul>
         </div>
       </div>
