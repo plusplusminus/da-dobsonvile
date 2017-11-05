@@ -23,7 +23,6 @@ export Navbar, {
   NavbarSub,
 } from './Nav/Navbar/Navbar';
 export { default as NavItem } from './Nav/NavItem/NavItem';
-export { default as NavBox } from './Nav/NavItem/NavBox';
 export { default as NavButton } from './Nav/NavItem/NavButton';
 export { default as NavIcon } from './Nav/NavItem/NavIcon';
 export { default as MoreLink } from './Nav/NavItem/MoreLink';

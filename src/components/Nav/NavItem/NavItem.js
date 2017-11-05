@@ -6,7 +6,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 
 const NavItem = (props) => {
 
-  const { content, weight, color, children, mr, ml } = props;
+  const { content, weight, color, children, mr, ml, href } = props;
 
   const styles = StyleSheet.create({
     navItem:{
@@ -32,7 +32,8 @@ const NavItem = (props) => {
 
   return (
     <li className={className}>
-      {props.children}
+      { href && <a href={href} title={children}>{props.children}</a> }
+      { !href && props.children }
     </li>
   )
 }
@@ -41,6 +42,7 @@ NavItem.defaultProps = {
   color: colors.linkBase,
   display: 'inline-block',
   fontWeight: fontWeight.regular,
+  href: null,
   fs: '14px',
   lh: '18px',
   mt:  spacing.space0,
@@ -56,6 +58,8 @@ NavItem.propTypes = {
   display: PropTypes.string,
   /** Font weight as per CSS */
   fontWeight: PropTypes.string,
+  /** URL to link */
+  href: PropTypes.string,
   /** Font size as pixel value */
   fs: PropTypes.string,
   /** Line height as pixel value */

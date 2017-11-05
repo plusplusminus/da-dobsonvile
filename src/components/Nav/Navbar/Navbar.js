@@ -5,7 +5,7 @@ import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity 
 
 const Navbar = (props) => {
 
-  const { content, weight, color, children } = props;
+  const { content, weight, color, children, vertical } = props;
 
   const styles = StyleSheet.create({
     navbar:{
@@ -18,18 +18,22 @@ const Navbar = (props) => {
       alignItems: 'center',
       ...props.custom
     },
+    container:{
+      width: '100%',
+    },
     ul: {
       width: '100%',
       marginBottom: 0,
       paddingLeft: 0,
       display: 'flex',
-      alignItems: 'center',
+      alignItems: vertical ? 'flex-start' : 'center',
+      flexDirection: vertical ? 'column' : 'row',
     }
   });
 
   return (
     <nav className={css(styles.navbar)}>
-      <div className="container">
+      <div className={`${css(styles.container)} container`}>
         <ul className={css(styles.ul)}>
           {props.children}
         </ul>
@@ -47,11 +51,18 @@ Navbar.defaultProps = {
 const NavbarSecondary = (props) => {
   const styles = {
     background: colors.bgBlueLight,
-    padding: spacing.space2,
+    padding: props.padding,
   }
 
   return <Navbar { ...styles }>{ props.children }</Navbar>
 }
+
+
+Navbar.defaultProps = {
+  background: colors.bgBlue,
+  padding: spacing.space2,
+}
+
 
 const NavbarSub = (props) => {
   const styles = {

@@ -15,25 +15,37 @@ const styles = {
       borderRadius: spacing.space05,
       overflow: 'hidden',
       marginBottom: spacing.space4,
+      flexDirection: 'row',
+      '@media (max-width: 767px)': {
+        flexDirection: 'column',
+      }
     },
     col:{
       flexDirection: 'column'
     },
     row:{
-      flexDirection: 'row'
+      flexDirection: 'row',
+      '@media (max-width: 767px)': {
+        flexDirection: 'column'
+      }
     }
   },
   wrapper: {
     base:{
-      padding: spacing.space9,
+      padding: spacing.space3,
       backgroundColor: colors.bgWhite,
-
+      '@media (min-width: 768px)': {
+        padding: spacing.space9,
+      },
     },
     col:{
       width: '100%',
     },
     row:{
       width: '50%',
+      '@media (max-width: 767px)': {
+        width: '100%',
+      }
     }
   },
   figure:{
@@ -44,6 +56,11 @@ const styles = {
     },
     row:{
       width: '50%',
+      '@media (max-width: 767px)': {
+        width: '100%',
+        paddingBottom: '60%',
+        order: -1,
+      }
     },
     col:{
       width: '100%',

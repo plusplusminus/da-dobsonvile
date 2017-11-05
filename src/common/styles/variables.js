@@ -88,6 +88,7 @@ export const colors = {
 
 export const icons = {
   none: '',
+  bars: "bars",
   close: "close",
   angleUp: "angle-up",
   angleRight: "angle-right",

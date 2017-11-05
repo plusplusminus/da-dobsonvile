@@ -57,7 +57,6 @@ import {
   Sidebar,
   Tag,
   Testimonial,
-  NavBox,
   NavButton,
   NavItem,
   Navbar,
@@ -340,11 +339,6 @@ storiesOf("Navs/Navbar", module)
   ));
 
 storiesOf("Navs/NavItems", module)
-  .add("NavBox", () => (
-    <NavBox>
-      {text('children','NavBox Menu Item')}
-    </NavBox>
-  ))
   .add("NavButton", () => (
     <NavButton>Hello</NavButton>
   ))
@@ -357,6 +351,7 @@ storiesOf("Navs/NavItems", module)
         color={select('color',colorsArray,colors.linkBase)}
         display={text('display','inline-block')}
         fontWeight={select('fontWeight',weightArray,fontWeight.regular)}
+        href={text('href','')}
         fs={text('fs','14px')}
         lh={text('fs','18px')}
         mt={select('mt',spacingArray,spacing.space0)}
@@ -1517,13 +1512,15 @@ storiesOf("Navs/NavItems", module)
           pb={"large"}
           mb={"none"}
         >
-          <CardHighlight
-            imageUrl={dobsonville}
-            title={"Donation CTA Fermentum Sem Mollis Pharetra"}
-            paragraph={"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}
-          >
-            <ButtonTest color={"green"}>Donate Now</ButtonTest>
-          </CardHighlight>
+          <div className="col-md-12">
+            <CardHighlight
+              imageUrl={dobsonville}
+              title={"Donation CTA Fermentum Sem Mollis Pharetra"}
+              paragraph={"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor."}
+            >
+              <ButtonTest color={"green"}>Donate Now</ButtonTest>
+            </CardHighlight>
+          </div>
         </SectionFull>
 
         <Footer/>

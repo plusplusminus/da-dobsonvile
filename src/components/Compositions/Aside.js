@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
 import { Copy, Heading, MoreLink } from "components";
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
-import {default as ButtonTest} from 'components/Button'
+import { default as ButtonTest } from 'components/Button'
 
 
 const createMarkup = (content) => ({ __html: `${content}` });
