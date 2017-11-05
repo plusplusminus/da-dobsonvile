@@ -1557,7 +1557,7 @@ storiesOf("Navs/NavItems", module)
           <div className={"col-md-5"}>
             <Copy size="large" weight="medium">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.</Copy>
             <Copy>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</Copy>
-            <Border/>
+            <Border color="whiteO"/>
             <div className="form-group">
               <label>Color</label>
               <select className="form-control" id="exampleFormControlSelect1">
@@ -1581,6 +1581,7 @@ storiesOf("Navs/NavItems", module)
                 <input type="text" className="form-control" id="amount" value="200"/>
               </div>
             </div>
+            <Border color="whiteO"/>
             <ButtonTest>Add to Cart</ButtonTest>
           </div>
           <div className={"col-md-6 offset-md-1"}>
@@ -1589,6 +1590,59 @@ storiesOf("Navs/NavItems", module)
               rounded
             />
           </div>
+
+        </SectionFull>
+
+        <SectionFull
+          color="red"
+          title={"Other Products"}
+        >
+          <div className={"col-md-4"}>
+            <CardProduct
+              imageUrl={dobsonville}
+              title={"Product Name"}
+              meta={"Minimum Donation: R200"}
+              text={"Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna."}
+              vertical
+            >
+              <div className="form-group">
+                <label>Donation Amount</label>
+                <div className="input-group">
+                  <span className="input-group-addon" id="basic-addon1">R</span>
+                  <input type="text" className="form-control" id="amount" value="200"/>
+                </div>
+              </div>
+
+              <ButtonTest>Add to Cart</ButtonTest>
+
+            </CardProduct>
+          </div>
+
+          <div className={"col-md-4"}>
+            <CardProduct
+              imageUrl={dobsonville}
+              meta={"Minimum Donation: R200"}
+              title={"Product Name"}
+              text={"Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna."}
+              vertical
+            >
+              <ButtonTest>Add to Cart</ButtonTest>
+            </CardProduct>
+          </div>
+
+          <div className={"col-md-4"}>
+            <CardProduct
+              imageUrl={dobsonville}
+              meta={"Minimum Donation: R200"}
+              title={"Product Name"}
+              text={"Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna."}
+              vertical
+            >
+              <ButtonTest>Add to Cart</ButtonTest>
+            </CardProduct>
+          </div>
+
+          <ViewAll>View All Products</ViewAll>
 
         </SectionFull>
 
