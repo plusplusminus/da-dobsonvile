@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from "aphrodite";
-import { fontStyles, colors, spacing } from "common/styles/variables";
+import { fontStyles, colors, spacing } from "../../common/styles/variables";
 
 const Icon = (props) => {
   const { color, fs, lh, name, style } = props;

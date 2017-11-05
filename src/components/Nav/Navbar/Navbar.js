@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import { Button } from 'components';
+import { Button } from '../../../components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from '../../../common/styles/variables';
 
 const Navbar = (props) => {

@@ -1,19 +1,19 @@
 // Base
-export Alert from './Base/Alert';
-export Border from './Base/Border';
-export Copy from './Base/Copy';
-export Heading from './Base/Heading';
-export HeadingLines from './Base/HeadingLines';
-export Icon from './Base/Icon';
-export Image from './Base/Image';
-export Logo from './Base/Logo';
-export Progress from './Base/Progress';
-export Sidebar from './Base/Sidebar';
-export Tag from './Base/Tag';
+export { default as Alert } from './Base/Alert';
+export { default as Border } from './Base/Border';
+export { default as Copy } from './Base/Copy';
+export { default as Heading } from './Base/Heading';
+export { default as HeadingLines } from './Base/HeadingLines';
+export { default as Icon } from './Base/Icon';
+export { default as Image } from './Base/Image';
+export { default as Logo } from './Base/Logo';
+export { default as Progress } from './Base/Progress';
+export { default as Sidebar } from './Base/Sidebar';
+export { default as Tag } from './Base/Tag';
 
 
 // Forms
-export Quantity from './Forms/Quantity';
+export { default as Quantity } from './Forms/Quantity';
 
 
 
@@ -22,14 +22,23 @@ export Navbar, {
   NavbarSecondary,
   NavbarSub,
 } from './Nav/Navbar/Navbar';
+export { default as Masthead } from './Compositions/Masthead';
 export { default as NavItem } from './Nav/NavItem/NavItem';
 export { default as NavButton } from './Nav/NavItem/NavButton';
 export { default as NavIcon } from './Nav/NavItem/NavIcon';
-export { default as MoreLink } from './Nav/NavItem/MoreLink';
+export { default as  MoreLink } from './Nav/NavItem/MoreLink';
+export { default as ButtonTest } from './Button'
+export { default as Badge } from './Compositions/Badge';
+
+
+
+
+
+
 
 
 // Button
-export Button, {
+export {
   ButtonDonate,
   ButtonOutline,
   ButtonPrimary,
@@ -38,36 +47,38 @@ export Button, {
 
 
 // Compositions
-export Aside from './Compositions/Aside';
-export AsideList from './Compositions/AsideList';
-export AsideOverlay from './Compositions/AsideOverlay';
-export AsideTwitter from './Compositions/AsideTwitter';
-export Badge from './Compositions/Badge';
-export Breadcrumb from './Compositions/Breadcrumb';
-export CardCampaign from './Compositions/CardCampaign';
-export CardHighlight from './Compositions/CardHighlight';
-export CardNews from './Compositions/CardNews';
-export CardPerson from './Compositions/CardPerson';
-export CardProduct from './Compositions/CardProduct';
-export CardRelated from './Compositions/CardRelated';
-export CardVideo from './Compositions/CardVideo';
-export Hero from './Compositions/Hero';
-export List, { ListItem, ListChild, ListAction } from './Compositions/List';
-export Masthead from './Compositions/Masthead';
-export Sticker from './Compositions/Sticker';
-export Testimonial from './Compositions/Testimonial';
-export ViewAll from './Compositions/ViewAll';
-export Widget from './Compositions/Widget';
+export { default as Aside } from './Compositions/Aside';
+export { default as AsideList } from './Compositions/AsideList';
+export { default as AsideOverlay } from './Compositions/AsideOverlay';
+export { default as AsideTwitter } from './Compositions/AsideTwitter';
+
+export { default as Breadcrumb } from './Compositions/Breadcrumb';
+export { default as CardCampaign } from './Compositions/CardCampaign';
+export { default as CardHighlight } from './Compositions/CardHighlight';
+export { default as CardNews } from './Compositions/CardNews';
+export { default as CardPerson } from './Compositions/CardPerson';
+export { default as CardProduct } from './Compositions/CardProduct';
+export { default as CardRelated } from './Compositions/CardRelated';
+export { default as CardVideo } from './Compositions/CardVideo';
+export { default as Hero } from './Compositions/Hero';
+//export { default as List }, { ListItem, ListChild, ListAction } from './Compositions/List';
+//export { default as Masthead } from './Compositions/Masthead';
+export { default as Sticker } from './Compositions/Sticker';
+export { default as Testimonial } from './Compositions/Testimonial';
+export { default as ViewAll } from './Compositions/ViewAll';
+export { default as Widget } from './Compositions/Widget';
 
 
 // Modules
-export ArticleHeader from './Modules/ArticleHeader';
-export ArticleFooter from './Modules/ArticleFooter';
-export Campaigns from './Modules/Campaigns';
-export FooterLegal from './Modules/FooterLegal';
-export FooterMenus from './Modules/FooterMenus';
+export { default as ArticleHeader } from './Modules/ArticleHeader';
+export { default as ArticleFooter } from './Modules/ArticleFooter';
+export { default as Campaigns } from './Modules/Campaigns';
+export { default as FooterLegal } from './Modules/FooterLegal';
+export { default as FooterMenus } from './Modules/FooterMenus';
 
 
 // Sections
-export SectionFull from './Sections/SectionFull';
-export Footer from './Sections/Footer';
+export { default as SectionFull} from './Sections/SectionFull';
+export { default as Footer} from './Sections/Footer';
+
+export * as variables from '../common/styles/variables'

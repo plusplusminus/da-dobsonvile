@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
-import { Icon } from 'components';
-import { fonts, fontStyles, fontWeight, icons, letterSpacing, colors, spacing } from 'common/styles/variables';
+import { Icon } from '../../components';
+import { fonts, fontStyles, fontWeight, icons, letterSpacing, colors, spacing } from '../../common/styles/variables';
 
 const Alert = (props) => {
 
@@ -16,9 +16,11 @@ const Alert = (props) => {
       paddingBottom: spacing.space1,
       paddingLeft: props.iconBefore ? spacing.space5 : spacing.space2,
       paddingRight: props.close ? spacing.space5 : spacing.space2,
+      marginBottom: spacing.space1,
       color: colors.textLightO,
       backgroundColor: props.color,
       borderRadius: spacing.space05,
+      width:'100%',
       ...fontStyles('14px','22px'),
     },
     close:{
