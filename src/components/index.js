@@ -13,6 +13,7 @@ export { default as Tag } from './Base/Tag';
 
 
 // Forms
+export { default as Label } from './Forms/Label';
 export { default as Quantity } from './Forms/Quantity';
 
 

@@ -47,6 +47,7 @@ import {
   Hero,
   Icon,
   Image,
+  Label,
   List,
   ListItem,
   ListChild,
@@ -297,6 +298,13 @@ storiesOf('Base', module)
 
     )
   })
+
+storiesOf("Forms", module)
+  .add("Label", () => (
+    <Label>
+      {text("children","Label Name")}
+    </Label>
+  ))
 
 storiesOf("Navs/Navbar", module)
   .add("Masthead", () => (
