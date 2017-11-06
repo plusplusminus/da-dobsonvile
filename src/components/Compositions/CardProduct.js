@@ -86,9 +86,8 @@ const CardProduct = ({ title, url, imageUrl, text, cta, small, children, meta })
           <Copy
             mb={ !small ? "large" : "medium"}
             size={ !small ? "medium" : "small"}
-          >
-            { text }
-          </Copy>
+            html={text}
+          />
         }
 
         { children && children }
