@@ -395,12 +395,12 @@ storiesOf("Navs/NavItems", module)
 
   storiesOf('Components', module)
     .add('Alert', () => {
-      const colorsArray = getStyleValue(filterStyleGroup(colors,"status"));
       const iconsArray = getStyleValue(icons);
       return(
         <Alert
           close={boolean('close', true)}
-          color={ select('color', colorsArray, colors.statusNeutral) }
+          status={ select('status', ["danger","info","neutral","success","warning"], "neutral") }
+          mb={ select('mb', ["none","small","large"], "none") }
           iconBefore={ select('iconBefore', iconsArray, '') }
           >
           {text('children', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
