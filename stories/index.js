@@ -767,13 +767,13 @@ storiesOf("Navs/NavItems", module)
                 <div className="row">
                   <div className="col-md-4 offset-md-2">
                     <div className="form-group">
-                      <label for="name">Your Name</label>
+                      <Label>Your Name</Label>
                       <input type="text" className="form-control" id="name" placeholder=""></input>
                     </div>
                   </div>
                   <div className="col-md-4">
                     <div className="form-group">
-                      <label for="email">Your Email Address</label>
+                      <Label>Your Email Address</Label>
                       <input type="text" className="form-control" id="email" placeholder=""></input>
                     </div>
                   </div>
@@ -1564,14 +1564,14 @@ storiesOf("Navs/NavItems", module)
             <Copy>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</Copy>
             <Border color="whiteO"/>
             <div className="form-group">
-              <label>Color</label>
+              <Label>Color</Label>
               <select className="form-control" id="exampleFormControlSelect1">
                 <option>Black</option>
                 <option>White</option>
               </select>
             </div>
             <div className="form-group">
-              <label>Size</label>
+              <Label>Size</Label>
               <select className="form-control" id="exampleFormControlSelect1">
                 <option>S</option>
                 <option>M</option>
@@ -1580,7 +1580,7 @@ storiesOf("Navs/NavItems", module)
               </select>
             </div>
             <div className="form-group">
-              <label>Donation Amount</label>
+              <Label>Donation Amount</Label>
               <div className="input-group">
                 <span className="input-group-addon" id="basic-addon1">R</span>
                 <input type="text" className="form-control" id="amount" value="200"/>
@@ -1611,7 +1611,7 @@ storiesOf("Navs/NavItems", module)
               vertical
             >
               <div className="form-group">
-                <label>Donation Amount</label>
+                <Label>Donation Amount</Label>
                 <div className="input-group">
                   <span className="input-group-addon" id="basic-addon1">R</span>
                   <input type="text" className="form-control" id="amount" value="200"/>
