@@ -100,6 +100,7 @@ export const icons = {
   newspaper: "newspaper",
   plus: "plus",
   minus: "minus",
+  truck: "truck",
   download: "download",
   print: "print",
   whatsapp: "whatsapp",
