@@ -62,7 +62,7 @@ var styles = {
     borderColor: _variables.colors.borderBase,
     borderRadius: 0,
     cursor: "pointer",
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
     lineHeight: 1,
     paddingLeft: "30px",
@@ -251,6 +251,12 @@ var styles = {
     center: {
       marginLeft: 'auto',
       marginRight: 'auto'
+    },
+    left: {
+      marginRight: 'auto'
+    },
+    right: {
+      marginLeft: 'auto',
     }
   },
 

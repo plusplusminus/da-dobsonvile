@@ -52,6 +52,7 @@ import {
   ListItem,
   ListChild,
   Logo,
+  Loading,
   MoreLink,
   SectionFull,
   Sticker,
@@ -257,6 +258,13 @@ storiesOf('Base', module)
         size={number('size', 130, options)}
         division={text('division', '')}
       />
+    )
+  })
+
+
+  .add('Loading', () => {
+    return(
+      <Loading />
     )
   })
 
