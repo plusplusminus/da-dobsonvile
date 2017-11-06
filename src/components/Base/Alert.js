@@ -104,7 +104,7 @@ const Alert = (props) => {
 Alert.defaultProps = {
   close: true,
   iconBefore: null,
-  mb: "none",
+  mb: "small",
   color: colors.bgDark,
   status: "neutral",
 };

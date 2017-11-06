@@ -107,7 +107,7 @@ const styles = {
 
 const Copy = (props) => {
 
-  const { color, children, mb, override, size, truncate, uppercase, left, right, center, justify, weight, isParent } = props;
+  const { color, children, html, mb, override, size, truncate, uppercase, left, right, center, justify, weight, isParent } = props;
 
   let Element = "";
 
@@ -143,6 +143,15 @@ const Copy = (props) => {
       return result;
     }, {}),
   });
+
+  if (html) {
+    return (
+      <Element
+        className={css(temp.copy)}
+        dangerouslySetInnerHTML={{__html:html}}
+      />
+    );
+  }
 
   return (
     <Element
