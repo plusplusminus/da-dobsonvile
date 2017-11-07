@@ -28,7 +28,8 @@ var NavItem = function NavItem(props) {
       color = props.color,
       children = props.children,
       mr = props.mr,
-      ml = props.ml;
+      ml = props.ml,
+      href = props.href;
 
 
   var styles = _aphrodite.StyleSheet.create({
@@ -46,15 +47,25 @@ var NavItem = function NavItem(props) {
       ':hover': {
         textDecoration: 'none'
       }
-    })
+    }),
+    link: {
+      color: props.color,
+      textDecoration: 'none',
+      ':hover': {
+        opacity: '0.5'
+      }
+    }
   });
-
-  var className = (0, _aphrodite.css)(styles.navItem);
 
   return _react2.default.createElement(
     'li',
-    { className: className },
-    props.children
+    { className: (0, _aphrodite.css)(styles.navItem) },
+    href && _react2.default.createElement(
+      'a',
+      { href: href, title: children, className: (0, _aphrodite.css)(styles.link) },
+      props.children
+    ),
+    !href && props.children
   );
 };
 
@@ -62,6 +73,7 @@ NavItem.defaultProps = {
   color: _variables.colors.linkBase,
   display: 'inline-block',
   fontWeight: _variables.fontWeight.regular,
+  href: null,
   fs: '14px',
   lh: '18px',
   mt: _variables.spacing.space0,
@@ -77,6 +89,8 @@ NavItem.propTypes = {
   display: _propTypes2.default.string,
   /** Font weight as per CSS */
   fontWeight: _propTypes2.default.string,
+  /** URL to link */
+  href: _propTypes2.default.string,
   /** Font size as pixel value */
   fs: _propTypes2.default.string,
   /** Line height as pixel value */

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.variables = exports.Footer = exports.SectionFull = exports.FooterMenus = exports.FooterLegal = exports.Campaigns = exports.ArticleFooter = exports.ArticleHeader = exports.Widget = exports.ViewAll = exports.Testimonial = exports.Sticker = exports.Hero = exports.CardVideo = exports.CardRelated = exports.CardProduct = exports.CardPerson = exports.CardNews = exports.CardHighlight = exports.CardCampaign = exports.Breadcrumb = exports.AsideTwitter = exports.AsideOverlay = exports.AsideList = exports.Aside = exports.ButtonViewAll = exports.ButtonPrimary = exports.ButtonOutline = exports.ButtonDonate = exports.Badge = exports.ButtonTest = exports.MoreLink = exports.NavIcon = exports.NavButton = exports.NavBox = exports.NavItem = exports.Masthead = exports.NavbarSub = exports.NavbarSecondary = exports.Navbar = exports.Quantity = exports.Tag = exports.Sidebar = exports.Progress = exports.Logo = exports.Image = exports.Icon = exports.HeadingLines = exports.Heading = exports.Copy = exports.Border = exports.Alert = undefined;
+exports.variables = exports.Footer = exports.SectionFull = exports.FooterMenus = exports.FooterLegal = exports.Campaigns = exports.ArticleFooter = exports.ArticleHeader = exports.Widget = exports.ViewAll = exports.Testimonial = exports.Sticker = exports.Hero = exports.CardVideo = exports.CardRelated = exports.CardProduct = exports.CardPerson = exports.CardNews = exports.CardHighlight = exports.CardCampaign = exports.Breadcrumb = exports.AsideTwitter = exports.AsideOverlay = exports.AsideList = exports.Aside = exports.ButtonViewAll = exports.ButtonPrimary = exports.ButtonOutline = exports.ButtonDonate = exports.Badge = exports.ButtonTest = exports.MoreLink = exports.NavIcon = exports.NavButton = exports.NavItem = exports.Masthead = exports.NavbarSub = exports.NavbarSecondary = exports.Navbar = exports.Quantity = exports.Label = exports.Tag = exports.Sidebar = exports.Progress = exports.Logo = exports.Image = exports.Icon = exports.HeadingLines = exports.Heading = exports.Copy = exports.Border = exports.Alert = undefined;
 
 var _Alert = require('./Base/Alert');
 
@@ -104,6 +104,15 @@ Object.defineProperty(exports, 'Tag', {
   }
 });
 
+var _Label = require('./Forms/Label');
+
+Object.defineProperty(exports, 'Label', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Label).default;
+  }
+});
+
 var _Quantity = require('./Forms/Quantity');
 
 Object.defineProperty(exports, 'Quantity', {
@@ -143,15 +152,6 @@ Object.defineProperty(exports, 'NavItem', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_NavItem).default;
-  }
-});
-
-var _NavBox = require('./Nav/NavItem/NavBox');
-
-Object.defineProperty(exports, 'NavBox', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_NavBox).default;
   }
 });
 

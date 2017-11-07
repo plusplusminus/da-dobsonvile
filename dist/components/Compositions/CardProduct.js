@@ -106,14 +106,11 @@ var CardProduct = function CardProduct(_ref) {
         },
         title
       ),
-      text && _react2.default.createElement(
-        _.Copy,
-        {
-          mb: !small ? "large" : "medium",
-          size: !small ? "medium" : "small"
-        },
-        text
-      ),
+      text && _react2.default.createElement(_.Copy, {
+        mb: !small ? "large" : "medium",
+        size: !small ? "medium" : "small",
+        html: text
+      }),
       children && children
     )
   );

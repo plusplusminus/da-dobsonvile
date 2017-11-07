@@ -106,37 +106,37 @@ var FooterMenus = function FooterMenus(props) {
           { className: (0, _aphrodite.css)(styles.menu) },
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Vision'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Policies'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Principles'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'History'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Our Constitution'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'DA Youth'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Blue, the Network'
           )
         )
@@ -154,12 +154,12 @@ var FooterMenus = function FooterMenus(props) {
           { className: (0, _aphrodite.css)(styles.menu) },
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'News'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Speeches'
           )
         )
@@ -177,27 +177,27 @@ var FooterMenus = function FooterMenus(props) {
           { className: (0, _aphrodite.css)(styles.menu) },
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Remove President Zuma'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Social Grants Crisis'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Education in the DA-led Western Cape'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'Vision 2029'
           ),
           _react2.default.createElement(
             _.NavItem,
-            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite },
+            { ml: _variables.spacing.space0, mr: _variables.spacing.space0, mb: _variables.spacing.space1, display: "block", fontWeight: _variables.fontWeight.light, color: _variables.colors.baseWhite, href: "#" },
             'A Rescue Mission for the Lost Generation'
           )
         )

@@ -116,6 +116,7 @@ var styles = {
 var Copy = function Copy(props) {
   var color = props.color,
       children = props.children,
+      html = props.html,
       mb = props.mb,
       override = props.override,
       size = props.size,
@@ -147,6 +148,13 @@ var Copy = function Copy(props) {
       return result;
     }, {})
   });
+
+  if (html) {
+    return _react2.default.createElement(Element, {
+      className: (0, _aphrodite.css)(temp.copy),
+      dangerouslySetInnerHTML: { __html: html }
+    });
+  }
 
   return _react2.default.createElement(
     Element,

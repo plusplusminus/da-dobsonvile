@@ -2,3 +2,7 @@ body{
   background: 'red';
   -webkit-font-smoothing: antialiased;
 }
+
+.navItem-link{
+  color: rgba(255, 255, 255, 0.5);
+}

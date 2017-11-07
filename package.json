@@ -18,7 +18,8 @@
   "scripts": {
     "build-storybook": "NODE_PATH=src build-storybook",
     "gh-pages": "npm run build-storybook -- -o _gh-pages && gh-pages -d _gh-pages && rm -rf _gh-pages",
-    "storybook": "NODE_PATH=src start-storybook -p 6006"
+    "storybook": "NODE_PATH=src start-storybook -p 6006",
+    "build-watch": "NODE_PATH=src/ babel src --out-dir ./dist --watch --source-maps --copy-files"
   },
   "peerDependencies": {
     "react": "^15.0.0"

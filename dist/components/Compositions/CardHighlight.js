@@ -35,25 +35,35 @@ var styles = {
     base: (_base = {
       display: 'inline-block',
       width: '100%'
-    }, _defineProperty(_base, "display", 'flex'), _defineProperty(_base, "borderRadius", _variables.spacing.space05), _defineProperty(_base, "overflow", 'hidden'), _defineProperty(_base, "marginBottom", _variables.spacing.space4), _base),
+    }, _defineProperty(_base, "display", 'flex'), _defineProperty(_base, "borderRadius", _variables.spacing.space05), _defineProperty(_base, "overflow", 'hidden'), _defineProperty(_base, "marginBottom", _variables.spacing.space4), _defineProperty(_base, "flexDirection", 'row'), _defineProperty(_base, '@media (max-width: 767px)', {
+      flexDirection: 'column'
+    }), _base),
     col: {
       flexDirection: 'column'
     },
     row: {
-      flexDirection: 'row'
+      flexDirection: 'row',
+      '@media (max-width: 767px)': {
+        flexDirection: 'column'
+      }
     }
   },
   wrapper: {
     base: {
-      padding: _variables.spacing.space9,
-      backgroundColor: _variables.colors.bgWhite
-
+      padding: _variables.spacing.space3,
+      backgroundColor: _variables.colors.bgWhite,
+      '@media (min-width: 768px)': {
+        padding: _variables.spacing.space9
+      }
     },
     col: {
       width: '100%'
     },
     row: {
-      width: '50%'
+      width: '50%',
+      '@media (max-width: 767px)': {
+        width: '100%'
+      }
     }
   },
   figure: {
@@ -63,7 +73,12 @@ var styles = {
       margin: 0
     },
     row: {
-      width: '50%'
+      width: '50%',
+      '@media (max-width: 767px)': {
+        width: '100%',
+        paddingBottom: '60%',
+        order: -1
+      }
     },
     col: {
       width: '100%',

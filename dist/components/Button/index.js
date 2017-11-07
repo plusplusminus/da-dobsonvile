@@ -16,6 +16,8 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _variables = require("../../common/styles/variables");
 
+var _helpers = require("../../utils/helpers");
+
 var _ = require("..");
 
 var _aphrodite = require("aphrodite");
@@ -55,6 +57,7 @@ var hoverStyles = {
 
 var styles = {
   base: {
+    position: 'relative',
     appearance: "none",
     backfaceVisibility: "hidden",
     borderWidth: "2px",
@@ -83,133 +86,247 @@ var styles = {
   },
   color: {
     blue: {
-      backgroundColor: _variables.colors.brandBlue,
-      color: _variables.colors.baseWhite,
-      borderColor: _variables.colors.brandBlue,
+      button: {
+        backgroundColor: _variables.colors.brandBlue,
+        color: _variables.colors.baseWhite,
+        borderColor: _variables.colors.brandBlue,
 
-      ":hover": hoverStyles.blue,
-      ":focus": hoverStyles.blue,
-      ":active": hoverStyles.blue
+        ":hover": hoverStyles.blue,
+        ":focus": hoverStyles.blue,
+        ":active": hoverStyles.blue
+      },
+      icon: {
+        backgroundColor: (0, _helpers.rgba)(_variables.colors.brandWhite, 0.3),
+        color: _variables.colors.baseWhite
+      }
     },
 
     white: {
-      backgroundColor: _variables.colors.baseWhite,
-      color: _variables.colors.brandBlue,
-      borderColor: _variables.colors.baseWhite,
+      button: {
+        backgroundColor: _variables.colors.baseWhite,
+        color: _variables.colors.brandBlue,
+        borderColor: _variables.colors.baseWhite,
 
-      ":hover": hoverStyles.blue,
-      ":focus": hoverStyles.blue,
-      ":active": hoverStyles.blue
+        ":hover": hoverStyles.blue,
+        ":focus": hoverStyles.blue,
+        ":active": hoverStyles.blue
+      },
+      icon: {
+        backgroundColor: (0, _helpers.rgba)(_variables.colors.brandBlue, 1),
+        color: _variables.colors.baseWhite
+      }
     },
 
     red: {
-      backgroundColor: _variables.colors.brandRed,
-      color: _variables.colors.baseWhite,
-      borderColor: _variables.colors.brandRed,
+      button: {
+        backgroundColor: _variables.colors.brandRed,
+        color: _variables.colors.baseWhite,
+        borderColor: _variables.colors.brandRed,
 
-      ":hover": hoverStyles.red,
-      ":focus": hoverStyles.red,
-      ":active": hoverStyles.red
+        ":hover": hoverStyles.red,
+        ":focus": hoverStyles.red,
+        ":active": hoverStyles.red
+      },
+      icon: {
+        backgroundColor: (0, _helpers.rgba)(_variables.colors.brandWhite, 0.3),
+        color: _variables.colors.baseWhite
+      }
     },
 
     green: {
-      backgroundColor: _variables.colors.brandGreen,
-      color: _variables.colors.baseWhite,
-      borderColor: _variables.colors.brandGreen,
+      button: {
+        backgroundColor: _variables.colors.brandGreen,
+        color: _variables.colors.baseWhite,
+        borderColor: _variables.colors.brandGreen,
 
-      ":hover": hoverStyles.green,
-      ":focus": hoverStyles.green,
-      ":active": hoverStyles.green
+        ":hover": hoverStyles.green,
+        ":focus": hoverStyles.green,
+        ":active": hoverStyles.green
+      },
+      icon: {
+        backgroundColor: (0, _helpers.rgba)(_variables.colors.brandWhite, 0.3),
+        color: _variables.colors.baseWhite
+      }
     },
 
     yellow: {
-      backgroundColor: _variables.colors.brandYellow,
-      color: _variables.colors.baseWhite,
-      borderColor: _variables.colors.brandYellow,
+      button: {
+        backgroundColor: _variables.colors.brandYellow,
+        color: _variables.colors.baseWhite,
+        borderColor: _variables.colors.brandYellow,
 
-      ":hover": hoverStyles.yellow,
-      ":focus": hoverStyles.yellow,
-      ":active": hoverStyles.yellow
+        ":hover": hoverStyles.yellow,
+        ":focus": hoverStyles.yellow,
+        ":active": hoverStyles.yellow
+      },
+      icon: {
+        backgroundColor: (0, _helpers.rgba)(_variables.colors.brandWhite, 0.3),
+        color: _variables.colors.baseWhite
+      }
+
     }
   },
 
   outline: {
     red: {
-      backgroundColor: _variables.colors.baseTransparent,
-      borderWidth: "2px",
-      borderStyle: "solid",
-      borderColor: _variables.colors.brandRed,
-      color: _variables.colors.brandRed,
+      button: {
+        backgroundColor: _variables.colors.baseTransparent,
+        borderWidth: "2px",
+        borderStyle: "solid",
+        borderColor: _variables.colors.brandRed,
+        color: _variables.colors.brandRed,
 
-      ":hover": hoverStyles.red,
-      ":focus": hoverStyles.red,
-      ":active": hoverStyles.red
+        ":hover": hoverStyles.red,
+        ":focus": hoverStyles.red,
+        ":active": hoverStyles.red
+      },
+      icon: {
+        backgroundColor: _variables.colors.brandRed,
+        color: _variables.colors.brandWhite
+      }
     },
 
     blue: {
-      backgroundColor: _variables.colors.baseTransparent,
-      borderWidth: "2px",
-      borderStyle: "solid",
-      borderColor: _variables.colors.brandBlue,
-      color: _variables.colors.brandBlue,
+      button: {
+        backgroundColor: _variables.colors.baseTransparent,
+        borderWidth: "2px",
+        borderStyle: "solid",
+        borderColor: _variables.colors.brandBlue,
+        color: _variables.colors.brandBlue,
 
-      ":hover": hoverStyles.blue,
-      ":focus": hoverStyles.blue,
-      ":active": hoverStyles.blue
+        ":hover": hoverStyles.blue,
+        ":focus": hoverStyles.blue,
+        ":active": hoverStyles.blue
+      },
+      icon: {
+        backgroundColor: _variables.colors.brandBlue,
+        color: _variables.colors.brandWhite
+      }
     },
 
     green: {
-      backgroundColor: _variables.colors.baseTransparent,
-      borderWidth: "2px",
-      borderStyle: "solid",
-      borderColor: _variables.colors.brandGreen,
-      color: _variables.colors.brandGreen,
+      button: {
+        backgroundColor: _variables.colors.baseTransparent,
+        borderWidth: "2px",
+        borderStyle: "solid",
+        borderColor: _variables.colors.brandGreen,
+        color: _variables.colors.brandGreen,
 
-      ":hover": hoverStyles.green,
-      ":focus": hoverStyles.green,
-      ":active": hoverStyles.green
+        ":hover": hoverStyles.green,
+        ":focus": hoverStyles.green,
+        ":active": hoverStyles.green
+      },
+      icon: {
+        backgroundColor: _variables.colors.brandGreen,
+        color: _variables.colors.brandWhite
+      }
+
     },
 
     yellow: {
-      backgroundColor: _variables.colors.baseTransparent,
-      borderWidth: "2px",
-      borderStyle: "solid",
-      borderColor: _variables.colors.brandYellow,
-      color: _variables.colors.brandYellow,
+      button: {
+        backgroundColor: _variables.colors.baseTransparent,
+        borderWidth: "2px",
+        borderStyle: "solid",
+        borderColor: _variables.colors.brandYellow,
+        color: _variables.colors.brandYellow,
 
-      ":hover": hoverStyles.yellow,
-      ":focus": hoverStyles.yellow,
-      ":active": hoverStyles.yellow
+        ":hover": hoverStyles.yellow,
+        ":focus": hoverStyles.yellow,
+        ":active": hoverStyles.yellow
+      },
+      icon: {
+        backgroundColor: _variables.colors.brandYellow,
+        color: _variables.colors.brandWhite
+      }
     },
 
     white: {
-      backgroundColor: _variables.colors.baseTransparent,
-      borderWidth: "2px",
-      borderStyle: "solid",
-      borderColor: _variables.colors.baseWhite,
-      color: _variables.colors.baseWhite,
+      button: {
+        backgroundColor: _variables.colors.baseTransparent,
+        borderWidth: "2px",
+        borderStyle: "solid",
+        borderColor: _variables.colors.baseWhite,
+        color: _variables.colors.baseWhite,
 
-      ":hover": hoverStyles.white,
-      ":focus": hoverStyles.white,
-      ":active": hoverStyles.white
+        ":hover": hoverStyles.white,
+        ":focus": hoverStyles.white,
+        ":active": hoverStyles.white
+      },
+      icon: {
+        backgroundColor: _variables.colors.baseWhite,
+        color: _variables.colors.brandBlue
+      }
+
     }
   },
 
   size: {
     small: {
-      fontSize: "11px",
-      paddingBottom: 15 / 11 + "em",
-      paddingTop: 15 / 11 + "em"
+      button: {
+        base: {
+          fontSize: "12px",
+          paddingBottom: '12px',
+          paddingTop: '12px',
+          paddingLeft: "30px",
+          paddingRight: "30px"
+        },
+        iconBefore: {
+          paddingLeft: "55px"
+        },
+        iconAfter: {
+          paddingRight: "55px"
+        }
+      },
+      icon: {
+        fontSize: "16px",
+        width: '32px',
+        padding: '8px'
+      }
     },
     medium: {
-      fontSize: "11px",
-      paddingBottom: "15px",
-      paddingTop: "15px"
+      button: {
+        base: {
+          fontSize: "12px",
+          paddingBottom: "15px",
+          paddingTop: "15px",
+          paddingLeft: "40px",
+          paddingRight: "40px"
+        },
+        iconBefore: {
+          paddingLeft: "60px"
+        },
+        iconAfter: {
+          paddingRight: "60px"
+        }
+      },
+      icon: {
+        fontSize: '18px',
+        width: '38px',
+        padding: '10px'
+      }
     },
     large: {
-      fontSize: "11px",
-      paddingBottom: 23 / 15 + "em",
-      paddingTop: 23 / 15 + "em"
+      button: {
+        base: {
+          fontSize: "12px",
+          paddingBottom: '20px',
+          paddingTop: '20px',
+          paddingLeft: "50px",
+          paddingRight: "50px"
+        },
+        iconBefore: {
+          paddingLeft: "80px"
+        },
+        iconAfter: {
+          paddingRight: "80px"
+        }
+      },
+      icon: {
+        fontSize: '20px',
+        width: '48px',
+        padding: '14px'
+      }
     }
   },
 
@@ -218,28 +335,57 @@ var styles = {
       base: {
         borderRadius: "30px"
       },
-
       small: {
-        paddingBottom: "12px",
-        paddingTop: "12px",
-        paddingLeft: "30px",
-        paddingRight: "30px"
+        button: {
+          base: {
+            paddingBottom: "12px",
+            paddingTop: "12px",
+            paddingLeft: "30px",
+            paddingRight: "30px"
+          },
+          iconBefore: {
+            paddingLeft: "55px"
+          },
+          iconAfter: {
+            paddingRight: "55px"
+          }
+        },
+        icon: {}
       },
-
       medium: {
-        paddingBottom: "15px",
-        paddingTop: "15px",
-        paddingLeft: "40px",
-        paddingRight: "40px"
+        button: {
+          base: {
+            paddingBottom: "15px",
+            paddingTop: "15px",
+            paddingLeft: "40px",
+            paddingRight: "40px"
+          },
+          iconBefore: {
+            paddingLeft: "60px"
+          },
+          iconAfter: {
+            paddingRight: "60px"
+          }
+        },
+        icon: {}
       },
-
       large: {
-        paddingBottom: "18px",
-        paddingTop: "18px",
-        paddingLeft: "50px",
-        paddingRight: "50px"
+        button: {
+          base: {
+            paddingBottom: "20px",
+            paddingTop: "20px",
+            paddingLeft: "50px",
+            paddingRight: "50px"
+          },
+          iconBefore: {
+            paddingLeft: "80px"
+          },
+          iconAfter: {
+            paddingRight: "80px"
+          }
+        },
+        icon: {}
       }
-
     },
     full: {
       justifyContent: 'center',
@@ -263,6 +409,21 @@ var styles = {
   disabled: {
     cursor: "not-allowed",
     opacity: 0.5
+  },
+  icon: {
+    base: {
+      position: 'absolute',
+      borderRadius: '0%',
+      margin: 0,
+      border: '0px solid #fff',
+      top: '2px'
+    }
+  },
+  iconBefore: {
+    left: '2px'
+  },
+  iconAfter: {
+    right: '2px'
   }
 };
 
@@ -287,33 +448,28 @@ var Button = function Button(props) {
 
   var role = Element === "a" ? "button" : null;
 
-  var style = [styles.base, color && styles.color[color], size && styles.size[size], rounded && styles.type.rounded.base, rounded && styles.type.rounded[size], outline && styles.outline[color], full && styles.type.full, center && styles.variant.center, customStyles, disabled && styles.disabled];
-
-  var temp = _aphrodite.StyleSheet.create({
-    button: style.reduce(function (result, item) {
-      if (item) {
-        return _extends({}, result, item);
-      }
-      return result;
-    }, {})
+  var baseStyles = _aphrodite.StyleSheet.create({
+    button: _extends({}, styles.base, color && styles.color[color].button, size && styles.size[size].button.base, iconBefore && size && styles.size[size].button.iconBefore, iconAfter && size && styles.size[size].button.iconAfter, rounded && styles.type.rounded.base, rounded && styles.type.rounded[size].button.base, iconBefore && rounded && styles.type.rounded[size].button.iconBefore, iconAfter && rounded && styles.type.rounded[size].button.iconAfter, outline && styles.outline[color].button, full && styles.type.full, center && styles.variant.center, customStyles && customStyles, disabled && styles.disabled),
+    iconBefore: _extends({}, styles.icon.base, iconBefore && styles.iconBefore, size && styles.size[size].icon, color && styles.color[color].icon, iconBefore && rounded && styles.type.rounded.base, iconBefore && outline && styles.outline[color].icon),
+    iconAfter: _extends({}, styles.icon.base, iconAfter && styles.iconAfter, size && styles.size[size].icon, color && styles.color[color].icon, iconAfter && rounded && styles.type.rounded.base, iconAfter && outline && styles.outline[color].icon)
   });
 
   return _react2.default.createElement(
     Element,
     {
-      className: (0, _aphrodite.css)(temp.button),
+      className: (0, _aphrodite.css)(baseStyles.button),
       href: href,
       onClick: onClick,
       role: role,
       disabled: disabled
     },
-    iconBefore && _react2.default.createElement(_.Icon, { name: iconBefore }),
+    iconBefore && _react2.default.createElement(_.Icon, { style: baseStyles.iconBefore, name: iconBefore }),
     children && _react2.default.createElement(
       "span",
       null,
       children
     ),
-    iconAfter && _react2.default.createElement(_.Icon, { name: iconAfter })
+    iconAfter && _react2.default.createElement(_.Icon, { style: baseStyles.iconAfter, name: iconAfter })
   );
 };
 
