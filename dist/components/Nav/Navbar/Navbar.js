@@ -23,7 +23,8 @@ var Navbar = function Navbar(props) {
   var content = props.content,
       weight = props.weight,
       color = props.color,
-      children = props.children;
+      children = props.children,
+      vertical = props.vertical;
 
 
   var styles = _aphrodite.StyleSheet.create({
@@ -36,12 +37,18 @@ var Navbar = function Navbar(props) {
       justifyContent: 'flex-end',
       alignItems: 'center'
     }, props.custom),
+    container: {
+      '@media (max-width: 1199px)': {
+        width: '100%'
+      }
+    },
     ul: {
       width: '100%',
       marginBottom: 0,
       paddingLeft: 0,
       display: 'flex',
-      alignItems: 'center'
+      alignItems: vertical ? 'flex-start' : 'center',
+      flexDirection: vertical ? 'column' : 'row'
     }
   });
 
@@ -50,7 +57,7 @@ var Navbar = function Navbar(props) {
     { className: (0, _aphrodite.css)(styles.navbar) },
     _react2.default.createElement(
       'div',
-      { className: 'container' },
+      { className: (0, _aphrodite.css)(styles.container) + ' container' },
       _react2.default.createElement(
         'ul',
         { className: (0, _aphrodite.css)(styles.ul) },
@@ -68,7 +75,7 @@ Navbar.defaultProps = {
 var NavbarSecondary = function NavbarSecondary(props) {
   var styles = {
     background: _variables.colors.bgBlueLight,
-    padding: _variables.spacing.space2
+    padding: props.padding
   };
 
   return _react2.default.createElement(
@@ -76,6 +83,11 @@ var NavbarSecondary = function NavbarSecondary(props) {
     styles,
     props.children
   );
+};
+
+Navbar.defaultProps = {
+  background: _variables.colors.bgBlue,
+  padding: _variables.spacing.space2
 };
 
 var NavbarSub = function NavbarSub(props) {

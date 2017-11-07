@@ -97,6 +97,7 @@ var colors = exports.colors = {
 
 var icons = exports.icons = {
   none: '',
+  bars: "bars",
   close: "close",
   angleUp: "angle-up",
   angleRight: "angle-right",
@@ -108,6 +109,7 @@ var icons = exports.icons = {
   newspaper: "newspaper",
   plus: "plus",
   minus: "minus",
+  truck: "truck",
   download: "download",
   print: "print",
   whatsapp: "whatsapp",
@@ -142,7 +144,8 @@ var spacing = exports.spacing = {
   space12: spacingFactor * 12 + "px", // 96
   space13: spacingFactor * 13 + "px", // 104
   space14: spacingFactor * 14 + "px", // 168
-  space15: spacingFactor * 15 + "px" };
+  space15: spacingFactor * 15 + "px" // 120
+};
 
 var media = exports.media = {
   min: {
