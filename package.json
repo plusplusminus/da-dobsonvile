@@ -1,7 +1,6 @@
 {
-  "name": "da-dobsonville",
+  "name": "@lucio-erasmus/da-dobsonville",
   "version": "0.1.0",
-  "private": true,
   "main": "dist/components/index.js",
   "dependencies": {
     "@storybook/addon-backgrounds": "^3.0.0",
@@ -53,5 +52,16 @@
     "standard-version": "^4.0.0",
     "storybook-addon-a11y": "^3.0.0",
     "storybook-addon-smart-knobs": "^3.2.10"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plusplusminus/da-dobsonvile.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plusplusminus/da-dobsonvile/issues"
+  },
+  "homepage": "https://github.com/plusplusminus/da-dobsonvile#readme"
 }
