@@ -205,6 +205,7 @@ Heading.propTypes = {
     4,
     5,
     6,
+    'text',
   ]).isRequired,
   /** Controls the letter spacing */
   tracking: PropTypes.oneOf([

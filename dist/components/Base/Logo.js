@@ -184,7 +184,7 @@ function Logo(props) {
       ),
       _react2.default.createElement(
         'g',
-        { id: 'group', stroke: 'none', 'stroke-width': '1', fill: 'none', 'fill-rule': 'evenodd' },
+        { id: 'group', stroke: 'none', strokeWidth: '1', fill: 'none', fillRule: 'evenodd' },
         _react2.default.createElement(
           'g',
           { id: 'text', fill: '#FFFFFF' },

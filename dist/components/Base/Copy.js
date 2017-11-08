@@ -182,9 +182,9 @@ Copy.defaultProps = {
 
 Copy.propTypes = {
   /** The copy color */
-  color: _propTypes2.default.oneOf(["base", "blue", "textBase", "textLight", "textLightO", "textWhite"]),
+  color: _propTypes2.default.oneOf(["base", "blue", "textBase", "light", "lightO", "white", "red"]),
   /** Text for the copy */
-  children: _propTypes2.default.node.isRequired,
+  children: _propTypes2.default.node,
   /** Margin bottom  */
   mb: _propTypes2.default.oneOf(["none", "tiny", "small", "medium", "large"]),
   /** Override styles */

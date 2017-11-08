@@ -1,4 +1,36 @@
 export const api = {
+  amounts:[
+    {
+      label:"R50",
+      type:"amount",
+      value:50,
+    },
+    {
+      label:"R100",
+      type:"percent",
+      value:100,
+    },
+    {
+      label:"R250",
+      type:"amount",
+      value:250,
+    },
+    {
+      label:"R500",
+      type:"amount",
+      value:500,
+    },
+    {
+      label:"R750",
+      type:"amount",
+      value:750,
+    },
+    {
+      label:"Other",
+      type:"other",
+      value:"other",
+    }
+  ],
   asideListPolicies:[
     {
       title:"Your Country",

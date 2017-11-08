@@ -171,15 +171,15 @@ CardHighlight.propTypes = {
   /** Title of Card */
   title: PropTypes.string.isRequired,
   /** Meta text of Card */
-  meta: PropTypes.string.isRequired,
+  meta: PropTypes.string,
   /** URL of Card */
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   /** ImageURL of Card */
   imageUrl: PropTypes.string,
   /** Paragraph content of Card */
   paragraph: PropTypes.string,
   /** Is image and text below each other? */
-  col: PropTypes.bool.isRequired,
+  col: PropTypes.bool,
 };
 
 export default CardHighlight;

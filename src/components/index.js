@@ -14,6 +14,8 @@ export { default as Tag } from './Base/Tag';
 
 
 // Forms
+export { default as Amount } from './Forms/Amount/Amount';
+export { default as AmountButton } from './Forms/Amount/AmountButton';
 export { default as Label } from './Forms/Label';
 export { default as Quantity } from './Forms/Quantity';
 

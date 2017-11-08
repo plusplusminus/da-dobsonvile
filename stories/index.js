@@ -15,6 +15,7 @@ import Spacing from './Spacing';
 
 import {
   Alert,
+  Amount,
   ArticleHeader,
   ArticleFooter,
   Aside,
@@ -170,7 +171,7 @@ storiesOf('Base', module)
 
     return(
       <Copy
-        color={select("color", ["base", "blue", "light", "light0", "white"], "base")}
+        color={select("color", ["base", "blue", "light", "light0", "white", "red"], "base")}
         mb={select("mb", ["none", "small", "medium", "large"], "medium")}
         override={object("override", {})}
         size={select("size", ["huge","large", "medium", "small", "tiny"], "medium")}
@@ -306,6 +307,22 @@ storiesOf('Base', module)
 
     )
   })
+
+storiesOf("Forms", module)
+  .add("Amount", () => (
+    <Amount
+      items={api.amounts}
+      label={"Choose amount"}
+    >
+      <div>
+        <Label>Other amount:</Label>
+        <div className="input-group">
+          <span className="input-group-addon" id="basic-addon1">R</span>
+          <input type="text" className="form-control" id="amount" value=""/>
+        </div>
+      </div>
+    </Amount>
+  ))
 
 storiesOf("Forms", module)
   .add("Label", () => (
@@ -806,11 +823,24 @@ storiesOf("Navs/NavItems", module)
             <Aside
               imageUrl={dobsonville}
               title={"Fermentum Sem Mollis Pharetra"}
-              paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue."}
+              paragraph={"Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. "}
               url={"/"}
               cta={"Donate Now"}
               vertical
-            />
+            >
+            <Amount
+              items={api.amounts}
+              label={"Choose amount"}
+            >
+              <div>
+                <Label>Other amount:</Label>
+                <div className="input-group">
+                  <span className="input-group-addon" id="basic-addon1">R</span>
+                  <input type="text" className="form-control" id="amount" value=""/>
+                </div>
+              </div>
+            </Amount>
+            </Aside>
           </Sidebar>
 
         </SectionFull>
