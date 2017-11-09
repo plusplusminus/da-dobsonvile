@@ -383,7 +383,13 @@ const styles = {
     center:{
       marginLeft: 'auto',
       marginRight: 'auto',
-    }
+    },
+    left:{
+      marginRight: 'auto',
+    },
+    right:{
+      marginLeft: 'auto',
+    },
   },
 
   disabled: {
@@ -409,7 +415,7 @@ const styles = {
 
 const Button = (props) => {
 
-  const { href, children, onClick, color, center, size, rounded, outline, full, disabled, customStyles, iconBefore, iconAfter, variant } = props;
+  const { href, children, onClick, color, center, left, right, size, rounded, outline, full, disabled, customStyles, iconBefore, iconAfter, variant } = props;
 
   const Element = href ? "a" : "button";
 
@@ -429,6 +435,8 @@ const Button = (props) => {
       ...(outline && styles.outline[color].button),
       ...(full && styles.type.full),
       ...(center && styles.variant.center),
+      ...(left && styles.variant.left),
+      ...(right && styles.variant.right),
       ...(customStyles && customStyles),
       ...(disabled && styles.disabled),
     },

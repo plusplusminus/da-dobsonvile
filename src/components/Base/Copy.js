@@ -183,12 +183,13 @@ Copy.propTypes = {
     "base",
     "blue",
     "textBase",
-    "textLight",
-    "textLightO",
-    "textWhite",
+    "light",
+    "lightO",
+    "white",
+    "red",
   ]),
   /** Text for the copy */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   /** Margin bottom  */
   mb: PropTypes.oneOf([
     "none",

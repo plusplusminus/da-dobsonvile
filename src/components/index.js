@@ -7,12 +7,15 @@ export { default as HeadingLines } from './Base/HeadingLines';
 export { default as Icon } from './Base/Icon';
 export { default as Image } from './Base/Image';
 export { default as Logo } from './Base/Logo';
+export { default as Loading } from './Base/Loading';
 export { default as Progress } from './Base/Progress';
 export { default as Sidebar } from './Base/Sidebar';
 export { default as Tag } from './Base/Tag';
 
 
 // Forms
+export { default as Amount } from './Forms/Amount/Amount';
+export { default as AmountButton } from './Forms/Amount/AmountButton';
 export { default as Label } from './Forms/Label';
 export { default as Quantity } from './Forms/Quantity';
 

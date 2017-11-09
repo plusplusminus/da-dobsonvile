@@ -141,7 +141,7 @@ function Logo(props) {
               <stop stopColor="#155FA2" offset="100%"></stop>
           </radialGradient>
         </defs>
-        <g id="group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="group" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g id="text" fill="#FFFFFF">
                 <path d="M29.7631579,0 C12.6578947,0 0,11.5783784 0,30.4783784 C0,48.1864865 14.5394737,62.8297297 32.5,62.6594595 C48.0657895,62.4891892 62.4342105,51.7621622 62.0921053,32.0108108 C61.9210526,17.027027 47.3815789,0 29.7631579,0 Z" id="Shape"></path>
                 { !division &&

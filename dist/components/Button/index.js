@@ -397,6 +397,12 @@ var styles = {
     center: {
       marginLeft: 'auto',
       marginRight: 'auto'
+    },
+    left: {
+      marginRight: 'auto'
+    },
+    right: {
+      marginLeft: 'auto'
     }
   },
 
@@ -427,6 +433,8 @@ var Button = function Button(props) {
       onClick = props.onClick,
       color = props.color,
       center = props.center,
+      left = props.left,
+      right = props.right,
       size = props.size,
       rounded = props.rounded,
       outline = props.outline,
@@ -443,7 +451,7 @@ var Button = function Button(props) {
   var role = Element === "a" ? "button" : null;
 
   var baseStyles = _aphrodite.StyleSheet.create({
-    button: _extends({}, styles.base, color && styles.color[color].button, size && styles.size[size].button.base, iconBefore && size && styles.size[size].button.iconBefore, iconAfter && size && styles.size[size].button.iconAfter, rounded && styles.type.rounded.base, rounded && styles.type.rounded[size].button.base, iconBefore && rounded && styles.type.rounded[size].button.iconBefore, iconAfter && rounded && styles.type.rounded[size].button.iconAfter, outline && styles.outline[color].button, full && styles.type.full, center && styles.variant.center, customStyles && customStyles, disabled && styles.disabled),
+    button: _extends({}, styles.base, color && styles.color[color].button, size && styles.size[size].button.base, iconBefore && size && styles.size[size].button.iconBefore, iconAfter && size && styles.size[size].button.iconAfter, rounded && styles.type.rounded.base, rounded && styles.type.rounded[size].button.base, iconBefore && rounded && styles.type.rounded[size].button.iconBefore, iconAfter && rounded && styles.type.rounded[size].button.iconAfter, outline && styles.outline[color].button, full && styles.type.full, center && styles.variant.center, left && styles.variant.left, right && styles.variant.right, customStyles && customStyles, disabled && styles.disabled),
     iconBefore: _extends({}, styles.icon.base, iconBefore && styles.iconBefore, size && styles.size[size].icon, color && styles.color[color].icon, iconBefore && rounded && styles.type.rounded.base, iconBefore && outline && styles.outline[color].icon),
     iconAfter: _extends({}, styles.icon.base, iconAfter && styles.iconAfter, size && styles.size[size].icon, color && styles.color[color].icon, iconAfter && rounded && styles.type.rounded.base, iconAfter && outline && styles.outline[color].icon)
   });

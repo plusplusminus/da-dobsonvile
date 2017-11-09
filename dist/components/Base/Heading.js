@@ -195,7 +195,7 @@ Heading.propTypes = {
   /** Text for the heading */
   children: _propTypes2.default.node.isRequired,
   /** Creates the heading HTML element */
-  level: _propTypes2.default.oneOf([1, 2, 3, 4, 5, 6]).isRequired,
+  level: _propTypes2.default.oneOf([1, 2, 3, 4, 5, 6, 'text']).isRequired,
   /** Controls the letter spacing */
   tracking: _propTypes2.default.oneOf(["none", "small", "base", "large", "huge"]),
   /** Margin bottom  */
