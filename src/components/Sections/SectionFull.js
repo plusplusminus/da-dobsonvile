@@ -99,7 +99,7 @@ const styles = {
 
 const sectionFull = (props) => {
 
-  const { bgColor, bgUrl, color, center, mb, mt, pb, pt, title, children, container } = props;
+  const { bgColor, bgUrl, color, center, mb, mt, pb, pt, title, children, container, rowClass } = props;
 
   const baseStyles = StyleSheet.create({
     base:{
@@ -128,7 +128,7 @@ const sectionFull = (props) => {
           { title && center &&
             <Heading color={color} mb={"small"} center>{title}</Heading>
           }
-          <div className="row">
+          <div className={rowClass}>
             { children }
           </div>
         </div>
@@ -149,6 +149,7 @@ sectionFull.defaultProps = {
   pb: 'none',
   title: null,
   container: true,
+  rowClass: 'row'
 }
 
 sectionFull.propTypes = {
@@ -162,6 +163,8 @@ sectionFull.propTypes = {
     "darkO",
     "white",
   ]),
+  /** URL for Background Image of Section */
+  rowClass: PropTypes.string,
   /** URL for Background Image of Section */
   bgUrl: PropTypes.string,
   /** Color of Heading in section. Can be used to pass to children */

@@ -281,6 +281,7 @@ storiesOf('Base', module)
         bgUrl={text("bgUrl","")}
         center={boolean("center",false)}
         container={boolean("container",true)}
+        rowClass={text("rowClass",'row')}
         color={select("color",["base","blue","red","white"], "base")}
         title={text("title","Latest Videos")}
         mt={select("mt",["small","medium","large","none"],"large")}

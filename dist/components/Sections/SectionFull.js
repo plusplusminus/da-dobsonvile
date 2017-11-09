@@ -125,7 +125,8 @@ var sectionFull = function sectionFull(props) {
       pt = props.pt,
       title = props.title,
       children = props.children,
-      container = props.container;
+      container = props.container,
+      rowClass = props.rowClass;
 
 
   var baseStyles = _aphrodite.StyleSheet.create({
@@ -158,7 +159,7 @@ var sectionFull = function sectionFull(props) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'row' },
+          { className: rowClass },
           children
         )
       )
@@ -177,12 +178,15 @@ sectionFull.defaultProps = {
   pt: 'none',
   pb: 'none',
   title: null,
-  container: true
+  container: true,
+  rowClass: 'row'
 };
 
 sectionFull.propTypes = {
   /** Background color of Section. Layered over the optional bgUrl image */
   bgColor: _propTypes2.default.oneOf(["blue", "blueLight", "light", "lightO", "dark", "darkO", "white"]),
+  /** URL for Background Image of Section */
+  rowClass: _propTypes2.default.string,
   /** URL for Background Image of Section */
   bgUrl: _propTypes2.default.string,
   /** Color of Heading in section. Can be used to pass to children */
