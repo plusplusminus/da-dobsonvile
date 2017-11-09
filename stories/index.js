@@ -125,19 +125,23 @@ storiesOf('Base', module)
   .add('Button', () => {
     const iconsArray = getStyleValue(icons);
     return(
-      <ButtonTest
-        full={ boolean('full', false) }
-        disabled={ boolean('disabled', false) }
-        rounded={ boolean('rounded', true) }
-        outline={ boolean('outline', false) }
-        center={ boolean('center', false) }
-        color={ select('color', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
-        size={ select('size', ['small', 'medium', 'large'], 'medium') }
-        href={text('href','')}
-        onClick={action('clicked')}
-        iconBefore={ select('iconBefore', iconsArray, '') }
-        iconAfter={ select('iconAfter', iconsArray, '') }
-      />
+      <div className="row ml-1 mr-1">
+          <ButtonTest
+            full={ boolean('full', false) }
+            disabled={ boolean('disabled', false) }
+            rounded={ boolean('rounded', true) }
+            outline={ boolean('outline', false) }
+            center={ boolean('center', false) }
+            left={ boolean('left', false) }
+            right={ boolean('right', false) }
+            color={ select('color', ['blue', 'green', 'yellow', 'red', 'white'], 'blue') }
+            size={ select('size', ['small', 'medium', 'large'], 'medium') }
+            href={text('href','')}
+            onClick={action('clicked')}
+            iconBefore={ select('iconBefore', iconsArray, '') }
+            iconAfter={ select('iconAfter', iconsArray, '') }
+          />
+      </div>
     )
   })
   .add('Button Custom Styles', () => {
@@ -178,9 +182,9 @@ storiesOf('Base', module)
         truncate={boolean("truncate", false)}
         uppercase={boolean("uppercase", false)}
         left={boolean("left", true)}
+        center={boolean("center", false)}
         right={boolean("right", false)}
         isParent={boolean("isParent", false)}
-        center={boolean("center", false)}
         justify={boolean("justify", false)}
         weight={select("weight", ["bold", "medium", "regular", "light"], "light")}
       >

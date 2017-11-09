@@ -6,12 +6,23 @@ import { StyleSheet, css } from 'aphrodite';
 
 class Amount extends Component {
   state = {
-    value: 50,
+    active: 0,
   }
   onSelection = (value) => {
-    this.setState({
-      value
-    })
+    let amount = value.value
+
+    if (value.type === 'other') {
+      amount = 0
+      return this.setState({
+        active: "other"
+      })
+    } else {
+      this.setState({ active: amount })
+    }
+
+    if (this.props.onPress) {
+      this.props.onPress(amount);
+    }
   }
 
   render() {
@@ -21,7 +32,7 @@ class Amount extends Component {
         marginBottom: spacing.space4,
       },
       group: {
-        marginBottom: this.state.value == "other" ? spacing.space1 : spacing.space0,
+        marginBottom: this.state.active == "other" ? spacing.space1 : spacing.space0,
         borderRadius: spacing.space05,
         overflow: 'hidden',
         boxShadow:'0 0 0 1px #ebebeb',
@@ -42,8 +53,8 @@ class Amount extends Component {
                     label={item.label}
                     value={item.value}
                     type={item.type}
-                    selected={this.state.value === item.value}
-                    onClick={() => this.onSelection(item.value)}
+                    selected={this.state.active === item.value}
+                    onClick={() => this.onSelection(item)}
                   />
                 </div>
               )
@@ -51,7 +62,7 @@ class Amount extends Component {
           </div>
         </div>
         {
-          this.state.value === "other" ?
+          this.state.active === "other" ?
             this.props.children
           : null
         }

@@ -39,11 +39,22 @@ var Amount = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Amount.__proto__ || Object.getPrototypeOf(Amount)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      value: 50
+      active: 0
     }, _this.onSelection = function (value) {
-      _this.setState({
-        value: value
-      });
+      var amount = value.value;
+
+      if (value.type === 'other') {
+        amount = 0;
+        return _this.setState({
+          active: "other"
+        });
+      } else {
+        _this.setState({ active: amount });
+      }
+
+      if (_this.props.onPress) {
+        _this.props.onPress(amount);
+      }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -57,7 +68,7 @@ var Amount = function (_Component) {
           marginBottom: _variables.spacing.space4
         },
         group: {
-          marginBottom: this.state.value == "other" ? _variables.spacing.space1 : _variables.spacing.space0,
+          marginBottom: this.state.active == "other" ? _variables.spacing.space1 : _variables.spacing.space0,
           borderRadius: _variables.spacing.space05,
           overflow: 'hidden',
           boxShadow: '0 0 0 1px #ebebeb'
@@ -86,16 +97,16 @@ var Amount = function (_Component) {
                   label: item.label,
                   value: item.value,
                   type: item.type,
-                  selected: _this2.state.value === item.value,
+                  selected: _this2.state.active === item.value,
                   onClick: function onClick() {
-                    return _this2.onSelection(item.value);
+                    return _this2.onSelection(item);
                   }
                 })
               );
             })
           )
         ),
-        this.state.value === "other" ? this.props.children : null
+        this.state.active === "other" ? this.props.children : null
       );
     }
   }]);

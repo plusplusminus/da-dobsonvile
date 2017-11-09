@@ -46,7 +46,7 @@ const styles = {
     borderColor: colors.borderBase,
     borderRadius: 0,
     cursor: "pointer",
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
     lineHeight: 1,
     paddingLeft: "30px",
@@ -251,14 +251,14 @@ const styles = {
           fontSize: "12px",
           paddingBottom: '12px',
           paddingTop: '12px',
-          paddingLeft: "30px",
-          paddingRight: "30px",
+          paddingLeft: "20px",
+          paddingRight: "20px",
         },
         iconBefore:{
-          paddingLeft: "55px"
+          paddingLeft: "45px"
         },
         iconAfter:{
-          paddingRight: "55px"
+          paddingRight: "45px"
         },
       },
       icon:{
@@ -323,14 +323,14 @@ const styles = {
           base:{
             paddingBottom: "12px",
             paddingTop: "12px",
-            paddingLeft: "30px",
-            paddingRight: "30px",
+            paddingLeft: "20px",
+            paddingRight: "20px",
           },
           iconBefore:{
-            paddingLeft: "55px",
+            paddingLeft: "45px",
           },
           iconAfter:{
-            paddingRight: "55px",
+            paddingRight: "45px",
           },
         },
         icon:{
@@ -499,8 +499,12 @@ Button.propTypes = {
   href: PropTypes.string,
   /** Content for the button */
   children: PropTypes.node.isRequired,
-  /** Should button be aligned center */
+  /** Should button be aligned center - needs a flex wrapper*/
   center: PropTypes.bool,
+  /** Should button be aligned left - needs a flex wrapper*/
+  left: PropTypes.bool,
+  /** Should button be aligned right - needs a flex wrapper */
+  right: PropTypes.bool,
   /** Function to run when the button is clicked */
   onClick: PropTypes.func,
   /** Color of the button */
