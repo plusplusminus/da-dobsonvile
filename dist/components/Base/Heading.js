@@ -101,6 +101,9 @@ var styles = {
       textOverflow: "ellipsis",
       whiteSpace: "nowrap"
     },
+    noWrap: {
+      whiteSpace: "nowrap"
+    },
     left: {
       textAlign: "left"
     },
@@ -144,6 +147,7 @@ var Heading = function Heading(props) {
       override = props.override,
       size = props.size,
       truncate = props.truncate,
+      noWrap = props.noWrap,
       uppercase = props.uppercase,
       left = props.left,
       right = props.right,
@@ -153,7 +157,7 @@ var Heading = function Heading(props) {
 
   var Component = level !== 'text' ? "h" + level : level;
 
-  var style = [styles.base, size && styles.size[size], mb && styles.mb[mb], weight && styles.weight[weight], color && styles.color[color], tracking && styles.tracking[tracking], truncate && styles.variant.truncate, uppercase && styles.variant.uppercase, left && styles.variant.left, right && styles.variant.right, center && styles.variant.center, inline && styles.variant.inline, override && override];
+  var style = [styles.base, size && styles.size[size], mb && styles.mb[mb], weight && styles.weight[weight], color && styles.color[color], tracking && styles.tracking[tracking], truncate && styles.variant.truncate, noWrap && styles.variant.noWrap, uppercase && styles.variant.uppercase, left && styles.variant.left, right && styles.variant.right, center && styles.variant.center, inline && styles.variant.inline, override && override];
 
   var temp = _aphrodite.StyleSheet.create({
     heading: style.reduce(function (result, item) {
@@ -181,6 +185,7 @@ Heading.defaultProps = {
   override: {},
   size: "medium",
   truncate: false,
+  noWrap: false,
   uppercase: false,
   left: true,
   right: false,
@@ -206,6 +211,8 @@ Heading.propTypes = {
   size: _propTypes2.default.oneOf(["huge", "large", "medium", "small", "tiny"]).isRequired,
   /** Whether or not to hide the text overflow with an ellipsis */
   truncate: _propTypes2.default.bool,
+  /** Whether or not to prevent the text from wrapping */
+  noWrap: _propTypes2.default.bool,
   /** Whether or not to set the heading in all caps */
   uppercase: _propTypes2.default.bool,
   /** Whether or not to align left */

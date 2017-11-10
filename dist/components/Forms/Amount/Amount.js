@@ -27,20 +27,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Amount = function (_Component) {
   _inherits(Amount, _Component);
 
-  function Amount() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
+  function Amount(props) {
     _classCallCheck(this, Amount);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = _possibleConstructorReturn(this, (Amount.__proto__ || Object.getPrototypeOf(Amount)).call(this, props));
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Amount.__proto__ || Object.getPrototypeOf(Amount)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this.state = {
       active: 0
-    }, _this.onSelection = function (value) {
+    };
+
+    _this.onSelection = function (value) {
       var amount = value.value;
 
       if (value.type === 'other') {
@@ -55,7 +51,12 @@ var Amount = function (_Component) {
       if (_this.props.onPress) {
         _this.props.onPress(amount);
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    };
+
+    _this.state = {
+      active: _this.props.amount
+    };
+    return _this;
   }
 
   _createClass(Amount, [{
@@ -95,7 +96,7 @@ var Amount = function (_Component) {
                 { className: "col", key: index },
                 _react2.default.createElement(_.AmountButton, {
                   label: item.label,
-                  value: item.value,
+                  value: item.value || "0",
                   type: item.type,
                   selected: _this2.state.active === item.value,
                   onClick: function onClick() {
@@ -118,7 +119,8 @@ var Amount = function (_Component) {
 
 Amount.defaultProps = {
   items: [],
-  label: null
+  label: null,
+  amount: 0
 };
 
 exports.default = Amount;

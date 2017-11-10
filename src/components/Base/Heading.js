@@ -93,6 +93,9 @@ const styles = {
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
     },
+    noWrap: {
+      whiteSpace: "nowrap",
+    },
     left: {
       textAlign: "left",
     },
@@ -128,7 +131,7 @@ const styles = {
 
 const Heading = (props) => {
 
-  const { color, children, inline, level, tracking, mb, override, size, truncate, uppercase, left, right, center, weight } = props;
+  const { color, children, inline, level, tracking, mb, override, size, truncate, noWrap, uppercase, left, right, center, weight } = props;
 
   const Component = level !== 'text' ? `h${level}` : level;
 
@@ -140,6 +143,7 @@ const Heading = (props) => {
     color && styles.color[color],
     tracking && styles.tracking[tracking],
     truncate && styles.variant.truncate,
+    noWrap && styles.variant.noWrap,
     uppercase && styles.variant.uppercase,
     left && styles.variant.left,
     right && styles.variant.right,
@@ -177,6 +181,7 @@ Heading.defaultProps = {
   override: {},
   size: "medium",
   truncate: false,
+  noWrap: false,
   uppercase: false,
   left: true,
   right: false,
@@ -241,6 +246,8 @@ Heading.propTypes = {
   ]).isRequired,
   /** Whether or not to hide the text overflow with an ellipsis */
   truncate: PropTypes.bool,
+  /** Whether or not to prevent the text from wrapping */
+  noWrap: PropTypes.bool,
   /** Whether or not to set the heading in all caps */
   uppercase: PropTypes.bool,
   /** Whether or not to align left */

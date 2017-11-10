@@ -5,6 +5,12 @@ import { StyleSheet, css } from 'aphrodite';
 
 
 class Amount extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: this.props.amount
+    }
+  }
   state = {
     active: 0,
   }
@@ -51,7 +57,7 @@ class Amount extends Component {
                 <div className="col" key={index}>
                   <AmountButton
                     label={item.label}
-                    value={item.value}
+                    value={item.value || "0"}
                     type={item.type}
                     selected={this.state.active === item.value}
                     onClick={() => this.onSelection(item)}
@@ -74,6 +80,7 @@ class Amount extends Component {
 Amount.defaultProps = {
   items: [],
   label: null,
+  amount: 0
 }
 
 export default Amount;

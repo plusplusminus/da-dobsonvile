@@ -31,12 +31,26 @@ var FooterLegal = function FooterLegal(props) {
     },
     legal: _extends({
       fontWeight: _variables.fontWeight.light
-    }, (0, _variables.fontStyles)('11px', '30px')),
+    }, (0, _variables.fontStyles)('11px', '30px'), {
+      display: 'inline-block',
+      textAlign: 'center',
+      width: '100%',
+      '@media (min-width: 992px)': {
+        textAlign: 'left'
+      }
+    }),
     attribution: _extends({
       textAlign: 'right',
       display: 'block',
       fontWeight: _variables.fontWeight.light
-    }, (0, _variables.fontStyles)('11px', '30px'))
+    }, (0, _variables.fontStyles)('11px', '30px'), {
+      display: 'inline-block',
+      textAlign: 'center',
+      width: '100%',
+      '@media (min-width: 992px)': {
+        textAlign: 'right'
+      }
+    })
   });
 
   return _react2.default.createElement(

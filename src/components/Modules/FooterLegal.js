@@ -15,12 +15,24 @@ const FooterLegal = (props) => {
     legal:{
       fontWeight: fontWeight.light,
       ...fontStyles('11px','30px'),
+      display: 'inline-block',
+      textAlign: 'center',
+      width: '100%',
+      '@media (min-width: 992px)': {
+        textAlign: 'left',
+      }
     },
     attribution:{
       textAlign: 'right',
       display: 'block',
       fontWeight: fontWeight.light,
       ...fontStyles('11px','30px'),
+      display: 'inline-block',
+      textAlign: 'center',
+      width: '100%',
+      '@media (min-width: 992px)': {
+        textAlign: 'right',
+      }
     }
   });
 
