@@ -40,10 +40,10 @@ const FooterLegal = (props) => {
     <div className={css(styles.footerLegal)}>
       <div className="row">
         <div className="col-lg">
-          <small className={css(styles.legal)}>© 2017 Democratic Alliance  |  All Rights Reserved  |  Sitemap Disclaimer</small>
+          <small className={css(styles.legal)}>© 2017 Democratic Alliance  |  All Rights Reserved</small>
         </div>
         <div className="col-lg">
-          <small className={css(styles.attribution)}>Created by the friendly people at PlusPlusMinus</small>
+          <small className={css(styles.attribution)}>Created by the friendly people at <a href="http://www.plusplusminus.co.za/?utm_source=DAShop&utm_medium=Footer&utm_campaign=Credit" style={{color: '#fff'}}>PlusPlusMinus</a></small>
         </div>
       </div>
     </div>

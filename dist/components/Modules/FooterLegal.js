@@ -65,7 +65,7 @@ var FooterLegal = function FooterLegal(props) {
         _react2.default.createElement(
           'small',
           { className: (0, _aphrodite.css)(styles.legal) },
-          '\xA9 2017 Democratic Alliance  |  All Rights Reserved  |  Sitemap Disclaimer'
+          '\xA9 2017 Democratic Alliance  |  All Rights Reserved'
         )
       ),
       _react2.default.createElement(
@@ -74,7 +74,12 @@ var FooterLegal = function FooterLegal(props) {
         _react2.default.createElement(
           'small',
           { className: (0, _aphrodite.css)(styles.attribution) },
-          'Created by the friendly people at PlusPlusMinus'
+          'Created by the friendly people at ',
+          _react2.default.createElement(
+            'a',
+            { href: 'http://www.plusplusminus.co.za/?utm_source=DAShop&utm_medium=Footer&utm_campaign=Credit', style: { color: '#fff' } },
+            'PlusPlusMinus'
+          )
         )
       )
     )
