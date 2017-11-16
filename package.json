@@ -1,6 +1,6 @@
 {
   "name": "@lucio-erasmus/da-dobsonville",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/components/index.js",
   "dependencies": {
     "@storybook/addon-backgrounds": "^3.0.0",
