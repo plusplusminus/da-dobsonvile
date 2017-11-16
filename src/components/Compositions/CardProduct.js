@@ -15,7 +15,8 @@ const styles = {
     borderRadius: spacing.space1,
     overflow: 'hidden',
     flexDirection: 'column',
-    marginBottom: spacing.space5,
+    // marginBottom: spacing.space5,
+    height: '100%',
   },
   wrapper: {
     padding: spacing.space4,

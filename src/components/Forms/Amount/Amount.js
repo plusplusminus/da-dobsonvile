@@ -46,6 +46,7 @@ class Amount extends Component {
     });
 
     return(
+
       <div className={css(styles.wrapper)}>
         { this.props.label &&
           <Label>{this.props.label}</Label>
@@ -68,9 +69,9 @@ class Amount extends Component {
           </div>
         </div>
         {
-          this.state.active === "other" ?
-            this.props.children
-          : null
+          this.state.active === "other"
+           ? this.props.children
+           : null
         }
       </div>
     )

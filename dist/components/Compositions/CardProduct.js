@@ -37,7 +37,8 @@ var styles = {
     borderRadius: _variables.spacing.space1,
     overflow: 'hidden',
     flexDirection: 'column',
-    marginBottom: _variables.spacing.space5
+    // marginBottom: spacing.space5,
+    height: '100%'
   },
   wrapper: {
     padding: _variables.spacing.space4,
