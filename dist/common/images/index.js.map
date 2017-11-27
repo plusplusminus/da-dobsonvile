@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../../src/common/images/index.js"],"names":["dobsonville"],"mappings":";;;;;;;;;;;;;QACOA,W,0BADP","file":"index.js","sourcesContent":["// Base\nexport dobsonville from './dobsonville.jpg';\n"]}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"index.js","sourcesContent":[]}

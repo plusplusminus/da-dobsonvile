@@ -8,27 +8,17 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _aphrodite = require('aphrodite');
-
 var _ = require('..');
 
 var _variables = require('../../common/styles/variables');
-
-var _images = require('../../common/images');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Campaigns = function Campaigns(props) {
 
-  var styles = _aphrodite.StyleSheet.create({
-    campaigns: {
-      display: 'block'
-    }
-  });
-
   return _react2.default.createElement(
     'section',
-    { className: (0, _aphrodite.css)(styles.campaigns) },
+    { className: css(styles.campaigns) },
     _react2.default.createElement(
       _.HeadingLines,
       { lineLeft: true, color: "red", mb: "large" },
@@ -45,7 +35,6 @@ var Campaigns = function Campaigns(props) {
       )
     ),
     _react2.default.createElement(_.CardCampaign, {
-      imageUrl: _images.dobsonville,
       meta: 'Western Cape',
       title: 'Firing Zuma is the first step towards building a better tomorrow',
       paragraph: 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.',
@@ -53,7 +42,6 @@ var Campaigns = function Campaigns(props) {
       url: "/"
     }),
     _react2.default.createElement(_.CardCampaign, {
-      imageUrl: _images.dobsonville,
       meta: 'Western Cape',
       title: 'Firing Zuma is the first step towards building a better tomorrow',
       paragraph: 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.',
@@ -61,7 +49,6 @@ var Campaigns = function Campaigns(props) {
       url: "/"
     }),
     _react2.default.createElement(_.CardCampaign, {
-      imageUrl: _images.dobsonville,
       meta: 'Western Cape',
       title: 'Firing Zuma is the first step towards building a better tomorrow',
       paragraph: 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.',

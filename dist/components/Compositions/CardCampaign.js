@@ -156,5 +156,21 @@ CardCampaign.defaultProps = {
   cta: null
 };
 
-exports.default = CardCampaign;
+var CardCampaign2 = function CardCampaign2() {
+  var baseStyles = _aphrodite.StyleSheet.create({
+    container: _extends({}, styles.container),
+    header: _extends({}, styles.header.base),
+    paragraph: _extends({}, styles.paragraph.base),
+    figure: _extends({}, styles.figure.base),
+    moreLink: _extends({}, styles.moreLink)
+  });
+
+  return _react2.default.createElement(
+    "p",
+    { className: (0, _aphrodite.css)(baseStyles.container) },
+    "dsads"
+  );
+};
+
+exports.default = CardCampaign2;
 //# sourceMappingURL=CardCampaign.js.map

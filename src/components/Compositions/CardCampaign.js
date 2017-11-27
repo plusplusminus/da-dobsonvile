@@ -127,4 +127,26 @@ CardCampaign.defaultProps = {
   cta: null,
 };
 
-export default CardCampaign;
+const CardCampaign2 = () => {
+  const baseStyles = StyleSheet.create({
+    container: {
+      ...styles.container,
+    },
+    header: {
+      ...styles.header.base,
+    },
+    paragraph: {
+      ...styles.paragraph.base,
+    },
+    figure: {
+      ...styles.figure.base,
+    },
+    moreLink: {
+      ...styles.moreLink,
+    },
+  });
+
+  return (<p className={css(baseStyles.container)}>dsads</p>);
+}
+
+export default CardCampaign2;
