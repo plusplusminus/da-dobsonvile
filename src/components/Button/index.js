@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { colors, timing, fonts, fontWeight, letterSpacing } from "common/styles/variables";
+import { colors, fontStyles, timing, fonts, fontWeight, letterSpacing } from "common/styles/variables";
 import {rgba} from '../../utils/helpers';
 import { Icon } from "components";
 import { StyleSheet, css } from "aphrodite";
@@ -253,6 +253,9 @@ const styles = {
           paddingTop: '12px',
           paddingLeft: "20px",
           paddingRight: "20px",
+          '@media (max-width: 576px)': {
+            ...fontStyles(`${12 * 0.80}px`),
+          }
         },
         iconBefore:{
           paddingLeft: "45px"
@@ -265,6 +268,10 @@ const styles = {
         fontSize: "16px",
         width: '32px',
         padding: '8px',
+        '@media (max-width: 576px)': {
+          width: '28px',
+          ...fontStyles(`${16 * 0.80}px`),
+        }
       },
     },
     medium: {
@@ -275,6 +282,9 @@ const styles = {
           paddingTop: "15px",
           paddingLeft: "40px",
           paddingRight: "40px",
+          '@media (max-width: 576px)': {
+            ...fontStyles(`${12 * 0.80}px`),
+          }
         },
         iconBefore:{
           paddingLeft: "60px"
@@ -287,6 +297,10 @@ const styles = {
         fontSize: '18px',
         width: '38px',
         padding: '10px',
+        '@media (max-width: 576px)': {
+          width: '34px',
+          ...fontStyles(`${18 * 0.80}px`),
+        }
       }
     },
     large: {
@@ -297,6 +311,9 @@ const styles = {
           paddingTop: '20px',
           paddingLeft: "50px",
           paddingRight: "50px",
+          '@media (max-width: 576px)': {
+            ...fontStyles(`${12 * 0.80}px`),
+          }
         },
         iconBefore:{
           paddingLeft: "80px"
@@ -309,6 +326,10 @@ const styles = {
         fontSize: '20px',
         width: '48px',
         padding: '14px',
+        '@media (max-width: 576px)': {
+          width: '44px',
+          ...fontStyles(`${20 * 0.80}px`),
+        }
       }
     },
   },

@@ -15,7 +15,11 @@ const ViewAll = (props) => {
       marginTop: spacing.space7,
       borderTop: '1px solid',
       borderColor: props.borderColor,
-      display: 'inline-block',
+      display: 'flex',
+      '@media (max-width: 576px)' : {
+        paddingTop: spacing.space3,
+        marginTop: spacing.space4,
+      }
     },
   });
 

@@ -65,7 +65,7 @@ export { default as CardProduct } from './Compositions/CardProduct';
 export { default as CardRelated } from './Compositions/CardRelated';
 export { default as CardVideo } from './Compositions/CardVideo';
 export { default as Hero } from './Compositions/Hero';
-//export { default as List }, { ListItem, ListChild, ListAction } from './Compositions/List';
+export { default as List } from './Compositions/List';
 //export { default as Masthead } from './Compositions/Masthead';
 export { default as Sticker } from './Compositions/Sticker';
 export { default as Testimonial } from './Compositions/Testimonial';

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
-import { colors, fonts, fontWeight, letterSpacing, timing } from "common/styles/variables";
+import { colors, fonts, fontStyles, fontWeight, letterSpacing, timing } from "common/styles/variables";
 import { Icon } from "components"
 
 const hoverStyles = {
@@ -119,12 +119,21 @@ const styles = {
     size: {
       small: {
         fontSize: "11px",
+        '@media (max-width: 576px)': {
+          ...fontStyles(`${11 * 0.80}px`),
+        }
       },
       medium: {
         fontSize: "13px",
+        '@media (max-width: 576px)': {
+          ...fontStyles(`${13 * 0.80}px`),
+        }
       },
       large: {
         fontSize: "14px",
+        '@media (max-width: 576px)': {
+          ...fontStyles(`${14 * 0.80}px`),
+        }
       },
     },
   },

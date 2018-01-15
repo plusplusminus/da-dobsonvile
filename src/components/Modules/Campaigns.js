@@ -7,7 +7,7 @@ const Campaigns = (props) => {
 
 
   return (
-    <section className={css(styles.campaigns)}>
+    <section>
 
       <HeadingLines lineLeft color={"red"} mb={"large"}>
         <Heading

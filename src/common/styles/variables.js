@@ -2,9 +2,11 @@ export const fonts = {
   serif: "mrs-eaves-xl-serif, Georgia, 'Times New Roman', Times, serif",
   sans: "Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif",
 };
+
 export const timing = {
   base: ".1s",
 };
+
 export const fontWeight = {
   bold: "600",
   medium: "500",
@@ -45,7 +47,6 @@ export const colors = {
   brandWhite: "#FFFFFF",
 
   borderBase: "#E8E8E8",
-  borderDark: "#EEEEEE",
   borderLight: "rgba(51,51,51,0.1)",
   borderWhite: "#FFFFFF",
   borderWhiteO: "rgba(255,255,255,0.15)",
@@ -138,7 +139,6 @@ export const spacing = {
   space15: `${spacingFactor * 15}px`,    // 120
 };
 
-
 export const media = {
   min: {
     1430: "1430px",
@@ -156,7 +156,7 @@ export const media = {
     560: "560px",
     480: "480px",
     360: "360px",
-    320: "320pxm",
+    320: "320px",
   },
   max: {
     1530: "1530px",

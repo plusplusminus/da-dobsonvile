@@ -20,6 +20,9 @@ const NavIcon = (props) => {
       color: props.color,
       transition: `all ${timing.base} ease-in-out`,
       ...fontStyles('14px'),
+      '@media (max-width: 576px)': {
+        ...fontStyles(`${14 * 0.80}px`, `${14 * 1.25}px`),
+      },
       ':hover': {
         opacity: opacity.hover,
       }
