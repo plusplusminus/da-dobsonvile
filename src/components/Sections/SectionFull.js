@@ -97,7 +97,7 @@ const styles = {
   },
 }
 
-const sectionFull = (props) => {
+const FullSection = (props) => {
 
   const { bgColor, bgUrl, color, center, mb, mt, pb, pt, title, children, container, rowClass } = props;
 
@@ -137,7 +137,7 @@ const sectionFull = (props) => {
   )
 }
 
-sectionFull.defaultProps = {
+FullSection.defaultProps = {
   bgColor: 'white',
   bgUrl: null,
   color: 'base',
@@ -152,7 +152,7 @@ sectionFull.defaultProps = {
   rowClass: 'row'
 }
 
-sectionFull.propTypes = {
+FullSection.propTypes = {
   /** Background color of Section. Layered over the optional bgUrl image */
   bgColor: PropTypes.oneOf([
     "blue",
@@ -213,4 +213,4 @@ sectionFull.propTypes = {
 
 }
 
-export default sectionFull;
+export default FullSection;
