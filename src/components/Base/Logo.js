@@ -5,7 +5,7 @@ import { Heading } from 'components';
 
 function Logo(props) {
 
-  const { title, size, division, children } = props;
+  const { title, size, division } = props;
 
   const styles = StyleSheet.create({
     logo: {
@@ -199,14 +199,13 @@ function Logo(props) {
 Logo.defaultProps = {
   title: 'Democratic Alliance Logo',
   size: '130px',
-  provincial: false,
-  children: null,
+  division: null,
 }
 
 Logo.propTypes = {
   /*Title of the logo*/
   title: PropTypes.string,
-  /*Children of the logo*/
+  /*Child Title of the logo*/
   division: PropTypes.string,
   /*Pixel value of logo width*/
   size: PropTypes.string.isRequired,

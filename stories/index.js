@@ -161,7 +161,7 @@ storiesOf('Base', module)
 
   .add('Border', () =>  (
     <Border
-      color={select("color", ["base", "dark", "light", "white", "whiteO"], "dark")}
+      color={select("color", ["base", "light", "white", "whiteO"], "base")}
       mt={select("mt", ["none", "small", "medium", "large"], "medium")}
       mb={select("mb", ["none", "small", "medium", "large"], "medium")}
     />
@@ -321,7 +321,7 @@ storiesOf("Forms", module)
       label={"Choose amount"}
     >
       <div>
-        <Label>Other amount:</Label>
+        <Label>Other amount</Label>
         <div className="input-group">
           <span className="input-group-addon" id="basic-addon1">R</span>
           <input type="text" className="form-control" id="amount" value=""/>
@@ -795,6 +795,7 @@ storiesOf("Navs/NavItems", module)
             <Copy mb={"large"} center>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</Copy>
             <Copy isParent>
               <form>
+
                 <div className="row">
                   <div className="col-md-4 offset-md-2">
                     <div className="form-group">
@@ -802,6 +803,7 @@ storiesOf("Navs/NavItems", module)
                       <input type="text" className="form-control" id="name" placeholder=""></input>
                     </div>
                   </div>
+
                   <div className="col-md-4">
                     <div className="form-group">
                       <Label>Your Email Address</Label>
@@ -809,10 +811,12 @@ storiesOf("Navs/NavItems", module)
                     </div>
                   </div>
                 </div>
-                <ButtonTest center>Subscribe</ButtonTest>
+
+                <div className="row">
+                  <ButtonTest center>Subscribe</ButtonTest>
+                </div>
               </form>
             </Copy>
-
           </div>
         </SectionFull>
 
@@ -820,11 +824,11 @@ storiesOf("Navs/NavItems", module)
           pt={"none"}
           pb={"none"}
         >
-          <div className={"col-md-7"}>
+          <div className={"col-lg-7"}>
             <Campaigns />
           </div>
 
-          <Sidebar col={"col-md-4 offset-md-1"} pl="none">
+          <Sidebar col={"col-lg-4 offset-lg-1"} pl="none">
             <AsideOverlay imageUrl={dobsonville} />
             <Aside
               imageUrl={dobsonville}
@@ -836,10 +840,10 @@ storiesOf("Navs/NavItems", module)
             >
             <Amount
               items={api.amounts}
-              label={"Choose amount"}
+              label={"Choose amount:"}
             >
               <div>
-                <Label>Other amount:</Label>
+                <Label>Other amount</Label>
                 <div className="input-group">
                   <span className="input-group-addon" id="basic-addon1">R</span>
                   <input type="text" className="form-control" id="amount" value=""/>
@@ -1014,10 +1018,8 @@ storiesOf("Navs/NavItems", module)
         <SectionFull
           mt={"medium"}
         >
-          <div className={"col-md-8"}>
-            <Breadcrumb mb={"large"}>
-              {"Home"}
-            </Breadcrumb>
+          <div className={"col-xl-8"}>
+            <Breadcrumb mb={"large"}>{"Home"}</Breadcrumb>
             <ArticleHeader
               subHeading={text('meta', 'Western Cape')}
               title={text('title', 'Maecenas sed diam eget risus varius blandit sit amet non magna.')}
@@ -1034,12 +1036,12 @@ storiesOf("Navs/NavItems", module)
             <ArticleFooter/>
           </div>
 
-          <Sidebar col={"col-md-4"} pl="medium">
+          <Sidebar col={"col-xl-4"} pl="medium">
 
             <List
               title={"Categories"}
-              items={api.asideListCats}>
-            </List>
+              items={api.asideListCats}
+            />
 
             <AsideList
               title={"Related News"}
@@ -1111,7 +1113,7 @@ storiesOf("Navs/NavItems", module)
         <SectionFull
           mt={"none"}
         >
-          <div className={"col-md-8"}>
+          <div className={"col-xl-8"}>
 
             <Copy
               size={"large"}
@@ -1158,7 +1160,7 @@ storiesOf("Navs/NavItems", module)
 
           </div>
 
-          <div className={"col-md-3 offset-md-1"}>
+          <div className={"col-xl-3 offset-xl-1"}>
             <List
               title={"Metros where we govern"}
               items={api.asideListMetros}
@@ -1410,7 +1412,7 @@ storiesOf("Navs/NavItems", module)
 
         <SectionFull mt={"medium"}>
 
-          <div className={"col-md-8"}>
+          <div className={"col-xl-8"}>
             <Breadcrumb mb={"small"}>
               {"Why the DA"}
             </Breadcrumb>
@@ -1470,7 +1472,7 @@ storiesOf("Navs/NavItems", module)
 
           </div>
 
-          <Sidebar col={"col-md-4"} pl="medium">
+          <Sidebar col={"col-xl-4"} pl="medium">
             <AsideOverlay
               imageUrl={dobsonville}
               title={"2019 Manifesto"}

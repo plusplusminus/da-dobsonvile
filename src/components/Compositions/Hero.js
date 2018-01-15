@@ -18,6 +18,9 @@ const styles = {
       },
       large:{
         marginBottom: spacing.space13,
+        '@media (max-width: 576px)' : {
+          marginBottom: spacing.space10,
+        }
       },
     }
   },
@@ -30,6 +33,10 @@ const styles = {
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
+      '@media (max-width: 576px)' : {
+        paddingTop: spacing.space10,
+        paddingBottom: spacing.space10,
+      },
     },
     imageUrl:{
       minHeight: parseInt(spacing.space6)*6,

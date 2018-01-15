@@ -129,8 +129,8 @@ const Aside = ({ title, url, imageUrl, paragraph, cta, vertical, horizontal, sma
 
         { paragraph &&
           <Copy
-            mb={ !small ? "large" : "medium"}
-            size={ !small ? "medium" : "small"}
+            mb={"large"}
+            size={"medium"}
           >
             { paragraph }
           </Copy>

@@ -45,9 +45,6 @@ const styles = {
     base: {
       borderColor: colors.borderBase,
     },
-    dark: {
-      borderColor: colors.borderDark,
-    },
     light: {
       borderColor: colors.borderLight,
     },
@@ -79,7 +76,7 @@ const Border = (props) => {
 }
 
 Border.defaultProps = {
-  color: "dark",
+  color: "base",
   mb: "medium",
   mt: "medium",
 }
@@ -88,7 +85,6 @@ Border.propTypes = {
   /** The Border color */
   color: PropTypes.oneOf([
     "base",
-    "dark",
     "light",
     "white",
     "whiteO"

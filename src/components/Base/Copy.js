@@ -15,18 +15,33 @@ const styles = {
   size: {
     tiny: {
       ...fontStyles("12px", `${13 * 1.5}px`),
+      '@media (max-width: 576px)': {
+        ...fontStyles(`${12 * 0.80}px`, `${12 * 1.25}px`),
+      }
     },
     small: {
       ...fontStyles("13px", `${13 * 1.5}px`),
+      '@media (max-width: 576px)': {
+        ...fontStyles(`${13 * 0.80}px`, `${13 * 1.25}px`),
+      }
     },
     medium: {
       ...fontStyles("16px", `${16 * 1.5}px`),
+      '@media (max-width: 576px)': {
+        ...fontStyles(`${16 * 0.80}px`, `${16 * 1.25}px`),
+      }
     },
     large: {
       ...fontStyles("18px", `${18 * 1.5}px`),
+      '@media (max-width: 576px)': {
+        ...fontStyles(`${18 * 0.80}px`, `${18 * 1.25}px`),
+      }
     },
     huge: {
       ...fontStyles("20px", `${20 * 1.5}px`),
+      '@media (max-width: 576px)': {
+        ...fontStyles(`${20 * 0.80}px`, `${20 * 1.25}px`),
+      }
     },
   },
 

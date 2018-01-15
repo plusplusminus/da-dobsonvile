@@ -10,6 +10,9 @@ const styles = {
   pl: {
     none: {
       paddingLeft: spacing.space0,
+      '@media (max-width: 576px)' : {
+        paddingLeft: '15px',
+      }
     },
     medium: {
       paddingLeft: spacing.space9,
