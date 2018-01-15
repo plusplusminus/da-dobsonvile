@@ -12,7 +12,9 @@
     "build-storybook": "NODE_PATH=src build-storybook",
     "gh-pages": "npm run build-storybook -- -o _gh-pages && gh-pages -d _gh-pages && rm -rf _gh-pages",
     "storybook": "NODE_PATH=src start-storybook -p 6006",
-    "build-watch": "NODE_PATH=src/ cross-env BABEL_ENV=commonjs babel src --out-dir ./dist --watch --source-maps --copy-files"
+    "build-watch": "NODE_PATH=src/ cross-env BABEL_ENV=commonjs babel src --out-dir ./dist --watch --source-maps --copy-files",
+    "build": "NODE_PATH=src/ cross-env BABEL_ENV=commonjs babel src --out-dir ./dist --source-maps --copy-files",
+    "deploy": "yarn build && npm version minor && npm publish"
   },
   "peerDependencies": {
     "aphrodite": "^1.2.5",
