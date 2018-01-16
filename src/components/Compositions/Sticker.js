@@ -26,6 +26,9 @@ const styles = {
     heading:{
       wordBreak: 'break-all',
       ...fontStyles("49px", `${49 * 1}px`),
+      '@media (max-width: 576px)': {
+        ...fontStyles(`${49 * 0.80}px`, `${49 * 0.80}px`),
+      }
     }
   },
   wrapper:{
