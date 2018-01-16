@@ -14,7 +14,7 @@
     "storybook": "NODE_PATH=src start-storybook -p 6006",
     "build-watch": "NODE_PATH=src/ cross-env BABEL_ENV=commonjs babel src --out-dir ./dist --watch --source-maps --copy-files",
     "build": "NODE_PATH=src/ cross-env BABEL_ENV=commonjs babel src --out-dir ./dist --source-maps --copy-files",
-    "deploy": "yarn build && npm version patch && npm publish"
+    "deploy": "yarn build && npm version patch"
   },
   "peerDependencies": {
     "aphrodite": "^1.2.5",
