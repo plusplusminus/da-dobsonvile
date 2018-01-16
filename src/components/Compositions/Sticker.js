@@ -23,6 +23,10 @@ const styles = {
   header:{
     display: 'flex',
     alignItems: 'center',
+    heading:{
+      wordBreak: 'break-all',
+      ...fontStyles("49px", `${49 * 1}px`),
+    }
   },
   wrapper:{
     base:{
@@ -128,6 +132,7 @@ const styles = {
               weight={"regular"}
               color={ color === "white" ? "blue" : "white" }
               mb={"tiny"}
+              override={styles.header.heading}
             >
               {title}
             </Heading>
