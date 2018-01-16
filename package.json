@@ -1,5 +1,5 @@
 {
-  "name": "@lucio-erasmus/da-dobsonville",
+  "name": "@lucioerasmus/da-dobsonville",
   "version": "0.7.5",
   "main": "dist/components/index.js",
   "dependencies": {
