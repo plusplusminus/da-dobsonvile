@@ -18,13 +18,6 @@ const styles = {
       maxWidth: "100%",
     },
   },
-  header: {
-    base: {},
-    heading: {},
-    meta: {},
-  },
-  paragraph: {},
-  moreLink: {},
 };
 
 const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
@@ -33,23 +26,14 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
     container: {
       ...styles.container,
     },
-    header: {
-      ...styles.header.base,
-    },
-    paragraph: {
-      ...styles.paragraph.base,
-    },
     figure: {
       ...styles.figure.base,
-    },
-    moreLink: {
-      ...styles.moreLink,
     },
   });
 
   return (
     <article className={css(baseStyles.container)}>
-      <header className={css(baseStyles.header)}>
+      <header>
         {
           meta && <Heading
             level={6}
@@ -83,20 +67,12 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
           </div>
         }
         <main className={ !imageUrl ? "col-md-12" : "col-md-9"}>
-          <div className={css(baseStyles.paragraph)}>
-            <Copy isParent>
-              <p
-                className={css(baseStyles.paragraph)}
-                dangerouslySetInnerHTML={createMarkup(paragraph)}
-              />
-            </Copy>
-
-            { cta &&
-              <MoreLink href={url} style={styles.moreLink}>
-                { cta }
-              </MoreLink>
-            }
-          </div>
+          <Copy html={paragraph} />
+          { cta &&
+            <MoreLink href={url} style={styles.moreLink}>
+              { cta }
+            </MoreLink>
+          }
         </main>
       </div>
     </article>
