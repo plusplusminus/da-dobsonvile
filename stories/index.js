@@ -1794,7 +1794,7 @@ storiesOf("Navs/NavItems", module)
 
         <SectionFull
           mt={"large"}
-          mb={"none"}
+          mb={"large"}
           title={"Share the facts"}
           color={"red"}
         >

@@ -161,7 +161,7 @@ const Copy = (props) => {
 
   if (html) {
     return (
-      <Element
+      <div
         className={css(temp.copy)}
         dangerouslySetInnerHTML={{__html:html}}
       />
