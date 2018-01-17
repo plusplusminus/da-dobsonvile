@@ -42,7 +42,6 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
             weight={"regular"}
             tracking={"small"}
             uppercase
-            override={styles.header.meta}
           >
             {meta}
           </Heading>
@@ -52,7 +51,6 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
           color={"blue"}
           mb={"small"}
           size={"large"}
-          override={styles.header.heading}
         >
           {title}
         </Heading>
@@ -69,7 +67,7 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
         <main className={ !imageUrl ? "col-md-12" : "col-md-9"}>
           <Copy html={paragraph} />
           { cta &&
-            <MoreLink href={url} style={styles.moreLink}>
+            <MoreLink href={url}>
               { cta }
             </MoreLink>
           }
