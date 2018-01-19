@@ -57,7 +57,7 @@ const styles = {
   }
 };
 
-const CardPerson = ({ title, url, imageUrl, border, cta, meta, tel, email, rounded }) => {
+const CardPerson = ({ title, url, imageUrl, border, children, cta, meta, tel, email, rounded }) => {
 
   const baseStyles = StyleSheet.create({
     card: {
@@ -123,14 +123,14 @@ const CardPerson = ({ title, url, imageUrl, border, cta, meta, tel, email, round
               </tr>
             }
             { email &&
-            <tr>
-              <td className={css(baseStyles.tdLabel)}>Email:</td>
-              <td className={css(baseStyles.td)}>{email}</td>
-            </tr>
-          }
+              <tr>
+                <td className={css(baseStyles.tdLabel)}>Email:</td>
+                <td className={css(baseStyles.td)}>{email}</td>
+              </tr>
+            }
           </table>
         : null }
-
+        { children }
         { cta &&
           <MoreLink href={url}>
             { cta }
@@ -160,6 +160,8 @@ CardPerson.propTypes = {
   email: PropTypes.string,
   /** Tel number of person */
   tel: PropTypes.string,
+  /** Children */
+  children: PropTypes.string,
 };
 
 CardPerson.defaultProps = {
@@ -172,6 +174,7 @@ CardPerson.defaultProps = {
   cta: null,
   tel: null,
   email: null,
+  children: null,
 };
 
 export default CardPerson;
