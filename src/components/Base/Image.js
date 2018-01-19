@@ -33,6 +33,8 @@ const Image = (props) => {
     }
   });
 
+  if (!imageUrl) return null;
+
   return (
     <img src={imageUrl} alt={alt} className={css(baseStyles.image)}/>
   );
