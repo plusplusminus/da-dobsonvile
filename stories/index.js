@@ -580,9 +580,8 @@ storiesOf("Navs/NavItems", module)
         tel={text("tel","+27 84 485 4832")}
         email={text("email","mmusi@da.org.za")}
         >
-          children={text("children","")}
-        </CardPerson>
-      />
+          {text("children","")}
+      </CardPerson>
     ))
 
     .add('CardProduct', () => (

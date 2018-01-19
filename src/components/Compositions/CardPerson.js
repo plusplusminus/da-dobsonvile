@@ -136,7 +136,11 @@ const CardPerson = ({ title, url, imageUrl, border, children, cta, meta, tel, fa
             }
           </table>
         : null }
-        { children }
+        { children &&
+          <div>
+            { children }
+          </div>
+        }
         { cta &&
           <MoreLink href={url}>
             { cta }
