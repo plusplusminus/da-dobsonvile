@@ -57,7 +57,7 @@ const styles = {
   }
 };
 
-const CardPerson = ({ title, url, imageUrl, border, children, cta, meta, tel, email, rounded }) => {
+const CardPerson = ({ title, url, imageUrl, border, children, cta, meta, tel, fax, email, rounded }) => {
 
   const baseStyles = StyleSheet.create({
     card: {
@@ -114,7 +114,7 @@ const CardPerson = ({ title, url, imageUrl, border, children, cta, meta, tel, em
         </header>
 
 
-        { tel || email ?
+        { tel || email || fax ?
           <table className={css(baseStyles.table)}>
             { tel &&
               <tr>
@@ -126,6 +126,12 @@ const CardPerson = ({ title, url, imageUrl, border, children, cta, meta, tel, em
               <tr>
                 <td className={css(baseStyles.tdLabel)}>Email:</td>
                 <td className={css(baseStyles.td)}>{email}</td>
+              </tr>
+            }
+            { fax &&
+              <tr>
+                <td className={css(baseStyles.tdLabel)}>Fax:</td>
+                <td className={css(baseStyles.td)}>{fax}</td>
               </tr>
             }
           </table>
@@ -158,6 +164,8 @@ CardPerson.propTypes = {
   rounded: PropTypes.bool.isRequired,
   /** Email details of person */
   email: PropTypes.string,
+  /** Fax details of person */
+  fax: PropTypes.string,
   /** Tel number of person */
   tel: PropTypes.string,
   /** Children */
@@ -173,6 +181,7 @@ CardPerson.defaultProps = {
   imageUrl: null,
   cta: null,
   tel: null,
+  fax: null,
   email: null,
   children: null,
 };
