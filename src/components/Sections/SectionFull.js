@@ -107,6 +107,7 @@ const FullSection = (props) => {
       ...(center && styles[center]),
       ...(mt && styles.space.mt[mt]),
       ...(mb && styles.space.mb[mb]),
+      ...(bgUrl ? { backgroundImage:`url(${bgUrl})` } : {})
     },
     bg:{
       ...styles.bg,
@@ -117,7 +118,7 @@ const FullSection = (props) => {
   });
 
   return (
-    <section className={css(baseStyles.base)} style={{backgroundImage:`url(${bgUrl})`}}>
+    <section className={css(baseStyles.base)}>
       <div className={css(baseStyles.bg)}>
         <div className={ container === true ? "container" : null }>
           { title && !center &&
