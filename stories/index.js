@@ -60,7 +60,6 @@ import {
   Sidebar,
   Tag,
   Testimonial,
-  NavButton,
   NavItem,
   Navbar,
   NavbarSecondary,
@@ -378,9 +377,6 @@ storiesOf("Navs/Navbar", module)
   ));
 
 storiesOf("Navs/NavItems", module)
-  .add("NavButton", () => (
-    <NavButton>Hello</NavButton>
-  ))
   .add("NavItem", () => {
     const colorsArray = getStyleValue(filterStyleGroup(colors,"text"));
     const spacingArray = getStyleValue(spacing);
@@ -708,11 +704,6 @@ storiesOf("Navs/NavItems", module)
     ))
     .add("FooterMenus", () => (
       <FooterMenus />
-    ))
-    .add("Videos", () => (
-      <Videos
-        color={ select('color', ['base', 'blue', 'red', 'white'], 'base') }
-      />
     ));
 
   storiesOf("Templates", module)

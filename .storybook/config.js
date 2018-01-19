@@ -1,6 +1,7 @@
 import { configure } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 import { setDefaults } from '@storybook/addon-info';
+import 'react-chromatic/storybook-addon';
 
 function loadStories() {
   require('../stories/index.js');
