@@ -59,7 +59,7 @@ const styles = {
       ...styles.hero.base,
       ...(imageUrl && styles.hero.imageUrl),
       ...(mb && styles.hero.mb[mb]),
-      backgroundImage: `url(${imageUrl})`,
+      ...(imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}),
     },
     wrapper :{
       ...styles.wrapper.base,
