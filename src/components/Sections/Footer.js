@@ -16,7 +16,6 @@ const Footer = (props) => {
       width: '100%',
     },
     legal:{
-      paddingTop: spacing.space3,
       backgroundColor: colors.bgBlue,
       display: 'inline-block',
       width: '100%',
