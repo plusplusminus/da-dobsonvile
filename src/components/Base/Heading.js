@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { flatten } from 'rambda'
+import { flatten } from 'ramda'
 import { StyleSheet, css } from "aphrodite";
 import { colors, fonts, fontWeight, fontStyles, letterSpacing, spacing } from "common/styles/variables";
 
