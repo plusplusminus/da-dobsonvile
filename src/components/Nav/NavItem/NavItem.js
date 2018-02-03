@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
+import {rgba} from '../../../utils/helpers';
 import { Button } from 'components';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from '../../../common/styles/variables';
 
 const NavItem = (props) => {
 
-  const { content, weight, color, children, mr, ml, href } = props;
+  const { content, weight, color, colorHover, children, mr, ml, href } = props;
 
   const styles = StyleSheet.create({
     navItem:{
@@ -21,6 +22,7 @@ const NavItem = (props) => {
       listStyle:'none',
       ...fontStyles(props.fs,props.lh),
       ':hover':{
+        color: props.colorHover ? props.colorHover : rgba(props.color, 0.5),
         textDecoration: 'none',
       },
     },
@@ -28,7 +30,7 @@ const NavItem = (props) => {
       color: props.color,
       textDecoration: 'none',
       ':hover':{
-        opacity: '0.5'
+        color: props.colorHover ? props.colorHover : rgba(props.color, 0.5),
       },
     }
   });
@@ -43,6 +45,7 @@ const NavItem = (props) => {
 
 NavItem.defaultProps = {
   color: colors.linkBase,
+  colorHover: null,
   display: 'inline-block',
   fontWeight: fontWeight.regular,
   href: null,
@@ -57,6 +60,8 @@ NavItem.defaultProps = {
 NavItem.propTypes = {
   /** Text color as per variables.js */
   color: PropTypes.string.isRequired,
+  /** Text color as per variables.js */
+  colorHover: PropTypes.string.isRequired,
   /** Display property as per CSS */
   display: PropTypes.string,
   /** Font weight as per CSS */

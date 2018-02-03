@@ -384,6 +384,7 @@ storiesOf("Navs/NavItems", module)
     return(
       <NavItem
         color={select('color',colorsArray,colors.linkBase)}
+        colorHover={select('colorHover',colorsArray,null)}
         display={text('display','inline-block')}
         fontWeight={select('fontWeight',weightArray,fontWeight.regular)}
         href={text('href','')}
@@ -580,9 +581,8 @@ storiesOf("Navs/NavItems", module)
         tel={text("tel","+27 84 485 4832")}
         email={text("email","mmusi@da.org.za")}
         >
-          children={text("children","")}
-        </CardPerson>
-      />
+          {text("children","")}
+      </CardPerson>
     ))
 
     .add('CardProduct', () => (
