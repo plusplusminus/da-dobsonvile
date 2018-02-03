@@ -39,10 +39,11 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured, color }) =>
 
   return (
     <article className={css(baseStyles.container)}>
-
-      <figure className={css(baseStyles.figure)}>
-        <img src={imageUrl} alt="" className={css(baseStyles.image)} />
-      </figure>
+      {
+        imageUrl && <figure className={css(baseStyles.figure)}>
+          <img src={imageUrl} alt="" className={css(baseStyles.image)} />
+        </figure>
+      }
 
       <header>
         { featured == true ?
@@ -78,11 +79,7 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured, color }) =>
         </Copy>
       }
 
-      { featured && cta &&
-        <MoreLink href={url} color={color}>
-          { cta }
-        </MoreLink>
-      }
+      { this.props.children }
 
     </article>
   );
@@ -99,8 +96,6 @@ CardVideo.propTypes = {
   url: PropTypes.string.isRequired,
   /** ImageURL of Card */
   imageUrl: PropTypes.string,
-  /** Call to Action of Card */
-  cta: PropTypes.string.isRequired,
   /** Is card featured */
   featured: PropTypes.bool.isRequired,
   /** Color of Headings and Copy in card */
@@ -112,7 +107,6 @@ CardVideo.defaultProps = {
   paragraph: null,
   url: null,
   imageUrl: null,
-  cta: null,
   featured: false,
   color: "base",
 };
