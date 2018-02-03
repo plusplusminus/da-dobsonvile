@@ -384,6 +384,7 @@ storiesOf("Navs/NavItems", module)
     return(
       <NavItem
         color={select('color',colorsArray,colors.linkBase)}
+        colorHover={select('colorHover',colorsArray,null)}
         display={text('display','inline-block')}
         fontWeight={select('fontWeight',weightArray,fontWeight.regular)}
         href={text('href','')}

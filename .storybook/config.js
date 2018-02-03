@@ -18,5 +18,5 @@ configure(loadStories, module);
 // addon-info
 setDefaults({
   header: false, // Toggles display of header with component name and description
-  inline: true, // Displays info inline vs click button to view
+  inline: false, // Displays info inline vs click button to view
 });
