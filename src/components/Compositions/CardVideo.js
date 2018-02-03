@@ -23,7 +23,7 @@ const styles = {
   },
 };
 
-const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured, color }) => {
+const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured, color, children }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
@@ -79,7 +79,7 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured, color }) =>
         </Copy>
       }
 
-      { this.props.children }
+      { children }
 
     </article>
   );
