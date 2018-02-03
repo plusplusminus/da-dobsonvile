@@ -26,7 +26,7 @@ export Navbar, {
   NavbarSecondary,
   NavbarSub,
 } from './Nav/Navbar/Navbar';
-//export { default as Masthead } from './Compositions/Masthead';
+export { default as Masthead } from './Compositions/Masthead';
 export { default as NavItem } from './Nav/NavItem/NavItem';
 export { default as NavButton } from './Nav/NavItem/NavButton';
 export { default as NavIcon } from './Nav/NavItem/NavIcon';
