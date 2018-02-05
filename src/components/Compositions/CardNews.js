@@ -46,7 +46,7 @@ const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual, ver
           </div>
         }
 
-        <div className={`${imageUrl && !vertical && featured && "col-md-6"} ${imageUrl && !vertical && "col-md-7"} ${imageUrl && vertical && "col-md-12"} ${!imageUrl && "col-md-12"}`}>
+        <div className={`${imageUrl && !vertical && featured && "col-md-6"} ${imageUrl && !vertical && !featured && "col-md-7"} ${imageUrl && vertical && "col-md-12"} ${!imageUrl && "col-md-12"}`}>
           <header className={css(baseStyles.header)}>
             <Heading
               level={3}
