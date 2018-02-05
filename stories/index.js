@@ -563,6 +563,7 @@ storiesOf("Navs/NavItems", module)
     .add("CardNews", () => (
       <CardNews
         featured={boolean("featured",false)}
+        vertical={boolean("vertical",false)}
         imageUrl={text("imageUrl", dobsonville)}
         title={text("title", "Fermentum Sem Mollis Pharetra")}
         meta={text("meta", "July 4, 2017 in News")}

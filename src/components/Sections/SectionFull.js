@@ -123,7 +123,7 @@ const FullSection = (props) => {
         <div className={ container === true ? "container" : null }>
           { title && !center &&
             <HeadingLines lineLeft color={color} mb={"huge"} >
-              <Heading color={color} size={"tiny"} tracking={"huge"} weight={"light"} uppercase>{title}</Heading>
+              <Heading color={color} size={"tiny"} tracking={"huge"} weight={"regular"} uppercase>{title}</Heading>
             </HeadingLines>
           }
           { title && center &&

@@ -14,7 +14,7 @@ const Campaigns = (props) => {
           color={"red"}
           tracking={"huge"}
           size={"tiny"}
-          weight={"light"}
+          weight={"regular"}
           uppercase
         >
           Latest Campaigns
