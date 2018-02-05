@@ -1044,10 +1044,11 @@ storiesOf("Navs/NavItems", module)
               cta={"More News"}
             >
               <CardNews
-                imageUrl={dobsonville}
+                imageUrl={"dobsonville"}
                 title={"Fermentum Sem Mollis Pharetra"}
                 meta={"July 4, 2017 in News"}
                 url={"/"}
+                vertical
               />
               <CardNews
                 imageUrl={dobsonville}
