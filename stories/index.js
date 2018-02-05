@@ -317,6 +317,7 @@ storiesOf("Forms", module)
   .add("Amount", () => (
     <Amount
       items={api.amounts}
+      amounts={text('amounts', '')}
       label={"Choose amount"}
     >
       <div>
