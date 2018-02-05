@@ -39,14 +39,14 @@ const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual, ver
       <div className="row">
 
         { imageUrl &&
-          <div className={`${vertical ? "col-md-12" : "col-md-5"}`}>
+          <div className={`${vertical && "col-md-12"} ${!vertical && featured && "col-md-6"} ${!vertical && !featured "col-md-5"}`}>
             <figure className={css(baseStyles.figure)}>
               <img src={imageUrl} alt="" className="img-fluid" />
             </figure>
           </div>
         }
 
-        <div className={`${imageUrl && !vertical && "col-md-7"} ${imageUrl && vertical && "col-md-12"} ${!imageUrl && "col-md-12"}`}>
+        <div className={`${imageUrl && !vertical && featured && "col-md-6"} ${imageUrl && !vertical && "col-md-7"} ${imageUrl && vertical && "col-md-12"} ${!imageUrl && "col-md-12"}`}>
           <header className={css(baseStyles.header)}>
             <Heading
               level={3}
