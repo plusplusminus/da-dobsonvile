@@ -20,7 +20,7 @@ const styles = {
   },
 };
 
-const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
+const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta, children }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
@@ -66,11 +66,7 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta }) => {
         }
         <main className={ !imageUrl ? "col-md-12" : "col-md-8"}>
           <Copy html={paragraph} />
-          { cta &&
-            <MoreLink href={url}>
-              { cta }
-            </MoreLink>
-          }
+          { children }
         </main>
       </div>
     </article>

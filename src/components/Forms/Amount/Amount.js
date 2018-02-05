@@ -32,6 +32,7 @@ class Amount extends Component {
   }
 
   render() {
+    const { amounts, items } = this.props;
 
     const styles = StyleSheet.create({
       wrapper: {
@@ -45,6 +46,32 @@ class Amount extends Component {
       },
     });
 
+    let amountArray = [];
+
+    if (amounts) {
+      const arr = amounts.split(',');
+
+      arr.forEach(amt => {
+
+        amountArray.push({
+          amount: parseInt(amt,10),
+          label: `R${parseInt(amt,10)}`,
+          type: 'amount'
+        })
+
+      })
+
+      amountArray.push({
+        amount: 0,
+        type: 'other',
+        label: 'Other'
+      })
+
+
+    } else {
+      amountArray = [...items, { amount: 0, type: 'other', label: 'Other' }];
+    }
+
     return(
 
       <div className={css(styles.wrapper)}>
@@ -54,7 +81,7 @@ class Amount extends Component {
         <div className={css(styles.group)}>
           <div className={"row no-gutters"}>
             {
-              this.props.items.map((item,index) =>
+              amountArray.map((item,index) =>
                 <div className="col" key={index}>
                   <AmountButton
                     label={item.label}
@@ -80,6 +107,7 @@ class Amount extends Component {
 
 Amount.defaultProps = {
   items: [],
+  amounts: null,
   label: null,
   amount: 0
 }
