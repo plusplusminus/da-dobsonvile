@@ -29,7 +29,7 @@ const AsideTwitter = (props) => {
       <Heading
         size="tiny"
         mb="medium"
-        weight="light"
+        weight="regular"
         tracking="large"
         inline
         uppercase

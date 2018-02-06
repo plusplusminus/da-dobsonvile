@@ -148,9 +148,8 @@ const styles = {
             weight={ title || icon ? "light" : "regular" }
             size={ title || icon ? "medium" : "huge"}
             mb={"none"}
-          >
-            { content }
-          </Copy>
+            html={content}
+          />
         }
       </div>
     </div>

@@ -116,9 +116,8 @@ const AsideOverlay = (props) => {
             weight={"bold"}
             mb={"large"}
             center
-          >
-            { paragraph }
-          </Copy>
+            html={paragraph}
+          />
         }
 
         { cta &&

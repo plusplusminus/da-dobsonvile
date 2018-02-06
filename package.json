@@ -1,6 +1,6 @@
 {
   "name": "@lucio-erasmus/da-dobsonville",
-  "version": "0.8.11",
+  "version": "0.8.20",
   "main": "dist/components/index.js",
   "dependencies": {
     "cross-env": "^5.1.3",

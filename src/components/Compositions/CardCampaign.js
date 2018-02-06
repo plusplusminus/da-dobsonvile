@@ -58,13 +58,13 @@ const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta, children }) 
 
       <div className="row">
         { imageUrl &&
-          <div className="col-sm-3">
+          <div className="col-sm-4">
             <figure className={css(baseStyles.figure)}>
               <img src={imageUrl} alt="" style={styles.figure.image} />
             </figure>
           </div>
         }
-        <main className={ !imageUrl ? "col-md-12" : "col-md-9"}>
+        <main className={ !imageUrl ? "col-md-12" : "col-md-8"}>
           <Copy html={paragraph} />
           { children }
         </main>

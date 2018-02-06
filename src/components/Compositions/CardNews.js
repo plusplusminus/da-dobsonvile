@@ -13,18 +13,24 @@ const styles = {
   },
   header: {},
   figure: {
-    margin: 0,
+    base: {
+      margin: 0,
+    },
+    vertical: {
+      marginBottom: spacing.space1,
+    }
   },
 };
 
-const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual }) => {
+const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual, vertical }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
       ...styles.container,
     },
     figure: {
-      ...styles.figure,
+      ...styles.figure.base,
+      ...(vertical && styles.figure.vertical),
     },
   });
 
@@ -33,14 +39,14 @@ const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual }) =
       <div className="row">
 
         { imageUrl &&
-          <div className="col-md-6">
+          <div className={`${vertical && "col-md-12"} ${!vertical && featured && "col-md-6"} ${!vertical && !featured && "col-md-5"}`}>
             <figure className={css(baseStyles.figure)}>
               <img src={imageUrl} alt="" className="img-fluid" />
             </figure>
           </div>
         }
 
-        <div className={`${imageUrl && "col-md-6"} ${!imageUrl && "col-md-12"}`}>
+        <div className={`${imageUrl && !vertical && featured && "col-md-6"} ${imageUrl && !vertical && !featured && "col-md-7"} ${imageUrl && vertical && "col-md-12"} ${!imageUrl && "col-md-12"}`}>
           <header className={css(baseStyles.header)}>
             <Heading
               level={3}
@@ -80,7 +86,10 @@ CardNews.propTypes = {
   imageUrl: PropTypes.string,
   /** Paragraph content of Card */
   paragraph: PropTypes.string,
+  /** Is this a featured card */
   featured: PropTypes.bool,
+  /** Is this a vertical card */
+  vertical: PropTypes.bool,
 };
 
 CardNews.defaultProps = {
@@ -89,6 +98,7 @@ CardNews.defaultProps = {
   url: null,
   imageUrl: null,
   paragraph: null,
+  featured: false,
   featured: false,
 };
 

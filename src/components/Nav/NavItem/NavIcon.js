@@ -36,8 +36,13 @@ const NavIcon = (props) => {
     }
   });
 
+  const userOptions = {};
+  if (props.onPress) {
+    userOptions.onClick = props.onPress;
+  }
+
   return (
-    <button className={css(styles.navIcon)} disabled={props.disabled || false}>
+    <button className={css(styles.navIcon)} disabled={props.disabled || false} {...userOptions}>
       { iconName && <span className={`${css(styles.icon)} icon icon-fw icon-${iconName}`}></span> }
       { children &&
         <span className={css(styles.label)}>{ children }</span>
@@ -50,6 +55,7 @@ NavIcon.defaultProps = {
   color: colors.textBase,
   iconColor: colors.textBase,
   iconName: null,
+  onPress: null
 }
 
 NavIcon.propTypes = {
@@ -59,6 +65,8 @@ NavIcon.propTypes = {
   iconColor: PropTypes.string,
   /** Icon name as per variables.js */
   iconName: PropTypes.string,
+  /** onPress function */
+  onPress: PropTypes.func,
 }
 
 export default NavIcon;
