@@ -4,8 +4,6 @@ import { StyleSheet, css } from "aphrodite";
 import { Copy, Heading, MoreLink } from "components";
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
 
-const createMarkup = (content) => ({ __html: `${content}` });
-
 const styles = {
   container: {
     display: 'inline-block',
@@ -69,14 +67,9 @@ const CardVideo = ({ title, url, imageUrl, paragraph, cta, featured, color, chil
 
       { featured && paragraph &&
         <Copy
-          isParent
           color={color}
-        >
-          <p
-            className={css(baseStyles.paragraph)}
-            dangerouslySetInnerHTML={createMarkup(paragraph)}
-          />
-        </Copy>
+          html={paragraph}
+        />
       }
 
       { children }
