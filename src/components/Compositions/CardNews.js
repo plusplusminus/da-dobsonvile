@@ -11,7 +11,9 @@ const styles = {
     display: "inline-block",
     marginBottom: spacing.space4,
   },
-  header: {},
+  header: {
+    marginBottom: spacing.space2,
+  },
   figure: {
     base: {
       margin: 0,
@@ -22,11 +24,14 @@ const styles = {
   },
 };
 
-const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual, vertical }) => {
+const CardNews = ({ children, full, title, url, imageUrl, meta, text, visual, vertical }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
       ...styles.container,
+    },
+    header: {
+      ...styles.header,
     },
     figure: {
       ...styles.figure.base,
@@ -39,18 +44,18 @@ const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual, ver
       <div className="row">
 
         { imageUrl &&
-          <div className={`${vertical && "col-md-12"} ${!vertical && featured && "col-md-6"} ${!vertical && !featured && "col-md-5"}`}>
+          <div className={`${vertical && "col-md-12"} ${!vertical && full && "col-md-6"} ${!vertical && !full && "col-md-5"}`}>
             <figure className={css(baseStyles.figure)}>
               <img src={imageUrl} alt="" className="img-fluid" />
             </figure>
           </div>
         }
 
-        <div className={`${imageUrl && !vertical && featured && "col-md-6"} ${imageUrl && !vertical && !featured && "col-md-7"} ${imageUrl && vertical && "col-md-12"} ${!imageUrl && "col-md-12"}`}>
+        <div className={`${imageUrl && !vertical && full && "col-md-6"} ${imageUrl && !vertical && !full && "col-md-7"} ${imageUrl && vertical && "col-md-12"} ${!imageUrl && "col-md-12"}`}>
           <header className={css(baseStyles.header)}>
             <Heading
               level={3}
-              size={`${featured == true ? "medium" : "small"}`}
+              size={`${full == true ? "medium" : "small"}`}
               mb={"tiny"}
               tracking={"none"}
             >
@@ -68,6 +73,10 @@ const CardNews = ({ featured, title, url, imageUrl, meta, paragraph, visual, ver
               </Heading>
             }
           </header>
+          { text &&
+            <Copy html={text} />
+          }
+          { children && children }
         </div>
 
       </div>
@@ -84,12 +93,14 @@ CardNews.propTypes = {
   url: PropTypes.string.isRequired,
   /** ImageURL of Card */
   imageUrl: PropTypes.string,
-  /** Paragraph content of Card */
-  paragraph: PropTypes.string,
-  /** Is this a featured card */
-  featured: PropTypes.bool,
+  /** Text content of Card */
+  text: PropTypes.string,
+  /** Is this a full card */
+  full: PropTypes.bool,
   /** Is this a vertical card */
   vertical: PropTypes.bool,
+  /** Children for the card */
+  children: PropTypes.string,
 };
 
 CardNews.defaultProps = {
@@ -97,9 +108,9 @@ CardNews.defaultProps = {
   meta: null,
   url: null,
   imageUrl: null,
-  paragraph: null,
-  featured: false,
-  featured: false,
+  text: null,
+  children: null,
+  full: false,
 };
 
 export default CardNews;
