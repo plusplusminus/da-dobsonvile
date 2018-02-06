@@ -104,7 +104,7 @@ const styles = {
       ...styles.sticker.base,
       ...(color && styles.color[color]),
       ...(imageUrl && styles.sticker.imageUrl),
-      backgroundImage: `url(${imageUrl})`,
+      ...(imageUrl ? { backgroundImage: `url(${imageUrl})` } : null),
     },
     header:{
       ...styles.header,
