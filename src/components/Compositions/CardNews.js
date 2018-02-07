@@ -54,7 +54,7 @@ const CardNews = ({ children, full, title, url, imageUrl, meta, text, visual, ve
           </div>
         }
 
-        <div className={`${imageUrl ? "col-md-7" : "col-md-12"}`}>
+        <div className={`${imageUrl && !vertical ? "col-md-7" : "col-md-12"}`}>
           <header className={css(baseStyles.header)}>
             <Heading
               level={3}
