@@ -20,7 +20,7 @@ const styles = {
   },
 };
 
-const CardCampaign = ({ title, url, imageUrl, meta, paragraph, cta, children }) => {
+const CardCampaign = ({ title, imageUrl, meta, paragraph, children }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
@@ -78,23 +78,20 @@ CardCampaign.propTypes = {
   title: PropTypes.string.isRequired,
   /** Meta text of Card */
   meta: PropTypes.string,
-  /** URL of Card */
-  url: PropTypes.string.isRequired,
   /** ImageURL of Card */
   imageUrl: PropTypes.string,
   /** Paragraph content of Card */
   paragraph: PropTypes.string,
-  /** Call to Action of Card */
-  cta: PropTypes.string.isRequired,
+  /** Children of Card */
+  children: PropTypes.string,
 };
 
 CardCampaign.defaultProps = {
   title: null,
   meta: null,
-  url: null,
+  children: null,
   imageUrl: null,
   paragraph: null,
-  cta: null,
 };
 
 export default CardCampaign;
