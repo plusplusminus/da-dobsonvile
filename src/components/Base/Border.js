@@ -19,7 +19,7 @@ const styles = {
       marginTop: spacing.space1,
     },
     medium: {
-      marginTop: spacing.space2,
+      marginTop: spacing.space3,
     },
     large: {
       marginTop: spacing.space4,

@@ -36,7 +36,7 @@ const ArticleHeader = (props) => {
         <Heading
           level={1}
           color={"blue"}
-          mb={"small"}
+          mb={"tiny"}
           size={"large"}
         >
           {title}
@@ -60,12 +60,13 @@ const ArticleHeader = (props) => {
           size={"tiny"}
           weight={"regular"}
           tracking={"small"}
+          mb={"tiny"}
         >
           {meta}
         </Heading>
       }
       <Border
-        mt={"large"}
+        mt={"medium"}
         mb={"none"}
       />
     </header>
