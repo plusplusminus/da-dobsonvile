@@ -8,8 +8,13 @@ const createMarkup = (content) => ({ __html: `${content}` });
 
 const styles = {
   container: {
-    display: "inline-block",
-    marginBottom: spacing.space4,
+    base:{
+      display: "inline-block",
+      marginBottom: spacing.space4,
+    },
+    full: {
+      marginBottom: spacing.space6,
+    }
   },
   header: {
     marginBottom: spacing.space2,
@@ -17,10 +22,8 @@ const styles = {
   figure: {
     base: {
       margin: 0,
+      marginBottom: spacing.space2,
     },
-    vertical: {
-      marginBottom: spacing.space1,
-    }
   },
 };
 
@@ -28,14 +31,14 @@ const CardNews = ({ children, full, title, url, imageUrl, meta, text, visual, ve
 
   const baseStyles = StyleSheet.create({
     container: {
-      ...styles.container,
+      ...styles.container.base,
+      ...(vertical && full && styles.container.full),
     },
     header: {
       ...styles.header,
     },
     figure: {
       ...styles.figure.base,
-      ...(vertical && styles.figure.vertical),
     },
   });
 
