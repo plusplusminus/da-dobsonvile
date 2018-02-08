@@ -28,7 +28,7 @@ const styles = {
   },
 };
 
-const Testimonial = ({ highlight, url, imageUrl, meta, paragraph, cta }) => {
+const Testimonial = ({ headline, imageUrl, meta, text }) => {
 
   const baseStyles = StyleSheet.create({
     container: {
@@ -52,22 +52,17 @@ const Testimonial = ({ highlight, url, imageUrl, meta, paragraph, cta }) => {
         <div className={"col-md-8"}>
           <div className={css(baseStyles.wrapper)}>
 
-            { highlight &&
+            { headline &&
               <Copy
                 color={"blue"}
                 size={"large"}
                 weight={"medium"}
               >
-                {highlight}
+                {headline}
               </Copy>
             }
-            { paragraph &&
-              <Copy isParent>
-                <p
-                  className={css(baseStyles.paragraph)}
-                  dangerouslySetInnerHTML={createMarkup(paragraph)}
-                />
-              </Copy>
+            { text &&
+              <Copy html={text} />
             }
 
             { meta &&
@@ -93,12 +88,10 @@ const Testimonial = ({ highlight, url, imageUrl, meta, paragraph, cta }) => {
 }
 
 Testimonial.defaultProps = {
-  highlight: null,
+  headline: null,
   meta: null,
-  url: null,
   imageUrl: null,
-  paragraph: null,
-  cta: null,
+  text: null,
 };
 
 Testimonial.propTypes = {
@@ -106,14 +99,10 @@ Testimonial.propTypes = {
   title: PropTypes.string.isRequired,
   /** Meta text of Card */
   meta: PropTypes.string.isRequired,
-  /** URL of Card */
-  url: PropTypes.string.isRequired,
   /** ImageURL of Card */
   imageUrl: PropTypes.string,
   /** Paragraph content of Card */
-  paragraph: PropTypes.string,
-  /** Call to Action of Card */
-  cta: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
 
 export default Testimonial;
