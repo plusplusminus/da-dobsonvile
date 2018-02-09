@@ -19,11 +19,8 @@ const styles = {
   header: {
     marginBottom: spacing.space2,
   },
-  figure: {
-    base: {
-      margin: 0,
-      marginBottom: spacing.space2,
-    },
+  img: {
+    width: '100%',
   },
 };
 
@@ -38,7 +35,10 @@ const CardNews = ({ children, full, title, url, imageUrl, meta, text, visual, ve
       ...styles.header,
     },
     figure: {
-      ...styles.figure.base,
+      ...styles.figure,
+    },
+    img: {
+      ...styles.img,
     },
   });
 
@@ -49,7 +49,7 @@ const CardNews = ({ children, full, title, url, imageUrl, meta, text, visual, ve
         { imageUrl &&
           <div className={`${vertical ? "col-md-12" : "col-md-5"}`}>
             <figure className={css(baseStyles.figure)}>
-              <img src={imageUrl} alt={title} className={`${css(baseStyles.figure)} img-fluid`} />
+              <img src={imageUrl} alt={title} className={`${css(baseStyles.img)} img-fluid`} />
             </figure>
           </div>
         }
