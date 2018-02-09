@@ -120,7 +120,7 @@ const FullSection = (props) => {
   return (
     <section className={css(baseStyles.base)}>
       <div className={css(baseStyles.bg)}>
-        <div className={ container === true ? "container" : null }>
+        <div className={ container }>
           { title && !center &&
             <HeadingLines lineLeft color={color} mb={"huge"} >
               <Heading color={color} size={"tiny"} tracking={"huge"} weight={"regular"} uppercase>{title}</Heading>
@@ -149,7 +149,7 @@ FullSection.defaultProps = {
   pt: 'none',
   pb: 'none',
   title: null,
-  container: true,
+  container: 'container',
   rowClass: 'row'
 }
 
@@ -179,8 +179,12 @@ FullSection.propTypes = {
   center: PropTypes.bool,
   /** Content of section. For coloumns, apply Bootstrap col values to divs inside children. */
   children: PropTypes.node.isRequired,
-  /** Should section contents be wrapped in container div */
-  container: PropTypes.bool,
+  /** Type of container div */
+  container: PropTypes.oneOf([
+    "container",
+    "container-fluid",
+    null,
+  ]),
   /** Margin Bottom of Section. Margin is primary spacing unit. Top down approach */
   mb: PropTypes.oneOf([
     "none",

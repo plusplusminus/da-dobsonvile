@@ -280,7 +280,7 @@ storiesOf('Base', module)
         bgColor={select("bgColor",["blue","blueLight","light","lightO","dark","darkO","white"],"white")}
         bgUrl={text("bgUrl","")}
         center={boolean("center",false)}
-        container={boolean("container",true)}
+        container={select("container",["container","container-fluid",null],"container")}
         rowClass={text("rowClass",'row')}
         color={select("color",["base","blue","red","white"], "base")}
         title={text("title","Latest Videos")}
@@ -1126,7 +1126,7 @@ storiesOf("Navs/NavItems", module)
               color={"red"}
               mt={"large"}
               mb={"none"}
-              container={false}
+              container={null}
             >
               <div className={"col-md-12"}>
                 <CardCampaign
