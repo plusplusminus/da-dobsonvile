@@ -122,7 +122,7 @@ const styles = {
 
 const Copy = (props) => {
 
-  const { color, children, html, mb, override, size, truncate, uppercase, left, right, center, justify, weight, isParent } = props;
+  const { color, children, html, mb, override, size, truncate, uppercase, intro, left, right, center, justify, weight, isParent } = props;
 
   let Element = "";
 
@@ -162,7 +162,7 @@ const Copy = (props) => {
   if (html) {
     return (
       <div
-        className={css(temp.copy)}
+        className={`${css(temp.copy)} ${intro && "intro"}`}
         dangerouslySetInnerHTML={{__html:html}}
       />
     );
@@ -190,6 +190,7 @@ Copy.defaultProps = {
   center: false,
   justify: false,
   weight: "light",
+  intro: false,
 }
 
 Copy.propTypes = {
@@ -231,6 +232,8 @@ Copy.propTypes = {
     "large",
     "huge",
   ]).isRequired,
+  /** Whether or not to style the first <p> difeerntly with .css */
+  intro: PropTypes.bool,
   /** Whether or not to hide the text overflow with an ellipsis */
   truncate: PropTypes.bool,
   /** Whether or not to set the copy in all caps */

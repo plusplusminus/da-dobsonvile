@@ -178,6 +178,7 @@ storiesOf('Base', module)
         mb={select("mb", ["none", "small", "medium", "large"], "medium")}
         override={object("override", {})}
         size={select("size", ["huge","large", "medium", "small", "tiny"], "medium")}
+        intro={boolean("intro", false)}
         truncate={boolean("truncate", false)}
         uppercase={boolean("uppercase", false)}
         left={boolean("left", true)}
