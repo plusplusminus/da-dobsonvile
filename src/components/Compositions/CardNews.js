@@ -49,7 +49,7 @@ const CardNews = ({ children, full, title, url, imageUrl, meta, text, visual, ve
         { imageUrl &&
           <div className={`${vertical ? "col-md-12" : "col-md-5"}`}>
             <figure className={css(baseStyles.figure)}>
-              <img src={imageUrl} alt="" className="img-fluid" />
+              <img src={imageUrl} alt={title} className={`${css(baseStyles.figure)} img-fluid`} />
             </figure>
           </div>
         }
