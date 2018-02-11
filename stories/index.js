@@ -674,6 +674,17 @@ storiesOf("Navs/NavItems", module)
       )
     })
 
+    .add('Testimonial', () => {
+      return(
+        <Testimonial
+          headline={text("headline","Pullquote example si stante, hoc natura videlicet vult, salvam esse se, quod concedimus ad eos igitur converte te, quaeso. Simus igitur contenti hisoc dixerit potius Ennius.")}
+          text={text("text","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra aliquet eget sit amet tellus. Habitant morbi et netus et malesuada fames. Aliquam id diam maecenas ultricies mi eget.")}
+          meta={text("meta","Joe Smith – Resident of Town Governed by the DA")}
+          imageUrl={text('imageUrl',dobsonville)}
+        />
+      )
+    })
+
     .add("ViewAll", () => {
       const colorsArray = getStyleValue(filterStyleGroup(colors,"border"));
       return(

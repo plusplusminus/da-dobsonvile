@@ -162,7 +162,7 @@ const Copy = (props) => {
   if (html) {
     return (
       <div
-        className={`${css(temp.copy)} ${intro ? "intro" : null}`}
+        className={`${css(temp.copy)} ${intro ? "intro" : ""}`}
         dangerouslySetInnerHTML={{__html:html}}
       />
     );

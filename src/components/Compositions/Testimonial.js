@@ -95,14 +95,14 @@ Testimonial.defaultProps = {
 };
 
 Testimonial.propTypes = {
-  /** Title of Card */
-  title: PropTypes.string.isRequired,
-  /** Meta text of Card */
-  meta: PropTypes.string.isRequired,
-  /** ImageURL of Card */
+  /** Headline of Testimonial */
+  headline: PropTypes.string,
+  /** Attibution text of Testimonial */
+  meta: PropTypes.string,
+  /** ImageURL of Testimonial */
   imageUrl: PropTypes.string,
-  /** Paragraph content of Card */
-  text: PropTypes.string,
+  /** Paragraph content of Testimonial */
+  text: PropTypes.string.isRequired,
 };
 
 export default Testimonial;
