@@ -270,7 +270,9 @@ storiesOf('Base', module)
 
   .add('Loading', () => {
     return(
-      <Loading />
+      <Loading
+        minHeight={boolean("minHeight",true)}
+      />
     )
   })
 
