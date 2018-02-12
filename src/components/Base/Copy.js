@@ -104,6 +104,7 @@ const styles = {
 
   hover:{
     cursor: 'pointer',
+    borderBottom: '1px solid transparent',
     ":hover": hoverStyles.base,
     ":focus": hoverStyles.base,
     ":active": hoverStyles.base,
