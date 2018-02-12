@@ -4,6 +4,12 @@ import { flatten } from 'ramda'
 import { StyleSheet, css } from 'aphrodite';
 import { fonts, fontStyles, fontWeight, letterSpacing, colors, spacing } from 'common/styles/variables';
 
+const hoverStyles = {
+  base: {
+    borderBottom: "1px solid",
+  },
+}
+
 const styles = {
   base: {
     fontFamily: fonts.sans,
@@ -96,6 +102,13 @@ const styles = {
     },
   },
 
+  hover:{
+    cursor: 'pointer',
+    ":hover": hoverStyles.base,
+    ":focus": hoverStyles.base,
+    ":active": hoverStyles.base,
+  },
+
   variant: {
     uppercase: {
       textTransform: "uppercase",
@@ -122,7 +135,7 @@ const styles = {
 
 const Copy = (props) => {
 
-  const { color, children, html, mb, override, size, truncate, uppercase, intro, left, right, center, justify, weight, isParent } = props;
+  const { color, children, hover, html, mb, override, size, truncate, uppercase, intro, left, right, center, justify, weight, isParent } = props;
 
   let Element = "";
 
@@ -136,6 +149,7 @@ const Copy = (props) => {
     styles.base,
     size && styles.size[size],
     mb && styles.mb[mb],
+    hover && styles.hover,
     weight && styles.weight[weight],
     color && styles.color[color],
     truncate && styles.variant.truncate,
@@ -191,6 +205,7 @@ Copy.defaultProps = {
   justify: false,
   weight: "light",
   intro: false,
+  hover: false,
 }
 
 Copy.propTypes = {
@@ -234,6 +249,8 @@ Copy.propTypes = {
   ]).isRequired,
   /** Whether or not to style the first <p> difeerntly with .css */
   intro: PropTypes.bool,
+  /** Whether or not to change the style on hover */
+  hover: PropTypes.bool,
   /** Whether or not to hide the text overflow with an ellipsis */
   truncate: PropTypes.bool,
   /** Whether or not to set the copy in all caps */

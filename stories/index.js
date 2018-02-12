@@ -179,6 +179,7 @@ storiesOf('Base', module)
         override={object("override", {})}
         size={select("size", ["huge","large", "medium", "small", "tiny"], "medium")}
         intro={boolean("intro", false)}
+        hover={boolean("hover", false)}
         truncate={boolean("truncate", false)}
         uppercase={boolean("uppercase", false)}
         left={boolean("left", true)}
