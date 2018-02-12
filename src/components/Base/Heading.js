@@ -8,13 +8,13 @@ import { colors, fonts, fontWeight, fontStyles, letterSpacing, spacing } from "c
 const hoverStyles = {
   base: {
     textDecoration: "none",
-    color: colors.linkHover,
+    color: colors.textBaseHover,
   },
   blue: {
-    color: colors.brandBlueHover,
+    color: colors.textBlueHover,
   },
   green: {
-    color: colors.brandGreenHover,
+    color: colors.textGreenHover,
   },
   red: {
     color: colors.brandRedHover,
@@ -23,8 +23,11 @@ const hoverStyles = {
     color: colors.brandYellowHover,
   },
   white: {
-    color: colors.textLightO,
+    color: colors.textWhiteHover,
   },
+  light: {
+    color: colors.textLightHover,
+  }
 };
 
 const styles = {
@@ -110,41 +113,41 @@ const styles = {
     base: {
       color: colors.textBase,
       hover:{
-        ":hover": hoverStyles.textBaseHover,
-        ":focus": hoverStyles.textBaseHover,
-        ":active": hoverStyles.textBaseHover,
+        ":hover": hoverStyles.base,
+        ":focus": hoverStyles.base,
+        ":active": hoverStyles.base,
       }
     },
     blue: {
       color: colors.textBlue,
       hover: {
-        ":hover": hoverStyles.textBlueHover,
-        ":focus": hoverStyles.textBlueHover,
-        ":active": hoverStyles.textBlueHover,
+        ":hover": hoverStyles.blue,
+        ":focus": hoverStyles.blue,
+        ":active": hoverStyles.blue,
       }
     },
     red: {
       color: colors.textRed,
       hover: {
-        ":hover": hoverStyles.textRedHover,
-        ":focus": hoverStyles.textRedHover,
-        ":active": hoverStyles.textRedHover,
+        ":hover": hoverStyles.red,
+        ":focus": hoverStyles.red,
+        ":active": hoverStyles.red,
       }
     },
     light: {
       color: colors.textLight,
       hover: {
-        ":hover": hoverStyles.textLightHover,
-        ":focus": hoverStyles.textLightHover,
-        ":active": hoverStyles.textLightHover,
+        ":hover": hoverStyles.light,
+        ":focus": hoverStyles.light,
+        ":active": hoverStyles.light,
       }
     },
     white: {
       color: colors.textWhite,
       hover: {
-        ":hover": hoverStyles.textWhiteHover,
-        ":focus": hoverStyles.textWhiteHover,
-        ":active": hoverStyles.textWhiteHover,
+        ":hover": hoverStyles.white,
+        ":focus": hoverStyles.white,
+        ":active": hoverStyles.white,
       }
     },
   },
