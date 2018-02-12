@@ -668,11 +668,12 @@ storiesOf("Navs/NavItems", module)
     })
 
     .add('Tag', () => {
-      const colorsArray = getStyleValue(filterStyleGroup(colors,"brand"));
       return(
         <Tag
           close={boolean('close',false)}
-          color={ select('color', colorsArray, colors.brandWhite) }>
+          hover={boolean('hover',false)}
+          color={select('color', ["white", "blue", "red", "green", "yellow"], "white")}
+        >
           {text('children','Tag Name')}
         </Tag>
       )
