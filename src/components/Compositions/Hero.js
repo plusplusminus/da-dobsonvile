@@ -61,6 +61,7 @@ const styles = {
       ...(imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}),
       ...(!imageUrl && styles.hero.mb.none),
       ...(imageUrl && styles.hero.mb.large),
+      ...(mb && styles.hero.mb[mb]),
     },
     wrapper :{
       ...styles.wrapper.base,
@@ -103,6 +104,7 @@ Hero.defaultProps = {
   imageUrl: null,
   small: true,
   title: null,
+  mb: "none",
 }
 
 Hero.propTypes = {
@@ -116,6 +118,11 @@ Hero.propTypes = {
   small: PropTypes.bool,
   /** Title of Hero Component */
   title: PropTypes.string.isRequired,
+  /** Optional manual override of Margin Bottom of hero */
+  mb: PropTypes.oneOf([
+    "none",
+    "large"
+  ]),
 }
 
 export default Hero;
