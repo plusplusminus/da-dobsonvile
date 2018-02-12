@@ -122,7 +122,7 @@ const Tag = (props) => {
 Tag.defaultProps = {
   close: false,
   color: 'white',
-  hover: true,
+  hover: false,
 }
 
 Tag.propTypes = {
