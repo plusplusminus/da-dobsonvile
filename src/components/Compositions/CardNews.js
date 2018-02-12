@@ -58,6 +58,7 @@ const CardNews = ({ children, full, title, url, imageUrl, meta, text, visual, ve
           <header className={css(baseStyles.header)}>
             <Heading
               level={3}
+              hover
               size={`${full == true ? "medium" : "small"}`}
               mb={"tiny"}
               tracking={"none"}
