@@ -58,8 +58,9 @@ const styles = {
     hero: {
       ...styles.hero.base,
       ...(imageUrl && styles.hero.imageUrl),
-      ...(mb && styles.hero.mb[mb]),
       ...(imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}),
+      ...(!imageUrl && styles.hero.mb.none),
+      ...(imageUrl && styles.hero.mb.large),
     },
     wrapper :{
       ...styles.wrapper.base,
@@ -100,7 +101,6 @@ Hero.defaultProps = {
   center: false,
   children: null,
   imageUrl: null,
-  mb: "none",
   small: true,
   title: null,
 }
@@ -112,11 +112,6 @@ Hero.propTypes = {
   children: PropTypes.node,
   /** ImageUrl for background effect */
   imageUrl: PropTypes.string,
-  /** Margin Bottom of hero */
-  mb: PropTypes.oneOf([
-    "none",
-    "large"
-  ]),
   /** Is the Hero as small version */
   small: PropTypes.bool,
   /** Title of Hero Component */

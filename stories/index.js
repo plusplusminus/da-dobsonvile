@@ -621,7 +621,6 @@ storiesOf("Navs/NavItems", module)
           center={boolean('center',false)}
           children={text('children',"")}
           imageUrl={ text('imageUrl',dobsonville)}
-          mb={select('mb',['none', 'large'],'none')}
           small={boolean('small',true)}
           title={ text('title',"Zuma is the Number One that must go!")}
         />
@@ -1119,7 +1118,6 @@ storiesOf("Navs/NavItems", module)
         <Hero
           imageUrl={dobsonville}
           title={"City of Cape Town"}
-          mb={"large"}
           small
         >
         </Hero>
@@ -1516,8 +1514,6 @@ storiesOf("Navs/NavItems", module)
 
         <Hero
           title={"DA Christmas Pop-up Store"}
-          mb={"none"}
-          small
           center
         >
           <Copy center>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.</Copy>
@@ -1602,8 +1598,6 @@ storiesOf("Navs/NavItems", module)
 
         <Hero
           title={"Product Title"}
-          mb={"none"}
-          small
         >
           <Heading
             level={6}
@@ -1737,8 +1731,6 @@ storiesOf("Navs/NavItems", module)
 
         <Hero
           title={"Do your part and get involved"}
-          mb={"none"}
-          small
         >
         </Hero>
 
