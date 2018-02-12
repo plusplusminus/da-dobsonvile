@@ -201,6 +201,7 @@ storiesOf('Base', module)
       mb={select("mb", ["none", "tiny", "small", "medium", "large", "huge"], "none")}
       override={object("override", {})}
       size={select("size", ["huge", "large", "medium", "small", "tiny"], "medium")}
+      hover={boolean("hover", false)}
       truncate={boolean("truncate", false)}
       noWrap={boolean("noWrap", false)}
       uppercase={boolean("uppercase", false)}

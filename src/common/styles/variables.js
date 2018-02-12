@@ -71,11 +71,17 @@ export const colors = {
   statusWarning: "#F5A623",
 
   textBase: "#333333",
+  textBaseHover: "#777777",
   textBlue: "#155FA2",
+  textBlueHover: "#2C6FAB",
   textLight: "#777777",
+  textLightHover: "#999999",
   textRed: "#B82C4F",
+  textRedHover: "#B82C4F",
   textLightO: "rgba(255,255,255,0.85)",
+  textLightOHover: "rgba(255,255,255,0.55)",
   textWhite: "#FFFFFF",
+  textWhiteHover: "#EEEEEE",
 
 
   socialEmail: '#B0153C',

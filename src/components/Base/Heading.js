@@ -4,6 +4,29 @@ import { flatten } from 'ramda'
 import { StyleSheet, css } from "aphrodite";
 import { colors, fonts, fontWeight, fontStyles, letterSpacing, spacing } from "common/styles/variables";
 
+
+const hoverStyles = {
+  base: {
+    textDecoration: "none",
+    color: colors.linkHover,
+  },
+  blue: {
+    color: colors.brandBlueHover,
+  },
+  green: {
+    color: colors.brandGreenHover,
+  },
+  red: {
+    color: colors.brandRedHover,
+  },
+  yellow: {
+    color: colors.brandYellowHover,
+  },
+  white: {
+    color: colors.textLightO,
+  },
+};
+
 const styles = {
   base: {
     fontFamily: fonts.sans,
@@ -80,22 +103,49 @@ const styles = {
       fontWeight: fontWeight.bold,
     },
   },
-
+  hover: {
+    cursor: 'pointer'
+  },
   color: {
     base: {
       color: colors.textBase,
+      hover:{
+        ":hover": hoverStyles.textBaseHover,
+        ":focus": hoverStyles.textBaseHover,
+        ":active": hoverStyles.textBaseHover,
+      }
     },
     blue: {
       color: colors.textBlue,
+      hover: {
+        ":hover": hoverStyles.textBlueHover,
+        ":focus": hoverStyles.textBlueHover,
+        ":active": hoverStyles.textBlueHover,
+      }
     },
     red: {
       color: colors.textRed,
+      hover: {
+        ":hover": hoverStyles.textRedHover,
+        ":focus": hoverStyles.textRedHover,
+        ":active": hoverStyles.textRedHover,
+      }
     },
     light: {
       color: colors.textLight,
+      hover: {
+        ":hover": hoverStyles.textLightHover,
+        ":focus": hoverStyles.textLightHover,
+        ":active": hoverStyles.textLightHover,
+      }
     },
     white: {
       color: colors.textWhite,
+      hover: {
+        ":hover": hoverStyles.textWhiteHover,
+        ":focus": hoverStyles.textWhiteHover,
+        ":active": hoverStyles.textWhiteHover,
+      }
     },
   },
 
@@ -146,7 +196,7 @@ const styles = {
 
 const Heading = (props) => {
 
-  const { color, children, inline, level, tracking, mb, override, size, truncate, noWrap, uppercase, left, right, center, weight } = props;
+  const { color, children, hover, inline, level, tracking, mb, override, size, truncate, noWrap, uppercase, left, right, center, weight } = props;
 
   const Component = level !== 'text' ? `h${level}` : level;
 
@@ -156,6 +206,8 @@ const Heading = (props) => {
     mb && styles.mb[mb],
     weight && styles.weight[weight],
     color && styles.color[color],
+    hover && styles.hover,
+    hover && styles.color[color].hover,
     tracking && styles.tracking[tracking],
     truncate && styles.variant.truncate,
     noWrap && styles.variant.noWrap,
@@ -190,6 +242,7 @@ const Heading = (props) => {
 
 Heading.defaultProps = {
   color: "base",
+  hover: false,
   level: 2,
   tracking: "small",
   mb: "none",
@@ -259,6 +312,8 @@ Heading.propTypes = {
     "small",
     "tiny",
   ]).isRequired,
+  /** Whether or not to change the color on hover */
+  hover: PropTypes.bool,
   /** Whether or not to hide the text overflow with an ellipsis */
   truncate: PropTypes.bool,
   /** Whether or not to prevent the text from wrapping */
