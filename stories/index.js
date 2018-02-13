@@ -622,6 +622,7 @@ storiesOf("Navs/NavItems", module)
         <Hero
           center={boolean('center',false)}
           children={text('children',"")}
+          bgPosition={text('bgPosition',"center center")}
           imageUrl={ text('imageUrl',dobsonville)}
           small={boolean('small',true)}
           title={ text('title',"Zuma is the Number One that must go!")}

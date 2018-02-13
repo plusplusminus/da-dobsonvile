@@ -55,13 +55,14 @@ const styles = {
   },
 };
 
-  const Hero = ({ center, children, imageUrl, mb, small, title }) => {
+  const Hero = ({ bgPosition, center, children, imageUrl, mb, small, title }) => {
 
   const baseStyles = StyleSheet.create({
     hero: {
       ...styles.hero.base,
       ...(imageUrl && styles.hero.imageUrl),
       ...(imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}),
+      ...(imageUrl ? { backgroundPosition: bgPosition } : {}),
       ...(!imageUrl && styles.hero.mb.none),
       ...(imageUrl && styles.hero.mb.large),
       ...(mb && styles.hero.mb[mb]),
@@ -108,6 +109,7 @@ Hero.defaultProps = {
   small: true,
   title: null,
   mb: null,
+  bgPosition: 'center center',
 }
 
 Hero.propTypes = {
@@ -117,6 +119,8 @@ Hero.propTypes = {
   children: PropTypes.node,
   /** ImageUrl for background effect */
   imageUrl: PropTypes.string,
+  /** bgPosition to control image position */
+  bgPosition: PropTypes.string,
   /** Is the Hero as small version */
   small: PropTypes.bool,
   /** Title of Hero Component */
