@@ -625,7 +625,7 @@ storiesOf("Navs/NavItems", module)
           imageUrl={ text('imageUrl',dobsonville)}
           small={boolean('small',true)}
           title={ text('title',"Zuma is the Number One that must go!")}
-          mb={ select('mb', ['none', 'large'], 'none') }
+          mb={ select('mb', [null,'none', 'large'], null) }
         />
       )
     })

@@ -15,6 +15,9 @@ const styles = {
     mb:{
       none:{
         marginBottom: spacing.space0,
+        '@media (max-width: 576px)' : {
+          marginBottom: spacing.space0,
+        }
       },
       large:{
         marginBottom: spacing.space13,
@@ -104,7 +107,7 @@ Hero.defaultProps = {
   imageUrl: null,
   small: true,
   title: null,
-  mb: "none",
+  mb: null,
 }
 
 Hero.propTypes = {
@@ -120,6 +123,7 @@ Hero.propTypes = {
   title: PropTypes.string.isRequired,
   /** Optional manual override of Margin Bottom of hero */
   mb: PropTypes.oneOf([
+    null,
     "none",
     "large"
   ]),
