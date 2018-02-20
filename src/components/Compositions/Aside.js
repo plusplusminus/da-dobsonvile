@@ -138,12 +138,12 @@ const Aside = ({ title, url, imageUrl, paragraph, cta, vertical, horizontal, sma
         { children && children }
 
         { cta && !small &&
-          <ButtonTest color={"blue"}>
+          <ButtonTest color={"blue"} href={url}>
             { cta }
           </ButtonTest>
         }
         { cta && small &&
-          <MoreLink color={"blue"}>
+          <MoreLink color={"blue"} href={url}>
             { cta }
           </MoreLink>
         }
