@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { flatten } from 'ramda'
+import * as R from "ramda";
 import { StyleSheet, css } from "aphrodite";
 import { colors, fonts, fontWeight, fontStyles, letterSpacing, spacing } from "common/styles/variables";
 
@@ -27,7 +27,7 @@ const hoverStyles = {
   },
   light: {
     color: colors.textLightHover,
-  }
+  },
 };
 
 const styles = {
@@ -41,33 +41,30 @@ const styles = {
   size: {
     tiny: {
       ...fontStyles("13px", `${13 * 1.5}px`),
-      '@media (max-width: 576px)': {
-        ...fontStyles(`${13 * 0.80}px`, `${13 * 1.25}px`),
-      }
     },
     small: {
       ...fontStyles("16px", `${16 * 1.5}px`),
-      '@media (max-width: 576px)': {
+      "@media (max-width: 576px)": {
         ...fontStyles(`${16 * 0.80}px`, `${16 * 1.25}px`),
-      }
+      },
     },
     medium: {
       ...fontStyles("20px", `${20 * 1.5}px`),
-      '@media (max-width: 576px)': {
+      "@media (max-width: 576px)": {
         ...fontStyles(`${20 * 0.80}px`, `${20 * 1.25}px`),
-      }
+      },
     },
     large: {
       ...fontStyles("25px", `${25 * 1.5}px`),
-      '@media (max-width: 576px)': {
+      "@media (max-width: 576px)": {
         ...fontStyles(`${25 * 0.80}px`, `${25 * 1.25}px`),
-      }
+      },
     },
     huge: {
       ...fontStyles("49px", `${49 * 1.5}px`),
-      '@media (max-width: 576px)': {
-        ...fontStyles(`${49 * 0.80}px`, `${49 * 1}px`),
-      }
+      "@media (max-width: 576px)": {
+        ...fontStyles(`${49 * 0.50}px`, `${49 * 1}px`),
+      },
     },
   },
 
@@ -83,12 +80,22 @@ const styles = {
     },
     medium: {
       marginBottom: spacing.space4,
+      "@media (max-width: 576px)": {
+        marginBottom: spacing.space2,
+      },
     },
     large: {
       marginBottom: spacing.space6,
+      "@media (max-width: 576px)": {
+        marginBottom: spacing.space3,
+      },
+
     },
     huge: {
       marginBottom: spacing.space9,
+      "@media (max-width: 576px)": {
+        marginBottom: spacing.space4,
+      },
     },
   },
 
@@ -107,16 +114,16 @@ const styles = {
     },
   },
   hover: {
-    cursor: 'pointer'
+    cursor: "pointer",
   },
   color: {
     base: {
       color: colors.textBase,
-      hover:{
+      hover: {
         ":hover": hoverStyles.base,
         ":focus": hoverStyles.base,
         ":active": hoverStyles.base,
-      }
+      },
     },
     blue: {
       color: colors.textBlue,
@@ -124,7 +131,7 @@ const styles = {
         ":hover": hoverStyles.blue,
         ":focus": hoverStyles.blue,
         ":active": hoverStyles.blue,
-      }
+      },
     },
     red: {
       color: colors.textRed,
@@ -132,7 +139,7 @@ const styles = {
         ":hover": hoverStyles.red,
         ":focus": hoverStyles.red,
         ":active": hoverStyles.red,
-      }
+      },
     },
     light: {
       color: colors.textLight,
@@ -140,7 +147,7 @@ const styles = {
         ":hover": hoverStyles.light,
         ":focus": hoverStyles.light,
         ":active": hoverStyles.light,
-      }
+      },
     },
     white: {
       color: colors.textWhite,
@@ -148,7 +155,7 @@ const styles = {
         ":hover": hoverStyles.white,
         ":focus": hoverStyles.white,
         ":active": hoverStyles.white,
-      }
+      },
     },
   },
 
@@ -198,10 +205,9 @@ const styles = {
 };
 
 const Heading = (props) => {
-
   const { color, children, hover, inline, level, tracking, mb, override, size, truncate, noWrap, uppercase, left, right, center, weight } = props;
 
-  const Component = level !== 'text' ? `h${level}` : level;
+  const Component = level !== "text" ? `h${level}` : level;
 
   const style = [
     styles.base,
@@ -222,13 +228,15 @@ const Heading = (props) => {
     override && override,
   ];
 
+  // console.log(style);
+
   const temp = StyleSheet.create({
     heading: style.reduce((result, item) => {
       if (item) {
         return {
           ...result,
-          ...item,
-        };
+          ...R.mergeWith(R.merge, result, item)
+        }
       }
       return result;
     }, {}),
@@ -241,7 +249,7 @@ const Heading = (props) => {
       {children}
     </Component>
   );
-}
+};
 
 Heading.defaultProps = {
   color: "base",
@@ -281,7 +289,7 @@ Heading.propTypes = {
     4,
     5,
     6,
-    'text',
+    "text",
   ]).isRequired,
   /** Controls the letter spacing */
   tracking: PropTypes.oneOf([

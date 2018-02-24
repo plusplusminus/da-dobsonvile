@@ -20,15 +20,27 @@ const styles = {
       },
       small: {
         marginBottom: spacing.space2,
+        "@media (max-width: 576px)": {
+          marginBottom: spacing.space1,
+        },
       },
       medium: {
         marginBottom: spacing.space4,
+        "@media (max-width: 576px)": {
+          marginBottom: spacing.space2,
+        },
       },
       large: {
         marginBottom: spacing.space6,
+        "@media (max-width: 576px)": {
+          marginBottom: spacing.space3,
+        },
       },
       huge: {
         marginBottom: spacing.space9,
+        "@media (max-width: 576px)": {
+          marginBottom: spacing.space4,
+        },
       },
     },
   },
