@@ -33,7 +33,7 @@ const NavIcon = (props) => {
     icon:{
       color: props.iconColor,
       ...fontStyles('18px'),
-    }
+    },
   });
 
   const userOptions = {};
