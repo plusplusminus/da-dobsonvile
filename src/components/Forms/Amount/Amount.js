@@ -81,7 +81,7 @@ class Amount extends Component {
         <div className={css(styles.group)}>
           <div className={"row no-gutters"}>
             {
-              amountArray.map((item,index) =>
+              amountArray.map((item,index) => (
                 <div className="col" key={index}>
                   <AmountButton
                     label={item.label}
@@ -91,7 +91,7 @@ class Amount extends Component {
                     onClick={() => this.onSelection(item)}
                   />
                 </div>
-              )
+              ))
             }
           </div>
         </div>
