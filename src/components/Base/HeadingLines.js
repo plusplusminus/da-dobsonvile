@@ -14,13 +14,13 @@ const styles = {
     mb: {
       large: {
         marginBottom: spacing.space3,
-        '@media (min-width: 992px)': {
+        '@media (min-width: 576px)': {
           marginBottom: spacing.space6,
         }
       },
       huge: {
         marginBottom: spacing.space5,
-        '@media (min-width: 992px)': {
+        '@media (min-width: 576px)': {
           marginBottom: spacing.space9,
         }
       },

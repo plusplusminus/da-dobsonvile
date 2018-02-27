@@ -15,30 +15,30 @@ const styles = {
     mb:{
       none:{
         marginBottom: spacing.space0,
-        '@media (max-width: 576px)' : {
+        '@media (min-width: 576px)' : {
           marginBottom: spacing.space0,
         }
       },
       large:{
-        marginBottom: spacing.space13,
-        '@media (max-width: 576px)' : {
-          marginBottom: spacing.space10,
+        marginBottom: spacing.space7,
+        '@media (min-width: 576px)' : {
+          marginBottom: spacing.space13,
         }
       },
     }
   },
   wrapper:{
     base:{
-      paddingTop: parseInt(spacing.space9)*2,
-      paddingBottom: spacing.space13,
+      paddingTop: spacing.space9,
+      paddingBottom: spacing.space7,
       textAlign: 'center',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
-      '@media (max-width: 576px)' : {
-        paddingTop: spacing.space10,
-        paddingBottom: spacing.space10,
+      '@media (min-width: 992px)' : {
+        paddingTop: parseInt(spacing.space9)*2,
+        paddingBottom: spacing.space13,
       },
     },
     imageUrl:{
