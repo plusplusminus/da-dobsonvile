@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Media from "react-media";
 import { StyleSheet, css } from 'aphrodite';
-import { Button, Copy, Heading } from 'components';
+import { Button, Copy, Heading, Image, MoreLink } from 'components';
 import { colors, fontWeight, spacing } from 'common/styles/variables';
 import {default as ButtonTest} from 'components/Button'
 import {rgba} from '../../utils/helpers'
@@ -24,6 +25,22 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column'
+  },
+  asideOverlayMobile:{
+    base:{
+      borderRadius: spacing.space1,
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'row',
+    },
+    image:{
+      maxWidth: '35%',
+      marginRight: spacing.space2,
+    },
+    text:{
+
+    }
+
   },
   mb: {
     none: {
@@ -93,43 +110,86 @@ const AsideOverlay = (props) => {
       ...styles.bg,
       ...(imageUrl && color && styles.color[color].imageUrl),
       ...(!imageUrl && color && styles.color[color].base),
+    },
+    asideOverlayMobile: {
+      ...styles.asideOverlayMobile.base,
+      ...(mb && styles.mb[mb]),
+    },
+    mobileImage: {
+      ...styles.asideOverlayMobile.image,
+    },
+    mobileText: {
+      ...styles.asideOverlayMobile.text,
     }
   });
 
   return (
-    <aside className={css(baseStyles.asideOverlay)} style={{backgroundImage:`url(${imageUrl})`}}>
-      <div className={css(baseStyles.bg)}>
-      { title &&
-          <Heading
-            color={"white"}
-            size={"large"}
-            mb={"small"}
-            center
-          >
-            { title }
-          </Heading>
-        }
+    <Media query="(max-width: 599px)">
+      {matches =>
+        matches ? (
+        <aside className={css(baseStyles.asideOverlayMobile)}>
+          <div className={css(baseStyles.mobileImage)}>
+            <Image rounded imageUrl={imageUrl} />
+          </div>
+          <div className={css(baseStyles.mobileText)}>
+            { title &&
+                <Heading
+                  color={"blue"}
+                  size={"large"}>
+                  { title }
+                </Heading>
+              }
 
-        { paragraph &&
-          <Copy
-            color={"white"}
-            weight={"bold"}
-            mb={"large"}
-            center
-            html={paragraph}
-          />
-        }
+              { paragraph &&
+                <Copy
+                  color={"blue"}
+                  weight={"bold"}
+                  html={paragraph}
+                />
+              }
 
-        { cta &&
-          <ButtonTest
-            color="white"
-            center
-          >
-            { cta }
-          </ButtonTest>
-        }
-      </div>
-    </aside>
+              { cta &&
+                <MoreLink href={cta}>
+                  { cta }
+                </MoreLink>
+              }
+            </div>
+          </aside>
+        ) : (
+          <aside className={css(baseStyles.asideOverlay)} style={{backgroundImage:`url(${imageUrl})`}}>
+            <div className={css(baseStyles.bg)}>
+            { title &&
+                <Heading
+                  color={"white"}
+                  size={"large"}
+                  mb={"small"}
+                  center>
+                  { title }
+                </Heading>
+              }
+
+              { paragraph &&
+                <Copy
+                  color={"white"}
+                  weight={"bold"}
+                  mb={"large"}
+                  center
+                  html={paragraph}
+                />
+              }
+
+              { cta &&
+                <ButtonTest
+                  color="white"
+                  center>
+                  { cta }
+                </ButtonTest>
+              }
+            </div>
+          </aside>
+        )
+      }
+    </Media>
   )
 }
 
