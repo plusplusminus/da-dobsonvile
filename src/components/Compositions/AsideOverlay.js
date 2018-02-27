@@ -13,7 +13,6 @@ const styles = {
       marginBottom: spacing.space4,
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
-      backgroundBlendMode: 'overlay',
     },
   },
   bg: {
@@ -89,11 +88,11 @@ const AsideOverlay = (props) => {
     asideOverlay: {
       ...styles.asideOverlay.base,
       ...(mb && styles.mb[mb]),
-      ...(imageUrl && color && styles.color[color].imageUrl),
-      ...(!imageUrl && color && styles.color[color].base),
     },
     bg: {
       ...styles.bg,
+      ...(imageUrl && color && styles.color[color].imageUrl),
+      ...(!imageUrl && color && styles.color[color].base),
     }
   });
 
