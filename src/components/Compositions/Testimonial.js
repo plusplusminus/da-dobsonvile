@@ -11,14 +11,14 @@ const styles = {
     borderRadius: spacing.space05,
     overflow: 'hidden',
     marginBottom: spacing.space4,
-    paddingTop: spacing.space9,
+    paddingTop: spacing.space4,
     paddingRight: spacing.space2,
-    paddingBottom: spacing.space9,
+    paddingBottom: spacing.space4,
     paddingLeft: spacing.space2,
     backgroundColor: colors.bgWhite,
     '@media (min-width: 576px)': {
-      paddingTop: spacing.space4,
-      paddingBottom: spacing.space4,
+      paddingTop: spacing.space9,
+      paddingBottom: spacing.space9,
     }
   },
   figure:{
