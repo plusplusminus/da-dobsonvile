@@ -12,11 +12,14 @@ const styles = {
     overflow: 'hidden',
     marginBottom: spacing.space4,
     paddingTop: spacing.space9,
+    paddingRight: spacing.space2,
     paddingBottom: spacing.space9,
+    paddingLeft: spacing.space2,
     backgroundColor: colors.bgWhite,
-  },
-  wrapper: {
-
+    '@media (min-width: 576px)': {
+      paddingTop: spacing.space4,
+      paddingBottom: spacing.space4,
+    }
   },
   figure:{
     backgroundSize: 'cover',
@@ -45,11 +48,13 @@ const Testimonial = ({ headline, imageUrl, meta, text }) => {
   return (
     <section className={css(baseStyles.container)}>
       <div className={"row align-items-center"}>
-        <div className={"col-md-2 offset-md-1"}>
-          <figure className={css(baseStyles.figure)} style={{backgroundImage:`url(${imageUrl})`}}></figure>
-        </div>
+        { imageUrl &&
+          <div className={"col-md-2 offset-md-1"}>
+            <figure className={css(baseStyles.figure)} style={{backgroundImage:`url(${imageUrl})`}}></figure>
+          </div>
+        }
 
-        <div className={"col-md-8"}>
+        <div className={` ${imageUrl ? "col-md-8" : "col-md-10 offset-md-1"}`}>
           <div className={css(baseStyles.wrapper)}>
 
             { headline &&
