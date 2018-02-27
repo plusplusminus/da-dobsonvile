@@ -43,13 +43,22 @@ const styles = {
         marginBottom: spacing.space0,
       },
       small: {
-        marginBottom: spacing.space6,
+        marginBottom: spacing.space3,
+        '@media (min-width: 992px)': {
+          marginBottom: spacing.space6,
+        }
       },
       medium: {
-        marginBottom: spacing.space9,
+        marginBottom: spacing.space6,
+        '@media (min-width: 992px)': {
+          marginBottom: spacing.space9,
+        }
       },
       large: {
-        marginBottom: spacing.space13,
+        marginBottom: spacing.space9,
+        '@media (min-width: 992px)': {
+          marginBottom: spacing.space13,
+        }
       },
     },
     mt:{
@@ -57,13 +66,22 @@ const styles = {
         marginTop: spacing.space0,
       },
       small: {
-        marginTop: spacing.space6,
+        marginTop: spacing.space3,
+        '@media (min-width: 992px)': {
+          marginTop: spacing.space6,
+        }
       },
       medium: {
-        marginTop: spacing.space9,
+        marginTop: spacing.space6,
+        '@media (min-width: 992px)': {
+          marginTop: spacing.space9,
+        }
       },
       large: {
-        marginTop: spacing.space13,
+        marginTop: spacing.space9,
+        '@media (min-width: 992px)': {
+          marginTop: spacing.space13,
+        }
       },
     },
     pb:{
@@ -71,13 +89,22 @@ const styles = {
         paddingBottom: spacing.space0,
       },
       small: {
-        paddingBottom: spacing.space6,
+        paddingBottom: spacing.space3,
+        '@media (min-width: 992px)': {
+          paddingBottom: spacing.space6,
+        }
       },
       medium: {
-        paddingBottom: spacing.space9,
+        paddingBottom: spacing.space6,
+        '@media (min-width: 992px)': {
+          paddingBottom: spacing.space9,
+        }
       },
       large: {
-        paddingBottom: spacing.space13,
+        paddingBottom: spacing.space9,
+        '@media (min-width: 992px)': {
+          paddingBottom: spacing.space13,
+        }
       },
     },
     pt:{
@@ -85,13 +112,22 @@ const styles = {
         paddingTop: spacing.space0,
       },
       small: {
-        paddingTop: spacing.space6,
+        paddingTop: spacing.space3,
+        '@media (min-width: 992px)': {
+          paddingTop: spacing.space6,
+        }
       },
       medium: {
-        paddingTop: spacing.space9,
+        paddingTop: spacing.space6,
+        '@media (min-width: 992px)': {
+          paddingTop: spacing.space9,
+        }
       },
       large: {
-        paddingTop: spacing.space13,
+        paddingTop: spacing.space9,
+        '@media (min-width: 992px)': {
+          paddingTop: spacing.space13,
+        }
       },
     }
   },
