@@ -49,13 +49,13 @@ const styles = {
         }
       },
       medium: {
-        marginBottom: spacing.space6,
+        marginBottom: spacing.space5,
         '@media (min-width: 992px)': {
           marginBottom: spacing.space9,
         }
       },
       large: {
-        marginBottom: spacing.space9,
+        marginBottom: spacing.space7,
         '@media (min-width: 992px)': {
           marginBottom: spacing.space13,
         }
@@ -72,13 +72,13 @@ const styles = {
         }
       },
       medium: {
-        marginTop: spacing.space6,
+        marginTop: spacing.space5,
         '@media (min-width: 992px)': {
           marginTop: spacing.space9,
         }
       },
       large: {
-        marginTop: spacing.space9,
+        marginTop: spacing.space7,
         '@media (min-width: 992px)': {
           marginTop: spacing.space13,
         }
@@ -95,13 +95,13 @@ const styles = {
         }
       },
       medium: {
-        paddingBottom: spacing.space6,
+        paddingBottom: spacing.space5,
         '@media (min-width: 992px)': {
           paddingBottom: spacing.space9,
         }
       },
       large: {
-        paddingBottom: spacing.space9,
+        paddingBottom: spacing.space7,
         '@media (min-width: 992px)': {
           paddingBottom: spacing.space13,
         }
@@ -118,13 +118,13 @@ const styles = {
         }
       },
       medium: {
-        paddingTop: spacing.space6,
+        paddingTop: spacing.space5,
         '@media (min-width: 992px)': {
           paddingTop: spacing.space9,
         }
       },
       large: {
-        paddingTop: spacing.space9,
+        paddingTop: spacing.space7,
         '@media (min-width: 992px)': {
           paddingTop: spacing.space13,
         }

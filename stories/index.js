@@ -223,7 +223,7 @@ storiesOf('Base', module)
       color={select("color", ["base", "blue", "red", "white"], "base")}
       lineLeft={boolean("lineLeft", false)}
       lineRight={boolean("lineRight", false)}
-      mb={select("mb", ["none", "tiny", "small", "medium", "large", "huge"], "none")}
+      mb={select("mb", ["large", "huge"], "large")}
     >
       {text("children", "Heading")}
     </HeadingLines>

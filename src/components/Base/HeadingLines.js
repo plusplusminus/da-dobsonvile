@@ -12,23 +12,17 @@ const styles = {
       alignItems: 'center',
     },
     mb: {
-      none: {
-        marginBottom: spacing.space0,
-      },
-      tiny: {
-        marginBottom: spacing.space1,
-      },
-      small: {
-        marginBottom: spacing.space2,
-      },
-      medium: {
-        marginBottom: spacing.space4,
-      },
       large: {
-        marginBottom: spacing.space6,
+        marginBottom: spacing.space3,
+        '@media (min-width: 992px)': {
+          marginBottom: spacing.space6,
+        }
       },
       huge: {
-        marginBottom: spacing.space9,
+        marginBottom: spacing.space5,
+        '@media (min-width: 992px)': {
+          marginBottom: spacing.space9,
+        }
       },
     },
   },
@@ -125,11 +119,8 @@ HeadingLines.propTypes = {
   lineRight: PropTypes.bool,
   /** Margin bottom of container - mimic mb of Heading Component */
   mb: PropTypes.oneOf([
-    "none",
-    "tiny",
-    "small",
-    "medium",
     "large",
+    "huge",
   ]),
 };
 
