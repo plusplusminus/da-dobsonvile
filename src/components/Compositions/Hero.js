@@ -29,13 +29,12 @@ const styles = {
   },
   wrapper:{
     base:{
-      paddingTop: spacing.space9,
-      paddingBottom: spacing.space7,
-      textAlign: 'center',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'column',
+      paddingTop: spacing.space5,
+      paddingBottom: spacing.space4,
+      '@media (min-width: 576px)' : {
+        paddingTop: spacing.space9,
+        paddingBottom: spacing.space7,
+      },
       '@media (min-width: 992px)' : {
         paddingTop: parseInt(spacing.space9)*2,
         paddingBottom: spacing.space13,
@@ -48,9 +47,13 @@ const styles = {
       background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(21,95,162,0.85) 100%)',
     },
     small:{
-      paddingTop: spacing.space10,
-      paddingBottom: spacing.space8,
+      paddingTop: spacing.space3,
+      paddingBottom: spacing.space3,
       justifyContent: 'flex-end',
+      '@media (min-width: 576px)' : {
+        paddingTop: spacing.space10,
+        paddingBottom: spacing.space8,
+      }
     }
   },
 };

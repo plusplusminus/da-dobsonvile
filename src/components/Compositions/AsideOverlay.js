@@ -38,7 +38,7 @@ const styles = {
       marginRight: spacing.space2,
     },
     text:{
-      paddingTop: spacing.space2,
+      paddingTop: spacing.space1,
     }
 
   },
