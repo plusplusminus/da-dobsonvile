@@ -30,6 +30,10 @@ const styles = {
   lines:{
     base:{
       position: 'relative',
+      display: 'none',
+      '@media (min-width: 576px)': {
+        display: 'block',
+      }
     },
     line:{
       width: spacing.space10,
