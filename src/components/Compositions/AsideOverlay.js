@@ -30,7 +30,7 @@ const styles = {
     base:{
       borderRadius: spacing.space1,
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       flexDirection: 'row',
     },
     image:{
@@ -38,7 +38,7 @@ const styles = {
       marginRight: spacing.space2,
     },
     text:{
-
+      paddingTop: spacing.space2,
     }
 
   },
@@ -138,14 +138,6 @@ const AsideOverlay = (props) => {
                   size={"large"}>
                   { title }
                 </Heading>
-              }
-
-              { paragraph &&
-                <Copy
-                  color={"blue"}
-                  weight={"bold"}
-                  html={paragraph}
-                />
               }
 
               { cta &&
