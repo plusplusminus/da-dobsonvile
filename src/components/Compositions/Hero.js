@@ -40,11 +40,13 @@ const styles = {
         paddingBottom: spacing.space13,
       },
     },
-    imageUrl:{
-      minHeight: parseInt(spacing.space6)*6,
+    imageUrl:{      
       background: colors.bgLight,
       backgroundColor: 'rgba(0,0,0,0.3)',
       background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(21,95,162,0.85) 100%)',
+      '@media (min-width: 576px)' : {
+        minHeight: parseInt(spacing.space6)*6,
+      }
     },
     small:{
       paddingTop: spacing.space3,

@@ -28,6 +28,7 @@ const styles = {
     overflow: 'hidden',
     margin: 0,
     paddingBottom: '100%',
+    marginBottom: spacing.space2,
   },
 };
 
@@ -47,14 +48,14 @@ const Testimonial = ({ headline, imageUrl, meta, text }) => {
 
   return (
     <section className={css(baseStyles.container)}>
-      <div className={"row align-items-center"}>
+      <div className={"row align-items-center justify-content-center"}>
         { imageUrl &&
-          <div className={"col-md-2 offset-md-1"}>
+          <div className={"col-sm-2 offset-sm-1 col-3"}>
             <figure className={css(baseStyles.figure)} style={{backgroundImage:`url(${imageUrl})`}}></figure>
           </div>
         }
 
-        <div className={` ${imageUrl ? "col-md-8" : "col-md-10 offset-md-1"}`}>
+        <div className={` ${imageUrl ? "col-sm-8" : "col-sm-10 offset-sm-1"}`}>
           <div className={css(baseStyles.wrapper)}>
 
             { headline &&
