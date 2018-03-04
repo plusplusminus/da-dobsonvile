@@ -40,7 +40,7 @@ const styles = {
         paddingBottom: spacing.space13,
       },
     },
-    imageUrl:{      
+    imageUrl:{
       background: colors.bgLight,
       backgroundColor: 'rgba(0,0,0,0.3)',
       background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(21,95,162,0.85) 100%)',
@@ -91,7 +91,7 @@ const styles = {
                   size={"huge"}
                   color={ imageUrl ? "white" : "blue" }
                   mb={ !small ? "huge" : "small"}
-                  center={ !center ? false : true }
+                  align={ !center ? "left" : "center" }
                 >
                   { title }
                 </Heading>
