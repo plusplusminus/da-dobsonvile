@@ -1,6 +1,6 @@
 {
   "name": "@lucio-erasmus/da-dobsonville",
-  "version": "0.8.64",
+  "version": "0.8.65",
   "main": "dist/components/index.js",
   "dependencies": {
     "prop-types": "^15.5.10",
