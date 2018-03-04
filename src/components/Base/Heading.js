@@ -208,7 +208,7 @@ const styles = {
 };
 
 const Heading = (props) => {
-  const { color, children, hover, inline, level, tracking, mb, override, size, truncate, noWrap, uppercase, left, right, center, weight } = props;
+  const { color, children, hover, inline, level, tracking, mb, override, size, truncate, noWrap, uppercase, align, weight } = props;
 
   const Component = level !== "text" ? `h${level}` : level;
 
@@ -224,14 +224,14 @@ const Heading = (props) => {
     truncate && styles.variant.truncate,
     noWrap && styles.variant.noWrap,
     uppercase && styles.variant.uppercase,
-    left && styles.variant.left,
-    right && styles.variant.right,
-    center && styles.variant.center,
+    align && styles.variant[align],
     inline && styles.variant.inline,
     override && override,
   ];
 
-  // console.log(style);
+
+
+  console.log(style);
 
   const temp = StyleSheet.create({
     heading: style.reduce((result, item) => {
@@ -265,9 +265,7 @@ Heading.defaultProps = {
   truncate: false,
   noWrap: false,
   uppercase: false,
-  left: true,
-  right: false,
-  center: false,
+  align: "left",
   inline: false,
   weight: "bold",
 };
@@ -309,6 +307,7 @@ Heading.propTypes = {
     "small",
     "medium",
     "large",
+    "huge",
   ]),
   /** Override styles */
   override: PropTypes.objectOf(
@@ -326,6 +325,11 @@ Heading.propTypes = {
     "small",
     "tiny",
   ]).isRequired,
+  align: PropTypes.oneOf([
+    "left",
+    "right",
+    "center",
+  ]),
   /** Whether or not to change the color on hover */
   hover: PropTypes.bool,
   /** Whether or not to hide the text overflow with an ellipsis */
@@ -334,12 +338,6 @@ Heading.propTypes = {
   noWrap: PropTypes.bool,
   /** Whether or not to set the heading in all caps */
   uppercase: PropTypes.bool,
-  /** Whether or not to align left */
-  left: PropTypes.bool,
-  /** Whether or not to align right */
-  right: PropTypes.bool,
-  /** Whether or not to align center */
-  center: PropTypes.bool,
   /** Whether or not to apply inline-block display property */
   inline: PropTypes.bool,
   /** Adjusts the font weight of the heading */

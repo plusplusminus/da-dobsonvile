@@ -129,6 +129,7 @@ HeadingLines.propTypes = {
   children: PropTypes.node.isRequired,
   /** Color of lines - mimic color of Heading Component */
   color: PropTypes.oneOf([
+    "base",
     "blue",
     "red",
     "green",

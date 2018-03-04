@@ -83,7 +83,7 @@ CardCampaign.propTypes = {
   /** Paragraph content of Card */
   paragraph: PropTypes.string,
   /** Children of Card */
-  children: PropTypes.string,
+  children: PropTypes.object,
 };
 
 CardCampaign.defaultProps = {
