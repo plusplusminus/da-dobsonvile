@@ -11,12 +11,15 @@ const styles = {
     borderRadius: spacing.space05,
     overflow: 'hidden',
     marginBottom: spacing.space4,
-    paddingTop: spacing.space9,
-    paddingBottom: spacing.space9,
+    paddingTop: spacing.space4,
+    paddingRight: spacing.space2,
+    paddingBottom: spacing.space4,
+    paddingLeft: spacing.space2,
     backgroundColor: colors.bgWhite,
-  },
-  wrapper: {
-
+    '@media (min-width: 576px)': {
+      paddingTop: spacing.space9,
+      paddingBottom: spacing.space9,
+    }
   },
   figure:{
     backgroundSize: 'cover',
@@ -25,6 +28,7 @@ const styles = {
     overflow: 'hidden',
     margin: 0,
     paddingBottom: '100%',
+    marginBottom: spacing.space2,
   },
 };
 
@@ -44,12 +48,14 @@ const Testimonial = ({ headline, imageUrl, meta, text }) => {
 
   return (
     <section className={css(baseStyles.container)}>
-      <div className={"row align-items-center"}>
-        <div className={"col-md-2 offset-md-1"}>
-          <figure className={css(baseStyles.figure)} style={{backgroundImage:`url(${imageUrl})`}}></figure>
-        </div>
+      <div className={"row align-items-center justify-content-center"}>
+        { imageUrl &&
+          <div className={"col-sm-2 offset-sm-1 col-3"}>
+            <figure className={css(baseStyles.figure)} style={{backgroundImage:`url(${imageUrl})`}}></figure>
+          </div>
+        }
 
-        <div className={"col-md-8"}>
+        <div className={` ${imageUrl ? "col-sm-8" : "col-sm-10 offset-sm-1"}`}>
           <div className={css(baseStyles.wrapper)}>
 
             { headline &&

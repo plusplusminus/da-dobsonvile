@@ -223,7 +223,7 @@ storiesOf('Base', module)
       color={select("color", ["base", "blue", "red", "white"], "base")}
       lineLeft={boolean("lineLeft", false)}
       lineRight={boolean("lineRight", false)}
-      mb={select("mb", ["none", "tiny", "small", "medium", "large", "huge"], "none")}
+      mb={select("mb", ["large", "huge"], "large")}
     >
       {text("children", "Heading")}
     </HeadingLines>
@@ -511,6 +511,7 @@ storiesOf("Navs/NavItems", module)
         title={text('title',"Placeholder Title")}
         cta={text('cta',"View All")}
         paragraph={text('paragraph',"Find out more about placeholder text")}
+        height={text('height',null)}
       />
     ))
 

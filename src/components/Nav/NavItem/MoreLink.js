@@ -68,7 +68,6 @@ const styles = {
     color: {
       blue: {
         color: colors.brandBlue,
-
         ":hover": hoverStyles.blue,
         ":focus": hoverStyles.blue,
         ":active": hoverStyles.blue,
@@ -76,7 +75,6 @@ const styles = {
 
       red: {
         color: colors.brandRed,
-
         ":hover": hoverStyles.red,
         ":focus": hoverStyles.red,
         ":active": hoverStyles.red,
@@ -84,7 +82,6 @@ const styles = {
 
       green: {
         color: colors.brandGreen,
-
         ":hover": hoverStyles.green,
         ":focus": hoverStyles.green,
         ":active": hoverStyles.green,
@@ -92,7 +89,6 @@ const styles = {
 
       yellow: {
         color: colors.brandYellow,
-
         ":hover": hoverStyles.yellow,
         ":focus": hoverStyles.yellow,
         ":active": hoverStyles.yellow,
@@ -100,7 +96,6 @@ const styles = {
 
       white: {
         color: colors.brandWhite,
-
         ":hover": hoverStyles.white,
         ":focus": hoverStyles.white,
         ":active": hoverStyles.white,
@@ -120,19 +115,19 @@ const styles = {
       small: {
         fontSize: "11px",
         '@media (max-width: 576px)': {
-          ...fontStyles(`${11 * 0.80}px`),
+          ...fontStyles(`${11 * 1}px`),
         }
       },
       medium: {
         fontSize: "13px",
         '@media (max-width: 576px)': {
-          ...fontStyles(`${13 * 0.80}px`),
+          ...fontStyles(`${13 * 1}px`),
         }
       },
       large: {
         fontSize: "14px",
         '@media (max-width: 576px)': {
-          ...fontStyles(`${14 * 0.80}px`),
+          ...fontStyles(`${14 * 1}px`),
         }
       },
     },

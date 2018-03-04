@@ -15,42 +15,47 @@ const styles = {
     mb:{
       none:{
         marginBottom: spacing.space0,
-        '@media (max-width: 576px)' : {
+        '@media (min-width: 576px)' : {
           marginBottom: spacing.space0,
         }
       },
       large:{
-        marginBottom: spacing.space13,
-        '@media (max-width: 576px)' : {
-          marginBottom: spacing.space10,
+        marginBottom: spacing.space7,
+        '@media (min-width: 576px)' : {
+          marginBottom: spacing.space13,
         }
       },
     }
   },
   wrapper:{
     base:{
-      paddingTop: parseInt(spacing.space9)*2,
-      paddingBottom: spacing.space13,
-      textAlign: 'center',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'column',
-      '@media (max-width: 576px)' : {
-        paddingTop: spacing.space10,
-        paddingBottom: spacing.space10,
+      paddingTop: spacing.space5,
+      paddingBottom: spacing.space4,
+      '@media (min-width: 576px)' : {
+        paddingTop: spacing.space9,
+        paddingBottom: spacing.space7,
+      },
+      '@media (min-width: 992px)' : {
+        paddingTop: parseInt(spacing.space9)*2,
+        paddingBottom: spacing.space13,
       },
     },
-    imageUrl:{
-      minHeight: parseInt(spacing.space6)*6,
+    imageUrl:{      
       background: colors.bgLight,
       backgroundColor: 'rgba(0,0,0,0.3)',
       background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(21,95,162,0.85) 100%)',
+      '@media (min-width: 576px)' : {
+        minHeight: parseInt(spacing.space6)*6,
+      }
     },
     small:{
-      paddingTop: spacing.space10,
-      paddingBottom: spacing.space8,
+      paddingTop: spacing.space3,
+      paddingBottom: spacing.space3,
       justifyContent: 'flex-end',
+      '@media (min-width: 576px)' : {
+        paddingTop: spacing.space10,
+        paddingBottom: spacing.space8,
+      }
     }
   },
 };

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Media from "react-media";
 import { StyleSheet, css } from 'aphrodite';
-import { Button, Copy, Heading } from 'components';
+import { Button, Copy, Heading, Image, MoreLink } from 'components';
 import { colors, fontWeight, spacing } from 'common/styles/variables';
 import {default as ButtonTest} from 'components/Button'
 import {rgba} from '../../utils/helpers'
@@ -15,6 +16,11 @@ const styles = {
       backgroundPosition: 'center center',
     },
   },
+  withHeight: {
+    paddingTop: spacing.space0,
+    paddingBottom: spacing.space0,
+    justifyContent: 'center'
+  },
   bg: {
     borderRadius: spacing.space1,
     paddingTop: spacing.space9,
@@ -23,7 +29,23 @@ const styles = {
     paddingLeft: spacing.space2,
     display: 'flex',
     alignItems: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+  },
+  asideOverlayMobile:{
+    base:{
+      borderRadius: spacing.space1,
+      display: 'flex',
+      alignItems: 'flex-start',
+      flexDirection: 'row',
+    },
+    image:{
+      maxWidth: '35%',
+      marginRight: spacing.space2,
+    },
+    text:{
+      paddingTop: spacing.space1,
+    }
+
   },
   mb: {
     none: {
@@ -82,7 +104,7 @@ const styles = {
 
 const AsideOverlay = (props) => {
 
-  const { title, color, paragraph, cta, mb, imageUrl } = props;
+  const { title, color, height, paragraph, cta, mb, imageUrl } = props;
 
   const baseStyles = StyleSheet.create({
     asideOverlay: {
@@ -93,43 +115,79 @@ const AsideOverlay = (props) => {
       ...styles.bg,
       ...(imageUrl && color && styles.color[color].imageUrl),
       ...(!imageUrl && color && styles.color[color].base),
+      ...(height ? { ...styles.withHeight, height } : null)
+    },
+    asideOverlayMobile: {
+      ...styles.asideOverlayMobile.base,
+      ...(mb && styles.mb[mb]),
+    },
+    mobileImage: {
+      ...styles.asideOverlayMobile.image,
+    },
+    mobileText: {
+      ...styles.asideOverlayMobile.text,
     }
   });
 
   return (
-    <aside className={css(baseStyles.asideOverlay)} style={{backgroundImage:`url(${imageUrl})`}}>
-      <div className={css(baseStyles.bg)}>
-      { title &&
-          <Heading
-            color={"white"}
-            size={"large"}
-            mb={"small"}
-            center
-          >
-            { title }
-          </Heading>
-        }
+    <Media query="(max-width: 599px)">
+      {matches =>
+        matches ? (
+        <aside className={css(baseStyles.asideOverlayMobile)}>
+          <div className={css(baseStyles.mobileImage)}>
+            <Image rounded imageUrl={imageUrl} />
+          </div>
+          <div className={css(baseStyles.mobileText)}>
+            { title &&
+                <Heading
+                  color={"blue"}
+                  size={"large"}>
+                  { title }
+                </Heading>
+              }
 
-        { paragraph &&
-          <Copy
-            color={"white"}
-            weight={"bold"}
-            mb={"large"}
-            center
-            html={paragraph}
-          />
-        }
+              { cta &&
+                <MoreLink href={cta}>
+                  { cta }
+                </MoreLink>
+              }
+            </div>
+          </aside>
+        ) : (
+          <aside className={css(baseStyles.asideOverlay)} style={ imageUrl ? {backgroundImage:`url(${imageUrl})`} : {} }>
+            <div className={css(baseStyles.bg)}>
+            { title &&
+                <Heading
+                  color={"white"}
+                  size={"large"}
+                  mb={"small"}
+                  center>
+                  { title }
+                </Heading>
+              }
 
-        { cta &&
-          <ButtonTest
-            color="white"
-            center
-          >
-            { cta }
-          </ButtonTest>
-        }
-      </div>
-    </aside>
+              { paragraph &&
+                <Copy
+                  color={"white"}
+                  weight={"bold"}
+                  mb={"large"}
+                  center
+                  html={paragraph}
+                />
+              }
+
+              { cta &&
+                <ButtonTest
+                  color="white"
+                  center>
+                  { cta }
+                </ButtonTest>
+              }
+            </div>
+          </aside>
+        )
+      }
+    </Media>
   )
 }
 
@@ -139,6 +197,7 @@ AsideOverlay.defaultProps = {
   cta: 'View All',
   paragraph: 'Find out more about DAs delivery record',
   title: 'Heading',
+  height: null,
 }
 
 AsideOverlay.propTypes = {
@@ -163,6 +222,7 @@ AsideOverlay.propTypes = {
     "small",
     "large",
   ]),
+  height: PropTypes.string,
 }
 
 export default AsideOverlay;

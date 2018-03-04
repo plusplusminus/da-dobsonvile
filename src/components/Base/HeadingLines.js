@@ -48,6 +48,10 @@ const styles = {
   lines:{
     base:{
       position: 'relative',
+      display: 'none',
+      '@media (min-width: 576px)': {
+        display: 'block',
+      }
     },
     line:{
       width: spacing.space10,
@@ -137,11 +141,8 @@ HeadingLines.propTypes = {
   lineRight: PropTypes.bool,
   /** Margin bottom of container - mimic mb of Heading Component */
   mb: PropTypes.oneOf([
-    "none",
-    "tiny",
-    "small",
-    "medium",
     "large",
+    "huge",
   ]),
 };
 
