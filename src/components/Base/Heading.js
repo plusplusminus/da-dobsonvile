@@ -229,10 +229,6 @@ const Heading = (props) => {
     override && override,
   ];
 
-
-
-  console.log(style);
-
   const temp = StyleSheet.create({
     heading: style.reduce((result, item) => {
       if (item) {
