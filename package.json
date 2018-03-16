@@ -1,6 +1,6 @@
 {
   "name": "@lucio-erasmus/da-dobsonville",
-  "version": "0.8.69",
+  "version": "0.8.70",
   "main": "build/index.js",
   "dependencies": {
     "prop-types": "^15.5.10",
