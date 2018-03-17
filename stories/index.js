@@ -21,6 +21,7 @@ import {
   Aside,
   AsideList,
   AsideOverlay,
+  AsideSmall,
   AsideTwitter,
   Badge,
   Button,
@@ -511,6 +512,16 @@ storiesOf("Navs/NavItems", module)
         title={text('title',"Placeholder Title")}
         cta={text('cta',"View All")}
         paragraph={text('paragraph',"Find out more about placeholder text")}
+        height={text('height',null)}
+      />
+    ))
+
+    .add("AsideSmall", () => (
+      <AsideSmall
+        imageUrl={text('imageUrl',dobsonville)}
+        mb={select('mb',["none","small","large"],"small")}
+        title={text('title',"Placeholder Title")}
+        cta={text('cta',"View All")}
         height={text('height',null)}
       />
     ))

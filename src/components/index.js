@@ -54,6 +54,7 @@ export {
 export { default as Aside } from './Compositions/Aside';
 export { default as AsideList } from './Compositions/AsideList';
 export { default as AsideOverlay } from './Compositions/AsideOverlay';
+export { default as AsideSmall } from './Compositions/AsideSmall';
 export { default as AsideTwitter } from './Compositions/AsideTwitter';
 
 export { default as Breadcrumb } from './Compositions/Breadcrumb';
