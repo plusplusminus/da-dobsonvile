@@ -13,7 +13,12 @@ const AsideList = (props) => {
     asideList:{
       display: 'block',
       width: '100%',
-      marginBottom: spacing.space9,
+      marginTop: spacing.space4,
+      marginBottom: spacing.space0,
+      "@media (min-width: 768px)": {
+        marginTop: spacing.space0,
+        marginBottom: spacing.space9,
+      }
     }
   });
 

@@ -4,10 +4,10 @@ import { StyleSheet, css } from 'aphrodite';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
 import { dobsonville } from 'common/images';
 import { Heading, HeadingLines, MoreLink } from 'components';
+import {styleConvert} from '../../utils/helpers';
 
 const styles = {
   hero:{
-    base:{},
     imageUrl:{
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
@@ -36,7 +36,7 @@ const styles = {
         paddingBottom: spacing.space7,
       },
       '@media (min-width: 992px)' : {
-        paddingTop: parseInt(spacing.space9)*2,
+        paddingTop: `${parseInt(spacing.space9)*2}px`,
         paddingBottom: spacing.space13,
       },
     },
@@ -45,7 +45,7 @@ const styles = {
       backgroundColor: 'rgba(0,0,0,0.3)',
       background: 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(21,95,162,0.85) 100%)',
       '@media (min-width: 576px)' : {
-        minHeight: parseInt(spacing.space6)*6,
+        minHeight: `${parseInt(spacing.space6)*6}px`,
       }
     },
     small:{
@@ -53,6 +53,10 @@ const styles = {
       paddingBottom: spacing.space3,
       justifyContent: 'flex-end',
       '@media (min-width: 576px)' : {
+        paddingTop: spacing.space9,
+        paddingBottom: spacing.space7,
+      },
+      '@media (min-width: 992px)' : {
         paddingTop: spacing.space10,
         paddingBottom: spacing.space8,
       }
@@ -62,21 +66,24 @@ const styles = {
 
   const Hero = ({ bgPosition, center, children, imageUrl, mb, small, title }) => {
 
+    const hero = [
+      (imageUrl && styles.hero.imageUrl),
+      (imageUrl ? { backgroundImage: `url(${imageUrl}),` } : {}),
+      (imageUrl ? { backgroundPosition: bgPosition } : {}),
+      (!imageUrl && styles.hero.mb.none),
+      (imageUrl && styles.hero.mb.large),
+      (mb && styles.hero.mb[mb]),
+    ]
+
+    const wrapper = [
+      (styles.wrapper.base),
+      (imageUrl && styles.wrapper.imageUrl),
+      (small && styles.wrapper.small),
+    ]
+
   const baseStyles = StyleSheet.create({
-    hero: {
-      ...styles.hero.base,
-      ...(imageUrl && styles.hero.imageUrl),
-      ...(imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}),
-      ...(imageUrl ? { backgroundPosition: bgPosition } : {}),
-      ...(!imageUrl && styles.hero.mb.none),
-      ...(imageUrl && styles.hero.mb.large),
-      ...(mb && styles.hero.mb[mb]),
-    },
-    wrapper :{
-      ...styles.wrapper.base,
-      ...(imageUrl && styles.wrapper.imageUrl),
-      ...(small && styles.wrapper.small),
-    }
+    hero: styleConvert(hero),
+    wrapper: styleConvert(wrapper)
   });
 
   return (

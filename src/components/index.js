@@ -61,6 +61,7 @@ export { default as Breadcrumb } from './Compositions/Breadcrumb';
 export { default as CardCampaign } from './Compositions/CardCampaign';
 export { default as CardHighlight } from './Compositions/CardHighlight';
 export { default as CardNews } from './Compositions/CardNews';
+export { default as CardNewsMobile } from './Compositions/CardNewsMobile';
 export { default as CardPerson } from './Compositions/CardPerson';
 export { default as CardProduct } from './Compositions/CardProduct';
 export { default as CardRelated } from './Compositions/CardRelated';

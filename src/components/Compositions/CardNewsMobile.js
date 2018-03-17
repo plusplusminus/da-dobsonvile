@@ -1,0 +1,122 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
+import { Copy, Heading, MoreLink } from "components";
+import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity, media } from "../../common/styles/variables";
+
+const createMarkup = (content) => ({ __html: `${content}` });
+
+const styles = {
+  container: {
+    base:{
+      display: "inline-block",
+      marginBottom: spacing.space4,
+    },
+    full: {
+      marginBottom: spacing.space6,
+    }
+  },
+  header: {
+    marginBottom: spacing.space2,
+  },
+  figure: {
+    float: 'right',
+    maxWidth: '50%',
+    marginLeft: spacing.space2,
+  },
+  img: {
+    width: '100%',
+  },
+};
+
+const CardNewsMobile = ({ children, full, title, url, imageUrl, meta, text, visual, vertical }) => {
+
+  const baseStyles = StyleSheet.create({
+    container: {
+      ...styles.container.base,
+      ...(vertical && full && styles.container.full),
+    },
+    header: {
+      ...styles.header,
+    },
+    figure: {
+      ...styles.figure,
+    },
+    img: {
+      ...styles.img,
+    },
+  });
+
+  return (
+    <article className={css(baseStyles.container)}>
+      <div className="row">
+
+        <div className={"col-md-12"}>
+          <header className={css(baseStyles.header)}>
+            <Heading
+              level={3}
+              hover
+              size={"medium"}
+              mb={"tiny"}
+              tracking={"none"}
+            >
+              {title}
+            </Heading>
+            {
+              meta && <Heading
+                level={6}
+                size={"tiny"}
+                tracking={"none"}
+                weight={"light"}
+                uppercase
+              >
+                {meta}
+              </Heading>
+            }
+          </header>
+          { imageUrl &&
+            <figure className={css(baseStyles.figure)}>
+              <img src={imageUrl} alt={title} className={`${css(baseStyles.img)} img-fluid`} />
+            </figure>
+          }
+          { text &&
+            <Copy html={text} />
+          }
+          { children && children }
+        </div>
+
+      </div>
+    </article>
+  );
+}
+
+CardNewsMobile.propTypes = {
+  /** Title of Card */
+  title: PropTypes.string.isRequired,
+  /** Meta text of Card */
+  meta: PropTypes.string.isRequired,
+  /** URL of Card */
+  url: PropTypes.string,
+  /** ImageURL of Card */
+  imageUrl: PropTypes.string,
+  /** Text content of Card */
+  text: PropTypes.string,
+  /** Is this a full card */
+  full: PropTypes.bool,
+  /** Is this a vertical card */
+  vertical: PropTypes.bool,
+  /** Children for the card */
+  children: PropTypes.string,
+};
+
+CardNewsMobile.defaultProps = {
+  title: null,
+  meta: null,
+  url: null,
+  imageUrl: null,
+  text: null,
+  children: null,
+  full: false,
+};
+
+export default CardNewsMobile;

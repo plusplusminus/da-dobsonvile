@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, css } from "aphrodite";
 import { HeadingLines, Heading } from "components";
-import * as R from "ramda";
+import {styleConvert} from '../../utils/helpers';
 import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from "common/styles/variables";
 
 const space = (key) => ({
@@ -10,21 +10,21 @@ const space = (key) => ({
     [key]: spacing.space0,
   },
   small: {
-    [key]: spacing.space6,
-    "@media (max-width: 576px)": {
-      [key]: spacing.space3,
+    [key]: spacing.space3,
+    "@media (min-width: 576px)": {
+      [key]: spacing.space6,
     },
   },
   medium: {
-    [key]: spacing.space9,
-    "@media (max-width: 576px)": {
-      [key]: spacing.space4,
+    [key]: spacing.space4,
+    "@media (min-width: 576px)": {
+      [key]: spacing.space9,
     },
   },
   large: {
-    [key]: spacing.space13,
-    "@media (max-width: 576px)": {
-      [key]: spacing.space6,
+    [key]: spacing.space6,
+    "@media (min-width: 576px)": {
+      [key]: spacing.space13,
     },
   },
 });
@@ -87,13 +87,6 @@ const FullSection = (props) => {
     (mb && styles.space.mb[mb]),
     (bgUrl ? { backgroundImage: `url(${bgUrl})` } : {}),
   ]
-
-  const styleConvert = (arr) => arr.reduce((result, item) => {
-    if (item) {
-      return { ...result, ...R.mergeWith(R.merge, result, item) }
-    }
-    return result;
-  }, {})
 
   const baseStyles = StyleSheet.create({
     base: styleConvert(base),

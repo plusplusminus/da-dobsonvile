@@ -22,7 +22,6 @@ const styles = {
     text: {
       paddingTop: spacing.space1,
     },
-
   },
   mb: {
     none: {
