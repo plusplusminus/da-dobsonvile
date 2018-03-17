@@ -37,14 +37,8 @@ const AsideTwitter = (props) => {
         { heading }
       </Heading>
 
+      { children }
 
-      {
-        React.Children.map(children, (child) => (
-          <div className={css(styles.tweet)}>
-            { React.cloneElement(child, props) }
-          </div>
-        ))
-      }
     </aside>
   )
 }
