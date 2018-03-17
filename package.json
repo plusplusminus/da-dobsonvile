@@ -1,6 +1,6 @@
 {
   "name": "@lucio-erasmus/da-dobsonville",
-  "version": "0.8.71",
+  "version": "0.8.72",
   "main": "build/index.js",
   "dependencies": {
     "prop-types": "^15.5.10",
@@ -18,8 +18,8 @@
     "chromatic": "chromatic test --storybook-addon  --do-not-start"
   },
   "peerDependencies": {
-    "react": "^15.6.1 || ^16.0.0",
-    "aphrodite": "^1.2.5"
+    "aphrodite": "^1.2.5",
+    "react": "^15.6.1 || ^16.0.0"
   },
   "devDependencies": {
     "@storybook/addon-backgrounds": "^3.0.0",
