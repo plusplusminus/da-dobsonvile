@@ -127,7 +127,7 @@ const AsideOverlay = (props) => {
     <Media query="(max-width: 599px)">
       {matches =>
         matches ? (
-        <aside className={css(baseStyles.asideOverlayMobile)}>
+        <aside className={css(baseStyles.asideOverlay)}>
           <div className={css(baseStyles.mobileImage)}>
             <Image rounded imageUrl={imageUrl} />
           </div>
