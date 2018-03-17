@@ -1,15 +1,40 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-import { HeadingLines, Heading } from 'components';
-import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from 'common/styles/variables';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, css } from "aphrodite";
+import { HeadingLines, Heading } from "components";
+import * as R from "ramda";
+import { fonts, fontStyles, fontWeight, colors, spacing, letterSpacing, opacity } from "common/styles/variables";
+
+const space = (key) => ({
+  none: {
+    [key]: spacing.space0,
+  },
+  small: {
+    [key]: spacing.space6,
+    "@media (max-width: 576px)": {
+      [key]: spacing.space3,
+    },
+  },
+  medium: {
+    [key]: spacing.space9,
+    "@media (max-width: 576px)": {
+      [key]: spacing.space4,
+    },
+  },
+  large: {
+    [key]: spacing.space13,
+    "@media (max-width: 576px)": {
+      [key]: spacing.space6,
+    },
+  },
+});
 
 const styles = {
-  base:{
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
+  base: {
+    backgroundSize: "cover",
+    backgroundPosition: "center center",
   },
-  bg:{
+  bg: {
   },
   bgColor: {
     blue: {
@@ -34,129 +59,51 @@ const styles = {
       backgroundColor: colors.bgWhite,
     },
   },
-  center:{
-    textAlign: 'center',
+  center: {
+    textAlign: "center",
   },
   space: {
-    mb:{
-      none: {
-        marginBottom: spacing.space0,
-      },
-      small: {
-        marginBottom: spacing.space3,
-        '@media (min-width: 576px)': {
-          marginBottom: spacing.space6,
-        }
-      },
-      medium: {
-        marginBottom: spacing.space5,
-        '@media (min-width: 576px)': {
-          marginBottom: spacing.space9,
-        }
-      },
-      large: {
-        marginBottom: spacing.space7,
-        '@media (min-width: 576px)': {
-          marginBottom: spacing.space13,
-        }
-      },
-    },
-    mt:{
-      none: {
-        marginTop: spacing.space0,
-      },
-      small: {
-        marginTop: spacing.space3,
-        '@media (min-width: 576px)': {
-          marginTop: spacing.space6,
-        }
-      },
-      medium: {
-        marginTop: spacing.space5,
-        '@media (min-width: 576px)': {
-          marginTop: spacing.space9,
-        }
-      },
-      large: {
-        marginTop: spacing.space7,
-        '@media (min-width: 576px)': {
-          marginTop: spacing.space13,
-        }
-      },
-    },
-    pb:{
-      none: {
-        paddingBottom: spacing.space0,
-      },
-      small: {
-        paddingBottom: spacing.space3,
-        '@media (min-width: 576px)': {
-          paddingBottom: spacing.space6,
-        }
-      },
-      medium: {
-        paddingBottom: spacing.space5,
-        '@media (min-width: 576px)': {
-          paddingBottom: spacing.space9,
-        }
-      },
-      large: {
-        paddingBottom: spacing.space7,
-        '@media (min-width: 576px)': {
-          paddingBottom: spacing.space13,
-        }
-      },
-    },
-    pt:{
-      none: {
-        paddingTop: spacing.space0,
-      },
-      small: {
-        paddingTop: spacing.space3,
-        '@media (min-width: 576px)': {
-          paddingTop: spacing.space6,
-        }
-      },
-      medium: {
-        paddingTop: spacing.space5,
-        '@media (min-width: 576px)': {
-          paddingTop: spacing.space9,
-        }
-      },
-      large: {
-        paddingTop: spacing.space7,
-        '@media (min-width: 576px)': {
-          paddingTop: spacing.space13,
-        }
-      },
-    }
+    mb: space("marginBottom"),
+    mt: space("marginTop"),
+    pb: space("paddingBottom"),
+    pt: space("paddingTop"),
   },
-}
+};
 
 const FullSection = (props) => {
-
   const { bgColor, bgUrl, color, center, mb, mt, pb, pt, title, children, container, rowClass } = props;
 
+
+  const bg = [
+    (pt && styles.space.pt[pt]),
+    (pb && styles.space.pb[pb]),
+    (bgColor && styles.bgColor[bgColor]),
+  ]
+
+  const base = [
+    styles.base,
+    (center && styles[center]),
+    (mt && styles.space.mt[mt]),
+    (mb && styles.space.mb[mb]),
+    (bgUrl ? { backgroundImage: `url(${bgUrl})` } : {}),
+  ]
+
+  const styleConvert = (arr) => arr.reduce((result, item) => {
+    if (item) {
+      return { ...result, ...R.mergeWith(R.merge, result, item) }
+    }
+    return result;
+  }, {})
+
   const baseStyles = StyleSheet.create({
-    base:{
-      ...styles.base,
-      ...(center && styles[center]),
-      ...(mt && styles.space.mt[mt]),
-      ...(mb && styles.space.mb[mb]),
-      ...(bgUrl ? { backgroundImage:`url(${bgUrl})` } : {})
-    },
-    bg:{
-      ...styles.bg,
-      ...(pt && styles.space.pt[pt]),
-      ...(pb && styles.space.pb[pb]),
-      ...(bgColor && styles.bgColor[bgColor]),
-    },
+    base: styleConvert(base),
+    bg: styleConvert(bg)
   });
 
   return (
     <section className={css(baseStyles.base)}>
       <div className={css(baseStyles.bg)}>
-        <div className={ container }>
+        <div className={container}>
           { title && !center &&
             <HeadingLines lineLeft color={color} mb={"huge"} >
               <Heading color={color} size={"tiny"} tracking={"huge"} weight={"regular"} uppercase>{title}</Heading>
@@ -171,23 +118,23 @@ const FullSection = (props) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 FullSection.defaultProps = {
-  bgColor: 'white',
+  bgColor: "white",
   bgUrl: null,
-  color: 'base',
+  color: "base",
   center: false,
   children: null,
-  mb: 'large',
-  mt: 'none',
-  pt: 'none',
-  pb: 'none',
+  mb: "large",
+  mt: "none",
+  pt: "none",
+  pb: "none",
   title: null,
-  container: 'container',
-  rowClass: 'row'
-}
+  container: "container",
+  rowClass: "row",
+};
 
 FullSection.propTypes = {
   /** Background color of Section. Layered over the optional bgUrl image */
@@ -252,6 +199,6 @@ FullSection.propTypes = {
   /** Optional Title of section */
   title: PropTypes.string,
 
-}
+};
 
 export default FullSection;

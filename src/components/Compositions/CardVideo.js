@@ -86,13 +86,11 @@ CardVideo.propTypes = {
   /** Paragraph content of Card */
   paragraph: PropTypes.string,
   /** URL of Card */
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   /** ImageURL of Card */
   imageUrl: PropTypes.string,
   /** Is card featured */
   featured: PropTypes.bool.isRequired,
-  /** Color of Headings and Copy in card */
-  featured: PropTypes.string,
 };
 
 CardVideo.defaultProps = {

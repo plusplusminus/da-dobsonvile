@@ -94,7 +94,7 @@ CardNews.propTypes = {
   /** Meta text of Card */
   meta: PropTypes.string.isRequired,
   /** URL of Card */
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   /** ImageURL of Card */
   imageUrl: PropTypes.string,
   /** Text content of Card */

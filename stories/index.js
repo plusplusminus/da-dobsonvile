@@ -511,6 +511,7 @@ storiesOf("Navs/NavItems", module)
         title={text('title',"Placeholder Title")}
         cta={text('cta',"View All")}
         paragraph={text('paragraph',"Find out more about placeholder text")}
+        height={text('height',null)}
       />
     ))
 

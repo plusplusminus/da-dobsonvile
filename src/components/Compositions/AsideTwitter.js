@@ -8,7 +8,7 @@ import { colors, fontWeight, spacing } from 'common/styles/variables';
 
 const AsideTwitter = (props) => {
 
-  const { heading, copy, buttonLabel, visual } = props;
+  const { heading, copy, buttonLabel, visual, children } = props;
 
   const styles = StyleSheet.create({
     aside:{
@@ -37,30 +37,14 @@ const AsideTwitter = (props) => {
         { heading }
       </Heading>
 
-      <div className={css(styles.tweet)}>
-        <Copy mb={"small"}>Today, Leader, @MmusiMaimane, takes the #Change19 tour to the Western</Copy>
-        <Heading size={"tiny"} color={"light"} weight={"light"} uppercase>5 HOURS AGO</Heading>
-        <MoreLink color={"blue"}>View on Twitter</MoreLink>
-      </div>
 
-      <div className={css(styles.tweet)}>
-        <Copy mb={"small"}>Today, Leader, @MmusiMaimane, takes the #Change19 tour to the Western</Copy>
-        <Heading size={"tiny"} color={"light"} weight={"light"} uppercase>5 HOURS AGO</Heading>
-        <MoreLink color={"blue"}>View on Twitter</MoreLink>
-      </div>
-
-      <div className={css(styles.tweet)}>
-        <Copy mb={"small"}>Today, Leader, @MmusiMaimane, takes the #Change19 tour to the Western</Copy>
-        <Heading size={"tiny"} color={"light"} weight={"light"} uppercase>5 HOURS AGO</Heading>
-        <MoreLink color={"blue"}>View on Twitter</MoreLink>
-      </div>
-
-      <div className={css(styles.tweet)}>
-        <Copy mb={"small"}>Today, Leader, @MmusiMaimane, takes the #Change19 tour to the Western</Copy>
-        <Heading size={"tiny"} color={"light"} weight={"light"} uppercase>5 HOURS AGO</Heading>
-        <MoreLink color={"blue"}>View on Twitter</MoreLink>
-      </div>
-
+      {
+        React.Children.map(children, (child) => (
+          <div className={css(styles.tweet)}>
+            { React.cloneElement(child, props) }
+          </div>
+        ))
+      }
     </aside>
   )
 }

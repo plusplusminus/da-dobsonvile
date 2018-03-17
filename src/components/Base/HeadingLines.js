@@ -12,17 +12,35 @@ const styles = {
       alignItems: 'center',
     },
     mb: {
+      none: {
+        marginBottom: spacing.space0,
+      },
+      tiny: {
+        marginBottom: spacing.space1,
+      },
+      small: {
+        marginBottom: spacing.space2,
+        "@media (max-width: 576px)": {
+          marginBottom: spacing.space1,
+        },
+      },
+      medium: {
+        marginBottom: spacing.space4,
+        "@media (max-width: 576px)": {
+          marginBottom: spacing.space2,
+        },
+      },
       large: {
-        marginBottom: spacing.space3,
-        '@media (min-width: 576px)': {
-          marginBottom: spacing.space6,
-        }
+        marginBottom: spacing.space6,
+        "@media (max-width: 576px)": {
+          marginBottom: spacing.space3,
+        },
       },
       huge: {
-        marginBottom: spacing.space5,
-        '@media (min-width: 576px)': {
-          marginBottom: spacing.space9,
-        }
+        marginBottom: spacing.space9,
+        "@media (max-width: 576px)": {
+          marginBottom: spacing.space4,
+        },
       },
     },
   },
@@ -111,6 +129,7 @@ HeadingLines.propTypes = {
   children: PropTypes.node.isRequired,
   /** Color of lines - mimic color of Heading Component */
   color: PropTypes.oneOf([
+    "base",
     "blue",
     "red",
     "green",

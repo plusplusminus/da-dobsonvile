@@ -61,7 +61,7 @@ NavItem.propTypes = {
   /** Text color as per variables.js */
   color: PropTypes.string.isRequired,
   /** Text color as per variables.js */
-  colorHover: PropTypes.string.isRequired,
+  colorHover: PropTypes.string,
   /** Display property as per CSS */
   display: PropTypes.string,
   /** Font weight as per CSS */
